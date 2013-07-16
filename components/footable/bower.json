@@ -1,0 +1,8 @@
+{
+  "name": "footable",
+  "version": "0.5.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bradvin/FooTable.git"
+  }
+}

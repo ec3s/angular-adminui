@@ -1,0 +1,98 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>EC3S ADMIN UI</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/ntd-admin-ui.css">
+    <link rel="stylesheet" href="components/bootstrap-datepicker/css/datepicker.css" />
+    <link rel="stylesheet" href="components/bootstrap-timepicker/css/bootstrap-timepicker.css" />
+    <link rel="stylesheet" href="components/jquery.easy-pie-chart/jquery.easy-pie-chart.css" />
+    <link rel="stylesheet" href="components/nanoscroller/bin/css/nanoscroller.css" />
+    <!-- endbuild -->
+    
+    <!-- Example code style: begin -->
+    <link rel="stylesheet" href="styles/example.css">
+    <link rel="stylesheet" href="styles/prettify.css" />
+    <!-- Example code style: edn -->
+
+  </head>
+  <body ng-app="demoApp">
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="components/es5-shim/es5-shim.js"></script>
+      <script src="components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div ng-view>
+        
+    </div>
+    
+    
+    <!-- build:js scripts/scripts.js -->
+    <!-- components-->
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-resource/angular-resource.js"></script>
+    <script src="components/angular-cookies/angular-cookies.js"></script>
+    <script src="components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="components/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
+    <script src="components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="components/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+    <script src="components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+    <script src="components/footable/js/footable.js"></script>
+    <script src="components/d3/d3.js"></script>
+
+    <script src="scripts/vendor/bootstrap.min.js"></script>
+    <script src="scripts/vendor/angular-bootstrap-prettify.min.js"></script>
+
+    <script src="scripts/app.js"></script>
+
+    <!-- services -->
+    <script src="scripts/services/services.js"></script>
+
+    <!-- controller -->
+    <script src="scripts/controllers/main.js"></script>
+
+    <!-- directives -->
+    <script src="scripts/directives/ntd-ui-directive.js"></script>
+    <script src="scripts/directives/ntd-advance-filter.js"></script>
+    <script src="scripts/directives/ntd-confirm-button.js"></script>
+    <script src="scripts/directives/ntd-date-picker.js"></script>
+    <script src="scripts/directives/ntd-time-picker.js"></script>
+    <script src="scripts/directives/ntd-easy-pie-chart.js"></script>
+    <script src="scripts/directives/ntd-foo-table.js"></script>
+    <script src="scripts/directives/ntd-nano-scroll-bar.js"></script>
+    <script src="scripts/directives/ntd-label-state.js"></script>
+    <script src="scripts/directives/ntd-nav-bar.js"></script>
+    <script src="scripts/directives/ntd-toggle-submenu.js"></script>
+    <script src="scripts/directives/ntd-subtree-menu.js"></script>
+    <script src="scripts/directives/ntd-pie.js"></script>
+    <script src="scripts/directives/ntd-loading-button.js"></script>
+    <script src="scripts/directives/ntd-notice.js"></script>
+    <script src="scripts/directives/ntd-cascade-list.js"></script>
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  </body>
+</html>
