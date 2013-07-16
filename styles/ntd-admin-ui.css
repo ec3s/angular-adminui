@@ -8082,7 +8082,7 @@ a.label:hover, a.badge:hover {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/ntd-main\.scss}line{font-family:\000031}}
 .icon-animate-refresh {
-  background: url(adminui/images/glyphicons-halflings-white.png) -240px -24px no-repeat;
+  background: url(../images/glyphicons-halflings-white.png) -240px -24px no-repeat;
   -webkit-mask-size: 30px 30px;
   -webkit-animation-name: rotate;
   -webkit-animation-duration: 1.5s;
@@ -8145,7 +8145,7 @@ form .form-column {
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
-  background: url(adminui/images/logo.png) 20px 6px no-repeat;
+  background: url(../images/logo.png) 20px 6px no-repeat;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/ntd-main\.scss}line{font-family:\0000349}}
 .navbar .brand:hover {
@@ -8169,7 +8169,7 @@ form .form-column {
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/ntd-main\.scss}line{font-family:\0000368}}
 .sub-nav li.active .icon-plus {
-  background-image: url(adminui/images/glyphicons-halflings-white.png);
+  background-image: url(../images/glyphicons-halflings-white.png);
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/ntd-main\.scss}line{font-family:\0000374}}
 .sub-nav li.opened .icon-plus {
@@ -8536,14 +8536,14 @@ table .sort-asc .sort-icon {
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: url(adminui/images/arrow_up.gif) no-repeat right 6px;
+  background: url(../images/arrow_up.gif) no-repeat right 6px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/ntd-table\.scss}line{font-family:\00003139}}
 table .sort-desc .sort-icon {
   display: inline-block;
   width: 16px;
   height: 16px;
-  background: url(adminui/images/arrow_down.gif) no-repeat right 6px;
+  background: url(../images/arrow_down.gif) no-repeat right 6px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/ntd-cascade-list\.scss}line{font-family:\000032}}
@@ -8603,7 +8603,7 @@ table .sort-desc .sort-icon {
 */
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/ntd-cascade-list\.scss}line{font-family:\0000359}}
 .cascade-list li {
-  background-image: url("adminui/images/cascadelist_arrows.png");
+  background-image: url("../images/cascadelist_arrows.png");
   background-repeat: no-repeat;
   background-position: 98% 20px;
   overflow: hidden;
@@ -8640,7 +8640,7 @@ table .sort-desc .sort-icon {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/ntd-login\.scss}line{font-family:\000032}}
 .login-page {
-  background: #999999 url(adminui/images/login_bg.jpg) no-repeat center center fixed;
+  background: #999999 url(../images/login_bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   background-size: cover;
   position: absolute;
@@ -8716,11 +8716,11 @@ table .sort-desc .sort-icon {
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/ntd-foo-table\.scss}line{font-family:\000037}}
 .footable.breakpoint > tbody > tr > td.expand {
   padding-left: 40px;
-  background: url(adminui/images/plus.png) no-repeat 5px center;
+  background: url(../images/plus.png) no-repeat 5px center;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/ntd-foo-table\.scss}line{font-family:\0000314}}
 .footable.breakpoint > tbody > tr.footable-detail-show > td.expand {
-  background: url(adminui/images/minus.png) no-repeat 5px center;
+  background: url(../images/minus.png) no-repeat 5px center;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/ntd-foo-table\.scss}line{font-family:\0000319}}
 .footable.breakpoint > tbody > tr.footable-row-detail {
