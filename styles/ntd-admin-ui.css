@@ -2400,7 +2400,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url('../../adminui/images/glyphicons-halflings.png');
+  background-image: url('../../../images/glyphicons-halflings.png');
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px;
@@ -2421,7 +2421,7 @@ table th[class*="span"],
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-submenu:hover > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"] {
-  background-image: url('../../adminui/images/glyphicons-halflings-white.png');
+  background-image: url('../../../images/glyphicons-halflings-white.png');
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/admin-ui\/app\/styles\/compass_twitter_bootstrap\/_sprites\.scss}line{font-family:\0000348}}
