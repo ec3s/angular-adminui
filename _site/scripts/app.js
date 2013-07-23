@@ -2,11 +2,31 @@
 
 var demoApp = angular.module('demoApp', ['ntd.services', 'ntd.directives', 'ui.bootstrap', 'bootstrapPrettify']);
 
+demoApp.animation('animate-enter', function() {
+  return {
+    setup : function(element) {
+      //prepare the element for animation
+      element.css({ 'opacity': 0 });
+
+    },
+    start : function(element) {
+      //start the animation
+      element.animate({
+        'opacity' : 1
+      });
+    }
+  }
+});
+
 demoApp
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      })
+      .when('/base-css', {
+        templateUrl: 'views/base_css.html',
         controller: 'MainCtrl'
       })
       .when('/form', {
@@ -15,6 +35,10 @@ demoApp
       })
       .when('/widget', {
         templateUrl: 'views/widget.html',
+        controller: 'MainCtrl'
+      })
+      .when('/bootstrap-ui-widget', {
+        templateUrl: 'views/bootstrap_ui_widget.html',
         controller: 'MainCtrl'
       })
       .when('/table', {
@@ -41,7 +65,13 @@ demoApp
         templateUrl: 'views/404.html',
         controller: 'MainCtrl'
       })
+      .when('/test', {
+        templateUrl: 'views/test.html',
+        controller: 'MainCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
-  });
+
+      //$locationProvider.html5Mode(true);
+  }]);

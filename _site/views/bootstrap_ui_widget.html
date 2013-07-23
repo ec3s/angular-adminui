@@ -1,0 +1,510 @@
+<div class="page-header">
+    <h1>
+        <a href="http://angular-ui.github.io/bootstrap/">Bootstrap UI</a> 组件
+    </h1>
+</div>
+<h3>时间日期</h3>
+<div class="control-group input-append">
+    <input type="text" class="input-small" ng-model="datepicker.date" placeholder="时间" data-date-format="yyyy/mm/dd" date-picker>
+    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+</div>
+<p>日期选择器用 <code>date-picker</code> 属性绑定到 input 元素上.</p>
+<pre class="prettyprint linenums">
+    &lt;div class=&quot;control-group input-append&quot;&gt;
+        &lt;input type=&quot;text&quot; class=&quot;input-small&quot; ng-model=&quot;datepicker.date&quot; placeholder=&quot;&#26102;&#38388;&quot; data-date-format=&quot;yyyy/mm/dd&quot; date-picker&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;datepicker&quot;&gt;&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;/div&gt;
+</pre>
+<hr>
+
+<div class="control-group input-append">
+  <input type="text" class="input-small" ng-model="timepicker.time" time-picker>
+  <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i></buttoni>
+</div>
+<p>选择器用 <code>date-picker</code> 属性绑定到 input 元素上.</p>
+<pre class="prettyprint linenums">
+    &lt;div class=&quot;control-group input-append&quot;&gt;
+      &lt;input type=&quot;text&quot; ng-model=&quot;timepicker.time&quot; bs-timepicker&gt;
+      &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;timepicker&quot;&gt;&lt;i class=&quot;icon-time&quot;&gt;&lt;/i&gt;&lt;/buttoni&gt;
+    &lt;/div&gt;
+</pre>
+<hr>
+
+<h3>Collapse</h3>
+<div ng-controller="CollapseDemoCtrl">
+    <button class="btn" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
+    <hr>
+    <div collapse="isCollapsed">
+        <div class="well well-large">Some content</div> 
+    </div>
+</div>
+
+<pre class="prettyprint linenums">
+    &lt;div ng-controller=&quot;CollapseDemoCtrl&quot;&gt;
+        &lt;button class=&quot;btn&quot; ng-click=&quot;isCollapsed = !isCollapsed&quot;&gt;Toggle collapse&lt;/button&gt;
+        &lt;hr&gt;
+        &lt;div collapse=&quot;isCollapsed&quot;&gt;
+            &lt;div class=&quot;well well-large&quot;&gt;Some content&lt;/div&gt; 
+        &lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+
+<h3>手风琴效果</h3>
+<div ng-controller="AccordionDemoCtrl">
+    <label class="checkbox">
+        <input type="checkbox" ng-model="oneAtATime">
+        Open only one at a time
+    </label>
+
+    <accordion close-others="oneAtATime">
+        <accordion-group heading="Static Header">
+            This content is straight in the template.
+        </accordion-group>
+        <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+            {{group.content}}
+        </accordion-group>
+        <accordion-group heading="Dynamic Body Content">
+            <p>The body of the accordion group grows to fit the contents</p>
+            <button class="btn btn-small" ng-click="addItem()">Add Item</button>
+            <div ng-repeat="item in items">{{item}}</div>
+        </accordion-group>
+    </accordion>
+</div>
+<pre class="prettyprint linenums">
+    &lt;div ng-controller=&quot;AccordionDemoCtrl&quot;&gt;
+        &lt;label class=&quot;checkbox&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; ng-model=&quot;oneAtATime&quot;&gt;
+            Open only one at a time
+        &lt;/label&gt;
+
+        &lt;accordion close-others=&quot;oneAtATime&quot;&gt;
+            &lt;accordion-group heading=&quot;Static Header&quot;&gt;
+                This content is straight in the template.
+            &lt;/accordion-group&gt;
+            &lt;accordion-group heading=&quot;{{group.title}}&quot; ng-repeat=&quot;group in groups&quot;&gt;
+                {{group.content}}
+            &lt;/accordion-group&gt;
+            &lt;accordion-group heading=&quot;Dynamic Body Content&quot;&gt;
+                &lt;p&gt;The body of the accordion group grows to fit the contents&lt;/p&gt;
+                &lt;button class=&quot;btn btn-small&quot; ng-click=&quot;addItem()&quot;&gt;Add Item&lt;/button&gt;
+                &lt;div ng-repeat=&quot;item in items&quot;&gt;{{item}}&lt;/div&gt;
+            &lt;/accordion-group&gt;
+        &lt;/accordion&gt;
+    &lt;/div&gt;
+</pre>
+
+<h3>按钮</h3>
+<div ng-controller="ButtonsCtrl">
+    <h4>Single toggle</h4>
+    <pre>{{singleModel}}</pre>
+    <button type="button" class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+        Single Toggle
+    </button>
+    <h4>Checkbox</h4>
+    <pre>{{checkModel}}</pre>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" ng-model="checkModel.left" btn-checkbox>Left</button>
+        <button type="button" class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Middle</button>
+        <button type="button" class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Right</button>
+    </div>
+    <h4>Radio</h4>
+    <pre>{{radioModel}}</pre>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">Left</button>
+        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">Middle</button>
+        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">Right</button>
+    </div>
+</div>
+<hr>
+<pre class="prettyprint linenums">
+    &lt;div ng-controller=&quot;ButtonsCtrl&quot;&gt;
+        &lt;h4&gt;Single toggle&lt;/h4&gt;
+        &lt;pre&gt;{{singleModel}}&lt;/pre&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; ng-model=&quot;singleModel&quot; btn-checkbox btn-checkbox-true=&quot;1&quot; btn-checkbox-false=&quot;0&quot;&gt;
+            Single Toggle
+        &lt;/button&gt;
+        &lt;h4&gt;Checkbox&lt;/h4&gt;
+        &lt;pre&gt;{{checkModel}}&lt;/pre&gt;
+        &lt;div class=&quot;btn-group&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; ng-model=&quot;checkModel.left&quot; btn-checkbox&gt;Left&lt;/button&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; ng-model=&quot;checkModel.middle&quot; btn-checkbox&gt;Middle&lt;/button&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; ng-model=&quot;checkModel.right&quot; btn-checkbox&gt;Right&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;h4&gt;Radio&lt;/h4&gt;
+        &lt;pre&gt;{{radioModel}}&lt;/pre&gt;
+        &lt;div class=&quot;btn-group&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; ng-model=&quot;radioModel&quot; btn-radio=&quot;'Left'&quot;&gt;Left&lt;/button&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; ng-model=&quot;radioModel&quot; btn-radio=&quot;'Middle'&quot;&gt;Middle&lt;/button&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; ng-model=&quot;radioModel&quot; btn-radio=&quot;'Right'&quot;&gt;Right&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+<hr>
+
+<h3>对话框</h3>
+<div ng-controller="DialogDemoCtrl">
+    <div class="row-fluid">
+        <div class="span6">
+            <label class="checkbox"><input type=checkbox ng-model="opts.backdrop">Show backdrop</label>
+            <label class="checkbox"><input type=checkbox ng-model="opts.dialogFade">Fade modal dialog </label>
+            <label class="checkbox"><input type=checkbox ng-disabled="!opts.backdrop" ng-model="opts.backdropFade">Fade Backdrop</label>
+            <hr>
+            <label class="checkbox"><input type=checkbox ng-model="opts.keyboard">Close on Escape</label>
+            <label class="checkbox"><input type=checkbox ng-disabled="!opts.backdrop" ng-model="opts.backdropClick">Close on backdrop click</label>
+        </div>
+        <div class="span6">
+            <p>Change options at will and press the open dialog button below!</p>
+            <p><button class="btn btn-primary" ng-click="openDialog()">Open Dialog</button></p>
+
+            <p>Alternatively open a simple message box:</p>
+            <p><button class="btn btn-primary" ng-click="openMessageBox()">Open Message Box</button></p>
+        </div>
+    </div>
+</div>
+<pre class="prettyprint linenums">
+    &lt;div ng-controller=&quot;DialogDemoCtrl&quot;&gt;
+        &lt;div class=&quot;row-fluid&quot;&gt;
+            &lt;div class=&quot;span6&quot;&gt;
+                &lt;label class=&quot;checkbox&quot;&gt;&lt;input type=checkbox ng-model=&quot;opts.backdrop&quot;&gt;Show backdrop&lt;/label&gt;
+                &lt;label class=&quot;checkbox&quot;&gt;&lt;input type=checkbox ng-model=&quot;opts.dialogFade&quot;&gt;Fade modal dialog &lt;/label&gt;
+                &lt;label class=&quot;checkbox&quot;&gt;&lt;input type=checkbox ng-disabled=&quot;!opts.backdrop&quot; ng-model=&quot;opts.backdropFade&quot;&gt;Fade Backdrop&lt;/label&gt;
+                &lt;hr&gt;
+                &lt;label class=&quot;checkbox&quot;&gt;&lt;input type=checkbox ng-model=&quot;opts.keyboard&quot;&gt;Close on Escape&lt;/label&gt;
+                &lt;label class=&quot;checkbox&quot;&gt;&lt;input type=checkbox ng-disabled=&quot;!opts.backdrop&quot; ng-model=&quot;opts.backdropClick&quot;&gt;Close on backdrop click&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;span6&quot;&gt;
+                &lt;p&gt;Change options at will and press the open dialog button below!&lt;/p&gt;
+                &lt;p&gt;&lt;button class=&quot;btn btn-primary&quot; ng-click=&quot;openDialog()&quot;&gt;Open Dialog&lt;/button&gt;&lt;/p&gt;
+
+                &lt;p&gt;Alternatively open a simple message box:&lt;/p&gt;
+                &lt;p&gt;&lt;button class=&quot;btn btn-primary&quot; ng-click=&quot;openMessageBox()&quot;&gt;Open Message Box&lt;/button&gt;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+
+<h3>模态窗口</h3>
+<div ng-controller="ModalDemoCtrl">
+    <button class="btn" ng-click="open()">Open me!</button>
+    <div modal="shouldBeOpen" close="close()" options="opts">
+        <div class="modal-header">
+            <h4>I'm a modal!</h4>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="item in items">{{item}}</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary cancel" ng-click="close()">Cancel</button>
+        </div>
+    </div>
+</div>
+<hr>
+<pre class="prettyprint linenums">
+    &lt;div ng-controller=&quot;ModalDemoCtrl&quot;&gt;
+        &lt;button class=&quot;btn&quot; ng-click=&quot;open()&quot;&gt;Open me!&lt;/button&gt;
+        &lt;div modal=&quot;shouldBeOpen&quot; close=&quot;close()&quot; options=&quot;opts&quot;&gt;
+            &lt;div class=&quot;modal-header&quot;&gt;
+                &lt;h4&gt;I'm a modal!&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-body&quot;&gt;
+                &lt;ul&gt;
+                    &lt;li ng-repeat=&quot;item in items&quot;&gt;{{item}}&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-footer&quot;&gt;
+                &lt;button class=&quot;btn btn-warning cancel&quot; ng-click=&quot;close()&quot;&gt;Cancel&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+
+<h3>工具提示</h3>
+<div ng-controller="TooltipDemoCtrl">
+    <div class="well">
+        <div>Dynamic Tooltip Text: <input type="text" ng-model="dynamicTooltipText"></div>
+        <div>Dynamic Tooltip Popup Text: <input type="text" ng-model="dynamicTooltip"></div>
+        <p>
+            Pellentesque <a><span tooltip="{{dynamicTooltip}}">{{dynamicTooltipText}}</span></a>,
+            sit amet venenatis urna cursus eget nunc scelerisque viverra mauris, in
+            aliquam. Tincidunt lobortis feugiat vivamus at 
+            <a><span tooltip-placement="left" tooltip="On the Left!">left</span></a> eget
+            arcu dictum varius duis at consectetur lorem. Vitae elementum curabitur
+            <a><span tooltip-placement="right" tooltip="On the Right!">right</span></a> 
+            nunc sed velit dignissim sodales ut eu sem integer vitae. Turpis egestas 
+            <a><span tooltip-placement="bottom" tooltip="On the Bottom!">bottom</span></a> 
+            pharetra convallis posuere morbi leo urna, 
+            <a><span tooltip-animation="false" tooltip="I don't fade. :-(">fading</span></a> 
+            at elementum eu, facilisis sed odio morbi quis commodo odio. In cursus
+            <a><span tooltip-popup-delay='1000' tooltip='appears with delay'>delayed</span></a> turpis massa tincidunt dui ut.
+        </p>
+
+    <p>
+        I can even contain HTML. <a><span tooltip-html-unsafe="{{htmlTooltip}}">Check me out!</span></a>
+    </p>
+    <p>
+        Or use custom triggers, like focus: 
+        <input type="text" value="Click me!"
+            tooltip="See? Now click away..." 
+            tooltip-trigger="focus"
+            tooltip-placement="right" />
+    </p>
+  </div>
+</div>
+<pre class="prettyprint linenums">
+    &lt;div ng-controller=&quot;TooltipDemoCtrl&quot;&gt;
+      &lt;div class=&quot;well&quot;&gt;
+        &lt;div&gt;Dynamic Tooltip Text: &lt;input type=&quot;text&quot; ng-model=&quot;dynamicTooltipText&quot;&gt;&lt;/div&gt;
+        &lt;div&gt;Dynamic Tooltip Popup Text: &lt;input type=&quot;text&quot; ng-model=&quot;dynamicTooltip&quot;&gt;&lt;/div&gt;
+        &lt;p&gt;
+          Pellentesque &lt;a&gt;&lt;span tooltip=&quot;{{dynamicTooltip}}&quot;&gt;{{dynamicTooltipText}}&lt;/span&gt;&lt;/a&gt;,
+          sit amet venenatis urna cursus eget nunc scelerisque viverra mauris, in
+          aliquam. Tincidunt lobortis feugiat vivamus at 
+          &lt;a&gt;&lt;span tooltip-placement=&quot;left&quot; tooltip=&quot;On the Left!&quot;&gt;left&lt;/span&gt;&lt;/a&gt; eget
+          arcu dictum varius duis at consectetur lorem. Vitae elementum curabitur
+          &lt;a&gt;&lt;span tooltip-placement=&quot;right&quot; tooltip=&quot;On the Right!&quot;&gt;right&lt;/span&gt;&lt;/a&gt; 
+          nunc sed velit dignissim sodales ut eu sem integer vitae. Turpis egestas 
+          &lt;a&gt;&lt;span tooltip-placement=&quot;bottom&quot; tooltip=&quot;On the Bottom!&quot;&gt;bottom&lt;/span&gt;&lt;/a&gt; 
+          pharetra convallis posuere morbi leo urna, 
+          &lt;a&gt;&lt;span tooltip-animation=&quot;false&quot; tooltip=&quot;I don't fade. :-(&quot;&gt;fading&lt;/span&gt;&lt;/a&gt; 
+          at elementum eu, facilisis sed odio morbi quis commodo odio. In cursus
+          &lt;a&gt;&lt;span tooltip-popup-delay='1000' tooltip='appears with delay'&gt;delayed&lt;/span&gt;&lt;/a&gt; turpis massa tincidunt dui ut.
+        &lt;/p&gt;
+
+        &lt;p&gt;
+          I can even contain HTML. &lt;a&gt;&lt;span tooltip-html-unsafe=&quot;{{htmlTooltip}}&quot;&gt;Check me out!&lt;/span&gt;&lt;/a&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+          Or use custom triggers, like focus: 
+          &lt;input type=&quot;text&quot; value=&quot;Click me!&quot;
+            tooltip=&quot;See? Now click away...&quot; 
+            tooltip-trigger=&quot;focus&quot;
+            tooltip-placement=&quot;right&quot; /&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+
+<h3>弹出提示</h3>
+<div ng-controller="PopoverDemoCtrl">
+    <div class="well">
+        <div>
+            <h4>Dynamic</h4>
+            <div>Dynamic Popover : <input type="text" ng-model="dynamicPopoverText"></div>
+            <div>Dynamic Popover Popup Text: <input type="text" ng-model="dynamicPopover"></div>
+            <div>Dynamic Popover Popup Title: <input type="text" ng-model="dynamicPopoverTitle"></div>
+            <div><button popover="{{dynamicPopover}}" popover-title="{{dynamicPopoverTitle}}" class="btn">{{dynamicPopoverText}}</button></div>
+        </div>
+        <div>
+            <h4>Positional</h4>
+            <button popover-placement="top" popover="On the Top!" class="btn">Top</button>
+            <button popover-placement="left" popover="On the Left!" class="btn">Left</button>
+            <button popover-placement="right" popover="On the Right!" class="btn">Right</button>
+            <button popover-placement="bottom" popover="On the Bottom!" class="btn">Bottom</button>
+        </div>
+        <div>
+            <h4>Triggers</h4>
+            <button popover="I appeared on mouse enter!" popover-trigger="mouseenter" class="btn">Mouseenter</button>
+            <input type="text" value="Click me!" 
+                popover="I appeared on focus! Click away and I'll vanish..." 
+                popover-trigger="focus" />
+        </div>
+        <div>
+            <h4>Other</h4>
+            <button Popover-animation="true" popover="I fade in and out!" class="btn">fading</button>
+            <button popover="I have a title!" popover-title="The title." class="btn">title</button>
+        </div>
+    </div>
+</div>
+<pre class="prettyprint linenums">
+    &lt;div ng-controller=&quot;PopoverDemoCtrl&quot;&gt;
+      &lt;div class=&quot;well&quot;&gt;
+        &lt;div&gt;
+          &lt;h4&gt;Dynamic&lt;/h4&gt;
+          &lt;div&gt;Dynamic Popover : &lt;input type=&quot;text&quot; ng-model=&quot;dynamicPopoverText&quot;&gt;&lt;/div&gt;
+          &lt;div&gt;Dynamic Popover Popup Text: &lt;input type=&quot;text&quot; ng-model=&quot;dynamicPopover&quot;&gt;&lt;/div&gt;
+          &lt;div&gt;Dynamic Popover Popup Title: &lt;input type=&quot;text&quot; ng-model=&quot;dynamicPopoverTitle&quot;&gt;&lt;/div&gt;
+          &lt;div&gt;&lt;button popover=&quot;{{dynamicPopover}}&quot; popover-title=&quot;{{dynamicPopoverTitle}}&quot; class=&quot;btn&quot;&gt;{{dynamicPopoverText}}&lt;/button&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h4&gt;Positional&lt;/h4&gt;
+          &lt;button popover-placement=&quot;top&quot; popover=&quot;On the Top!&quot; class=&quot;btn&quot;&gt;Top&lt;/button&gt;
+          &lt;button popover-placement=&quot;left&quot; popover=&quot;On the Left!&quot; class=&quot;btn&quot;&gt;Left&lt;/button&gt;
+          &lt;button popover-placement=&quot;right&quot; popover=&quot;On the Right!&quot; class=&quot;btn&quot;&gt;Right&lt;/button&gt;
+          &lt;button popover-placement=&quot;bottom&quot; popover=&quot;On the Bottom!&quot; class=&quot;btn&quot;&gt;Bottom&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h4&gt;Triggers&lt;/h4&gt;
+          &lt;button popover=&quot;I appeared on mouse enter!&quot; popover-trigger=&quot;mouseenter&quot; class=&quot;btn&quot;&gt;Mouseenter&lt;/button&gt;
+          &lt;input type=&quot;text&quot; value=&quot;Click me!&quot; 
+            popover=&quot;I appeared on focus! Click away and I'll vanish...&quot; 
+            popover-trigger=&quot;focus&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h4&gt;Other&lt;/h4&gt;
+          &lt;button Popover-animation=&quot;true&quot; popover=&quot;I fade in and out!&quot; class=&quot;btn&quot;&gt;fading&lt;/button&gt;
+          &lt;button popover=&quot;I have a title!&quot; popover-title=&quot;The title.&quot; class=&quot;btn&quot;&gt;title&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+
+<h3>下拉菜单</h3>
+<div class="dropdown" ng-controller="DropdownCtrl">
+  <a class="dropdown-toggle">
+    Click me for a dropdown, yo!
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li ng-repeat="choice in items">
+      <a>{{choice}}</a>
+    </li>
+  </ul>
+</div>
+<pre class="prettyprint linenums">
+    &lt;div class=&quot;dropdown&quot; ng-controller=&quot;DropdownCtrl&quot;&gt;
+      &lt;a class=&quot;dropdown-toggle&quot;&gt;
+        Click me for a dropdown, yo!
+        &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;ul class=&quot;dropdown-menu&quot;&gt;
+        &lt;li ng-repeat=&quot;choice in items&quot;&gt;
+          &lt;a&gt;{{choice}}&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+</pre>
+
+<h3>tab标签</h3>
+<div ng-controller="TabsDemoCtrl">
+    <tabs>
+        <pane heading="Static title">Static content</pane>
+        <pane ng-repeat="pane in panes" heading="{{pane.title}}" active="pane.active">{{pane.content}}</pane>
+    </tabs>
+    <div class="row-fluid">
+        <button class="btn" ng-click="panes[0].active = true">Select second tab</button>
+        <button class="btn" ng-click="panes[1].active = true">Select third tab</button>
+    </div>
+</div>
+<hr>
+<pre class="prettyprint linenums">
+    &lt;div ng-controller=&quot;TabsDemoCtrl&quot;&gt;
+        &lt;tabs&gt;
+            &lt;pane heading=&quot;Static title&quot;&gt;Static content&lt;/pane&gt;
+            &lt;pane ng-repeat=&quot;pane in panes&quot; heading=&quot;{{pane.title}}&quot; active=&quot;pane.active&quot;&gt;{{pane.content}}&lt;/pane&gt;
+        &lt;/tabs&gt;
+        &lt;div class=&quot;row-fluid&quot;&gt;
+            &lt;button class=&quot;btn&quot; ng-click=&quot;panes[0].active = true&quot;&gt;Select second tab&lt;/button&gt;
+            &lt;button class=&quot;btn&quot; ng-click=&quot;panes[1].active = true&quot;&gt;Select third tab&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+</pre>
+
+<h3>Typehead</h3>
+<div ng-controller="TypeaheadCtrl">
+    <pre>Model: {{selected| json}}</pre>
+    <input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue">
+    <pre>$scope.states = {{ states }}</pre>
+    <pre class="prettyprint linenums">
+        &lt;div ng-controller=&quot;TypeaheadCtrl&quot;&gt;
+            &lt;pre&gt;Model: {{selected| json}}&lt;/pre&gt;
+            &lt;input type=&quot;text&quot; ng-model=&quot;selected&quot; typeahead=&quot;state for state in states | filter:$viewValue&quot;&gt;
+        &lt;/div&gt;
+    </pre>
+</div>
+
+<h3>分页</h3>
+<div class="pagination">
+    <ul>
+        <li class="disabled"><a href="#">«</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">»</a></li>
+    </ul>
+</div>
+<p>默认分页样式</p>
+<pre class="prettyprint linenums">
+    &lt;div class="pagination"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;上一页&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;下一页&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+</pre>
+
+<div class="pagination pagination-centered">
+    <ul>
+        <li class="disabled"><a href="#">«</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">»</a></li>
+    </ul>
+</div>
+<p>居中分页样式用<code>.pagination-centered</code></p>
+<p>可根据不同情况定制链接。用<code>.disabled</code>标明链接不可点击，用<code>.active</code>标明当前页。</p>
+<pre class="prettyprint linenums">
+    &lt;div class="pagination pagination-centered"&gt;
+        &lt;ul&gt;
+            &lt;li class="disabled"&gt;&lt;a href="#"&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+            ...
+        &lt;/ul&gt;
+    &lt;/div&gt;
+</pre>
+
+<div class="pagination pagination-right">
+    <ul>
+        <li class="disabled"><a href="#">«</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">»</a></li>
+    </ul>
+</div>
+<p>居右分页样式用<code>.pagination-right</code></p>
+<pre class="prettyprint linenums">
+    &lt;div class="pagination pagination-right"&gt;
+        &lt;ul&gt;
+            &lt;li class="disabled"&gt;&lt;a href="#"&gt;&amp;laquo;&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+            ...
+        &lt;/ul&gt;
+    &lt;/div&gt;
+</pre>
+
+<div ng-controller="PaginationDemoCtrl">
+    <pagination num-pages="noOfPages" current-page="currentPage"></pagination>
+    <pagination num-pages="noOfPages" current-page="currentPage" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></pagination>
+    <pagination boundary-links="true" num-pages="noOfPages" current-page="currentPage" max-size="maxSize"></pagination>
+    <pagination num-pages="noOfPages" current-page="currentPage"  max-size="maxSize"></pagination>
+    <pagination direction-links="false" num-pages="noOfPages" current-page="currentPage"></pagination>
+    <button class="btn" ng-click="setPage(3)">Set current page to: 3</button>
+    The selected page no: {{currentPage}}
+
+    <pagination  num-pages="bigNoOfPages" current-page="bigCurrentPage" max-size="maxSize" class="pagination" boundary-links="true"></pagination>
+</div>
+<pre prettyprint linenums>
+    &lt;div ng-controller=&quot;PaginationDemoCtrl&quot;&gt;
+        &lt;pagination num-pages=&quot;noOfPages&quot; current-page=&quot;currentPage&quot;&gt;&lt;/pagination&gt;
+        &lt;pagination num-pages=&quot;noOfPages&quot; current-page=&quot;currentPage&quot; class=&quot;pagination-small&quot; previous-text=&quot;&amp;laquo;&quot; next-text=&quot;&amp;raquo;&quot;&gt;&lt;/pagination&gt;
+        &lt;pagination boundary-links=&quot;true&quot; num-pages=&quot;noOfPages&quot; current-page=&quot;currentPage&quot; max-size=&quot;maxSize&quot;&gt;&lt;/pagination&gt;
+        &lt;pagination num-pages=&quot;noOfPages&quot; current-page=&quot;currentPage&quot;  max-size=&quot;maxSize&quot;&gt;&lt;/pagination&gt;
+        &lt;pagination direction-links=&quot;false&quot; num-pages=&quot;noOfPages&quot; current-page=&quot;currentPage&quot;&gt;&lt;/pagination&gt;
+        &lt;button class=&quot;btn&quot; ng-click=&quot;setPage(3)&quot;&gt;Set current page to: 3&lt;/button&gt;
+        The selected page no: {{currentPage}}
+    &lt;/div&gt;
+</pre>

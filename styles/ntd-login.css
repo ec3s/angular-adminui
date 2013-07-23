@@ -1,11 +1,11 @@
 /*
 Syntax error: Undefined variable: "$loginBgImg".
-        on line 3 of d:/gitHub/admin-ui/app/styles/ntd-login.scss
+        on line 3 of d:/gitHub/angular-adminui/app/styles/ntd-login.scss
 
-1: d:/gitHub/admin-ui/app/styles/ntd-login.scss
+1: d:/gitHub/angular-adminui/app/styles/ntd-login.scss
 
 Backtrace:
-d:/gitHub/admin-ui/app/styles/ntd-login.scss:3
+d:/gitHub/angular-adminui/app/styles/ntd-login.scss:3
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/script/variable.rb:49:in `_perform'
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/script/node.rb:40:in `perform'
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/script/string_interpolation.rb:82:in `_perform'
@@ -66,4 +66,4 @@ d:/workSoftWare/Ruby200-x64/bin/compass:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$loginBgImg\".\A         on line 3 of d:/gitHub/admin-ui/app/styles/ntd-login.scss\A \A 1: d:/gitHub/admin-ui/app/styles/ntd-login.scss"; }
+  content: "Syntax error: Undefined variable: \"$loginBgImg\".\A         on line 3 of d:/gitHub/angular-adminui/app/styles/ntd-login.scss\A \A 1: d:/gitHub/angular-adminui/app/styles/ntd-login.scss"; }

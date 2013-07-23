@@ -1,612 +1,318 @@
-<div ng-include src="'views/header.html'"></div>
+<div class="page-header">
+    <h1>表格</h1>
+</div>
+<h3>表格基础样式</h3>
+<p>
+    在 <code>table</code> 添加 <code>.table-normal </code>，
+    金钱在对应的 <code>th</code> 和 <code>td</code> 上增加 <code>.currency</code>，
+    数字在对应的 <code>th</code> 和 <code>td</code> 上增加 <code>.number</code>，
+    日期在对应的 <code>th</code> 和 <code>td</code> 上增加 <code>.date</code>，
+    操作在对应的 <code>th</code> 和 <code>td</code> 上增加 <code>.operation</code>
+</p>
+<table class="table-normal">
+    <thead>
+        <tr>
+            <th>文字</th>
+            <th class="currency">钱</th>
+            <th class="number">数字</th>
+            <th class="date">日期</th>
+            <th class="operation">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>文字</td>
+            <td class="currency">￥200.00</td>
+            <td class="number">234234</td>
+            <td class="date">2013/07/07</td>
+            <td class="operation">
+                <a class="btn btn-small">编辑</a>
+                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                    删除
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>文字</td>
+            <td class="currency">￥200.00</td>
+            <td class="number">234234</td>
+            <td class="date">2013/07/07</td>
+            <td class="operation">
+                <a class="btn btn-small">编辑</a>
+                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                    删除
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>文字</td>
+            <td class="currency">￥200.00</td>
+            <td class="number">234234</td>
+            <td class="date">2013/07/07</td>
+            <td class="operation">
+                <a class="btn btn-small">编辑</a>
+                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                    删除
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>文字</td>
+            <td class="currency">￥200.00</td>
+            <td class="number">234234</td>
+            <td class="date">2013/07/07</td>
+            <td class="operation">
+                <a class="btn btn-small">编辑</a>
+                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                    删除
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>文字</td>
+            <td class="currency">￥200.00</td>
+            <td class="number">234234</td>
+            <td class="date">2013/07/07</td>
+            <td class="operation">
+                <a class="btn btn-small">编辑</a>
+                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                    删除
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<pre class="prettyprint linenums">
+&lt;table class=&quot;table-normal&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&#25991;&#23383;&lt;/th&gt;
+            &lt;th class=&quot;currency&quot;&gt;&#38065;&lt;/th&gt;
+            &lt;th class=&quot;number&quot;&gt;&#25968;&#23383;&lt;/th&gt;
+            &lt;th class=&quot;date&quot;&gt;&#26085;&#26399;&lt;/th&gt;
+            &lt;th class=&quot;operation&quot;&gt;&#25805;&#20316;&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&#25991;&#23383;&lt;/td&gt;
+            &lt;td class=&quot;currency&quot;&gt;&#65509;200.00&lt;/td&gt;
+            &lt;td class=&quot;number&quot;&gt;234234&lt;/td&gt;
+            &lt;td class=&quot;date&quot;&gt;2013/07/07&lt;/td&gt;
+            &lt;td class=&quot;operation&quot;&gt;
+                &lt;a class=&quot;btn btn-small&quot;&gt;&#32534;&#36753;&lt;/a&gt;
+                &lt;a class=&quot;btn btn-small btn-danger&quot; confirm-button=&quot;talk('Hello, WegnerDesign!');&quot;&gt;
+                    &#21024;&#38500;
+                &lt;/a&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        ... ...
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span2" ng-include autoscroll src="'views/submenu.html'"></div>
-        <div id="J_mainContent" class="span10">
-            <div class="page-header">
-                <div class="opts">
-                    <a href="#" class="btn btn-primary">
-                        发起活动
+<h3>Table wiget 的使用</h3>
+<p>
+    table 外层需要嵌套一层 <code>div.table-widget</code>，
+    表头被选中 <code>th</code> 的 <code>class="active"</code>，
+    可排序的列需要在<code>th</code> 中加<code>&lt;span class=&quot;sort-icon&quot;&gt;&lt;/span&gt;</code>,
+    <code>th</code> 的降序 <code>active sort-desc</code>，
+    <code>th</code> 的升序 <code>active sort-asc</code>，
+</p>
+<div class="table-widget">
+    <table class="table-normal" foo-table ng-controller="confirmButtonCtrl">
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox">
+                </th>
+                <th data-class="expand" class="number active sort-desc">
+                    等级
+                    <span class="sort-icon"></span>
+                </th>
+                <th data-hide="phone,tablet">文字</th>
+                <th data-hide="phone,tablet" class="number active sort-asc">
+                    数字
+                    <span class="sort-icon"></span>
+                </th>
+                <th data-hide="phone,tablet" class="date">
+                    日期
+                    <span class="sort-icon"></span>
+                </th>
+                <th class="operation">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td class="number">1</td>
+                <td>这里是文字</td>
+                <td class="number">123</td>
+                <td class="date">2013/06/01</td>
+                <td class="operation">
+                    <a class="btn btn-small">编辑</a>
+                    <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                        删除
                     </a>
-                </div>
-                <h1>表格</h1>
-            </div>
-      
-            <table class="table-normal" foo-table>
-                <thead>
-                    <tr>
-                        <th data-class="expand">
-                            First Name
-                        </th>
-                        <th>
-                            Last Name
-                        </th>
-                        <th data-hide="phone,tablet">
-                            Job Title
-                        </th>
-                        <th data-hide="phone,tablet">
-                            DOB
-                        </th>
-                        <th data-hide="phone">
-                            Status
-                      </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="expand">Shay</td>
-                        <td>Halladay</td>
-                        <td>Internet Marketing Manager</td>
-                        <td>4 May 1990</td>
-                        <td>Suspended</td>
-                    </tr>
-                    <tr>
-                        <td class="expand">Shay</td>
-                        <td>Halladay</td>
-                        <td>Internet Marketing Manager</td>
-                        <td>4 May 1990</td>
-                        <td>Suspended</td>
-                    </tr>
-                    <tr>
-                        <td class="expand">Shay</td>
-                        <td>Halladay</td>
-                        <td>Internet Marketing Manager</td>
-                        <td>4 May 1990</td>
-                        <td>Suspended</td>
-                    </tr>
-                    <tr>
-                        <td class="expand">Shay</td>
-                        <td>Halladay</td>
-                        <td>Internet Marketing Manager</td>
-                        <td>4 May 1990</td>
-                        <td>Suspended</td>
-                    </tr>
-                    <tr>
-                        <td class="expand">Shay</td>
-                        <td>Halladay</td>
-                        <td>Internet Marketing Manager</td>
-                        <td>4 May 1990</td>
-                        <td>Suspended</td>
-                    </tr>
-                </tbody>
-             </table>
-            <div class="table-widget">
-                <table class="table-normal" foo-table>
-                    <thead>
-                        <tr>
-                            <th>
-                                <input type="checkbox">
-                            </th>
-                            <th data-hide="phone,tablet">ID</th>
-                            <th data-class="expand" class="active sort-desc">
-                                等级
-                                <span class="sort-icon"></span>
-                            </th>
-                            <th data-hide="phone,tablet">文字</th>
-                            <th data-hide="phone,tablet" class="active sort-asc align-right">
-                                数字
-                                <span class="sort-icon"></span>
-                            </th>
-                            <th data-hide="phone,tablet" class="align-right">日期</th>
-                            <th class="align-center">操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>这里是文字</td>
-                            <td class="align-right">123</td>
-                            <td class="align-right">2013-06-01</td>
-                            <td class="align-center">
-                                <a class="btn btn-small">编辑</a>
-                                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');"="talk('Hello, WegnerDesign!');">
-                                    删除
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>2</td>
-                            <td>2</td>
-                            <td><a href="#">这里是链接</a></td>
-                            <td class="align-right">123</td>
-                            <td class="align-right">2013-06-01</td>
-                            <td class="align-center">
-                                <a class="btn btn-small">编辑</a>
-                                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');"="talk('Hello, WegnerDesign!');">
-                                    删除
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>3</td>
-                            <td>3</td>
-                            <td><a href="#">这里是链接</a></td>
-                            <td class="align-right">123</td>
-                            <td class="align-right">2013-06-01</td>
-                            <td class="align-center">
-                                <a class="btn btn-small">编辑</a>
-                                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');"="talk('Hello, WegnerDesign!');">
-                                    删除
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>4</td>
-                            <td>4</td>
-                            <td><a href="#">这里是链接</a></td>
-                            <td class="align-right">123</td>
-                            <td class="align-right">2013-06-01</td>
-                            <td class="align-center">
-                                <a class="btn btn-small">编辑</a>
-                                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');"="talk('Hello, WegnerDesign!');">
-                                    删除
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox">
-                            </td>
-                            <td>5</td>
-                            <td>5</td>
-                            <td><a href="#">这里是链接</a></td>
-                            <td class="align-right">123</td>
-                            <td class="align-right">2013-06-01</td>
-                            <td class="align-center">
-                                <a class="btn btn-small">编辑</a>
-                                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');"="talk('Hello, WegnerDesign!');">
-                                    删除
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td class="number">1</td>
+                <td>这里是文字</td>
+                <td class="number">123</td>
+                <td class="date">2013/06/01</td>
+                <td class="operation">
+                    <a class="btn btn-small">编辑</a>
+                    <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                        删除
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td class="number">1</td>
+                <td>这里是文字</td>
+                <td class="number">123</td>
+                <td class="date">2013/06/01</td>
+                <td class="operation">
+                    <a class="btn btn-small">编辑</a>
+                    <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                        删除
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td class="number">1</td>
+                <td>这里是文字</td>
+                <td class="number">123</td>
+                <td class="date">2013/06/01</td>
+                <td class="operation">
+                    <a class="btn btn-small">编辑</a>
+                    <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                        删除
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td class="number">1</td>
+                <td>这里是文字</td>
+                <td class="number">123</td>
+                <td class="date">2013/06/01</td>
+                <td class="operation">
+                    <a class="btn btn-small">编辑</a>
+                    <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                        删除
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-                <div class="row-fluid">
-                    <div class="pull-left">
-                        <p>
-                            <button class="btn btn-danger">删除</button>
-                            <button class="btn">操作</button>
-                            <button class="btn">操作</button>
-                            <button class="btn">操作</button>
-                        </p>
-                    </div>
-                    <div class="pull-right">
-                        <div class="pagination">
-                            <ul>
-                                <li><a href="#">«</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">»</a></li>
-                            </ul>
-                        </div>
-                    </div>
+    <div class="table-widget-footer row-fluid">
+        <div class="pull-left">
+            <div class="operation">
+                <button class="btn btn-danger">删除</button>
+                <div class="btn-group">
+                    <button class="btn">操作</button>
+                    <button class="btn">操作</button>
+                    <button class="btn">操作</button>
                 </div>
             </div>
-
-            <p>表头被选中 th 的 <code>class="active"</code></p>
-            <pre class="prettyprint linenums">
-                &lt;table class=&quot;table-widget&quot;&gt;
-                    &lt;table class=&quot;table-normal&quot;&gt;
-                        &lt;thead&gt;
-                            &lt;tr&gt;
-                                &lt;th&gt;
-                                    &lt;input type=&quot;checkbox&quot;&gt;
-                                &lt;/th&gt;
-                                &lt;th&gt;ID&lt;/th&gt;
-                                &lt;th class=&quot;active sort-desc&quot;&gt;
-                                    &#31561;&#32423;
-                                    &lt;span class=&quot;sort-icon&quot;&gt;&lt;/span&gt;
-                                &lt;/th&gt;
-                                &lt;th &gt;&#25991;&#23383;&lt;/th&gt;
-                                &lt;th class=&quot;active sort-asc align-right&quot;&gt;
-                                    &#25968;&#23383;
-                                    &lt;span class=&quot;sort-icon&quot;&gt;&lt;/span&gt;
-                                &lt;/th&gt;
-                                &lt;th class=&quot;align-right&quot;&gt;&#26085;&#26399;&lt;/th&gt;
-                                &lt;th class=&quot;align-center&quot;&gt;&#25805;&#20316;&lt;/th&gt;
-                            &lt;/tr&gt;
-                        &lt;/thead&gt;
-                        &lt;tbody&gt;
-                            &lt;tr&gt;
-                                &lt;td&gt;
-                                    &lt;input type=&quot;checkbox&quot;&gt;
-                                &lt;/td&gt;
-                                &lt;td&gt;1&lt;/td&gt;
-                                &lt;td&gt;1&lt;/td&gt;
-                                &lt;td&gt;&#36825;&#37324;&#26159;&#25991;&#23383;&lt;/td&gt;
-                                &lt;td class=&quot;align-right&quot;&gt;123&lt;/td&gt;
-                                &lt;td class=&quot;align-right&quot;&gt;2013-06-01&lt;/td&gt;
-                                &lt;td class=&quot;align-center&quot;&gt;
-                                    &lt;a class=&quot;btn btn-icon&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;icon-edit&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-                                    &lt;a class=&quot;btn btn-icon btn-danger&quot; data-unique=&quot;1&quot; data-placement=&quot;top&quot; data-title=&quot;&#35686;&#21578;&quot; bs-popover=&quot;'popover.html'&quot; title=&quot;&quot;&gt;
-                                        &lt;i class=&quot;icon-remove icon-white&quot;&gt;&lt;/i&gt;
-                                    &lt;/a&gt;
-                                &lt;/td&gt;
-                            &lt;/tr&gt;
-                            ... ...
-                        &lt;/tbody&gt;
-                    &lt;/table&gt;
-
-                    &lt;div class=&quot;controls controls-row&quot;&gt;
-                        &lt;div class=&quot;pull-left&quot;&gt;
-                            &lt;button class=&quot;btn btn-danger&quot;&gt;&#21024;&#38500;&lt;/button&gt;
-                            &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-                            &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-                            &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-                        &lt;/div&gt;
-                        &lt;div class=&quot;pull-right&quot;&gt;
-                            &lt;div class=&quot;pagination&quot;&gt;
-                                &lt;ul&gt;
-                                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;?&lt;/a&gt;&lt;/li&gt;
-                                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-                                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
-                                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
-                                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
-                                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
-                                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;?&lt;/a&gt;&lt;/li&gt;
-                                &lt;/ul&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-            </pre>
-            <hr>
-
-            <!-- 
-            <table class="table" table-grid>
-                <tbody>
-                    <tr valign="middle" id="header">
-                        <th class="rank">等级</th>
-                        <th class="company">文字</th>
-                        <th class="revenue">数字</th>
-                        <th class="datacell">按钮</th>
-                    </tr>
-                    <tr class="rowcolor2">
-                        <td class="rank">1</td>
-                        <td class="company"><a href="#">这是一个链接</a></td>
-                        <td class="revenue" align="right">339,938.0</td>
-                        <td class="datacell">
-                            <a class="btn btn-icon" href="#"><i class="icon-edit"></i></a>
-                            <a class="btn btn-danger btn-icon" href="#"><i class="icon-white icon-remove"></i></a>
-                        </td>
-                    </tr>                   
-                    <tr id="Tr1" class="rowcolor1">
-                        <td class="rank">2</td>
-                        <td class="company">这是文字</td>
-                        <td class="revenue">315,654.0</td>
-                        <td class="datacell">
-                            <a class="btn btn-icon" href="#"><i class="icon-edit"></i></a>
-                            <a class="btn btn-danger btn-icon" href="#"><i class="icon-white icon-remove"></i></a>
-                        </td>
-                    </tr>
-                    <tr id="Tr2" class="rowcolor2">
-                        <td class="rank">3</td>
-                        <td class="company">Royal Dutch Shell</td>
-                        <td class="revenue">306,731.0</td>
-                        <td class="datacell">25,311.0</td>
-                    </tr>   
-                    <tr id="Tr3" class="rowcolor1">
-                        <td class="rank">4</td>
-                        <td class="company">BP</td>
-                        <td class="revenue">267,600.0</td>
-                        <td class="datacell">22,341.0</td>
-                    </tr>       
-                    <tr id="Tr4" class="rowcolor2">
-                        <td class="rank">5</td>
-                        <td class="company">General Motors</td>
-                        <td class="revenue">192,604.0</td>
-                        <td class="datacell">-10,567.0</td>
-                    </tr>   
-                    <tr id="Tr5" class="rowcolor1">
-                        <td class="rank">6</td>
-                        <td class="company">Chevron</td>
-                        <td class="revenue">189,481.0</td>
-                        <td class="datacell">14,099.0</td>
-                    </tr>   
-                    <tr id="Tr6" class="rowcolor2">
-                        <td class="rank">7</td>
-                        <td class="company">DaimlerChrysler</td>
-                        <td class="revenue">186,106.3</td>
-                        <td class="datacell">3,536.3</td>
-                    </tr>
-                    <tr id="Tr7" class="rowcolor1">
-                        <td class="rank">8</td>
-                        <td class="company">Toyota Motor</td>
-                        <td class="revenue">185,805.0</td>
-                        <td class="datacell">12,119.6</td>
-                    </tr>   
-                    <tr id="Tr8" class="rowcolor2">
-                        <td class="rank">9</td>
-                        <td class="company">Ford Motor</td>
-                        <td class="revenue">177,210.0</td>
-                        <td class="datacell">2,024.0</td>
-                    </tr>       
-                    <tr id="Tr9" class="rowcolor1">
-                        <td class="rank">10</td>
-                        <td class="company">ConocoPhillips</td>
-                        <td class="revenue">166,683.0</td>
-                        <td class="datacell">13,529.0</td>
-                    </tr>       
-                    <tr id="Tr10" class="rowcolor2">
-                        <td class="rank">11</td>
-                        <td class="company">General Electric</td>
-                        <td class="revenue">157,153.0</td>
-                        <td class="datacell">16,353.0</td>
-                    </tr>
-                    <tr id="Tr11" class="rowcolor1">
-                        <td class="rank">12</td>
-                        <td class="company">Total</td>
-                        <td class="revenue">152,360.7</td>
-                        <td class="datacell">15,250.0</td>
-                    </tr>                   
-                    <tr id="Tr12" class="rowcolor2">
-                        <td class="rank">13</td>
-                        <td class="company">ING Group</td>
-                        <td class="revenue">138,235.3</td>
-                        <td class="datacell">8,958.9</td>
-                    </tr>       
-                    <tr id="Tr13" class="rowcolor1">
-                        <td class="rank">14</td>
-                        <td class="company">Citigroup</td>
-                        <td class="revenue">131,045.0</td>
-                        <td class="datacell">24,589.0</td>
-                    </tr>
-                    <tr id="Tr14" class="rowcolor2">
-                        <td class="rank">15</td>
-                        <td class="company">AXA</td>
-                        <td class="revenue">129,839.2</td>
-                        <td class="datacell">5,186.5</td>
-                    </tr>
-                    <tr id="Tr15" class="rowcolor1">
-                        <td class="rank">16</td>
-                        <td class="company">Allianz</td>
-                        <td class="revenue">121,406.0</td>
-                        <td class="datacell">5,442.4</td>
-                    </tr>
-                    <tr id="Tr16" class="rowcolor2">
-                        <td class="rank">17</td>
-                        <td class="company">Volkswagen</td>
-                        <td class="revenue">118,376.6</td>
-                        <td class="datacell">1,391.7</td>
-                    </tr>   
-                    <tr id="Tr17" class="rowcolor1">
-                        <td class="rank">18</td>
-                        <td class="company">Fortis</td>
-                        <td class="revenue">112,351.4</td>
-                        <td class="datacell">4,896.3</td>
-                    </tr>           
-                    <tr id="Tr18" class="rowcolor2">
-                        <td class="rank">19</td>
-                        <td class="company">Crédit Agricole</td>
-                        <td class="revenue">110,764.6</td>
-                        <td class="datacell">7,434.3</td>
-                    </tr>           
-                    <tr id="Tr19" class="rowcolor1">
-                        <td class="rank">20</td>
-                        <td class="company">American Intl. Group</td>
-                        <td class="revenue">108,905.0</td>
-                        <td class="datacell">10,477.0</td>
-                    </tr>
-                    <tr id="Tr20" class="rowcolor2">
-                        <td class="rank">21</td>
-                        <td class="company">Assicurazioni Generali</td>
-                        <td class="revenue">101,403.8</td>
-                        <td class="datacell">2,384.0</td>
-                    </tr>
-                    <tr id="Tr21" class="rowcolor1">
-                        <td class="rank">22</td>
-                        <td class="company">Siemens</td>
-                        <td class="revenue">100,098.7</td>
-                        <td class="datacell">2,854.9</td>
-                    </tr>   
-                    <tr id="Tr22" class="rowcolor2">
-                        <td class="rank">23</td>
-                        <td class="company">Sinopec</td>
-                        <td class="revenue">98,784.9</td>
-                        <td class="datacell">2,668.4</td>
-                    </tr>
-                    <tr id="Tr23" class="rowcolor1">
-                        <td class="rank">24</td>
-                        <td class="company">Nippon Telegraph &amp; Telephone</td>
-                        <td class="revenue">94,869.3</td>
-                        <td class="datacell">4,404.6</td>
-                    </tr>
-                    <tr id="Tr24" class="rowcolor2">
-                        <td class="rank">25</td>
-                        <td class="company">Carrefour</td>
-                        <td class="revenue">94,454.5</td>
-                        <td class="datacell">1,784.3</td>
-                    </tr>
-                    <tr id="Tr25" class="rowcolor1">
-                        <td class="rank">26</td>
-                        <td class="company">HSBC Holdings</td>
-                        <td class="revenue">93,494.0</td>
-                        <td class="datacell">15,873.0</td>
-                    </tr>
-                    <tr id="Tr26" class="rowcolor2">
-                        <td class="rank">27</td>
-                        <td class="company">ENI</td>
-                        <td class="revenue">92,603.3</td>
-                        <td class="datacell">10,919.7</td>
-                    </tr>
-                    <tr id="Tr27" class="rowcolor1">
-                        <td class="rank">28</td>
-                        <td class="company">Aviva</td>
-                        <td class="revenue">92,579.4</td>
-                        <td class="datacell">3,211.4</td>
-                    </tr>
-                    <tr id="Tr28" class="rowcolor2">
-                        <td class="rank">29</td>
-                        <td class="company">Intl. Business Machines</td>
-                        <td class="revenue">91,134.0</td>
-                        <td class="datacell">7,934.0</td>
-                    </tr>
-                    <tr id="Tr29" class="rowcolor1">
-                        <td class="rank">30</td>
-                        <td class="company">McKesson</td>
-                        <td class="revenue">88,050.0</td>
-                        <td class="datacell">751.0</td>
-                    </tr>   
-                    <tr id="Tr30" class="rowcolor2">
-                        <td class="rank">31</td>
-                        <td class="company">Honda Motor</td>
-                        <td class="revenue">87,510.7</td>
-                        <td class="datacell">5,273.2</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>格式化表格，固定表格的标题和列用<code>table-grid</code></p>
-            <pre class="prettyprint linenums">
-                &lt;table class=&quot;table&quot; table-grid&gt;
-                    ... ...
-                &lt;/table&gt; 
-            </pre>
-            
-            <div class="controls controls-row">
-                <div class="pull-left">
-                    <button class="btn btn-danger">删除</button>
-                </div>
-                <div class="pull-right">
-                    <div class="pagination">
-                        <ul>
-                            <li><a href="#">«</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">»</a></li>
-                        </ul>
-                    </div>
-                </div>
+        </div>
+        <div class="pull-right">
+            <div class="pagination">
+                <ul>
+                    <li><a href="#">«</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">»</a></li>
+                </ul>
             </div>
-            -->
-            
-            <h3>表格基础样式</h3>
-            <p>在<code>table</code>上引用<code>.table-normal</code></p>
-            <div class="bs-docs-example">
-                <table class="table-normal">
-                    <thead>
-                        <th>id</th>
-                        <th>文字</th>
-                    </thead>
-                    <tbody>
-                        <td>1</td>
-                        <td>文字</td>
-                    </tbody>
-                </table>
-            </div>
-            <pre class="prettyprint linenums">
-                &lt;table class=&quot;table-normal&quot;&gt;
-                    ...
-                &lt;/table&gt;
-            </pre>
-            <p>表格内部右对齐在对应的<code>th</code>和<code>td</code>上增加<code>.align-rigt</code>,
-               金钱在对应的<code>th</code>和<code>td</code>上增加<code>.currency</code>，
-               数字在对应的<code>th</code>和<code>td</code>上增加<code>.number</code>，
-           </p>
-            <div class="bs-docs-example">
-                <table class="table-normal">
-                    <thead>
-                        <th>id</th>
-                        <th class="currency">钱</th>
-                        <th class="number">数字</th>
-                    </thead>
-                    <tbody>
-                        <td>1</td>
-                        <td class="currency">￥200.00</td>
-                        <td class="number">234234</td>
-                    </tbody>
-                </table>
-            </div>
-            <pre class="prettyprint linenums">
-            &lt;table class=&quot;table-normal&quot;&gt;
-                &lt;thead&gt;
-                    &lt;th&gt;id&lt;/th&gt;
-                    &lt;th class=&quot;currency&quot;&gt;&#38065;&lt;/th&gt;
-                    &lt;th class=&quot;number&quot;&gt;&#25968;&#23383;&lt;/th&gt;
-                &lt;/thead&gt;
-                &lt;tbody&gt;
-                    &lt;td&gt;1&lt;/td&gt;
-                    &lt;td class=&quot;currency&quot;&gt;&#65509;200.00&lt;/td&gt;
-                    &lt;td class=&quot;number&quot;&gt;234234&lt;/td&gt;
-                &lt;/tbody&gt;
-            &lt;/table&gt;
-            </pre>
-            <p>表格内部居中对齐在对应的<code>th</code>和<code>td</code>上增加<code>.align-center</code></p>
-            <div class="bs-docs-example">
-                <table class="table-normal">
-                    <thead>
-                        <th>id</th>
-                        <th class="align-center">操作</th>
-                    </thead>
-                    <tbody>
-                        <td>1</td>
-                        <td class="align-center">
-                            <a class="btn btn-icon" href="#">
-                                <i class="icon-edit"></i>
-                            </a>
-                        </td>
-                    </tbody>
-                </table>
-            </div>
-            <pre class="prettyprint linenums">
-                &lt;table class=&quot;table-normal&quot;&gt;
-                    &lt;thead&gt;
-                        &lt;th&gt;id&lt;/th&gt;
-                        &lt;th class=&quot;align-center&quot;&gt;&#25805;&#20316;&lt;/th&gt;
-                    &lt;/thead&gt;
-                    &lt;tbody&gt;
-                        &lt;td&gt;1&lt;/td&gt;
-                        &lt;td class=&quot;align-center&quot;&gt;
-                            &lt;a class=&quot;btn btn-icon&quot; href=&quot;#&quot;&gt;
-                                &lt;i class=&quot;icon-edit&quot;&gt;&lt;/i&gt;
-                            &lt;/a&gt;
-                        &lt;/td&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-            </pre>
-            <p>表格内部操作按钮统一样式为button效果图标</p>
-            <div class="bs-docs-example">
-                <a class="btn btn-icon" href="#">
-                    <i class="icon-edit"></i>
-                </a>
-                <a class="btn btn-icon btn-danger" href="#">
-                    <i class="icon-white icon-remove"></i>
-                </a>
-            </div>
-            <pre class="prettyprint linenums">
-                &lt;a class=&quot;btn btn-icon&quot; href=&quot;#&quot;&gt;
-                    &lt;i class=&quot;icon-edit&quot;&gt;&lt;/i&gt;
-                &lt;/a&gt;
-                &lt;a class=&quot;btn btn-icon btn-danger&quot; href=&quot;#&quot;&gt;
-                    &lt;i class=&quot;icon-white icon-remove&quot;&gt;&lt;/i&gt;
-                &lt;/a&gt;
-            </pre>
         </div>
     </div>
 </div>
 
+<pre class="prettyprint linenums">
+&lt;div class=&quot;table-widget&quot;&gt;
+    &lt;table class=&quot;table-normal&quot; &gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;
+                    &lt;input type=&quot;checkbox&quot;&gt;
+                &lt;/th&gt;
+                &lt;th data-class=&quot;expand&quot; class=&quot;number active sort-desc&quot;&gt;
+                    &#31561;&#32423;
+                    &lt;span class=&quot;sort-icon&quot;&gt;&lt;/span&gt;
+                &lt;/th&gt;
+                &lt;th data-hide=&quot;phone,tablet&quot;&gt;&#25991;&#23383;&lt;/th&gt;
+                &lt;th data-hide=&quot;phone,tablet&quot; class=&quot;number active sort-asc&quot;&gt;
+                    &#25968;&#23383;
+                    &lt;span class=&quot;sort-icon&quot;&gt;&lt;/span&gt;
+                &lt;/th&gt;
+                &lt;th data-hide=&quot;phone,tablet&quot; class=&quot;date&quot;&gt;&#26085;&#26399;&lt;/th&gt;
+                &lt;th class=&quot;operation&quot;&gt;&#25805;&#20316;&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;input type=&quot;checkbox&quot;&gt;
+                &lt;/td&gt;
+                &lt;td class=&quot;number&quot;&gt;1&lt;/td&gt;
+                &lt;td&gt;&#36825;&#37324;&#26159;&#25991;&#23383;&lt;/td&gt;
+                &lt;td class=&quot;number&quot;&gt;123&lt;/td&gt;
+                &lt;td class=&quot;date&quot;&gt;2013/06/01&lt;/td&gt;
+                &lt;td class=&quot;operation&quot;&gt;
+                    &lt;a class=&quot;btn btn-small&quot;&gt;&#32534;&#36753;&lt;/a&gt;
+                    &lt;a class=&quot;btn btn-small btn-danger&quot; confirm-button=&quot;talk('Hello, WegnerDesign!');&quot;&gt;
+                        &#21024;&#38500;
+                    &lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            ... ...
+        &lt;/tbody&gt;
+    &lt;/table&gt;
 
-<script type="text/ng-template" id="popover.html">
-    <button class="btn btn-primary" ng-click="popover.saved=true;dismiss()">确定</button>
-    <button type="button" class="btn" ng-click="dismiss()">取消</button>
-</script>
+    &lt;div class=&quot;table-widget-footer row-fluid&quot;&gt;
+        &lt;div class=&quot;pull-left&quot;&gt;
+            &lt;div class=&quot;operation&quot;&gt;
+                &lt;button class=&quot;btn btn-danger&quot;&gt;&#21024;&#38500;&lt;/button&gt;
+                &lt;div class=&quot;btn-group&quot;&gt;
+                    &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
+                    &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
+                    &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;pull-right&quot;&gt;
+            &lt;div class=&quot;pagination&quot;&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;?&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;?&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>

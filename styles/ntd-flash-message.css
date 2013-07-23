@@ -1,11 +1,11 @@
 /*
 Syntax error: Undefined mixin 'ctb-box-shadow'.
-        on line 12 of d:/gitHub/admin-ui/app/styles/ntd-flash-message.scss, in `ctb-box-shadow'
-        from line 12 of d:/gitHub/admin-ui/app/styles/ntd-flash-message.scss
+        on line 13 of d:/gitHub/angular-adminui/app/styles/ntd-flash-message.scss, in `ctb-box-shadow'
+        from line 13 of d:/gitHub/angular-adminui/app/styles/ntd-flash-message.scss
 
 Backtrace:
-d:/gitHub/admin-ui/app/styles/ntd-flash-message.scss:12:in `ctb-box-shadow'
-d:/gitHub/admin-ui/app/styles/ntd-flash-message.scss:12
+d:/gitHub/angular-adminui/app/styles/ntd-flash-message.scss:13:in `ctb-box-shadow'
+d:/gitHub/angular-adminui/app/styles/ntd-flash-message.scss:13
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
@@ -58,4 +58,4 @@ d:/workSoftWare/Ruby200-x64/bin/compass:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'ctb-box-shadow'.\A         on line 12 of d:/gitHub/admin-ui/app/styles/ntd-flash-message.scss, in `ctb-box-shadow'\A         from line 12 of d:/gitHub/admin-ui/app/styles/ntd-flash-message.scss"; }
+  content: "Syntax error: Undefined mixin 'ctb-box-shadow'.\A         on line 13 of d:/gitHub/angular-adminui/app/styles/ntd-flash-message.scss, in `ctb-box-shadow'\A         from line 13 of d:/gitHub/angular-adminui/app/styles/ntd-flash-message.scss"; }

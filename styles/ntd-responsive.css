@@ -1,11 +1,11 @@
 /*
 Syntax error: Undefined mixin 'ctb-input-block-level'.
-        on line 27 of d:/gitHub/admin-ui/app/styles/ntd-responsive.scss, in `ctb-input-block-level'
-        from line 27 of d:/gitHub/admin-ui/app/styles/ntd-responsive.scss
+        on line 27 of d:/gitHub/angular-adminui/app/styles/ntd-responsive.scss, in `ctb-input-block-level'
+        from line 27 of d:/gitHub/angular-adminui/app/styles/ntd-responsive.scss
 
 Backtrace:
-d:/gitHub/admin-ui/app/styles/ntd-responsive.scss:27:in `ctb-input-block-level'
-d:/gitHub/admin-ui/app/styles/ntd-responsive.scss:27
+d:/gitHub/angular-adminui/app/styles/ntd-responsive.scss:27:in `ctb-input-block-level'
+d:/gitHub/angular-adminui/app/styles/ntd-responsive.scss:27
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/tree/visitors/base.rb:37:in `visit'
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:100:in `visit'
@@ -88,4 +88,4 @@ d:/workSoftWare/Ruby200-x64/bin/compass:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined mixin 'ctb-input-block-level'.\A         on line 27 of d:/gitHub/admin-ui/app/styles/ntd-responsive.scss, in `ctb-input-block-level'\A         from line 27 of d:/gitHub/admin-ui/app/styles/ntd-responsive.scss"; }
+  content: "Syntax error: Undefined mixin 'ctb-input-block-level'.\A         on line 27 of d:/gitHub/angular-adminui/app/styles/ntd-responsive.scss, in `ctb-input-block-level'\A         from line 27 of d:/gitHub/angular-adminui/app/styles/ntd-responsive.scss"; }

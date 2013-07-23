@@ -1,11 +1,11 @@
 /*
 Syntax error: Undefined variable: "$white".
-        on line 6 of d:/gitHub/admin-ui/app/styles/ntd-cascade-list.scss
+        on line 6 of d:/gitHub/angular-adminui/app/styles/ntd-cascade-list.scss
 
-1: d:/gitHub/admin-ui/app/styles/ntd-cascade-list.scss
+1: d:/gitHub/angular-adminui/app/styles/ntd-cascade-list.scss
 
 Backtrace:
-d:/gitHub/admin-ui/app/styles/ntd-cascade-list.scss:6
+d:/gitHub/angular-adminui/app/styles/ntd-cascade-list.scss:6
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/script/variable.rb:49:in `_perform'
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/script/node.rb:40:in `perform'
 d:/workSoftWare/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.2.9/lib/sass/tree/visitors/perform.rb:298:in `visit_prop'
@@ -60,4 +60,4 @@ d:/workSoftWare/Ruby200-x64/bin/compass:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$white\".\A         on line 6 of d:/gitHub/admin-ui/app/styles/ntd-cascade-list.scss\A \A 1: d:/gitHub/admin-ui/app/styles/ntd-cascade-list.scss"; }
+  content: "Syntax error: Undefined variable: \"$white\".\A         on line 6 of d:/gitHub/angular-adminui/app/styles/ntd-cascade-list.scss\A \A 1: d:/gitHub/angular-adminui/app/styles/ntd-cascade-list.scss"; }

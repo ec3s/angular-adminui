@@ -1,0 +1,173 @@
+<div class="page-header">
+    <h1>基本CSS样式</h1>
+</div>
+<h3>Div stacked</h3>
+<div class="div-stacked">
+    <div class="stacked-item" ng-controller="CollapseDemoCtrl">
+        <div class="stacked-item-hd">
+            <strong>test one</strong>
+            <button class="btn btn-mini pull-right" ng-click="isCollapsed = !isCollapsed">编辑</button>
+        </div>      
+        <div class="stacked-item-bd" ng-show="isCollapsed">
+            <table class="table-normal">
+                <thead>
+                    <tr>
+                        <th>test new</th>
+                        <th>test new</th>
+                        <th>test new</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>test body</td>
+                        <td>test body</td>
+                        <td>
+                            <div ng-controller="confirmButtonCtrl" class="ng-scope">
+                                <a class="btn btn-danger" confirm-button="talk('Hello, Web Developer!');" data-original-title="" title="">删除</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="stacked-item">
+        <div class="stacked-item-hd">
+            <strong>test one</strong>
+            <button class="btn btn-mini pull-right">编辑</button>
+        </div>      
+    </div>
+</div>
+
+<h3>标签</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>标签</th>
+            <th>标记</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <span class="label">默认样式</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label&quot;&gt;Default&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="label label-success">成功</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label label-success&quot;&gt;Success&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="label label-warning">警告</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label label-warning&quot;&gt;Warning&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="label label-important">重要</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label label-important&quot;&gt;Important&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="label label-info">信息</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label label-info&quot;&gt;Info&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="label label-inverse">反色</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label label-inverse&quot;&gt;Inverse&lt;/span&gt;</code>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>徽章</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>名称</th>
+            <th>案例</th>
+            <th>标记</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>默认样式</td>
+            <td>
+                <span class="badge">1</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge&quot;&gt;1&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>成功</td>
+            <td>
+                <span class="badge badge-success">2</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge badge-success&quot;&gt;2&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>警告</td>
+            <td>
+                <span class="badge badge-warning">4</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge badge-warning&quot;&gt;4&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>重要</td>
+            <td>
+                <span class="badge badge-important">6</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge badge-important&quot;&gt;6&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>信息</td>
+            <td>
+                <span class="badge badge-info">8</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge badge-info&quot;&gt;8&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>反色</td>
+            <td>
+                <span class="badge badge-inverse">10</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge badge-inverse&quot;&gt;10&lt;/span&gt;</code>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Loading</h3>
+<p>
+    <img src="../images/loading.gif" />
+    <code>&lt;img src=&quot;../images/loading.gif&quot; /&gt;</code>
+</p>

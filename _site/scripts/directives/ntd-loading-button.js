@@ -1,27 +1,29 @@
 'use strict';
-
 angular.module('ntd.directives').directive('loadingButton', [function() {
   return {
     restrict: 'A',
-    transclude: true,
-    template: '<button ng-click="triggerAction($event)" ng-disabled="isProcessing" class="btn btn-primary" ng-transclude>' +
-        '<i ng-show="isProcessing" class="icon-refresh icon-animate-refresh"></i>' +
-        '&nbsp;' +
-        '</button>',
-    scope: {
-      action: "&"
-    },
-    controller: function($scope) {
-      $scope.isProcessing = false;
+    link: function(scope, element, attrs) {
+        scope.$watch(
+            function() {
+                return scope.$eval(attrs.loadingButton);
+            },
+            function(value) {
+                if (value) {
+                    if (!attrs.hasOwnProperty('ngDisabled')) {
+                        element.addClass('disabled')
+                               .attr('disabled', 'disabled');
+                    }
+                    element.data('resetText', element.html());
+                    element.html(element.data('loading-text'));
+                } else {
+                    if (!attrs.hasOwnProperty('ngDisabled')) {
+                        element.removeClass('disabled').removeAttr('disabled');
+                    }
 
-      $scope.triggerAction = function(e) {
-        e.stopPropagation();
-        console.log('in controller');
-        $scope.isProcessing = true;
-        $scope.action().then(function() {
-          $scope.isProcessing = false;
-        });
-      };
-    }
-  }
+                    element.html(element.data('resetText'));
+                }
+            }
+        );
+      }
+  };
 }]);

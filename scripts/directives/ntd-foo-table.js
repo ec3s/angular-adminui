@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ntd.directives').directive("fooTable", [function() {
+angular.module('ntd.directives').directive('fooTable', [function() {
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
