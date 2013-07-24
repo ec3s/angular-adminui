@@ -1,0 +1,8 @@
+{
+  "name": "angular-mocks",
+  "version": "1.0.7",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angular/bower-angular-mocks.git"
+  }
+}
