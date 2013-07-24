@@ -3,15 +3,16 @@
         Admin UI 组件
     </h1>
 </div>
+
 <h3>Nav bar</h3>
 <p>通过<code>nav-bar</code>属性来调用， 通过<code>data-match-route="正则表达式"</code>来匹配路径</p>
-<div nav-bar>
+<div nav-bar="">
     <ul class="nav nav-tabs nav-stacked">
         <li data-match-route="/"><a href="#/">用户面板</a></li>
         <li data-match-route="/table"><a href="#/table">表格</a></li>
         <li data-match-route="/form"><a href="#/form">表单</a></li>
         <li data-match-route="/widget"><a href="#/widget">组件</a>
-    </ul>
+    </li></ul>
 </div>
 <pre class="prettyprint linenums">
 &lt;div nav-bar&gt;
@@ -31,7 +32,7 @@
     <li>slimScrollHeight</li>
     <li>slimScrollPosition = left | right</li>
 </ul>
-<div slim-scroll slim-scroll-width="400" slim-scroll-height="100">
+<div slim-scroll="" slim-scroll-width="400" slim-scroll-height="100">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?</p>
@@ -56,7 +57,7 @@
     <li>在<code>th</code>添加<code>data-hide="tablet"</code>属性来设置当分辨率低于1024该列将会被隐藏</li>
     <li>在<code>th</code>添加<code>data-hide="phone"</code>属性来设置当分辨率低于480该列将会被隐藏</li>
 </ul>
-<table class="table-normal" foo-table>
+<table class="table-normal" foo-table="">
     <thead>
         <tr>
             <th data-class="expand">
@@ -148,7 +149,7 @@
 
 <h3>高级表单筛选</h3>
 <p>为表单加上 <code>advance-filter</code> 属性， 当属性为<code>advance-filter="opened"</code>时表单默认展开</p>
-<form class="form-horizontal" advance-filter>
+<form class="form-horizontal" advance-filter="">
     <fieldset>
         <div class="control-group">
             <label class="control-label">文字区域</label>
@@ -225,18 +226,8 @@
 
 <h3>Cascade list</h3>
 <p>为<code>div</code>容器添加<code>cascade-list</code></p>
-<div ng-controller="cascadeListCtrl" style="margin-bottom:15px;">
-    <div class="cascade-list" 
-         data="dptList" 
-         ng-model="dpt.parentCode"
-         name="parentCode" 
-         parent="parentCode" 
-         text="dptName" 
-         path="dptPath" 
-         value="dptCode"
-         width="500px"
-         height="150px"
-    >
+<div ng-controller="cascadeListCtrl" style="margin-bottom:15px">
+    <div class="cascade-list" data="dptList" ng-model="dpt.parentCode" name="parentCode" parent="parentCode" text="dptName" path="dptPath" value="dptCode" width="500px" height="150px">
     </div>
 </div>
 <pre class="prettyprint linenums">
@@ -294,7 +285,7 @@ $scope.dptList = {{dptList|json}}
 <h3>Easy Pie Chart</h3>
 <p><code>easy-pie-chart="item"</code> 属性来调用easy pie chart</p>
 <div class="row-fluid clearfix">
-    <div class="span2" ng-repeat="item in easyPieChart" >
+    <div class="span2" ng-repeat="item in easyPieChart">
         <div easy-pie-chart="item"></div>
     </div>
 </div>
@@ -311,8 +302,8 @@ $scope.dptList = {{dptList|json}}
 <p>通过属性 <code>ntd-pie</code> 来调用, 注：必须指定 ID</p>
 <div class="row-fluid" ng-controller="PieCtrl">
     <div class="span12 clearfix">
-        <div >
-            <div id="sample-pie" ntd-pie data="ageData" pie-height="300" pie-width="800"></div>
+        <div>
+            <div id="sample-pie" ntd-pie="" data="ageData" pie-height="300" pie-width="800"></div>
         </div>
     </div>
 </div>
@@ -322,3 +313,29 @@ $scope.dptList = {{dptList|json}}
 <div class="well" ng-controller="PieCtrl">
     $scope.ageData = {{ ageData  | json }}
 </div>
+
+<h3>时间日期</h3>
+<div class="control-group input-append">
+    <input type="text" class="input-small" ng-model="datepicker.date" placeholder="时间" data-date-format="yyyy/mm/dd" date-picker="">
+    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+</div>
+<p>日期选择器用 <code>date-picker</code> 属性绑定到 input 元素上.</p>
+<pre class="prettyprint linenums">
+    &lt;div class=&quot;control-group input-append&quot;&gt;
+        &lt;input type=&quot;text&quot; class=&quot;input-small&quot; ng-model=&quot;datepicker.date&quot; placeholder=&quot;&#26102;&#38388;&quot; data-date-format=&quot;yyyy/mm/dd&quot; date-picker&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;datepicker&quot;&gt;&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;/div&gt;
+</pre>
+<hr>
+<div class="control-group input-append">
+  <input type="text" class="input-small" ng-model="timepicker.time" time-picker="">
+  <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i>
+</button></div>
+<p>选择器用 <code>time-picker</code> 属性绑定到 input 元素上.</p>
+<pre class="prettyprint linenums">
+    &lt;div class=&quot;control-group input-append&quot;&gt;
+      &lt;input type=&quot;text&quot; ng-model=&quot;timepicker.time&quot; time-picker&gt;
+      &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;timepicker&quot;&gt;&lt;i class=&quot;icon-time&quot;&gt;&lt;/i&gt;&lt;/buttoni&gt;
+    &lt;/div&gt;
+</pre>
+<hr>

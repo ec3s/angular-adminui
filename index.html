@@ -11,18 +11,11 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/ntd-admin-ui.css">
-    <link rel="stylesheet" href="components/bootstrap-datepicker/css/datepicker.css" />
-    <link rel="stylesheet" href="components/bootstrap-timepicker/css/bootstrap-timepicker.css" />
-    <link rel="stylesheet" href="components/jquery.easy-pie-chart/jquery.easy-pie-chart.css" />
-    <link rel="stylesheet" href="components/nanoscroller/bin/css/nanoscroller.css" />
-    <!-- endbuild -->
+    <link rel="stylesheet" href="styles/angular-adminui-unzip.css">
 
-    <!-- Example code style: begin -->
-    <link rel="stylesheet" href="styles/example.css">
-    <link rel="stylesheet" href="styles/prettify.css" />
-    <!-- Example code style: end -->
+    <link rel="stylesheet" href="styles/components.css">
+
+    <link rel="stylesheet" href="styles/docs.css">
 
   </head>
   <body ng-app="demoApp">
@@ -118,7 +111,7 @@
                             </ul>  
                         </li>
                         <li>
-                            <a toggle-submenu>
+                            <a toggle-submenu="">
                                 <i class="icon-list icon-white"></i>
                             </a>
                         </li>
@@ -126,7 +119,7 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">您好，用户 <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li class="user-infomation">
-                                    <img src="../images/avatar.jpg" alt="user avatar" >
+                                    <img src="../images/avatar.jpg" alt="user avatar">
                                     <div class="user-content muted">
                                         用户名
                                     </div>
@@ -157,8 +150,8 @@
     <div class="container-fluid">
         <div class="row-fluid">
 
-            <div class="span2" ng-include src="'views/submenu.html'"></div>
-            <div id="J_mainContent" class="span10" ng-view>
+            <div class="span2" ng-include="" src="'views/submenu.html'"></div>
+            <div id="J_mainContent" class="span10" ng-view="">
 
             </div>
         </div>
@@ -166,56 +159,12 @@
 
     
     
-    <!-- components-->
-    <script src="components/jquery/jquery.min.js"></script>
-    <script src="scripts/vendor/angular.min.js"></script>
-    <!-- script src="components/angular/angular.js"></script -->
-    <script src="components/angular-resource/angular-resource.js"></script>
-    <script src="components/angular-cookies/angular-cookies.js"></script>
-    <script src="components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="components/angular-bootstrap/ui-bootstrap.min.js"></script>
-    <script src="components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="components/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
-    <script src="components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-    <script src="components/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-    <script src="components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
-    <script src="components/footable/js/footable.js"></script>
-    <script src="components/d3/d3.js"></script>
-    <script src="components/angular-ui-select2/src/select2.js"></script>
-    <script src="components/jquery.slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="scripts/angular-adminui-components.js"></script>
+
+    <script src="scripts/angular-adminui-main.js"></script>
 
 
-    <script src="scripts/vendor/angular-bootstrap-prettify.min.js"></script>
-    <script src="scripts/vendor/bootstrap.min.js"></script>
-
-    <script src="scripts/app.js"></script>
-
-    <!-- services -->
-    <script src="scripts/services/services.js"></script>
-
-    <!-- controller -->
-    <script src="scripts/controllers/main.js"></script>
-
-    <!-- directives -->
-    <!-- build:js scripts/scripts.js -->
-    <script src="scripts/directives/ntd-ui-directive.js"></script>
-    <script src="scripts/directives/ntd-notice.js"></script>
-    <script src="scripts/directives/ntd-advance-filter.js"></script>
-    <script src="scripts/directives/ntd-confirm-button.js"></script>
-    <script src="scripts/directives/ntd-date-picker.js"></script>
-    <script src="scripts/directives/ntd-time-picker.js"></script>
-    <script src="scripts/directives/ntd-easy-pie-chart.js"></script>
-    <script src="scripts/directives/ntd-foo-table.js"></script>
-    <script src="scripts/directives/ntd-nano-scroll-bar.js"></script>
-    <script src="scripts/directives/ntd-label-state.js"></script>
-    <script src="scripts/directives/ntd-nav-bar.js"></script>
-    <script src="scripts/directives/ntd-toggle-submenu.js"></script>
-    <script src="scripts/directives/ntd-subtree-menu.js"></script>
-    <script src="scripts/directives/ntd-pie.js"></script>
-    <script src="scripts/directives/ntd-loading-button.js"></script>
-    <script src="scripts/directives/ntd-slim-scroll.js"></script>
-    <script src="scripts/directives/ntd-cascade-list.js"></script>
-    <!-- endbuild -->
+    <script src="scripts/angular-adminui.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
