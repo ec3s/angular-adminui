@@ -4,6 +4,22 @@
     </h1>
 </div>
 
+<h3>Alert</h3>
+<div ng-controller="AlertDemoCtrl">
+  <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+  <button class="btn" ng-click="addAlert()">Add Alert</button>
+</div>
+<hr>
+<pre class="prettyprint linenums">
+&lt;div ng-controller=&quot;AlertDemoCtrl&quot;&gt;
+  &lt;alert ng-repeat=&quot;alert in alerts&quot; type=&quot;alert.type&quot; close=&quot;closeAlert($index)&quot;&gt;{{alert.msg}}&lt;/alert&gt;
+  &lt;button class='btn' ng-click=&quot;addAlert()&quot;&gt;Add Alert&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+<div class="well" ng-controller="AlertDemoCtrl">
+    $scope.alerts = {{ alerts | json }};
+</div>
+
 <h3>Collapse</h3>
 <div ng-controller="CollapseDemoCtrl">
     <button class="btn" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
@@ -12,7 +28,6 @@
         <div class="well well-large">Some content</div> 
     </div>
 </div>
-
 <pre class="prettyprint linenums">
     &lt;div ng-controller=&quot;CollapseDemoCtrl&quot;&gt;
         &lt;button class=&quot;btn&quot; ng-click=&quot;isCollapsed = !isCollapsed&quot;&gt;Toggle collapse&lt;/button&gt;

@@ -1,8 +1,0 @@
-{
-  "name": "jquery-ui",
-  "version": "1.10.3",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/components/jqueryui"
-  }
-}

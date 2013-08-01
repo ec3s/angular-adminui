@@ -3,6 +3,120 @@
         Admin UI 组件
     </h1>
 </div>
+<h3>field error</h3>
+<form name="myForm" ng-submit="save()">
+
+    <label for="personName">Example for fied error</label>
+    <input type="text" id="personName" class="span3" name="personName" ng-model="person.name" required="">
+
+
+    <span class="help-inline" field-error="" for="myForm.personName">显示错误信息</span>
+    <!-- <span ng-show="myForm.personName.$error.required">Required!</span>
+    <span ng-show="myForm.personName.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span> -->
+    <p>
+        <input type="submit" class="btn" ng-disabled="!myForm.$valid" value="保存">
+    </p>
+</form>
+
+<h3>Chosen</h3>
+<ul>
+    <li><p><code>data-placeholder - string</code>, 占位提示信息</p></li>
+    <li><p><code>data-disable-search-threshold - int</code>, 当大于设置条数时显示搜索</p></li>
+    <li><p><code>data-on-search-promise - fn</code>, 当搜索的时候回调函数, 要求返回一个promise</p></li>
+    <li><p><code>data-options-node - string</code>, 返回结果中option 所处的节点</p></li>
+    <li><p><code>data-allow-single-deselect - bool</code>, 是否允许清空选中项目</p></li>
+</ul>
+<div ng-controller="chosenCtrl">
+    <h4>Single</h4>
+    <p>已选中：{{lang}}</p>
+    <p>
+        <select data-ng-model="lang" class="ntd-chosen" data-placeholder="请选择" data-ng-options="option.id as option.name for option in options">
+        </select>
+        single的chosen
+    </p>
+    <pre class="prettyprint linenums">
+        &lt;select data-ng-model=&quot;lang&quot; 
+            class=&quot;ntd-chosen&quot;
+            data-placeholder=&quot;&#35831;&#36873;&#25321;&quot;
+            data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
+        &lt;/select&gt;
+    </pre>
+    <p>
+        <select data-ng-model="lang" data-ntd-chosen="" data-disable-search-threshold="10" data-ng-options="option.id as option.name for option in options">
+        </select>
+        single的chosen, 大于10条时显示搜索
+    </p>
+    <pre class="prettyprint linenums">
+        &lt;select data-ng-model=&quot;lang&quot; 
+            data-ntd-chosen
+            data-disable-search-threshold=&quot;10&quot;
+            data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
+        &lt;/select&gt;
+    </pre>
+    <p>
+        <select data-ng-model="lang" data-ntd-chosen="" data-allow-single-deselect="true" data-disable-search-threshold="10" data-ng-options="option.id as option.name for option in options">
+            <option value=""></option>
+        </select>
+        single的chosen, 需要可以取消选择时, 需要有一个值和内容都为空的<code>option</code>
+    </p>
+    <pre class="prettyprint linenums">
+        &lt;select data-ng-model=&quot;lang&quot; 
+            data-ntd-chosen
+            data-allow-single-deselect=&quot;true&quot;
+            data-disable-search-threshold=&quot;10&quot;
+            data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
+            &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+        &lt;/select&gt;
+    </pre>
+    <h4>Linkage</h4>
+    <p>已选中：{{link}}</p>
+    <div data-ntd-linkage="" data-source="linkages" data-ng-model="link" style="margin-bottom:20px"></div>
+    <pre class="prettyprint linenums">
+        &lt;div data-ntd-linkage data-source=&quot;linkages&quot; data-ng-model=&quot;link&quot;&gt;&lt;/div&gt;
+    </pre>
+
+    <h4>AutoComplete</h4>
+    <p>已选中：{{auto}}</p>
+    <p>
+        <select data-ng-model="auto" data-ntd-chosen="" data-on-search-promise="optionPromise($search)" data-ng-options="movie.id as movie.title for movie in movies">
+        </select>
+    </p>
+    <pre class="prettyprint linenums">
+        &lt;select data-ng-model=&quot;auto&quot; 
+            data-ntd-chosen
+            data-on-search-promise=&quot;optionPromise($search)&quot;
+            data-ng-options=&quot;movie.id as movie.title for movie in movies&quot;&gt;
+        &lt;/select&gt;
+    </pre>
+
+    <h4>Multiple</h4>
+    <p>已选中：{{multipleLang}}</p>
+    <p>这是multiple的chosen</p>
+    <p>
+        <select data-ng-model="multipleLang" data-ntd-chosen="" data-placeholder="选点东西吧" multiple="multiple" data-ng-options="option.id as option.name for option in options">
+        </select>
+    </p>
+    <pre class="prettyprint linenums">
+        &lt;select data-ng-model=&quot;multipleLang&quot; 
+            data-ntd-chosen
+            data-placeholder=&quot;&#36873;&#28857;&#19996;&#35199;&#21543;&quot;
+            multiple
+            data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
+        &lt;/select&gt;
+    </pre>
+
+    <h3>Tag Input</h3>
+    <ul>
+        <li><p>分号为分隔符</p></li>
+        <li><p><code>data-ng-model array</code>, 标签列表</p></li>
+        <li><p><code>data-placeholder string</code>, 占位提示信息</p></li>
+        <li><p><code>data-allways-placeholder bool</code>, 是否一直显示占位提示信息,默认为否</p></li>
+        <li><p><code>data-unique bool</code>, 标签是否唯一,默认为是</p></li>
+    </ul>
+    <p>Tags: {{tags}}</p>
+    <div data-ng-model="tags" data-tag-input="" data-placeholder="添加标签">
+    </div>
+</div>
 
 <h3>Nav bar</h3>
 <p>通过<code>nav-bar</code>属性来调用， 通过<code>data-match-route="正则表达式"</code>来匹配路径</p>
@@ -32,11 +146,17 @@
     <li>slimScrollHeight</li>
     <li>slimScrollPosition = left | right</li>
 </ul>
-<div slim-scroll="" slim-scroll-width="400" slim-scroll-height="100">
+<div slim-scroll="" slim-scroll-width="400" slim-scroll-height="100" style="margin-bottom:15px">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?</p>
 </div>
+<pre class="prettyprint lineums">
+&lt;div slim-scroll slim-scroll-width=&quot;400&quot; slim-scroll-height=&quot;100&quot;&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?&lt;/p&gt;
+    ... ...
+&lt;/div&gt;
+</pre>
 
 <h3>Confirm button</h3>
 <p>为标签添加<code>confirm-button</code>属性, </p>
@@ -135,7 +255,7 @@
 </pre>
 
 <h3>Label state</h3>
-<p>为<code>label</code>添加<code>label-state="这里输入提示信息"</code></p>
+<p>为<code>label</code>添加<code>label-state="这里文字为解释说明label的"</code></p>
 <form class="form-horizontal">
     <fieldset>
         <div class="control-group">
@@ -249,12 +369,12 @@ $scope.dpt = {&quot;parentCode&quot;:&quot;14&quot;};<br>
 $scope.dptList = {{dptList|json}}
 </div>
 
-<h3>Notice message</h3>
+<!-- h3>Notice message</h3>
 <div ng-controller="noticeCtrl">
     <p>
         <button class="btn btn-info" ng-click="sendMsg({state:'info', info:'提示信息'})">提示信息</button>
         <button class="btn btn-danger" ng-click="sendMsg({state:'error', info:'错误信息'})">错误信息</button>
-        <button class="btn btn-primary" ng-click="sendMsg({state:'success', info:'成功信息'})">成功信息</button>
+        <button class="btn btn-success" ng-click="sendMsg({state:'success', info:'成功信息'})">成功信息</button>
         <button class="btn btn-warning" ng-click="sendMsg({state:'warning', info:'警告信息'})">警告信息</button>
     </p>
 </div>
@@ -262,10 +382,10 @@ $scope.dptList = {{dptList|json}}
 <pre class="prettyprint linenum">
     &lt;button class=&quot;btn btn-info&quot; ng-click=&quot;sendMsg({state:'info', info:'&#25552;&#31034;&#20449;&#24687;'})&quot;&gt;&#25552;&#31034;&#20449;&#24687;&lt;/button&gt;
     &lt;button class=&quot;btn btn-danger&quot; ng-click=&quot;sendMsg({state:'error', info:'&#38169;&#35823;&#20449;&#24687;'})&quot;&gt;&#38169;&#35823;&#20449;&#24687;&lt;/button&gt;
-    &lt;button class=&quot;btn btn-primary&quot; ng-click=&quot;sendMsg({state:'success', info:'&#25104;&#21151;&#20449;&#24687;'})&quot;&gt;&#25104;&#21151;&#20449;&#24687;&lt;/button&gt;
+    &lt;button class=&quot;btn btn-success&quot; ng-click=&quot;sendMsg({state:'success', info:'&#25104;&#21151;&#20449;&#24687;'})&quot;&gt;&#25104;&#21151;&#20449;&#24687;&lt;/button&gt;
     &lt;button class=&quot;btn btn-warning&quot; ng-click=&quot;sendMsg({state:'warning', info:'&#35686;&#21578;&#20449;&#24687;'})&quot;&gt;&#35686;&#21578;&#20449;&#24687;&lt;/button&gt;
 </pre>
-<hr>
+<hr -->
 
 <h3>Loading button</h3>
 <div ng-controller="loadingButtonCtrl">
