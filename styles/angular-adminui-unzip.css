@@ -9630,29 +9630,6 @@ table .sort-desc .sort-icon {
   text-shadow: 0 1px 0 #fff;
 }
 
-/* line 2, ../../app/styles/ntd-flash-message.scss */
-.flash-message {
-  position: fixed;
-  height: 50px;
-  padding: 0 10px;
-  top: 40px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  line-height: 50px;
-  z-index: 1000;
-  border-radius: 0;
-  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-}
-/* line 15, ../../app/styles/ntd-flash-message.scss */
-.flash-message .close {
-  top: 12px;
-  right: 20px;
-  position: relative;
-}
-
 @media (max-width: 767px) {
   /* line 3, ../../app/styles/ntd-responsive.scss */
   body {
