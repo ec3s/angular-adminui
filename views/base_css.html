@@ -5,44 +5,26 @@
     Page actions
     <small>位置为页面主区域的最顶部</small>
 </h3>
-<p>页面上的所有操作，放到page-header的顶部， 右侧只有返回按钮不能添加其它按钮</p>
+<p>Page actions放到page-header的里面， 返回按钮在最左侧，页面的,其它的样式为<code>btn</code>，不允许使用其他的样式</p>
 <ul>
-    <li>右侧的按钮中只能只有一个 <code>.primary-btn</code>， 其它按钮均为<code>btn</code>样式 </li>
-    <li>左侧的按钮功能相关联的按钮用 <code>.btn-group</code> 包围</li>
-    <li>返回按钮，不许更改文字及位置， 要跳转到哪个页面通过 <code>tooltip</code> 来提示</li>
+    <li>主要操作在最右侧样式为<code>btn-primary</code> </li>
+    <li>其它按钮均为<code>btn</code>样式，并放在<code>btn-group</code>的容器里，数量 3 个以内， 按钮的文字应简短精确，适当的可以用<code>tooltip</code>补充说明</li>
+    <li>返回按钮，不许更改文字及位置， 要跳转到哪个页面通过 <code>tooltip</code>， 并延迟 500毫秒 来提示</li>
 </ul>
-<div class="page-action">
-    <div class="pull-left">
-        <button class="btn" tooltip-placement="bottom" tooltip="返回某个页面"><i class="icon-arrow-left"></i></button>
-
-        <div class="btn-group">
-            <button class="btn">操作</button>
-            <button class="btn">操作</button>
-            <button class="btn">操作</button>
-        </div>
-        <button class="btn">操作</button>
-        <button class="btn">操作</button>
-    </div>
-    <div class="pull-right">
-        <button class="btn btn-primary">主要操作</button>
-    </div>
-</div>
+<p class="page-action">
+    <button class="btn" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay="500"><i class="icon-arrow-left"></i></button>
+    <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+    <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+    <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+    <button class="btn btn-primary" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">主要操作</button>
+</p>
 <pre class="prettyprint linenums">
 &lt;div class=&quot;page-action&quot;&gt;
-    &lt;div class=&quot;pull-left&quot;&gt;
-        &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#36820;&#22238;&#26576;&#20010;&#39029;&#38754;&quot;&gt;&lt;i class=&quot;icon-arrow-left&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-
-        &lt;div class=&quot;btn-group&quot;&gt;
-            &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-            &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-            &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-        &lt;/div&gt;
-        &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-        &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;pull-right&quot;&gt;
-        &lt;button class=&quot;btn btn-primary&quot;&gt;&#20027;&#35201;&#25805;&#20316;&lt;/button&gt;
-    &lt;/div&gt;
+    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#36820;&#22238;&#26576;&#20010;&#39029;&#38754;&quot; tooltip-popup-delay='500'&gt;&lt;i class=&quot;icon-arrow-left&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
+    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
+    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#20027;&#35201;&#25805;&#20316;&lt;/button&gt;
 &lt;/div&gt;
 </pre>
 
@@ -64,6 +46,21 @@
     &lt;/h1&gt;
 &lt;/div&gt;
 </pre>
+
+<h3>page header 和 page action 组合应用</h3>
+<div class="page-header">
+    <div class="page-action">
+        <button class="btn" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay="500"><i class="icon-arrow-left"></i></button>
+        <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+        <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+        <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+        <button class="btn btn-primary" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">主要操作</button>
+    </div>
+    <h1>
+        页面标题
+        <small>页面的一些说明</small>
+    </h1>
+</div>
 
 <h3>警告框</h3>
 <div class="alert">警告</div>

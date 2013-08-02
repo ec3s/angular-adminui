@@ -162,7 +162,7 @@
 <p>为标签添加<code>confirm-button</code>属性, </p>
 <div ng-controller="confirmButtonCtrl">
     <p>
-        <a class="btn btn-danger" confirm-button="talk('Hello, Web Developer!');">删除</a>
+        <a class="btn btn-danger" title="自定义标题" confirm-button="talk('Hello, Web Developer!');">删除</a>
     </p>
 </div>
 <pre class="prettyprint linenums">
@@ -376,6 +376,9 @@ $scope.dptList = {{dptList|json}}
         <button class="btn btn-danger" ng-click="sendMsg({state:'error', info:'错误信息'})">错误信息</button>
         <button class="btn btn-success" ng-click="sendMsg({state:'success', info:'成功信息'})">成功信息</button>
         <button class="btn btn-warning" ng-click="sendMsg({state:'warning', info:'警告信息'})">警告信息</button>
+        <button class="btn btn-warning" ng-click="sendMsg({state:'success', info:'成功信息，页面即将跳转...', redirect_url: '/table'})">
+            callback url
+        </button>
     </p>
 </div>
 
@@ -384,6 +387,7 @@ $scope.dptList = {{dptList|json}}
     &lt;button class=&quot;btn btn-danger&quot; ng-click=&quot;sendMsg({state:'error', info:'&#38169;&#35823;&#20449;&#24687;'})&quot;&gt;&#38169;&#35823;&#20449;&#24687;&lt;/button&gt;
     &lt;button class=&quot;btn btn-success&quot; ng-click=&quot;sendMsg({state:'success', info:'&#25104;&#21151;&#20449;&#24687;'})&quot;&gt;&#25104;&#21151;&#20449;&#24687;&lt;/button&gt;
     &lt;button class=&quot;btn btn-warning&quot; ng-click=&quot;sendMsg({state:'warning', info:'&#35686;&#21578;&#20449;&#24687;'})&quot;&gt;&#35686;&#21578;&#20449;&#24687;&lt;/button&gt;
+    &lt;button class=&quot;btn btn-warning&quot; ng-click=&quot;sendMsg({state:'success', info:'&#25104;&#21151;&#20449;&#24687;&#65292;&#39029;&#38754;&#21363;&#23558;&#36339;&#36716;...', redirect_url: '/table'})&quot;&gt;callback url&lt;/button&gt;
 </pre>
 <hr>
 
