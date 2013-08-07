@@ -7,12 +7,16 @@
 <h3>toggle swithers</h3>
 <p>开关组件， 添加<code>toggle-switcher</code>属性</p>
 <p><code>id</code>, <code>name</code>, <code>on-title</code>, <code>off-title</code>, <code>width</code>, <code>small-class</code>为可配置属性</p>
-<div toggle-switcher="" id="checkboxid" name="checkboxname" on-title="on" off-title="off" width="100px"></div>
-
+<p>
+    <span toggle-switcher="" id="checkboxid" name="checkboxname" on-title="on" off-title="off" width="100px"></span>
+    <input type="button" class="btn" value="测试">
+</p>
 <pre class="prettyprint linenums">
 &lt;div toggle-switcher id=&quot;checkboxid&quot; name=&quot;checkboxname&quot; on-title=&quot;on&quot; off-title=&quot;off&quot; width=&quot;100px&quot;&gt;&lt;/div&gt;
 </pre>
-<div toggle-switcher="" id="checkboxidsmall" name="checkboxnamesmall" on-title="打开文字" off-title="关闭文字" width="200px" small-class="small"></div>
+<p>
+    <span toggle-switcher="" id="checkboxidsmall" name="checkboxnamesmall" on-title="打开文字" off-title="关闭文字" width="200px" small-class="small"></span>
+</p>
 <pre class="prettyprint linenums">
 &lt;div toggle-switcher id=&quot;checkboxidsmall&quot; name=&quot;checkboxnamesmall&quot; on-title=&quot;&#25171;&#24320;&#25991;&#23383;&quot; off-title=&quot;&#20851;&#38381;&#25991;&#23383;&quot; width=&quot;200px&quot; small-class=&quot;small&quot;&gt;&lt;/div&gt;
 </pre>
@@ -193,7 +197,7 @@
 <p>为标签添加<code>confirm-button</code>属性, </p>
 <div ng-controller="confirmButtonCtrl">
     <p>
-        <a class="btn btn-danger" title="自定义标题" message="自定义内容" confirm-button="talk('Hello, Web Developer!');">删除</a>
+        <a class="btn btn-danger" title="自定义标题" message="当前品类下包含参数将一并删除，确认删除该品类？" confirm-button="talk('Hello, Web Developer!');">删除</a>
     </p>
 </div>
 <pre class="prettyprint linenums">
