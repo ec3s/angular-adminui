@@ -1,1 +1,834 @@
-"use strict";var demoApp=angular.module("demoApp",["ntd.services","ntd.directives","ui.bootstrap","bootstrapPrettify"]);demoApp.config(["$routeProvider","$locationProvider",function(a){a.when("/",{templateUrl:"views/main.html",controller:"MainCtrl"}).when("/base-css",{templateUrl:"views/base_css.html",controller:"MainCtrl"}).when("/form",{templateUrl:"views/form.html",controller:"MainCtrl"}).when("/widget",{templateUrl:"views/widget.html",controller:"MainCtrl"}).when("/bootstrap-ui-widget",{templateUrl:"views/bootstrap_ui_widget.html",controller:"MainCtrl"}).when("/table",{templateUrl:"views/table.html",controller:"MainCtrl"}).when("/login",{templateUrl:"views/login.html",controller:"MainCtrl"}).when("/sub/test",{templateUrl:"views/sub_page.html",controller:"MainCtrl"}).when("/sub/test2",{templateUrl:"views/sub_page.html",controller:"MainCtrl"}).when("/sub/test3",{templateUrl:"views/sub_page.html",controller:"MainCtrl"}).when("/404",{templateUrl:"views/404.html",controller:"MainCtrl"}).when("/test",{templateUrl:"views/test.html",controller:"MainCtrl"}).otherwise({redirectTo:"/"})}]),angular.module("ntd.services",[]).factory("flash",["$rootScope",function(a){return{notify:function(b){a.$emit("event:notification",b)}}}]);var chosenCtrl=function(a,b,c){a.options=this.getOptions(),a.optionPromise=angular.bind(this,this.getOptionPromise,b,c),a.linkages=[{id:1,name:"bb",children:[{id:2,name:"aa",children:[{id:3,name:"vv"}]}]}]};chosenCtrl.prototype.getOptionPromise=function(a,b,c){var d=b.defer();return a.jsonp("http://api.rottentomatoes.com/api/public/v1.0/movies.json?q="+c+"&apikey=ju6z9mjyajq2djue3gbvv26t&page_limit=10&page=1"+"&callback=JSON_CALLBACK").success(function(a){d.resolve(a.movies)}).error(function(a){d.reject(a)}),d.promise},chosenCtrl.prototype.getOptions=function(){return[{id:1,name:"CN"},{id:2,name:"JP"},{id:3,name:"EN"},{id:4,name:"AU"},{id:5,name:"DE"}]},demoApp.controller("MainCtrl",["$scope","$window","$location",function(a,b,c){a.$location=c,a.name="Nobody",a.sayHello=function(b){a.name=b,console.log("say hello"+b)},a.crmDropdown=[{text:"CRM Another action",href:"#anotherAction"},{text:"CRM Something else here",click:"$alert('working ngClick!')"},{text:"CRM Separated link"}],a.pecDropdown=[{text:"CRM Another action",href:"#anotherAction"},{text:"CRM Something else here",click:"$alert('working ngClick!')"},{text:"CRM Separated link"}],a.wmsDropdown=[{text:"CRM Another action",href:"#anotherAction"},{text:"CRM Something else here",click:"$alert('working ngClick!')"},{text:"CRM Separated link"}],a.easyPieChart=[{caption:"New Visits",percent:58,usage:"58%"},{caption:"Bounce Rate",percent:43,usage:"43%"},{caption:"Server Load",percent:91,usage:"91%"},{caption:"Used RAM",percent:82,usage:"75M"},{caption:"Processor Load",percent:35,usage:"35%"},{caption:"Bandwidth",percent:77,usage:"1.5TB"}],a.alert={}}]),demoApp.controller("TabsDemoCtrl",["$scope",function(a){a.panes=[{title:"Dynamic Title 1",content:"Dynamic content 1"},{title:"Dynamic Title 2",content:"Dynamic content 2"}]}]).controller("TypeaheadCtrl",["$scope",function(a){a.selected=void 0,a.states=["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]}]).controller("PaginationDemoCtrl",["$scope",function(a){a.noOfPages=7,a.currentPage=4,a.maxSize=5,a.setPage=function(b){a.currentPage=b},a.bigNoOfPages=18,a.bigCurrentPage=1}]).controller("CollapseDemoCtrl",["$scope",function(a){a.isCollapsed=!1}]).controller("AccordionDemoCtrl",["$scope",function(a){a.oneAtATime=!0,a.groups=[{title:"Dynamic Group Header - 1",content:"Dynamic Group Body - 1"},{title:"Dynamic Group Header - 2",content:"Dynamic Group Body - 2"}],a.items=["Item 1","Item 2","Item 3"],a.addItem=function(){var b=a.items.length+1;a.items.push("Item "+b)}}]).controller("AlertDemoCtrl",["$scope",function(a){a.alerts=[{type:"alert",msg:"警告"},{type:"error",msg:"失败，错误, 危险"},{type:"success",msg:"成功信息"},{type:"info",msg:"需要注意的信息"}],a.addAlert=function(){a.alerts.push({msg:"Another alert!"})},a.closeAlert=function(b){a.alerts.splice(b,1)}}]).controller("ButtonsCtrl",["$scope",function(a){a.singleModel=1,a.radioModel="Middle",a.checkModel={left:!1,middle:!0,right:!1}}]).controller("DialogDemoCtrl",["$scope","$dialog",function(a,b){var c='<div class="modal-header"><h1>This is the title</h1></div><div class="modal-body"><p>Enter a value to pass to <code>close</code> as the result: <input ng-model="result" /></p></div><div class="modal-footer"><button ng-click="close(result)"" class="btn btn-primary" >Close</button></div>';a.opts={backdrop:!0,keyboard:!0,backdropClick:!0,template:c,controller:"TestDialogController"},a.openDialog=function(){var c=b.dialog(a.opts);c.open().then(function(a){a&&alert("dialog closed with result: "+a)})},a.openMessageBox=function(){var a="This is a message box",c="This is the content of the message box",d=[{result:"cancel",label:"Cancel"},{result:"ok",label:"OK",cssClass:"btn-primary"}];b.messageBox(a,c,d).open().then(function(a){a&&alert("dialog closed with result: "+a)})}}]).controller("TestDialogController",["$scope","dialog",function(a,b){a.close=function(a){b.close(a)}}]).controller("DropdownCtrl",["$scope",function(a){a.items=["The first choice!","And another choice for you.","but wait! A third!"]}]).controller("ModalDemoCtrl",["$scope",function(a){a.open=function(){a.shouldBeOpen=!0},a.close=function(){a.closeMsg="I was closed at: "+new Date,a.shouldBeOpen=!1},a.items=["item1","item2"],a.opts={backdropFade:!0,dialogFade:!0}}]).controller("TooltipDemoCtrl",["$scope",function(a){a.dynamicTooltip="Hello, World!",a.dynamicTooltipText="dynamic",a.htmlTooltip="I've been made <b>bold</b>!"}]).controller("PopoverDemoCtrl",["$scope",function(a){a.dynamicPopover="Hello, World!",a.dynamicPopoverText="dynamic",a.dynamicPopoverTitle="Title"}]).controller("DateCtrl",["$scope",function(a){a.dateOptions={changeYear:!0,changeMonth:!0,yearRange:"1900:-0"},a.myDate="Thursday, 11 October, 2012"}]).controller("confirmButtonCtrl",["$scope",function(a){a.talk=function(a){alert(a)}}]).controller("PieCtrl",["$scope",function(a){var b={total:299,analysis:[{name:"20-30岁",value:96},{name:"31-40岁",value:26},{name:"41-50岁",value:46},{name:"51-60岁",value:17}]};a.ageData=b}]).controller("noticeCtrl",["$rootScope","$scope","flash",function(a,b,c){b.sendMsg=function(a){c.notify(a)}}]).controller("loadingButtonCtrl",["$scope","$q","$timeout",function(a,b,c){a.isProcessing=!1,a.do=function(){a.isProcessing=!0,c(function(){a.$apply(function(){a.isProcessing=!1})},2e3)},a.save=function(){var a=b.defer();return c(function(){a.resolve()},2e3),a.promise}}]).controller("cascadeListCtrl",["$scope","$q","$timeout",function(a){a.dpt={parentCode:"14"},a.dptList=[{dptCode:"1",dptMasterId:0,dptName:"行政部",dptPath:"/1/",id:1,parentCode:"0"},{dptCode:"10",dptMasterId:0,dptName:"企业联盟发展部",dptPath:"/10/",id:10,parentCode:"0"},{dptCode:"85",dptMasterId:0,dptName:"支持部",dptPath:"/10/85/",id:85,parentCode:"10"},{dptCode:"86",dptMasterId:0,dptName:"B2B2C电商平台",dptPath:"/10/86/",id:86,parentCode:"10"},{dptCode:"87",dptMasterId:0,dptName:"服饰母婴",dptPath:"/10/87/",id:87,parentCode:"10"},{dptCode:"88",dptMasterId:0,dptName:"3C数码",dptPath:"/10/88/",id:88,parentCode:"10"},{dptCode:"89",dptMasterId:0,dptName:"销售部",dptPath:"/10/89/",id:89,parentCode:"10"},{dptCode:"2",dptMasterId:0,dptName:"技术部",dptPath:"/2/",id:2,parentCode:"0"},{dptCode:"11",dptMasterId:0,dptName:"WMS研发部",dptPath:"/2/11/",id:11,parentCode:"2"},{dptCode:"14",dptMasterId:0,dptName:"UED",dptPath:"/2/14/",id:14,parentCode:"2"},{dptCode:"38",dptMasterId:0,dptName:"PEC研发部",dptPath:"/2/38/",id:38,parentCode:"2"},{dptCode:"45",dptMasterId:0,dptName:"运维部",dptPath:"/2/45/",id:45,parentCode:"2"},{dptCode:"69",dptMasterId:0,dptName:"b2b2c研发部",dptPath:"/2/69/",id:69,parentCode:"2"},{dptCode:"97",dptMasterId:0,dptName:"NTD",dptPath:"/2/97/",id:97,parentCode:"2"},{dptCode:"48",dptMasterId:0,dptName:"战略发展部",dptPath:"/48/",id:48,parentCode:"0"},{dptCode:"65",dptMasterId:0,dptName:"市场",dptPath:"/48/65/",id:65,parentCode:"48"},{dptCode:"66",dptMasterId:0,dptName:"运营",dptPath:"/48/66/",id:66,parentCode:"48"},{dptCode:"96",dptMasterId:0,dptName:"客服",dptPath:"/48/96/",id:96,parentCode:"48"},{dptCode:"5",dptMasterId:0,dptName:"品牌发展事业部",dptPath:"/5/",id:5,parentCode:"0"},{dptCode:"82",dptMasterId:0,dptName:"官网组",dptPath:"/5/82/",id:82,parentCode:"5"},{dptCode:"95",dptMasterId:0,dptName:"电话客服部",dptPath:"/5/82/95/",id:95,parentCode:"82"},{dptCode:"99",dptMasterId:0,dptName:"电话客服部",dptPath:"/5/82/95/",id:95,parentCode:"95"},{dptCode:"93",dptMasterId:0,dptName:"天猫组",dptPath:"/5/93/",id:93,parentCode:"5"},{dptCode:"83",dptMasterId:0,dptName:"在线客服部",dptPath:"/5/93/83//",id:83,parentCode:"93"},{dptCode:"94",dptMasterId:0,dptName:"售后部",dptPath:"/5/94/",id:94,parentCode:"5"},{dptCode:"61",dptMasterId:0,dptName:"摄影工作室",dptPath:"/61/",id:61,parentCode:"0"},{dptCode:"62",dptMasterId:0,dptName:"杭州分公司",dptPath:"/62/",id:62,parentCode:"0"},{dptCode:"67",dptMasterId:0,dptName:"青岛分公司",dptPath:"/67/",id:67,parentCode:"0"},{dptCode:"70",dptMasterId:0,dptName:"技术部",dptPath:"/67/70/",id:70,parentCode:"67"},{dptCode:"71",dptMasterId:0,dptName:"财务部",dptPath:"/67/71/",id:71,parentCode:"67"},{dptCode:"72",dptMasterId:0,dptName:"运营部",dptPath:"/67/72/",id:72,parentCode:"67"},{dptCode:"75",dptMasterId:0,dptName:"行政部",dptPath:"/67/75/",id:75,parentCode:"67"},{dptCode:"91",dptMasterId:0,dptName:"销售部",dptPath:"/67/91/",id:91,parentCode:"67"},{dptCode:"92",dptMasterId:0,dptName:"客服部",dptPath:"/67/92/",id:92,parentCode:"67"},{dptCode:"8",dptMasterId:0,dptName:"财务部",dptPath:"/8/",id:8,parentCode:"0"},{dptCode:"90",dptMasterId:0,dptName:"仓储",dptPath:"/8/90/",id:90,parentCode:"8"},{dptCode:"90",dptMasterId:0,dptName:"仓储",dptPath:"/8/90/",id:90,parentCode:"8"},{dptCode:"9",dptMasterId:0,dptName:"人力资源部",dptPath:"/9/",id:9,parentCode:"0"}]}]).controller("chosenCtrl",["$scope","$http","$q",chosenCtrl]);
+'use strict';
+var adminuiApp = angular.module('adminuiApp', [
+    'ntd.services',
+    'ntd.directives',
+    'ui.bootstrap',
+    'bootstrapPrettify'
+  ]);
+adminuiApp.config([
+  '$routeProvider',
+  '$locationProvider',
+  function ($routeProvider, $locationProvider) {
+    $routeProvider.when('/', {
+      templateUrl: 'views/main.html',
+      controller: 'MainCtrl'
+    }).when('/base-css', {
+      templateUrl: 'views/base_css.html',
+      controller: 'MainCtrl'
+    }).when('/form', {
+      templateUrl: 'views/form.html',
+      controller: 'MainCtrl'
+    }).when('/widget', {
+      templateUrl: 'views/widget.html',
+      controller: 'MainCtrl'
+    }).when('/bootstrap-ui-widget', {
+      templateUrl: 'views/bootstrap_ui_widget.html',
+      controller: 'MainCtrl'
+    }).when('/table', {
+      templateUrl: 'views/table.html',
+      controller: 'MainCtrl'
+    }).when('/login', {
+      templateUrl: 'views/login.html',
+      controller: 'MainCtrl'
+    }).when('/sub/test', {
+      templateUrl: 'views/sub_page.html',
+      controller: 'MainCtrl'
+    }).when('/sub/test2', {
+      templateUrl: 'views/sub_page.html',
+      controller: 'MainCtrl'
+    }).when('/sub/test3', {
+      templateUrl: 'views/sub_page.html',
+      controller: 'MainCtrl'
+    }).when('/404', {
+      templateUrl: 'views/404.html',
+      controller: 'MainCtrl'
+    }).when('/test', {
+      templateUrl: 'views/test.html',
+      controller: 'MainCtrl'
+    }).otherwise({ redirectTo: '/' });
+  }
+]);
+'use strict';
+var chosenCtrl = function ($scope, $http, $q) {
+  $scope.options = this.getOptions();
+  $scope.optionPromise = angular.bind(this, this.getOptionPromise, $http, $q);
+  $scope.linkages = [{
+      id: 1,
+      name: 'bb',
+      children: [{
+          id: 2,
+          name: 'aa',
+          children: [{
+              id: 3,
+              name: 'vv'
+            }]
+        }]
+    }];
+};
+chosenCtrl.prototype.getOptionPromise = function ($http, $q, search) {
+  var deferred = $q.defer();
+  $http.jsonp('http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=' + search + '&apikey=ju6z9mjyajq2djue3gbvv26t&page_limit=10&page=1' + '&callback=JSON_CALLBACK').success(function (data) {
+    deferred.resolve(data.movies);
+  }).error(function (error) {
+    deferred.reject(error);
+  });
+  return deferred.promise;
+};
+chosenCtrl.prototype.getOptions = function () {
+  return [
+    {
+      id: 1,
+      name: 'CN'
+    },
+    {
+      id: 2,
+      name: 'JP'
+    },
+    {
+      id: 3,
+      name: 'EN'
+    },
+    {
+      id: 4,
+      name: 'AU'
+    },
+    {
+      id: 5,
+      name: 'DE'
+    }
+  ];
+};
+adminuiApp.controller('MainCtrl', [
+  '$scope',
+  '$window',
+  '$location',
+  function ($scope, $window, $location) {
+    $scope.$location = $location;
+    $scope.name = 'Nobody';
+    $scope.sayHello = function (name) {
+      $scope.name = name;
+      console.log('say hello' + name);
+    };
+    $scope.crmDropdown = [
+      {
+        text: 'CRM Another action',
+        href: '#anotherAction'
+      },
+      {
+        text: 'CRM Something else here',
+        click: '$alert(\'working ngClick!\')'
+      },
+      { text: 'CRM Separated link' }
+    ];
+    $scope.pecDropdown = [
+      {
+        text: 'CRM Another action',
+        href: '#anotherAction'
+      },
+      {
+        text: 'CRM Something else here',
+        click: '$alert(\'working ngClick!\')'
+      },
+      { text: 'CRM Separated link' }
+    ];
+    $scope.wmsDropdown = [
+      {
+        text: 'CRM Another action',
+        href: '#anotherAction'
+      },
+      {
+        text: 'CRM Something else here',
+        click: '$alert(\'working ngClick!\')'
+      },
+      { text: 'CRM Separated link' }
+    ];
+    $scope.easyPieChart = [
+      {
+        caption: 'New Visits',
+        percent: 58,
+        usage: '58%'
+      },
+      {
+        caption: 'Bounce Rate',
+        percent: 43,
+        usage: '43%'
+      },
+      {
+        caption: 'Server Load',
+        percent: 91,
+        usage: '91%'
+      },
+      {
+        caption: 'Used RAM',
+        percent: 82,
+        usage: '75M'
+      },
+      {
+        caption: 'Processor Load',
+        percent: 35,
+        usage: '35%'
+      },
+      {
+        caption: 'Bandwidth',
+        percent: 77,
+        usage: '1.5TB'
+      }
+    ];
+    $scope.alert = {};
+  }
+]);
+adminuiApp.controller('TabsDemoCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.panes = [
+      {
+        title: 'Dynamic Title 1',
+        content: 'Dynamic content 1'
+      },
+      {
+        title: 'Dynamic Title 2',
+        content: 'Dynamic content 2'
+      }
+    ];
+  }
+]).controller('TypeaheadCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.selected = undefined;
+    $scope.states = [
+      'Alabama',
+      'Alaska',
+      'Arizona',
+      'Arkansas',
+      'California',
+      'Colorado',
+      'Connecticut',
+      'Delaware',
+      'Florida',
+      'Georgia',
+      'Hawaii',
+      'Idaho',
+      'Illinois',
+      'Indiana',
+      'Iowa',
+      'Kansas',
+      'Kentucky',
+      'Louisiana',
+      'Maine',
+      'Maryland',
+      'Massachusetts',
+      'Michigan',
+      'Minnesota',
+      'Mississippi',
+      'Missouri',
+      'Montana',
+      'Nebraska',
+      'Nevada',
+      'New Hampshire',
+      'New Jersey',
+      'New Mexico',
+      'New York',
+      'North Dakota',
+      'North Carolina',
+      'Ohio',
+      'Oklahoma',
+      'Oregon',
+      'Pennsylvania',
+      'Rhode Island',
+      'South Carolina',
+      'South Dakota',
+      'Tennessee',
+      'Texas',
+      'Utah',
+      'Vermont',
+      'Virginia',
+      'Washington',
+      'West Virginia',
+      'Wisconsin',
+      'Wyoming'
+    ];
+  }
+]).controller('PaginationDemoCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.noOfPages = 7;
+    $scope.currentPage = 4;
+    $scope.maxSize = 5;
+    $scope.setPage = function (pageNo) {
+      $scope.currentPage = pageNo;
+    };
+    $scope.bigNoOfPages = 18;
+    $scope.bigCurrentPage = 1;
+  }
+]).controller('CollapseDemoCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.isCollapsed = false;
+  }
+]).controller('AccordionDemoCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.oneAtATime = true;
+    $scope.groups = [
+      {
+        title: 'Dynamic Group Header - 1',
+        content: 'Dynamic Group Body - 1'
+      },
+      {
+        title: 'Dynamic Group Header - 2',
+        content: 'Dynamic Group Body - 2'
+      }
+    ];
+    $scope.items = [
+      'Item 1',
+      'Item 2',
+      'Item 3'
+    ];
+    $scope.addItem = function () {
+      var newItemNo = $scope.items.length + 1;
+      $scope.items.push('Item ' + newItemNo);
+    };
+  }
+]).controller('AlertDemoCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.alerts = [
+      {
+        type: 'alert',
+        msg: '\u8b66\u544a'
+      },
+      {
+        type: 'error',
+        msg: '\u5931\u8d25\uff0c\u9519\u8bef, \u5371\u9669'
+      },
+      {
+        type: 'success',
+        msg: '\u6210\u529f\u4fe1\u606f'
+      },
+      {
+        type: 'info',
+        msg: '\u9700\u8981\u6ce8\u610f\u7684\u4fe1\u606f'
+      }
+    ];
+    $scope.addAlert = function () {
+      $scope.alerts.push({ msg: 'Another alert!' });
+    };
+    $scope.closeAlert = function (index) {
+      $scope.alerts.splice(index, 1);
+    };
+  }
+]).controller('ButtonsCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.singleModel = 1;
+    $scope.radioModel = 'Middle';
+    $scope.checkModel = {
+      left: false,
+      middle: true,
+      right: false
+    };
+  }
+]).controller('DialogDemoCtrl', [
+  '$scope',
+  '$dialog',
+  function ($scope, $dialog) {
+    var t = '<div class="modal-header">' + '<h1>This is the title</h1>' + '</div>' + '<div class="modal-body">' + '<p>Enter a value to pass to <code>close</code> as the result: <input ng-model="result" /></p>' + '</div>' + '<div class="modal-footer">' + '<button ng-click="close(result)"" class="btn btn-primary" >Close</button>' + '</div>';
+    $scope.opts = {
+      backdrop: true,
+      keyboard: true,
+      backdropClick: true,
+      template: t,
+      controller: 'TestDialogController'
+    };
+    $scope.openDialog = function () {
+      var d = $dialog.dialog($scope.opts);
+      d.open().then(function (result) {
+        if (result) {
+          alert('dialog closed with result: ' + result);
+        }
+      });
+    };
+    $scope.openMessageBox = function () {
+      var title = 'This is a message box';
+      var msg = 'This is the content of the message box';
+      var btns = [
+          {
+            result: 'cancel',
+            label: 'Cancel'
+          },
+          {
+            result: 'ok',
+            label: 'OK',
+            cssClass: 'btn-primary'
+          }
+        ];
+      $dialog.messageBox(title, msg, btns).open().then(function (result) {
+        if (result) {
+          alert('dialog closed with result: ' + result);
+        }
+      });
+    };
+  }
+]).controller('TestDialogController', [
+  '$scope',
+  'dialog',
+  function ($scope, dialog) {
+    $scope.close = function (result) {
+      dialog.close(result);
+    };
+  }
+]).controller('DropdownCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.items = [
+      'The first choice!',
+      'And another choice for you.',
+      'but wait! A third!'
+    ];
+  }
+]).controller('ModalDemoCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.open = function () {
+      $scope.shouldBeOpen = true;
+    };
+    $scope.close = function () {
+      $scope.closeMsg = 'I was closed at: ' + new Date();
+      $scope.shouldBeOpen = false;
+    };
+    $scope.items = [
+      'item1',
+      'item2'
+    ];
+    $scope.opts = {
+      backdropFade: true,
+      dialogFade: true
+    };
+  }
+]).controller('TooltipDemoCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.dynamicTooltip = 'Hello, World!';
+    $scope.dynamicTooltipText = 'dynamic';
+    $scope.htmlTooltip = 'I\'ve been made <b>bold</b>!';
+  }
+]).controller('PopoverDemoCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.dynamicPopover = 'Hello, World!';
+    $scope.dynamicPopoverText = 'dynamic';
+    $scope.dynamicPopoverTitle = 'Title';
+  }
+]).controller('DateCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.dateOptions = {
+      changeYear: true,
+      changeMonth: true,
+      yearRange: '1900:-0'
+    };
+    $scope.myDate = 'Thursday, 11 October, 2012';
+  }
+]).controller('confirmButtonCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.talk = function (msg) {
+      alert(msg);
+    };
+  }
+]).controller('PieCtrl', [
+  '$scope',
+  function ($scope) {
+    var data = {
+        'total': 299,
+        'analysis': [
+          {
+            'name': '20-30\u5c81',
+            'value': 96
+          },
+          {
+            'name': '31-40\u5c81',
+            'value': 26
+          },
+          {
+            'name': '41-50\u5c81',
+            'value': 46
+          },
+          {
+            'name': '51-60\u5c81',
+            'value': 17
+          }
+        ]
+      };
+    $scope.ageData = data;
+  }
+]).controller('noticeCtrl', [
+  '$rootScope',
+  '$scope',
+  'flash',
+  function ($rootScope, $scope, flash) {
+    $scope.sendMsg = function (msg) {
+      flash.notify(msg);
+    };
+  }
+]).controller('loadingButtonCtrl', [
+  '$scope',
+  '$q',
+  '$timeout',
+  function ($scope, $q, $timeout) {
+    $scope.isProcessing = false;
+    $scope.do = function () {
+      $scope.isProcessing = true;
+      $timeout(function () {
+        $scope.$apply(function () {
+          $scope.isProcessing = false;
+        });
+      }, 2000);
+    };
+    $scope.save = function () {
+      var defered = $q.defer();
+      $timeout(function () {
+        defered.resolve();
+      }, 2000);
+      return defered.promise;
+    };
+  }
+]).controller('cascadeListCtrl', [
+  '$scope',
+  '$q',
+  '$timeout',
+  function ($scope, $q, $timeout) {
+    $scope.dpt = { 'parentCode': '14' };
+    $scope.dptList = [
+      {
+        'dptCode': '1',
+        'dptMasterId': 0,
+        'dptName': '\u884c\u653f\u90e8',
+        'dptPath': '/1/',
+        'id': 1,
+        'parentCode': '0'
+      },
+      {
+        'dptCode': '10',
+        'dptMasterId': 0,
+        'dptName': '\u4f01\u4e1a\u8054\u76df\u53d1\u5c55\u90e8',
+        'dptPath': '/10/',
+        'id': 10,
+        'parentCode': '0'
+      },
+      {
+        'dptCode': '85',
+        'dptMasterId': 0,
+        'dptName': '\u652f\u6301\u90e8',
+        'dptPath': '/10/85/',
+        'id': 85,
+        'parentCode': '10'
+      },
+      {
+        'dptCode': '86',
+        'dptMasterId': 0,
+        'dptName': 'B2B2C\u7535\u5546\u5e73\u53f0',
+        'dptPath': '/10/86/',
+        'id': 86,
+        'parentCode': '10'
+      },
+      {
+        'dptCode': '87',
+        'dptMasterId': 0,
+        'dptName': '\u670d\u9970\u6bcd\u5a74',
+        'dptPath': '/10/87/',
+        'id': 87,
+        'parentCode': '10'
+      },
+      {
+        'dptCode': '88',
+        'dptMasterId': 0,
+        'dptName': '3C\u6570\u7801',
+        'dptPath': '/10/88/',
+        'id': 88,
+        'parentCode': '10'
+      },
+      {
+        'dptCode': '89',
+        'dptMasterId': 0,
+        'dptName': '\u9500\u552e\u90e8',
+        'dptPath': '/10/89/',
+        'id': 89,
+        'parentCode': '10'
+      },
+      {
+        'dptCode': '2',
+        'dptMasterId': 0,
+        'dptName': '\u6280\u672f\u90e8',
+        'dptPath': '/2/',
+        'id': 2,
+        'parentCode': '0'
+      },
+      {
+        'dptCode': '11',
+        'dptMasterId': 0,
+        'dptName': 'WMS\u7814\u53d1\u90e8',
+        'dptPath': '/2/11/',
+        'id': 11,
+        'parentCode': '2'
+      },
+      {
+        'dptCode': '14',
+        'dptMasterId': 0,
+        'dptName': 'UED',
+        'dptPath': '/2/14/',
+        'id': 14,
+        'parentCode': '2'
+      },
+      {
+        'dptCode': '38',
+        'dptMasterId': 0,
+        'dptName': 'PEC\u7814\u53d1\u90e8',
+        'dptPath': '/2/38/',
+        'id': 38,
+        'parentCode': '2'
+      },
+      {
+        'dptCode': '45',
+        'dptMasterId': 0,
+        'dptName': '\u8fd0\u7ef4\u90e8',
+        'dptPath': '/2/45/',
+        'id': 45,
+        'parentCode': '2'
+      },
+      {
+        'dptCode': '69',
+        'dptMasterId': 0,
+        'dptName': 'b2b2c\u7814\u53d1\u90e8',
+        'dptPath': '/2/69/',
+        'id': 69,
+        'parentCode': '2'
+      },
+      {
+        'dptCode': '97',
+        'dptMasterId': 0,
+        'dptName': 'NTD',
+        'dptPath': '/2/97/',
+        'id': 97,
+        'parentCode': '2'
+      },
+      {
+        'dptCode': '48',
+        'dptMasterId': 0,
+        'dptName': '\u6218\u7565\u53d1\u5c55\u90e8',
+        'dptPath': '/48/',
+        'id': 48,
+        'parentCode': '0'
+      },
+      {
+        'dptCode': '65',
+        'dptMasterId': 0,
+        'dptName': '\u5e02\u573a',
+        'dptPath': '/48/65/',
+        'id': 65,
+        'parentCode': '48'
+      },
+      {
+        'dptCode': '66',
+        'dptMasterId': 0,
+        'dptName': '\u8fd0\u8425',
+        'dptPath': '/48/66/',
+        'id': 66,
+        'parentCode': '48'
+      },
+      {
+        'dptCode': '96',
+        'dptMasterId': 0,
+        'dptName': '\u5ba2\u670d',
+        'dptPath': '/48/96/',
+        'id': 96,
+        'parentCode': '48'
+      },
+      {
+        'dptCode': '5',
+        'dptMasterId': 0,
+        'dptName': '\u54c1\u724c\u53d1\u5c55\u4e8b\u4e1a\u90e8',
+        'dptPath': '/5/',
+        'id': 5,
+        'parentCode': '0'
+      },
+      {
+        'dptCode': '82',
+        'dptMasterId': 0,
+        'dptName': '\u5b98\u7f51\u7ec4',
+        'dptPath': '/5/82/',
+        'id': 82,
+        'parentCode': '5'
+      },
+      {
+        'dptCode': '95',
+        'dptMasterId': 0,
+        'dptName': '\u7535\u8bdd\u5ba2\u670d\u90e8',
+        'dptPath': '/5/82/95/',
+        'id': 95,
+        'parentCode': '82'
+      },
+      {
+        'dptCode': '99',
+        'dptMasterId': 0,
+        'dptName': '\u7535\u8bdd\u5ba2\u670d\u90e8',
+        'dptPath': '/5/82/95/',
+        'id': 95,
+        'parentCode': '95'
+      },
+      {
+        'dptCode': '93',
+        'dptMasterId': 0,
+        'dptName': '\u5929\u732b\u7ec4',
+        'dptPath': '/5/93/',
+        'id': 93,
+        'parentCode': '5'
+      },
+      {
+        'dptCode': '83',
+        'dptMasterId': 0,
+        'dptName': '\u5728\u7ebf\u5ba2\u670d\u90e8',
+        'dptPath': '/5/93/83//',
+        'id': 83,
+        'parentCode': '93'
+      },
+      {
+        'dptCode': '94',
+        'dptMasterId': 0,
+        'dptName': '\u552e\u540e\u90e8',
+        'dptPath': '/5/94/',
+        'id': 94,
+        'parentCode': '5'
+      },
+      {
+        'dptCode': '61',
+        'dptMasterId': 0,
+        'dptName': '\u6444\u5f71\u5de5\u4f5c\u5ba4',
+        'dptPath': '/61/',
+        'id': 61,
+        'parentCode': '0'
+      },
+      {
+        'dptCode': '62',
+        'dptMasterId': 0,
+        'dptName': '\u676d\u5dde\u5206\u516c\u53f8',
+        'dptPath': '/62/',
+        'id': 62,
+        'parentCode': '0'
+      },
+      {
+        'dptCode': '67',
+        'dptMasterId': 0,
+        'dptName': '\u9752\u5c9b\u5206\u516c\u53f8',
+        'dptPath': '/67/',
+        'id': 67,
+        'parentCode': '0'
+      },
+      {
+        'dptCode': '70',
+        'dptMasterId': 0,
+        'dptName': '\u6280\u672f\u90e8',
+        'dptPath': '/67/70/',
+        'id': 70,
+        'parentCode': '67'
+      },
+      {
+        'dptCode': '71',
+        'dptMasterId': 0,
+        'dptName': '\u8d22\u52a1\u90e8',
+        'dptPath': '/67/71/',
+        'id': 71,
+        'parentCode': '67'
+      },
+      {
+        'dptCode': '72',
+        'dptMasterId': 0,
+        'dptName': '\u8fd0\u8425\u90e8',
+        'dptPath': '/67/72/',
+        'id': 72,
+        'parentCode': '67'
+      },
+      {
+        'dptCode': '75',
+        'dptMasterId': 0,
+        'dptName': '\u884c\u653f\u90e8',
+        'dptPath': '/67/75/',
+        'id': 75,
+        'parentCode': '67'
+      },
+      {
+        'dptCode': '91',
+        'dptMasterId': 0,
+        'dptName': '\u9500\u552e\u90e8',
+        'dptPath': '/67/91/',
+        'id': 91,
+        'parentCode': '67'
+      },
+      {
+        'dptCode': '92',
+        'dptMasterId': 0,
+        'dptName': '\u5ba2\u670d\u90e8',
+        'dptPath': '/67/92/',
+        'id': 92,
+        'parentCode': '67'
+      },
+      {
+        'dptCode': '8',
+        'dptMasterId': 0,
+        'dptName': '\u8d22\u52a1\u90e8',
+        'dptPath': '/8/',
+        'id': 8,
+        'parentCode': '0'
+      },
+      {
+        'dptCode': '90',
+        'dptMasterId': 0,
+        'dptName': '\u4ed3\u50a8',
+        'dptPath': '/8/90/',
+        'id': 90,
+        'parentCode': '8'
+      },
+      {
+        'dptCode': '90',
+        'dptMasterId': 0,
+        'dptName': '\u4ed3\u50a8',
+        'dptPath': '/8/90/',
+        'id': 90,
+        'parentCode': '8'
+      },
+      {
+        'dptCode': '9',
+        'dptMasterId': 0,
+        'dptName': '\u4eba\u529b\u8d44\u6e90\u90e8',
+        'dptPath': '/9/',
+        'id': 9,
+        'parentCode': '0'
+      }
+    ];
+  }
+]).controller('chosenCtrl', [
+  '$scope',
+  '$http',
+  '$q',
+  chosenCtrl
+]).controller('flashMessageCtrl', [
+  '$scope',
+  '$timeout',
+  'flashMessage',
+  function ($scope, $timeout, flashMessage) {
+    var queue = [
+        {
+          state: 'warn',
+          info: 'warn message'
+        },
+        {
+          state: 'error',
+          info: 'error message'
+        }
+      ];
+    $scope.sendMsg = function () {
+      flashMessage.notify(queue);
+    };
+  }
+]);
+;

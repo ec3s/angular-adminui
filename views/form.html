@@ -166,12 +166,12 @@
 </pre>
 
 <h3>文本域（Textarea）</h3>
-<p>此表单控件支持多行文本。可根据需要修改<code>rows</code>属性。</p>
+<p>此表单控件支持多行文本。最小高度为<code>row="3"</code>可根据需要修改<code>rows</code>属性。</p>
 <form class="form-inline">
-    <textarea rows="3" class="span3"></textarea>
+    <textarea rows="3" class="span5"></textarea>
 </form>
 <pre class="prettyprint linenums">
-&lt;textarea rows="3" class="span3"&gt;&lt;/textarea&gt;
+&lt;textarea rows="3" class="span5"&gt;&lt;/textarea&gt;
 </pre>
 
 <pre class="prettyprint linenums">
@@ -190,6 +190,8 @@
     &lt;/form&gt;
 </pre>
 
+<h3>扩展表单控件</h3>
+<input type="number">
 <h3>两栏表单</h3>
 <form class="form-horizontal">
     <div class="form-column">
@@ -429,20 +431,23 @@
                 <span class="help-inline">Something may have gone wrong</span>
             </div>
         </div>
+         
         <div class="control-group error">
-           <label class="control-label" for="inputError">Input with error</label>
-           <div class="controls">
-               <input type="text" id="inputError">
-               <span class="help-inline">Please correct the error</span>
-           </div>
+            <label class="control-label" for="inputError">Input with error</label>
+            <div class="controls">
+                <input type="text" id="inputError">
+                <span class="help-inline">Please correct the error</span>
+            </div>
         </div>
+         
         <div class="control-group info">
             <label class="control-label" for="inputInfo">Input with info</label>
             <div class="controls">
                 <input type="text" id="inputInfo">
-                <span class="help-inline">Username is taken</span>
+                <span class="help-inline">Username is already taken</span>
             </div>
         </div>
+         
         <div class="control-group success">
             <label class="control-label" for="inputSuccess">Input with success</label>
             <div class="controls">

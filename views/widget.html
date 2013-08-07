@@ -3,13 +3,44 @@
         Admin UI 组件
     </h1>
 </div>
-<h3>field error</h3>
-<form name="myForm" ng-submit="save()">
 
+<h3>toggle swithers</h3>
+<p>开关组件， 添加<code>toggle-switcher</code>属性</p>
+<p><code>id</code>, <code>name</code>, <code>on-title</code>, <code>off-title</code>, <code>width</code>, <code>small-class</code>为可配置属性</p>
+<div toggle-switcher="" id="checkboxid" name="checkboxname" on-title="on" off-title="off" width="100px"></div>
+
+<pre class="prettyprint linenums">
+&lt;div toggle-switcher id=&quot;checkboxid&quot; name=&quot;checkboxname&quot; on-title=&quot;on&quot; off-title=&quot;off&quot; width=&quot;100px&quot;&gt;&lt;/div&gt;
+</pre>
+<div toggle-switcher="" id="checkboxidsmall" name="checkboxnamesmall" on-title="打开文字" off-title="关闭文字" width="200px" small-class="small"></div>
+<pre class="prettyprint linenums">
+&lt;div toggle-switcher id=&quot;checkboxidsmall&quot; name=&quot;checkboxnamesmall&quot; on-title=&quot;&#25171;&#24320;&#25991;&#23383;&quot; off-title=&quot;&#20851;&#38381;&#25991;&#23383;&quot; width=&quot;200px&quot; small-class=&quot;small&quot;&gt;&lt;/div&gt;
+</pre>
+<h3>Flash alert</h3>
+<p>在<code>ngView</code>之外放置 <code>flashAlert</code>, 否则页面跳转时消息显示不出来</p>
+<div ng-controller="flashMessageCtrl">
+    <p>
+        <button class="btn btn-primary" ng-click="sendMsg()">flash messge</button>
+        点击其它页面将会看到发出去的消息
+    </p>
+</div>
+<pre class="prettyprint linenums">
+    &lt;button class=&quot;btn btn-info&quot; ng-click=&quot;sendMsg()&quot;&gt;flash messge&lt;/button&gt;
+</pre>
+<pre class="well">
+  var queue = [
+    {state: 'warn', info: 'warn message'},
+    {state: 'error', info: 'error message'}
+  ];
+
+  $scope.sendMsg = function(){
+    flashMessage.notify(queue);
+  }
+</pre>
+<h3>Field error</h3>
+<form name="myForm" ng-submit="save()">
     <label for="personName">Example for fied error</label>
     <input type="text" id="personName" class="span3" name="personName" ng-model="person.name" required="">
-
-
     <span class="help-inline" field-error="" for="myForm.personName">显示错误信息</span>
     <!-- <span ng-show="myForm.personName.$error.required">Required!</span>
     <span ng-show="myForm.personName.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span> -->
@@ -162,11 +193,11 @@
 <p>为标签添加<code>confirm-button</code>属性, </p>
 <div ng-controller="confirmButtonCtrl">
     <p>
-        <a class="btn btn-danger" title="自定义标题" confirm-button="talk('Hello, Web Developer!');">删除</a>
+        <a class="btn btn-danger" title="自定义标题" message="自定义内容" confirm-button="talk('Hello, Web Developer!');">删除</a>
     </p>
 </div>
 <pre class="prettyprint linenums">
-&lt;a class=&quot;btn btn-danger&quot; confirm-button=&quot;talk('Hello, Web Developer!');&quot;&gt;&#21024;&#38500;&lt;/a&gt;
+&lt;a class=&quot;btn btn-danger&quot; title=&quot;&#33258;&#23450;&#20041;&#26631;&#39064;&quot; message=&quot;&#33258;&#23450;&#20041;&#20869;&#23481;&quot; confirm-button=&quot;talk('Hello, Web Developer!');&quot;&gt;&#21024;&#38500;&lt;/a&gt;
 </pre>
 
 <h3>Footable</h3>
