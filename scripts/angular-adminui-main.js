@@ -180,7 +180,7 @@ adminuiApp.controller('MainCtrl', [
 adminuiApp.controller('TabsDemoCtrl', [
   '$scope',
   function ($scope) {
-    $scope.panes = [
+    $scope.tabs = [
       {
         title: 'Dynamic Title 1',
         content: 'Dynamic content 1'
@@ -190,6 +190,18 @@ adminuiApp.controller('TabsDemoCtrl', [
         content: 'Dynamic content 2'
       }
     ];
+    $scope.alertMe = function () {
+      setTimeout(function () {
+        console.log($scope.tabs);
+        angular.forEach($scope.tabs, function (tab, key) {
+          if (tab.active === true) {
+            console.log(key);
+          }
+          ;
+        });
+      });
+    };
+    $scope.navType = 'pills';
   }
 ]).controller('TypeaheadCtrl', [
   '$scope',
@@ -811,6 +823,18 @@ adminuiApp.controller('TabsDemoCtrl', [
   '$http',
   '$q',
   chosenCtrl
+]).controller('switcherCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.selected = true;
+    $scope.fn = function () {
+      $scope.selected = !$scope.selected;
+      console.log('fn ', $scope.selected);
+    };
+    $scope.do = function () {
+      $scope.selected = !$scope.selected;
+    };
+  }
 ]).controller('flashMessageCtrl', [
   '$scope',
   '$timeout',

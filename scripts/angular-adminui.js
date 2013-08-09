@@ -323,7 +323,7 @@ angular.module('ntd.directives', ['ntd.config']);
       restrict: 'A',
       scope: { item: '=easyPieChart' },
       replace: true,
-      template: '<div class="easy-pie-chart">' + '<div data-percent="{{item.percent}}">' + '{{item.usage}}' + '</div>' + '<div class="caption">' + '{{item.caption}}' + '</div>' + '</div>',
+      template: '<div class="easy-pie-chart-widget">' + '<div class="easy-pie-chart">' + '<div class="percentage" data-percent="{{item.percent}}">{{item.usage}}</div>' + '<div>{{item.caption}}</div>' + '</div>' + '</div>',
       link: function (scope, element, attrs) {
         var colorRange = [
             '#08c',
@@ -332,8 +332,7 @@ angular.module('ntd.directives', ['ntd.config']);
             '#4ec9ce',
             '#ec7337',
             '#f377ab'
-          ];
-        var lineWidth = attrs.easyPieChartLineWidth || 12, size = attrs.easyPieChartSize || 100, barColor = colorRange[scope.$parent.$index % 6] || '#08c', options = {
+          ], lineWidth = attrs.easyPieChartLineWidth || 12, size = attrs.easyPieChartSize || 100, barColor = colorRange[scope.$parent.$index % 6] || '#08c', options = {
             'animate': 2000,
             'scaleColor': false,
             'lineWidth': lineWidth,
@@ -342,10 +341,14 @@ angular.module('ntd.directives', ['ntd.config']);
             'barColor': barColor,
             'trackColor': '#e5e5e5'
           }, render_easy_pie_chart = function () {
-            $(angular.element(element.children()[0])).easyPieChart(options);
+            $('.percentage ', element).easyPieChart(options);
           };
-        $(element).parent().addClass('easy-pie-chart-widget');
         attrs.$observe('easyPieChart', render_easy_pie_chart);
+        scope.$watch('item', function (newValue, oldValue) {
+          if (newValue != oldValue) {
+            $('.percentage ', element).data('easyPieChart').update(newValue.percent);
+          }
+        }, true);
       }
     };
   }
@@ -1220,7 +1223,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
 }());
 'use strict';
 (function () {
-  function toggleSwitcherDirective() {
+  function toggleSwitcherDirective($scope, $compile) {
     return {
       restrict: 'AC',
       replace: true,
@@ -1230,13 +1233,23 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
         width: '@width',
         smallClass: '@smallClass',
         id: '@',
-        name: '@'
+        name: '@',
+        checked: '=ngModel',
+        callback: '='
       },
-      template: '<label class="checkbox toggle {{smallClass}}" style="width:{{width}};">' + '<input id="{{id}}" name="{{name}}" type="checkbox" checked="">' + '<p>' + '<span>{{onTitle}}</span>' + '<span>{{offTitle}}</span>' + '</p>' + '<a class="btn btn-primary slide-button"></a>' + '</label>',
+      template: '<label class="checkbox toggle {{smallClass}}" style="width:{{width}};">' + '<input id="{{id}}" name="{{name}}" type="checkbox" ng-checked="checked">' + '<p>' + '<span>{{onTitle}}</span>' + '<span>{{offTitle}}</span>' + '</p>' + '<a class="btn slide-button"></a>' + '</label>',
       link: function (scope, element, attrs) {
-        console.log(scope.width);
+        element.bind('click', function (event) {
+          if (event.target.nodeName.toLowerCase() === 'input') {
+            scope.callback();
+            scope.$apply();
+          }
+        });
       }
     };
   }
-  angular.module('ntd.directives').directive('toggleSwitcher', [toggleSwitcherDirective]);
+  angular.module('ntd.directives').directive('toggleSwitcher', [
+    '$compile',
+    toggleSwitcherDirective
+  ]);
 }());
