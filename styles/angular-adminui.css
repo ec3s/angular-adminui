@@ -10118,4 +10118,9 @@ https://github.com/ghinda/css-toggle-switch
   .toggle.disabled span {
     color: #AAA;
   }
+
+  /* line 313, ../../app/styles/ntd-toggle-switch.scss */
+  .toggle.disabled input:checked ~ p > span:first-child {
+    color: #999;
+  }
 }
