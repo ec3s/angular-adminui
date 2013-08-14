@@ -1268,14 +1268,19 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
             element.removeClass('disabled');
           }
         });
-        scope.$watch('ngModel', function (value) {
-          scope.checked = value === trueValue ? true : false;
-          eventModel.$event = {
-            data: scope.ngModel,
-            target: element,
-            type: 'change'
-          };
-          scope.ngChange(eventModel);
+        scope.$watch('ngModel', function (value, oldValue) {
+          if (value !== oldValue) {
+            scope.checked = value === trueValue ? true : false;
+            eventModel.$event = {
+              data: {
+                value: value,
+                oldValue: oldValue
+              },
+              target: element,
+              type: 'change'
+            };
+            scope.ngChange(eventModel);
+          }
         }, true);
         $timeout(function () {
           var spanWidth = element.find('span').outerWidth();
