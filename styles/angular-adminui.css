@@ -1,4 +1,3 @@
-@charset "GBK";
 /*
  * Bootstrap v2.2.2
  *
@@ -45,7 +44,7 @@ html {
 
 /* line 50, ../../app/styles/compass_twitter_bootstrap/_reset.scss */
 a:focus {
-  outline: thin dotted #333;
+  outline: thin dotted #333333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -164,7 +163,7 @@ textarea {
   /* line 155, ../../app/styles/compass_twitter_bootstrap/_reset.scss */
   * {
     text-shadow: none !important;
-    color: #000 !important;
+    color: black !important;
     background: transparent !important;
     box-shadow: none !important;
   }
@@ -195,7 +194,7 @@ textarea {
   /* line 183, ../../app/styles/compass_twitter_bootstrap/_reset.scss */
   pre,
   blockquote {
-    border: 1px solid #999;
+    border: 1px solid #999999;
     page-break-inside: avoid;
   }
 
@@ -266,7 +265,7 @@ a:hover {
 .img-polaroid {
   padding: 4px;
   background-color: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -1056,7 +1055,7 @@ pre {
   white-space: pre;
   white-space: pre-wrap;
   background-color: #f5f5f5;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1283,7 +1282,7 @@ select:focus,
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted #333;
+  outline: thin dotted #333333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -1824,7 +1823,7 @@ select:focus:invalid:focus {
   text-align: center;
   text-shadow: 0 1px 0 white;
   background-color: #eeeeee;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
 }
 /* line 466, ../../app/styles/compass_twitter_bootstrap/_forms.scss */
 .input-append .add-on,
@@ -2427,7 +2426,7 @@ table th[class*="span"],
 
 /* line 48, ../../app/styles/compass_twitter_bootstrap/_sprites.scss */
 .icon-glass {
-  background-position: 0      0;
+  background-position: 0 0;
 }
 
 /* line 49, ../../app/styles/compass_twitter_bootstrap/_sprites.scss */
@@ -3175,7 +3174,7 @@ table th[class*="span"],
   margin: 2px 0 0;
   list-style: none;
   background-color: white;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   *border-right-width: 2px;
   *border-bottom-width: 2px;
@@ -3529,7 +3528,7 @@ button.close {
 }
 /* line 43, ../../app/styles/compass_twitter_bootstrap/_buttons.scss */
 .btn:focus {
-  outline: thin dotted #333;
+  outline: thin dotted #333333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -4370,7 +4369,7 @@ input[type="submit"].btn.btn-mini {
 
 /* line 111, ../../app/styles/compass_twitter_bootstrap/_navs.scss */
 .nav-tabs {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dddddd;
 }
 
 /* line 115, ../../app/styles/compass_twitter_bootstrap/_navs.scss */
@@ -4398,7 +4397,7 @@ input[type="submit"].btn.btn-mini {
 .nav-tabs > .active > a:hover {
   color: #555555;
   background-color: #fdfdfd;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-bottom-color: transparent;
   cursor: default;
 }
@@ -4438,7 +4437,7 @@ input[type="submit"].btn.btn-mini {
 
 /* line 176, ../../app/styles/compass_twitter_bootstrap/_navs.scss */
 .nav-tabs.nav-stacked > li > a {
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -4595,7 +4594,7 @@ input[type="submit"].btn.btn-mini {
 
 /* line 305, ../../app/styles/compass_twitter_bootstrap/_navs.scss */
 .tabs-below > .nav-tabs {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #dddddd;
 }
 
 /* line 308, ../../app/styles/compass_twitter_bootstrap/_navs.scss */
@@ -4619,7 +4618,7 @@ input[type="submit"].btn.btn-mini {
 /* line 320, ../../app/styles/compass_twitter_bootstrap/_navs.scss */
 .tabs-below > .nav-tabs > .active > a,
 .tabs-below > .nav-tabs > .active > a:hover {
-  border-color: transparent #ddd #ddd #ddd;
+  border-color: transparent #dddddd #dddddd #dddddd;
 }
 
 /* line 329, ../../app/styles/compass_twitter_bootstrap/_navs.scss */
@@ -4640,7 +4639,7 @@ input[type="submit"].btn.btn-mini {
 .tabs-left > .nav-tabs {
   float: left;
   margin-right: 19px;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #dddddd;
 }
 
 /* line 345, ../../app/styles/compass_twitter_bootstrap/_navs.scss */
@@ -4659,7 +4658,7 @@ input[type="submit"].btn.btn-mini {
 /* line 353, ../../app/styles/compass_twitter_bootstrap/_navs.scss */
 .tabs-left > .nav-tabs .active > a,
 .tabs-left > .nav-tabs .active > a:hover {
-  border-color: #ddd transparent #ddd #ddd;
+  border-color: #dddddd transparent #dddddd #dddddd;
   *border-right-color: white;
 }
 
@@ -4667,7 +4666,7 @@ input[type="submit"].btn.btn-mini {
 .tabs-right > .nav-tabs {
   float: right;
   margin-left: 19px;
-  border-left: 1px solid #ddd;
+  border-left: 1px solid #dddddd;
 }
 
 /* line 364, ../../app/styles/compass_twitter_bootstrap/_navs.scss */
@@ -4686,7 +4685,7 @@ input[type="submit"].btn.btn-mini {
 /* line 372, ../../app/styles/compass_twitter_bootstrap/_navs.scss */
 .tabs-right > .nav-tabs .active > a,
 .tabs-right > .nav-tabs .active > a:hover {
-  border-color: #ddd #ddd #ddd transparent;
+  border-color: #dddddd #dddddd #dddddd transparent;
   *border-left-color: white;
 }
 
@@ -5064,7 +5063,7 @@ input[type="submit"].btn.btn-mini {
   display: inline-block;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 7px solid #ccc;
+  border-bottom: 7px solid #cccccc;
   border-bottom-color: rgba(0, 0, 0, 0.2);
   position: absolute;
   top: -7px;
@@ -5084,7 +5083,7 @@ input[type="submit"].btn.btn-mini {
 
 /* line 323, ../../app/styles/compass_twitter_bootstrap/_navbar.scss */
 .navbar-fixed-bottom .nav > li > .dropdown-menu:before {
-  border-top: 7px solid #ccc;
+  border-top: 7px solid #cccccc;
   border-top-color: rgba(0, 0, 0, 0.2);
   border-bottom: 0;
   bottom: -7px;
@@ -5518,7 +5517,7 @@ input[type="submit"].btn.btn-mini {
   display: inline-block;
   padding: 5px 14px;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
@@ -5582,9 +5581,9 @@ input[type="submit"].btn.btn-mini {
   width: 560px;
   margin-left: -280px;
   background-color: white;
-  border: 1px solid #999;
+  border: 1px solid #999999;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  *border: 1px solid #999;
+  *border: 1px solid #999999;
   /* IE6-7 */
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -5613,7 +5612,7 @@ input[type="submit"].btn.btn-mini {
 /* line 47, ../../app/styles/compass_twitter_bootstrap/_modals.scss */
 .modal-header {
   padding: 9px 15px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee;
 }
 /* line 51, ../../app/styles/compass_twitter_bootstrap/_modals.scss */
 .modal-header .close {
@@ -5644,7 +5643,7 @@ input[type="submit"].btn.btn-mini {
   margin-bottom: 0;
   text-align: right;
   background-color: #f5f5f5;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #dddddd;
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
@@ -5779,7 +5778,7 @@ input[type="submit"].btn.btn-mini {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -5946,7 +5945,7 @@ input[type="submit"].btn.btn-mini {
   display: block;
   padding: 4px;
   line-height: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -6818,7 +6817,7 @@ a.label:hover, a.badge:hover {
   /* line 136, ../../app/styles/compass_twitter_bootstrap/_responsive-767px-max.scss */
   input[type="checkbox"],
   input[type="radio"] {
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
   }
 
   /* line 142, ../../app/styles/compass_twitter_bootstrap/_responsive-767px-max.scss */
@@ -8427,7 +8426,7 @@ form.form-horizontal .help-block {
 
 /* line 286, ../../app/styles/ntd-main.scss */
 .div-stacked {
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -8436,7 +8435,7 @@ form.form-horizontal .help-block {
 }
 /* line 289, ../../app/styles/ntd-main.scss */
 .div-stacked .stacked-item {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #dddddd;
 }
 /* line 291, ../../app/styles/ntd-main.scss */
 .div-stacked .stacked-item:last-child {
@@ -8450,7 +8449,7 @@ form.form-horizontal .help-block {
 /* line 299, ../../app/styles/ntd-main.scss */
 .div-stacked .stacked-item-bd {
   padding: 8px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #dddddd;
 }
 /* line 303, ../../app/styles/ntd-main.scss */
 .div-stacked .stacked-item-bd .table-normal {
@@ -8492,7 +8491,7 @@ form.form-horizontal .help-block {
 /* line 327, ../../app/styles/ntd-main.scss */
 .box .box-bd {
   padding: 8px;
-  border: solid #ddd;
+  border: solid #dddddd;
   border-width: 0 1px 1px;
   background-color: white;
   -moz-border-radius-bottomleft: 4px;
@@ -9055,10 +9054,10 @@ form.form-horizontal .help-block {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
-  -webkit-transition: border linear .2s, box-shadow linear .2s;
-  -moz-transition: border linear .2s, box-shadow linear .2s;
-  -o-transition: border linear .2s, box-shadow linear .2s;
-  transition: border linear .2s, box-shadow linear .2s;
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
 /* line 749, ../../app/styles/ntd-main.scss */
@@ -9068,10 +9067,10 @@ form.form-horizontal .help-block {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
-  -webkit-transition: border linear .2s, box-shadow linear .2s;
-  -moz-transition: border linear .2s, box-shadow linear .2s;
-  -o-transition: border linear .2s, box-shadow linear .2s;
-  transition: border linear .2s, box-shadow linear .2s;
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
 /* line 760, ../../app/styles/ntd-main.scss */
@@ -9110,7 +9109,7 @@ form.form-horizontal .help-block {
 
 /* line 781, ../../app/styles/ntd-main.scss */
 .chzn-container-active .chzn-choices .search-field input {
-  color: #111 !important;
+  color: #111111 !important;
 }
 
 /* line 784, ../../app/styles/ntd-main.scss */
@@ -9409,7 +9408,7 @@ table .sort-desc .sort-icon {
   margin-bottom: 0;
   vertical-align: middle;
   background-color: white;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   padding: 4px;
   font-size: 14px;
   font-weight: normal;
@@ -9524,7 +9523,7 @@ table .sort-desc .sort-icon {
 .login-box h3 {
   color: #fff;
   font-weight: normal;
-  text-shadow: 0px 0px 3px #999;
+  text-shadow: 0px 0px 3px #999999;
 }
 /* line 28, ../../app/styles/ntd-login.scss */
 .login-box input[type="text"], .login-box input[type="password"] {
@@ -9627,7 +9626,7 @@ table .sort-desc .sort-icon {
   background: #fafafa;
   border-radius: 4px;
   color: rgba(0, 0, 0, 0.8);
-  text-shadow: 0 1px 0 #fff;
+  text-shadow: 0 1px 0 white;
 }
 
 @media (max-width: 767px) {
@@ -9817,24 +9816,20 @@ https://github.com/ghinda/css-toggle-switch
     text-align: left;
   }
 
-  /* line 59, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 57, ../../app/styles/ntd-toggle-switch.scss */
   .toggle p span {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 5;
     display: block;
-    width: 50%;
     margin-left: 100px;
     text-align: center;
+    white-space: nowrap;
+    padding: 0 5px;
   }
 
-  /* line 72, ../../app/styles/ntd-toggle-switch.scss */
-  .toggle p span:last-child {
-    left: 50%;
-  }
-
-  /* line 76, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 69, ../../app/styles/ntd-toggle-switch.scss */
   .toggle .slide-button {
     position: absolute;
     right: 0;
@@ -9848,19 +9843,19 @@ https://github.com/ghinda/css-toggle-switch
 
   /* Radio Switch
    */
-  /* line 90, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 82, ../../app/styles/ntd-toggle-switch.scss */
   .switch {
     position: relative;
     padding: 0;
   }
 
-  /* line 95, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 87, ../../app/styles/ntd-toggle-switch.scss */
   .switch input {
     position: absolute;
     opacity: 0;
   }
 
-  /* line 100, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 92, ../../app/styles/ntd-toggle-switch.scss */
   .switch label {
     position: relative;
     z-index: 2;
@@ -9871,7 +9866,7 @@ https://github.com/ghinda/css-toggle-switch
     text-align: center;
   }
 
-  /* line 112, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 104, ../../app/styles/ntd-toggle-switch.scss */
   .switch .slide-button {
     position: absolute;
     top: 0;
@@ -9882,79 +9877,79 @@ https://github.com/ghinda/css-toggle-switch
     height: 100%;
   }
 
-  /* line 123, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 115, ../../app/styles/ntd-toggle-switch.scss */
   .switch input:last-of-type:checked ~ .slide-button {
     left: 50%;
   }
 
   /* Switch with 3 items */
-  /* line 129, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 121, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-three label,
   .switch.switch-three .slide-button {
     width: 33.3%;
   }
 
-  /* line 133, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 125, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-three input:checked:nth-of-type(2) ~ .slide-button {
     left: 33.3%;
   }
 
-  /* line 137, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 129, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-three input:checked:last-of-type ~ .slide-button {
     left: 66.6%;
   }
 
   /* Switch with 4 items */
-  /* line 143, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 135, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-four label,
   .switch.switch-four .slide-button {
     width: 25%;
   }
 
-  /* line 147, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 139, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-four input:checked:nth-of-type(2) ~ .slide-button {
     left: 25%;
   }
 
-  /* line 151, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 143, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-four input:checked:nth-of-type(3) ~ .slide-button {
     left: 50%;
   }
 
-  /* line 155, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 147, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-four input:checked:last-of-type ~ .slide-button {
     left: 75%;
   }
 
   /* Switch with 5 items */
-  /* line 161, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 153, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-five label,
   .switch.switch-five .slide-button {
     width: 20%;
   }
 
-  /* line 165, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 157, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-five input:checked:nth-of-type(2) ~ .slide-button {
     left: 20%;
   }
 
-  /* line 169, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 161, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-five input:checked:nth-of-type(3) ~ .slide-button {
     left: 40%;
   }
 
-  /* line 173, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 165, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-five input:checked:nth-of-type(4) ~ .slide-button {
     left: 60%;
   }
 
-  /* line 177, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 169, ../../app/styles/ntd-toggle-switch.scss */
   .switch.switch-five input:checked:last-of-type ~ .slide-button {
     left: 80%;
   }
 
   /* Shared */
-  /* line 183, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 175, ../../app/styles/ntd-toggle-switch.scss */
   .toggle,
   .switch {
     display: inline-block;
@@ -9963,17 +9958,17 @@ https://github.com/ghinda/css-toggle-switch
     vertical-align: middle;
   }
 
-  /* line 189, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 181, ../../app/styles/ntd-toggle-switch.scss */
   .toggle.small {
     height: 26px;
   }
 
-  /* line 192, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 184, ../../app/styles/ntd-toggle-switch.scss */
   .toggle.small p {
     line-height: 26px;
   }
 
-  /* line 195, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 187, ../../app/styles/ntd-toggle-switch.scss */
   .toggle {
     min-height: 20px;
     background-color: whitesmoke;
@@ -9986,7 +9981,7 @@ https://github.com/ghinda/css-toggle-switch
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   }
 
-  /* line 208, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 200, ../../app/styles/ntd-toggle-switch.scss */
   .switch *,
   .toggle * {
     -webkit-box-sizing: border-box;
@@ -9996,7 +9991,7 @@ https://github.com/ghinda/css-toggle-switch
     box-sizing: border-box;
   }
 
-  /* line 217, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 209, ../../app/styles/ntd-toggle-switch.scss */
   .switch .slide-button,
   .toggle .slide-button {
     display: block;
@@ -10007,7 +10002,7 @@ https://github.com/ghinda/css-toggle-switch
     transition: all 0.3s ease-out;
   }
 
-  /* line 229, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 221, ../../app/styles/ntd-toggle-switch.scss */
   .toggle label,
   .toggle p,
   .switch label {
@@ -10015,7 +10010,7 @@ https://github.com/ghinda/css-toggle-switch
     vertical-align: middle;
   }
 
-  /* line 233, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 225, ../../app/styles/ntd-toggle-switch.scss */
   .toggle input ~ .slide-button {
     display: inline-block;
     padding: 4px 12px;
@@ -10048,7 +10043,7 @@ https://github.com/ghinda/css-toggle-switch
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   }
 
-  /* line 264, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 256, ../../app/styles/ntd-toggle-switch.scss */
   .toggle input:checked ~ .slide-button {
     color: white;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -10066,45 +10061,61 @@ https://github.com/ghinda/css-toggle-switch
     right: 50%;
   }
 
-  /* line 280, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 272, ../../app/styles/ntd-toggle-switch.scss */
   .toggle input:checked ~ .slide-button {
     right: 50%;
   }
 
-  /* line 283, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 275, ../../app/styles/ntd-toggle-switch.scss */
   .toggle input ~ p > span:first-child {
     color: #aaa;
   }
 
-  /* line 286, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 278, ../../app/styles/ntd-toggle-switch.scss */
   .toggle input:checked ~ p > span:first-child {
     color: #fff;
   }
 
   /* Outline the toggles when the inputs are focused */
-  /* line 292, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 284, ../../app/styles/ntd-toggle-switch.scss */
   .toggle input:focus ~ .slide-button,
   .switch input:focus + label {
-    outline: 1px dotted #888;
+    outline: 1px dotted #888888;
   }
 
   /* Bugfix for older Webkit, including mobile Webkit. Adapted from:
    * http://css-tricks.com/webkit-sibling-bug/
    */
-  /* line 299, ../../app/styles/ntd-toggle-switch.scss */
+  /* line 291, ../../app/styles/ntd-toggle-switch.scss */
   .switch, .toggle {
     -webkit-animation: bugfix infinite 1s;
   }
 
   @-webkit-keyframes bugfix {
-    /* line 303, ../../app/styles/ntd-toggle-switch.scss */
+    /* line 295, ../../app/styles/ntd-toggle-switch.scss */
     from {
       position: relative;
     }
 
-    /* line 303, ../../app/styles/ntd-toggle-switch.scss */
+    /* line 295, ../../app/styles/ntd-toggle-switch.scss */
     to {
       position: relative;
     }
 }
+
+  /* line 299, ../../app/styles/ntd-toggle-switch.scss */
+  .toggle.disabled a.slide-button {
+    cursor: default;
+    background-image: none;
+    background-color: #E6E6E6;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
+    opacity: 0.65;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  /* line 306, ../../app/styles/ntd-toggle-switch.scss */
+  .toggle.disabled span {
+    color: #AAA;
+  }
 }
