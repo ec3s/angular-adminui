@@ -1183,7 +1183,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
     var html = '<div class="alert alert-' + type + '">' + message + '<button type="button" class="close">\xd7</button>' + '</div>';
     return html;
   }
-  function flashAlertDirective(flashMessage, $rootScope, $timeout) {
+  function flashAlertDirective($rootScope, $timeout) {
     return {
       scope: true,
       restrict: 'EAC',
@@ -1214,7 +1214,6 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
     };
   }
   angular.module('ntd.directives').directive('flashAlert', [
-    'flashMessage',
     '$rootScope',
     '$timeout',
     flashAlertDirective
