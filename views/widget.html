@@ -9,47 +9,52 @@
 <p>
     <code>id</code>, 
     <code>name</code>, 
-    <code>on-title</code>, 
-    <code>off-title</code>, 
-    <code>width</code>, 
+    <code>ng-true-title</code>, 
+    <code>ng-false-title</code>, 
+    <code>ng-true-value</code>, 
+    <code>ng-false-value</code>, 
     <code>ng-model</code>, 
-    <code>callback</code>, 
-    <code>small-class</code>
+    <code>ng-click</code>, 
+    <code>ng-change</code>, 
+    <code>ng-disabled</code>, 
+    <code>class</code>
     为可配置属性
 </p>
 <p ng-controller="switcherCtrl">
-    <span toggle-switcher="" id="checkboxid" name="checkboxname" on-title="On" off-title="Off" width="100px" ng-model="selected" callback="fn">
+    <span toggle-switcher="" id="checkboxid" name="checkboxname" ng-true-title="开启状态" ng-false-title="关闭状态" ng-true-value="open" ng-false-value="close" ng-model="opened" ng-click="click($event)" ng-change="change($event)">
     </span>
     <input type="button" class="btn" ng-click="do()" value="switcher">
+    <span>{{opened}}</span>
+</p>
+<pre class="prettyprint linenums">
+&lt;span toggle-switcher
+    id=&quot;checkboxid&quot;
+    name=&quot;checkboxname&quot;
+    ng-true-title=&quot;开启状态&quot;
+    ng-false-title=&quot;关闭状态&quot;
+    ng-true-value=&quot;open&quot;
+    ng-false-value=&quot;close&quot;
+    ng-model=&quot;selected&quot;
+    ng-click=&quot;click($event)&quot;
+    ng-change=&quot;change($event)&quot;&gt;
+&lt;/span&gt;
+</pre>
+<p ng-controller="switcherCtrl">
+    <span toggle-switcher="" id="checkboxid" name="checkboxname" ng-true-title="On" ng-false-title="Off" ng-model="selected" ng-disabled="switchDisabled" class="small">
+    </span>
+    <button class="btn btn-small" ng-click="switchDisabled = true" type="button">禁用</button>
+    <button class="btn btn-small" ng-click="switchDisabled = false" type="button">启用</button>
     <span>{{selected}}</span>
 </p>
 <pre class="prettyprint linenums">
-&lt;span 
-    toggle-switcher
+&lt;span toggle-switcher
     id=&quot;checkboxid&quot;
     name=&quot;checkboxname&quot;
-    on-title=&quot;On&quot;
-    off-title=&quot;Off&quot;
-    width=&quot;100px&quot;
+    ng-true-title=&quot;On&quot;
+    ng-false-title=&quot;Off&quot;
     ng-model=&quot;selected&quot;
-    callback=&quot;fn&quot;&gt;
-&lt;/span&gt;
-</pre>
-<p>
-    <span toggle-switcher="" id="checkboxid" name="checkboxname" on-title="On" off-title="Off" width="100px" ng-model="selected" small-class="small" callback="fn">
-    </span>
-</p>
-<pre class="prettyprint linenums">
-&lt;span 
-    toggle-switcher
-    id=&quot;checkboxid&quot;
-    name=&quot;checkboxname&quot;
-    on-title=&quot;On&quot;
-    off-title=&quot;Off&quot;
-    width=&quot;100px&quot;
-    ng-model=&quot;selected&quot;
-    small-class=&quot;small&quot;
-    callback=&quot;fn&quot;&gt;
+    ng-disabled=&quot;switchDisabled&quot;
+    class=&quot;small&quot;&gt;
 &lt;/span&gt;
 </pre>
 <h3>Flash alert</h3>

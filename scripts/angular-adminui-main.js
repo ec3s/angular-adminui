@@ -826,13 +826,15 @@ adminuiApp.controller('TabsDemoCtrl', [
 ]).controller('switcherCtrl', [
   '$scope',
   function ($scope) {
-    $scope.selected = true;
-    $scope.fn = function () {
-      $scope.selected = !$scope.selected;
-      console.log('fn ', $scope.selected);
+    $scope.opened = 'open';
+    $scope.click = function (event) {
+      console.log(event);
+    };
+    $scope.change = function (event) {
+      console.log(event);
     };
     $scope.do = function () {
-      $scope.selected = !$scope.selected;
+      $scope.opened = $scope.opened == 'open' ? 'close' : 'open';
     };
   }
 ]).controller('flashMessageCtrl', [

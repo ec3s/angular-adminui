@@ -1163,7 +1163,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
           }
         });
         scope.$watch(function () {
-          return $location.path();
+          return $location.url();
         }, function () {
           element.fadeOut();
         });
@@ -1183,7 +1183,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
     var html = '<div class="alert alert-' + type + '">' + message + '<button type="button" class="close">\xd7</button>' + '</div>';
     return html;
   }
-  function flashAlertDirective(flashMessage, $rootScope, $timeout) {
+  function flashAlertDirective($rootScope, $timeout) {
     return {
       scope: true,
       restrict: 'EAC',
@@ -1199,6 +1199,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
           }
         });
         $rootScope.$on('$routeChangeSuccess', function () {
+          element.empty();
           if (html_fragement) {
             element.append(html_fragement);
             $('.close', element).bind('click', function () {
@@ -1207,49 +1208,88 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
               });
             });
             html_fragement = '';
-          } else {
-            element.empty();
           }
         });
       }
     };
   }
   angular.module('ntd.directives').directive('flashAlert', [
-    'flashMessage',
     '$rootScope',
     '$timeout',
     flashAlertDirective
   ]);
 }());
-'use strict';
 (function () {
-  function toggleSwitcherDirective($scope, $compile) {
+  'use strict';
+  function toggleSwitcherDirective($timeout) {
     return {
       restrict: 'AC',
       replace: true,
       scope: {
-        onTitle: '@onTitle',
-        offTitle: '@offTitle',
-        width: '@width',
-        smallClass: '@smallClass',
+        ngTrueTitle: '@',
+        ngFalseTitle: '@',
+        ngTrueValue: '@',
+        ngFalseValue: '@',
+        ngDisabled: '=',
         id: '@',
         name: '@',
-        checked: '=ngModel',
-        callback: '='
+        ngModel: '=',
+        ngChange: '&',
+        ngClick: '&'
       },
-      template: '<label class="checkbox toggle {{smallClass}}" style="width:{{width}};">' + '<input id="{{id}}" name="{{name}}" type="checkbox" ng-checked="checked">' + '<p>' + '<span>{{onTitle}}</span>' + '<span>{{offTitle}}</span>' + '</p>' + '<a class="btn slide-button"></a>' + '</label>',
+      template: '<label class="checkbox toggle">' + '<input id="{{id}}" name="{{name}}"' + ' type="checkbox" ng-model="checked">' + '<p>' + '<span>{{ngTrueTitle}}</span>' + '<span>{{ngFalseTitle}}</span>' + '</p>' + '<a class="btn slide-button"></a>' + '</label>',
       link: function (scope, element, attrs) {
+        var trueValue = attrs.ngTrueValue ? attrs.ngTrueValue : true;
+        var falseValue = attrs.ngFalseValue ? attrs.ngFalseValue : false;
+        var eventModel = scope.$new(true);
         element.bind('click', function (event) {
           if (event.target.nodeName.toLowerCase() === 'input') {
-            scope.callback();
-            scope.$apply();
+            eventModel.$event = {
+              originalEvent: event,
+              data: scope.ngModel,
+              target: element,
+              type: 'click'
+            };
+            scope.ngClick(eventModel);
           }
+        });
+        scope.$watch('checked', function (value, oldValue) {
+          if (value !== oldValue) {
+            scope.ngModel = value ? trueValue : falseValue;
+          }
+        }, true);
+        scope.$watch('ngDisabled', function (value) {
+          if (value) {
+            element.find('input').attr('disabled', true);
+            element.addClass('disabled');
+          } else {
+            element.find('input').attr('disabled', false);
+            element.removeClass('disabled');
+          }
+        });
+        scope.$watch('ngModel', function (value, oldValue) {
+          scope.checked = value === trueValue ? true : false;
+          if (value !== oldValue) {
+            eventModel.$event = {
+              data: {
+                value: value,
+                oldValue: oldValue
+              },
+              target: element,
+              type: 'change'
+            };
+            scope.ngChange(eventModel);
+          }
+        }, true);
+        $timeout(function () {
+          var spanWidth = element.find('span').outerWidth();
+          element.width(spanWidth * 2).find('span:last').css('left', spanWidth);
         });
       }
     };
   }
   angular.module('ntd.directives').directive('toggleSwitcher', [
-    '$compile',
+    '$timeout',
     toggleSwitcherDirective
   ]);
 }());
