@@ -5,7 +5,7 @@
   margin: 15px 0;
   padding: 39px 19px 14px;
   background-color: white;
-  border: 1px solid #DDD;
+  border: 1px solid #dddddd;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -21,7 +21,7 @@
   font-size: 12px;
   font-weight: bold;
   background-color: whiteSmoke;
-  border: 1px solid #DDD;
+  border: 1px solid #dddddd;
   color: #9DA0A4;
   -webkit-border-radius: 4px 0 4px 0;
   -moz-border-radius: 4px 0 4px 0;
@@ -38,7 +38,7 @@
 .bs-docs-example + .prettyprint {
   margin-top: -20px;
   padding-top: 15px;
-  border: 1px solid #E1E1E8;
+  border: 1px solid #e1e1e8;
 }
 
 /* line 1, ../../app/styles/prettify.scss */
@@ -107,5 +107,5 @@ ol.linenums li {
   padding-left: 12px;
   color: #bebec5;
   line-height: 20px;
-  text-shadow: 0 1px 0 #fff;
+  text-shadow: 0 1px 0 white;
 }
