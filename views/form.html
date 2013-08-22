@@ -4,6 +4,9 @@
 <h2>声明</h2>
 <ul>
     <li>
+        <p>当表单元素占据一行时且右侧有大量空白时， 请指定 <code>input</code> 的宽度为 <code>.input-xxlarge</code> 属性</p>
+    </li>
+    <li>
         <p>
             当 <code>label</code> 与 <code>input</code> 相关联时要为 <code>label</code>添加<code>for</code>, <code>input</code>
             添加对应的<code>id</code>
@@ -59,6 +62,7 @@
     <li>将label和控件包裹在<code>.control-group</code>中</li>
     <li>为label添加<code>.control-label</code>类</li>
     <li>将任何相关的控件包裹在<code>.controls</code>中，以确保最佳的对齐</li>
+    <li>当label对应为非表单元素时， 请为元素包裹标签如： <code>span, p</code> 等， 并添加<code>.control-text</code>类</li>
 </ul>
 <form class="form-horizontal">
     <fieldset>
@@ -100,6 +104,12 @@
                 </select>
             </div>
         </div>
+        <div class="control-group">
+            <label class="control-label" for="selection">文本区域</label>
+            <div class="controls">
+                <p class="control-text">文字</p>
+            </div>
+        </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">保存</button>
             <button type="button" class="btn">取消</button>
@@ -107,7 +117,7 @@
     </fieldset>
 </form>
 <pre class="prettyprint linenums">
-&lt;form class=&quot;form-horizontal&quot;&gt;
+&lt;form class=&quot;form-horizontal ng-scope ng-pristine ng-valid&quot;&gt;
     &lt;fieldset&gt;
         &lt;div class=&quot;control-group&quot;&gt;
             &lt;label class=&quot;control-label&quot; for=&quot;text&quot;&gt;&#25991;&#23383;&#21306;&#22495;&lt;/label&gt;
@@ -120,31 +130,37 @@
         &lt;div class=&quot;control-group&quot;&gt;
             &lt;label class=&quot;control-label&quot; for=&quot;password&quot;&gt;&#23494;&#30721;&lt;/label&gt;
             &lt;div class=&quot;controls&quot;&gt;
-                &lt;input type=&quot;password&quot; id=&quot;password&quot; class=&quot;span3&quot; placeholder=&quot;Password&quot; required&gt;
+                &lt;input type=&quot;password&quot; id=&quot;password&quot; class=&quot;span3&quot; placeholder=&quot;Password&quot; required=&quot;&quot;&gt;
             &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&quot;control-group&quot;&gt;
             &lt;label class=&quot;control-label&quot; for=&quot;disabled&quot;&gt;&#31105;&#29992;&#21306;&#22495;&lt;/label&gt;
             &lt;div class=&quot;controls&quot;&gt;
-                &lt;input type=&quot;text&quot; id=&quot;disabled&quot;class=&quot;span3&quot; disabled placeholder=&quot;disabled&quot;&gt;
+                &lt;input type=&quot;text&quot; id=&quot;disabled&quot; class=&quot;span3&quot; disabled=&quot;&quot; placeholder=&quot;disabled&quot;&gt;
             &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&quot;control-group&quot;&gt;
             &lt;label class=&quot;control-label&quot; for=&quot;readonly&quot;&gt;&#21482;&#35835;&#21306;&#22495;&lt;/label&gt;
             &lt;div class=&quot;controls&quot;&gt;
-                &lt;input type=&quot;text&quot; id=&quot;readonly&quot; class=&quot;span3&quot; readonly placeholder=&quot;readonly&quot;&gt;
+                &lt;input type=&quot;text&quot; id=&quot;readonly&quot; class=&quot;span3&quot; readonly=&quot;&quot; placeholder=&quot;readonly&quot;&gt;
             &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&quot;control-group&quot;&gt;
             &lt;label class=&quot;control-label&quot; for=&quot;selection&quot;&gt;&#36873;&#39033;&#21306;&#22495;&lt;/label&gt;
             &lt;div class=&quot;controls&quot;&gt;
                 &lt;select id=&quot;selection&quot; class=&quot;span3&quot;&gt;
-                    &lt;option&gt;1&lt;/option&gt;
-                    &lt;option&gt;2&lt;/option&gt;
-                    &lt;option&gt;3&lt;/option&gt;
-                    &lt;option&gt;4&lt;/option&gt;
-                    &lt;option&gt;5&lt;/option&gt;
+                    &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
+                    &lt;option value=&quot;2&quot;&gt;2&lt;/option&gt;
+                    &lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;
+                    &lt;option value=&quot;4&quot;&gt;4&lt;/option&gt;
+                    &lt;option value=&quot;5&quot;&gt;5&lt;/option&gt;
                 &lt;/select&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;control-group&quot;&gt;
+            &lt;label class=&quot;control-label&quot; for=&quot;selection&quot;&gt;&#25991;&#26412;&#21306;&#22495;&lt;/label&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;p class=&quot;control-text&quot;&gt;&#25991;&#23383;&lt;/p&gt;
             &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&quot;form-actions&quot;&gt;
@@ -419,6 +435,36 @@
         &lt;/fieldset&gt;
     &lt;/form&gt;
 </pre>
+
+<h3>表格内表单</h3>
+<table class="table-normal">
+    <tr>
+        <th>标题 一</th>
+        <th>标题 二</th>
+        <th>标题 三</th>
+        <th>标题 四</th>
+        <th>标题 五</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <select name="" id="">
+                <option value="">请选择</option>
+            </select>
+        </td>
+    </tr>
+</table>
 
 <h3>表单提示信息</h3>
 <p>Bootstrap包含了（错误）error、（警告）warning、（通知）info和（成功）success信息的样式。为<code>.control-group</code>添加适当的属性即可使用这些样式。</p>
