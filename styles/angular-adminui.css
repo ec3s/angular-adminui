@@ -8145,17 +8145,22 @@ select {
 form .form-column {
   display: inline-block;
 }
-/* line 64, ../../app/styles/ntd-main.scss */
+/* line 63, ../../app/styles/ntd-main.scss */
+form.form-horizontal .control-text {
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+/* line 67, ../../app/styles/ntd-main.scss */
 form.form-horizontal .help-block {
   margin-top: 10px;
 }
 
-/* line 70, ../../app/styles/ntd-main.scss */
+/* line 73, ../../app/styles/ntd-main.scss */
 .nav li.dropdown.open .caret, .nav li.dropdown.open.active .caret, .nav li.dropdown.open a:hover .caret {
   opacity: 0.4;
 }
 
-/* line 74, ../../app/styles/ntd-main.scss */
+/* line 77, ../../app/styles/ntd-main.scss */
 .navbar .brand {
   font-family: 'good_timesregular';
   font-size: 20px;
@@ -8175,14 +8180,14 @@ form.form-horizontal .help-block {
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
 }
-/* line 75, ../../app/styles/ntd-main.scss */
+/* line 78, ../../app/styles/ntd-main.scss */
 .navbar .brand:before {
   margin-right: 5px;
   font-family: 'admin_uiregular';
   font-size: 28px;
   content: '\F000';
 }
-/* line 93, ../../app/styles/ntd-main.scss */
+/* line 96, ../../app/styles/ntd-main.scss */
 .navbar .brand:hover {
   text-decoration: none;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.4);
@@ -8190,22 +8195,22 @@ form.form-horizontal .help-block {
   opacity: .6;
 }
 
-/* line 102, ../../app/styles/ntd-main.scss */
+/* line 105, ../../app/styles/ntd-main.scss */
 .sub-nav {
   margin-bottom: 5px;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
 }
-/* line 106, ../../app/styles/ntd-main.scss */
+/* line 109, ../../app/styles/ntd-main.scss */
 .sub-nav li a {
   cursor: pointer !important;
 }
-/* line 108, ../../app/styles/ntd-main.scss */
+/* line 111, ../../app/styles/ntd-main.scss */
 .sub-nav li a .icon-chevron-down {
   opacity: .25;
 }
-/* line 111, ../../app/styles/ntd-main.scss */
+/* line 114, ../../app/styles/ntd-main.scss */
 .sub-nav li a:hover {
   -webkit-transition-property: background-color;
   -moz-transition-property: background-color;
@@ -8220,27 +8225,27 @@ form.form-horizontal .help-block {
   -o-transition-timing-function: ease;
   transition-timing-function: ease;
 }
-/* line 116, ../../app/styles/ntd-main.scss */
+/* line 119, ../../app/styles/ntd-main.scss */
 .sub-nav li a:hover .icon-chevron-down {
   opacity: .5;
 }
-/* line 123, ../../app/styles/ntd-main.scss */
+/* line 126, ../../app/styles/ntd-main.scss */
 .sub-nav li.active a, .sub-nav li.active a:hover {
   color: white;
   border-width: 0;
   padding: 9px 12px;
   background-color: #0088cc;
 }
-/* line 129, ../../app/styles/ntd-main.scss */
+/* line 132, ../../app/styles/ntd-main.scss */
 .sub-nav li.active a .icon-chevron-down, .sub-nav li.active a:hover .icon-chevron-down {
   opacity: 1;
 }
-/* line 133, ../../app/styles/ntd-main.scss */
+/* line 136, ../../app/styles/ntd-main.scss */
 .sub-nav li.active .icon-chevron-down {
   background-image: url(../images/glyphicons-halflings-white.png);
   opacity: 1;
 }
-/* line 139, ../../app/styles/ntd-main.scss */
+/* line 142, ../../app/styles/ntd-main.scss */
 .sub-nav li ul {
   margin: 0;
   list-style: none;
@@ -8248,11 +8253,11 @@ form.form-horizontal .help-block {
   border-right: 1px solid #dddddd;
   display: none;
 }
-/* line 146, ../../app/styles/ntd-main.scss */
+/* line 149, ../../app/styles/ntd-main.scss */
 .sub-nav li ul li {
   font-size: 12px;
 }
-/* line 148, ../../app/styles/ntd-main.scss */
+/* line 151, ../../app/styles/ntd-main.scss */
 .sub-nav li ul li a {
   display: block;
   margin-top: -1px;
@@ -8260,43 +8265,43 @@ form.form-horizontal .help-block {
   color: #999999 !important;
   background-color: white !important;
 }
-/* line 154, ../../app/styles/ntd-main.scss */
+/* line 157, ../../app/styles/ntd-main.scss */
 .sub-nav li ul li a:hover {
   border-width: 1px !important;
   text-decoration: none;
   background: url("../images/menu_sprites.png") no-repeat 15px 14px;
 }
-/* line 159, ../../app/styles/ntd-main.scss */
+/* line 162, ../../app/styles/ntd-main.scss */
 .sub-nav li ul li a:first-child {
   border-top: 1px solid #dddddd;
 }
-/* line 165, ../../app/styles/ntd-main.scss */
+/* line 168, ../../app/styles/ntd-main.scss */
 .sub-nav li ul li.active a, .sub-nav li ul li.active a:hover {
   color: red;
   border-color: #dddddd;
   background: url(../images/menu_sprites.png) no-repeat 15px -22px;
 }
 
-/* line 176, ../../app/styles/ntd-main.scss */
+/* line 179, ../../app/styles/ntd-main.scss */
 .btn-icon {
   padding: 2px 4px 0 4px;
 }
-/* line 178, ../../app/styles/ntd-main.scss */
+/* line 181, ../../app/styles/ntd-main.scss */
 .btn-icon [class^="icon-"], .btn-icon [class*=" icon-"] {
   margin-top: 0;
 }
 
-/* line 184, ../../app/styles/ntd-main.scss */
+/* line 187, ../../app/styles/ntd-main.scss */
 .pagination {
   margin-top: 0;
 }
 
-/* line 189, ../../app/styles/ntd-main.scss */
+/* line 192, ../../app/styles/ntd-main.scss */
 .info-box {
   margin-bottom: 20px;
   overflow: hidden;
 }
-/* line 192, ../../app/styles/ntd-main.scss */
+/* line 195, ../../app/styles/ntd-main.scss */
 .info-box .stat {
   border: 1px solid #d5d5d5;
   padding: 10px;
@@ -8318,7 +8323,7 @@ form.form-horizontal .help-block {
   background-image: linear-gradient(#f9f9f9, #ededed);
   background-color: #ededed;
 }
-/* line 203, ../../app/styles/ntd-main.scss */
+/* line 206, ../../app/styles/ntd-main.scss */
 .info-box .stat strong {
   display: block;
   font-weight: normal;
@@ -8327,13 +8332,13 @@ form.form-horizontal .help-block {
   margin: 5px 0;
 }
 
-/* line 212, ../../app/styles/ntd-main.scss */
+/* line 215, ../../app/styles/ntd-main.scss */
 .user-infomation {
   padding-top: 5px;
   text-align: center;
   overflow: hidden;
 }
-/* line 217, ../../app/styles/ntd-main.scss */
+/* line 220, ../../app/styles/ntd-main.scss */
 .user-infomation img {
   margin-bottom: 10px;
   border: 3px solid white;
@@ -8344,12 +8349,12 @@ form.form-horizontal .help-block {
   -moz-border-radius: 500px / 500px;
   border-radius: 500px / 500px;
 }
-/* line 223, ../../app/styles/ntd-main.scss */
+/* line 226, ../../app/styles/ntd-main.scss */
 .user-infomation .user-content {
   overflow: hidden;
 }
 
-/* line 229, ../../app/styles/ntd-main.scss */
+/* line 232, ../../app/styles/ntd-main.scss */
 .advance-search-filter {
   min-height: 20px;
   padding: 19px;
@@ -8363,30 +8368,30 @@ form.form-horizontal .help-block {
   border-radius: 4px;
   position: relative;
 }
-/* line 238, ../../app/styles/ntd-main.scss */
+/* line 241, ../../app/styles/ntd-main.scss */
 .advance-search-filter .skeleton label, .advance-search-filter .skeleton .help-inline, .advance-search-filter .skeleton .help-block {
   display: none;
 }
-/* line 241, ../../app/styles/ntd-main.scss */
+/* line 244, ../../app/styles/ntd-main.scss */
 .advance-search-filter .skeleton .control-group {
   display: inline-block;
   margin: 0;
 }
-/* line 244, ../../app/styles/ntd-main.scss */
+/* line 247, ../../app/styles/ntd-main.scss */
 .advance-search-filter .skeleton .control-group .controls {
   margin: 0;
 }
-/* line 249, ../../app/styles/ntd-main.scss */
+/* line 252, ../../app/styles/ntd-main.scss */
 .advance-search-filter form {
   margin-bottom: 0;
 }
-/* line 251, ../../app/styles/ntd-main.scss */
+/* line 254, ../../app/styles/ntd-main.scss */
 .advance-search-filter form .form-actions {
   margin-bottom: 0;
   padding-bottom: 0;
   background: none;
 }
-/* line 257, ../../app/styles/ntd-main.scss */
+/* line 260, ../../app/styles/ntd-main.scss */
 .advance-search-filter .more {
   margin-left: 50%;
   text-align: center;
@@ -8404,27 +8409,27 @@ form.form-horizontal .help-block {
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-/* line 268, ../../app/styles/ntd-main.scss */
+/* line 271, ../../app/styles/ntd-main.scss */
 .advance-search-filter .more a {
   display: block;
   padding: 0 0 5px;
   width: 60px;
   height: 10px;
 }
-/* line 273, ../../app/styles/ntd-main.scss */
+/* line 276, ../../app/styles/ntd-main.scss */
 .advance-search-filter .more a:hover {
   background: #e3e3e3;
 }
-/* line 276, ../../app/styles/ntd-main.scss */
+/* line 279, ../../app/styles/ntd-main.scss */
 .advance-search-filter .more a [class^="icon-"], .advance-search-filter .more a [class*=" icon-"] {
   margin-top: -2px;
 }
-/* line 279, ../../app/styles/ntd-main.scss */
+/* line 282, ../../app/styles/ntd-main.scss */
 .advance-search-filter .more a .icon-chevron-up {
   background-position: -288px -120px;
 }
 
-/* line 286, ../../app/styles/ntd-main.scss */
+/* line 289, ../../app/styles/ntd-main.scss */
 .div-stacked {
   border: 1px solid #dddddd;
   -webkit-border-radius: 4px;
@@ -8433,38 +8438,38 @@ form.form-horizontal .help-block {
   -o-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 289, ../../app/styles/ntd-main.scss */
+/* line 292, ../../app/styles/ntd-main.scss */
 .div-stacked .stacked-item {
   border-bottom: 1px solid #dddddd;
 }
-/* line 291, ../../app/styles/ntd-main.scss */
+/* line 294, ../../app/styles/ntd-main.scss */
 .div-stacked .stacked-item:last-child {
   border: none;
 }
-/* line 295, ../../app/styles/ntd-main.scss */
+/* line 298, ../../app/styles/ntd-main.scss */
 .div-stacked .stacked-item-hd {
   padding: 8px;
   overflow: hidden;
 }
-/* line 299, ../../app/styles/ntd-main.scss */
+/* line 302, ../../app/styles/ntd-main.scss */
 .div-stacked .stacked-item-bd {
   padding: 8px;
   border-top: 1px solid #dddddd;
 }
-/* line 303, ../../app/styles/ntd-main.scss */
+/* line 306, ../../app/styles/ntd-main.scss */
 .div-stacked .stacked-item-bd .table-normal {
   margin: 0;
 }
 
-/* line 310, ../../app/styles/ntd-main.scss */
+/* line 313, ../../app/styles/ntd-main.scss */
 .box {
   margin-bottom: 20px;
 }
-/* line 312, ../../app/styles/ntd-main.scss */
+/* line 315, ../../app/styles/ntd-main.scss */
 .box .opts {
   float: right;
 }
-/* line 315, ../../app/styles/ntd-main.scss */
+/* line 318, ../../app/styles/ntd-main.scss */
 .box .box-hd {
   padding: 8px;
   line-height: 20px;
@@ -8482,13 +8487,13 @@ form.form-horizontal .help-block {
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
 }
-/* line 321, ../../app/styles/ntd-main.scss */
+/* line 324, ../../app/styles/ntd-main.scss */
 .box .box-hd h3 {
   margin: 0;
   font-size: 14px;
   line-height: 20px;
 }
-/* line 327, ../../app/styles/ntd-main.scss */
+/* line 330, ../../app/styles/ntd-main.scss */
 .box .box-bd {
   padding: 8px;
   border: solid #dddddd;
@@ -8501,18 +8506,18 @@ form.form-horizontal .help-block {
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-/* line 333, ../../app/styles/ntd-main.scss */
+/* line 336, ../../app/styles/ntd-main.scss */
 .box .box-bd .alert {
   margin-bottom: 0;
 }
 
-/* line 339, ../../app/styles/ntd-main.scss */
+/* line 342, ../../app/styles/ntd-main.scss */
 .page-header .page-action {
   float: right;
   margin-top: 15px;
 }
 
-/* line 346, ../../app/styles/ntd-main.scss */
+/* line 349, ../../app/styles/ntd-main.scss */
 .tag-input-container ul {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -8533,7 +8538,7 @@ form.form-horizontal .help-block {
   transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
-/* line 365, ../../app/styles/ntd-main.scss */
+/* line 368, ../../app/styles/ntd-main.scss */
 .tag-input-container ul.focus {
   border-color: rgba(82, 168, 236, 0.8);
   outline: 0;
@@ -8544,7 +8549,7 @@ form.form-horizontal .help-block {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
 
-/* line 374, ../../app/styles/ntd-main.scss */
+/* line 377, ../../app/styles/ntd-main.scss */
 .tag-input-container ul .tag {
   padding: 0 2px;
   margin: 3px 0 0 3px;
@@ -8564,12 +8569,12 @@ form.form-horizontal .help-block {
   float: left;
 }
 
-/* line 392, ../../app/styles/ntd-main.scss */
+/* line 395, ../../app/styles/ntd-main.scss */
 .tag-input-container ul .tag span {
   padding: 0 2px;
 }
 
-/* line 395, ../../app/styles/ntd-main.scss */
+/* line 398, ../../app/styles/ntd-main.scss */
 .tag-input-container ul .tag i {
   cursor: pointer;
   width: 12px;
@@ -8578,7 +8583,7 @@ form.form-horizontal .help-block {
   background: url("../images/chosen-sprite.png") -42px 1px no-repeat;
 }
 
-/* line 402, ../../app/styles/ntd-main.scss */
+/* line 405, ../../app/styles/ntd-main.scss */
 .tag-input-container ul .input-li input {
   border: none;
   width: 80px;
@@ -8589,47 +8594,47 @@ form.form-horizontal .help-block {
   box-shadow: none;
 }
 
-/* line 411, ../../app/styles/ntd-main.scss */
+/* line 414, ../../app/styles/ntd-main.scss */
 .tag-input-container ul .input-li input:focus {
   outline: none;
 }
 
-/* line 417, ../../app/styles/ntd-main.scss */
+/* line 420, ../../app/styles/ntd-main.scss */
 .chosen {
   width: 220px;
 }
 
-/* line 420, ../../app/styles/ntd-main.scss */
+/* line 423, ../../app/styles/ntd-main.scss */
 .chosen-mini {
   width: 70px;
 }
 
-/* line 423, ../../app/styles/ntd-main.scss */
+/* line 426, ../../app/styles/ntd-main.scss */
 .chosen-small {
   width: 100px;
 }
 
-/* line 426, ../../app/styles/ntd-main.scss */
+/* line 429, ../../app/styles/ntd-main.scss */
 .chosen-medium {
   width: 160px;
 }
 
-/* line 429, ../../app/styles/ntd-main.scss */
+/* line 432, ../../app/styles/ntd-main.scss */
 .chosen-large {
   width: 220px;
 }
 
-/* line 432, ../../app/styles/ntd-main.scss */
+/* line 435, ../../app/styles/ntd-main.scss */
 .chosen-xlarge {
   width: 280px;
 }
 
-/* line 435, ../../app/styles/ntd-main.scss */
+/* line 438, ../../app/styles/ntd-main.scss */
 .chosen-xxlarge {
   width: 540px;
 }
 
-/* line 438, ../../app/styles/ntd-main.scss */
+/* line 441, ../../app/styles/ntd-main.scss */
 .chzn-container {
   *display: inline;
   /* IE7 inline-block hack */
@@ -8640,7 +8645,7 @@ form.form-horizontal .help-block {
   vertical-align: middle;
 }
 
-/* line 447, ../../app/styles/ntd-main.scss */
+/* line 450, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-drop {
   background: #ffffff;
   border: 1px solid #999999;
@@ -8664,12 +8669,12 @@ form.form-horizontal .help-block {
   z-index: 1060;
 }
 
-/* line 469, ../../app/styles/ntd-main.scss */
+/* line 472, ../../app/styles/ntd-main.scss */
 .chzn-container.chzn-with-drop .chzn-drop {
   left: 0;
 }
 
-/* line 472, ../../app/styles/ntd-main.scss */
+/* line 475, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results {
   color: #555555;
   margin: 0 4px 4px 0;
@@ -8681,7 +8686,7 @@ form.form-horizontal .help-block {
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 482, ../../app/styles/ntd-main.scss */
+/* line 485, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results li {
   display: none;
   line-height: 20px;
@@ -8690,48 +8695,48 @@ form.form-horizontal .help-block {
   padding: 5px 6px;
 }
 
-/* line 489, ../../app/styles/ntd-main.scss */
+/* line 492, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results li em {
   background: #feffde;
   font-style: normal;
 }
 
-/* line 493, ../../app/styles/ntd-main.scss */
+/* line 496, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results .active-result {
   cursor: pointer;
   display: list-item;
 }
 
-/* line 497, ../../app/styles/ntd-main.scss */
+/* line 500, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results .highlighted {
   background-color: #0088cc;
   color: #ffffff;
 }
 
-/* line 501, ../../app/styles/ntd-main.scss */
+/* line 504, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results .highlighted em {
   background: transparent;
 }
 
-/* line 504, ../../app/styles/ntd-main.scss */
+/* line 507, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results .no-results {
   background: #eeeeee;
   display: list-item;
 }
 
-/* line 508, ../../app/styles/ntd-main.scss */
+/* line 511, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results .group-result {
   cursor: default;
   color: #999;
   font-weight: bold;
 }
 
-/* line 513, ../../app/styles/ntd-main.scss */
+/* line 516, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results .group-option {
   padding-left: 15px;
 }
 
-/* line 516, ../../app/styles/ntd-main.scss */
+/* line 519, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results-scroll {
   background: #ffffff;
   margin: 0 4px;
@@ -8741,7 +8746,7 @@ form.form-horizontal .help-block {
   z-index: 1;
 }
 
-/* line 524, ../../app/styles/ntd-main.scss */
+/* line 527, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results-scroll span {
   display: inline-block;
   height: 20px;
@@ -8749,22 +8754,22 @@ form.form-horizontal .help-block {
   width: 9px;
 }
 
-/* line 530, ../../app/styles/ntd-main.scss */
+/* line 533, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results-scroll-down {
   bottom: 0;
 }
 
-/* line 533, ../../app/styles/ntd-main.scss */
+/* line 536, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results-scroll-down span {
   background: url("../images/chosen-sprite.png") no-repeat -4px -3px;
 }
 
-/* line 536, ../../app/styles/ntd-main.scss */
+/* line 539, ../../app/styles/ntd-main.scss */
 .chzn-container .chzn-results-scroll-up span {
   background: url("../images/chosen-sprite.png") no-repeat -22px -3px;
 }
 
-/* line 539, ../../app/styles/ntd-main.scss */
+/* line 542, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-single {
   display: block;
   *display: inline;
@@ -8819,7 +8824,7 @@ form.form-horizontal .help-block {
   *margin-left: 0;
 }
 
-/* line 560, ../../app/styles/ntd-main.scss */
+/* line 563, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-single span {
   display: block;
   margin-right: 26px;
@@ -8828,7 +8833,7 @@ form.form-horizontal .help-block {
   white-space: nowrap;
 }
 
-/* line 567, ../../app/styles/ntd-main.scss */
+/* line 570, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-single abbr {
   background: url("../images/chosen-sprite.png") right top no-repeat;
   display: block;
@@ -8840,17 +8845,17 @@ form.form-horizontal .help-block {
   width: 12px;
 }
 
-/* line 577, ../../app/styles/ntd-main.scss */
+/* line 580, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-single abbr:hover {
   background-position: right -11px;
 }
 
-/* line 580, ../../app/styles/ntd-main.scss */
+/* line 583, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-single.chzn-disabled .chzn-single abbr:hover {
   background-position: right 2px;
 }
 
-/* line 583, ../../app/styles/ntd-main.scss */
+/* line 586, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-single div {
   display: block;
   height: 100%;
@@ -8860,7 +8865,7 @@ form.form-horizontal .help-block {
   width: 18px;
 }
 
-/* line 591, ../../app/styles/ntd-main.scss */
+/* line 594, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-single div b {
   background: url("../images/chosen-sprite.png") no-repeat 0 5px;
   display: block;
@@ -8868,12 +8873,12 @@ form.form-horizontal .help-block {
   width: 100%;
 }
 
-/* line 597, ../../app/styles/ntd-main.scss */
+/* line 600, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-default {
   color: #999999;
 }
 
-/* line 600, ../../app/styles/ntd-main.scss */
+/* line 603, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-search {
   margin: 0;
   padding: 3px 4px;
@@ -8882,7 +8887,7 @@ form.form-horizontal .help-block {
   z-index: 1000;
 }
 
-/* line 607, ../../app/styles/ntd-main.scss */
+/* line 610, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-search input {
   height: 30px;
   background: url("../images/chosen-sprite.png") no-repeat 100% -20px, white;
@@ -8897,12 +8902,12 @@ form.form-horizontal .help-block {
   padding: 4px 20px 4px 4px;
 }
 
-/* line 620, ../../app/styles/ntd-main.scss */
+/* line 623, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-search input.loading {
   background: url("../images/loading.gif") no-repeat 98% 6px;
 }
 
-/* line 623, ../../app/styles/ntd-main.scss */
+/* line 626, ../../app/styles/ntd-main.scss */
 .chzn-container-single .chzn-drop {
   margin-top: -1px;
   -webkit-border-radius: 4px;
@@ -8919,18 +8924,18 @@ form.form-horizontal .help-block {
   background-clip: padding-box;
 }
 
-/* line 638, ../../app/styles/ntd-main.scss */
+/* line 641, ../../app/styles/ntd-main.scss */
 .chzn-container-single-nosearch .chzn-search input {
   position: absolute;
   left: -9000px;
 }
 
-/* line 642, ../../app/styles/ntd-main.scss */
+/* line 645, ../../app/styles/ntd-main.scss */
 .chzn-container-single-nosearch .chzn-results {
   padding: 4px 0 0 4px;
 }
 
-/* line 645, ../../app/styles/ntd-main.scss */
+/* line 648, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-choices {
   background-color: #ffffff;
   border: 1px solid #cccccc;
@@ -8949,20 +8954,20 @@ form.form-horizontal .help-block {
   position: relative;
 }
 
-/* line 662, ../../app/styles/ntd-main.scss */
+/* line 665, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-choices li {
   float: left;
   list-style: none;
 }
 
-/* line 666, ../../app/styles/ntd-main.scss */
+/* line 669, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-choices .search-field {
   margin: 0;
   padding: 0;
   white-space: nowrap;
 }
 
-/* line 671, ../../app/styles/ntd-main.scss */
+/* line 674, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-choices li.search-field input {
   background: transparent !important;
   border: 0 !important;
@@ -8976,12 +8981,12 @@ form.form-horizontal .help-block {
   outline: 0;
 }
 
-/* line 683, ../../app/styles/ntd-main.scss */
+/* line 686, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-choices .search-field .default {
   color: #999;
 }
 
-/* line 686, ../../app/styles/ntd-main.scss */
+/* line 689, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-choices .search-choice {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
@@ -9010,7 +9015,7 @@ form.form-horizontal .help-block {
   position: relative;
 }
 
-/* line 713, ../../app/styles/ntd-main.scss */
+/* line 716, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-choices .search-choice .search-choice-close {
   background: url("../images/chosen-sprite.png") right top no-repeat;
   display: block;
@@ -9022,33 +9027,33 @@ form.form-horizontal .help-block {
   width: 12px;
 }
 
-/* line 723, ../../app/styles/ntd-main.scss */
+/* line 726, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-choices .search-choice .search-choice-close:hover {
   background-position: right -11px;
 }
 
-/* line 726, ../../app/styles/ntd-main.scss */
+/* line 729, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-choices .search-choice-focus {
   background: #d4d4d4;
 }
 
-/* line 729, ../../app/styles/ntd-main.scss */
+/* line 732, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-choices .search-choice-focus .search-choice-close {
   background-position: right -11px;
 }
 
-/* line 732, ../../app/styles/ntd-main.scss */
+/* line 735, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-results {
   margin: 0 0 0 0;
   padding: 0;
 }
 
-/* line 736, ../../app/styles/ntd-main.scss */
+/* line 739, ../../app/styles/ntd-main.scss */
 .chzn-container-multi .chzn-drop .result-selected {
   display: none;
 }
 
-/* line 739, ../../app/styles/ntd-main.scss */
+/* line 742, ../../app/styles/ntd-main.scss */
 .chzn-container-active .chzn-single {
   border: 1px solid rgba(82, 168, 236, 0.8);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
@@ -9060,7 +9065,7 @@ form.form-horizontal .help-block {
   transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
-/* line 749, ../../app/styles/ntd-main.scss */
+/* line 752, ../../app/styles/ntd-main.scss */
 .chzn-container-active.chzn-with-drop .chzn-single {
   background-color: #eeeeee;
   border: 1px solid rgba(82, 168, 236, 0.8);
@@ -9073,18 +9078,18 @@ form.form-horizontal .help-block {
   transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
-/* line 760, ../../app/styles/ntd-main.scss */
+/* line 763, ../../app/styles/ntd-main.scss */
 .chzn-container-active.chzn-with-drop .chzn-single div {
   background: transparent;
   border-left: none;
 }
 
-/* line 764, ../../app/styles/ntd-main.scss */
+/* line 767, ../../app/styles/ntd-main.scss */
 .chzn-container-active.chzn-with-drop .chzn-single div b {
   background-position: -18px 5px;
 }
 
-/* line 767, ../../app/styles/ntd-main.scss */
+/* line 770, ../../app/styles/ntd-main.scss */
 .chzn-container-active .chzn-choices {
   background-color: white;
   border: 1px solid #cccccc;
@@ -9096,7 +9101,7 @@ form.form-horizontal .help-block {
   -o-transition: border linear 0.2s, box-shadow linear 0.2s;
   transition: border linear 0.2s, box-shadow linear 0.2s;
 }
-/* line 774, ../../app/styles/ntd-main.scss */
+/* line 777, ../../app/styles/ntd-main.scss */
 .chzn-container-active .chzn-choices:focus {
   border-color: rgba(82, 168, 236, 0.8);
   outline: 0;
@@ -9107,112 +9112,117 @@ form.form-horizontal .help-block {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
 
-/* line 781, ../../app/styles/ntd-main.scss */
+/* line 784, ../../app/styles/ntd-main.scss */
 .chzn-container-active .chzn-choices .search-field input {
   color: #111111 !important;
 }
 
-/* line 784, ../../app/styles/ntd-main.scss */
+/* line 787, ../../app/styles/ntd-main.scss */
 .chzn-disabled {
   cursor: default;
   opacity: 0.5 !important;
 }
 
-/* line 788, ../../app/styles/ntd-main.scss */
+/* line 791, ../../app/styles/ntd-main.scss */
 .chzn-disabled .chzn-single {
   cursor: default;
 }
 
-/* line 791, ../../app/styles/ntd-main.scss */
+/* line 794, ../../app/styles/ntd-main.scss */
 .chzn-disabled .chzn-choices .search-choice .search-choice-close {
   cursor: default;
 }
 
-/* line 794, ../../app/styles/ntd-main.scss */
+/* line 797, ../../app/styles/ntd-main.scss */
 .chzn-rtl {
   text-align: right;
 }
 
-/* line 797, ../../app/styles/ntd-main.scss */
+/* line 800, ../../app/styles/ntd-main.scss */
 .chzn-rtl .chzn-single {
   padding: 0 8px 0 0;
   overflow: visible;
 }
 
-/* line 801, ../../app/styles/ntd-main.scss */
+/* line 804, ../../app/styles/ntd-main.scss */
 .chzn-rtl .chzn-single span {
   margin-left: 26px;
   margin-right: 0;
   direction: rtl;
 }
 
-/* line 806, ../../app/styles/ntd-main.scss */
+/* line 809, ../../app/styles/ntd-main.scss */
 .chzn-rtl .chzn-single div {
   left: 3px;
   right: auto;
 }
 
-/* line 810, ../../app/styles/ntd-main.scss */
+/* line 813, ../../app/styles/ntd-main.scss */
 .chzn-rtl .chzn-single abbr {
   left: 26px;
   right: auto;
 }
 
-/* line 814, ../../app/styles/ntd-main.scss */
+/* line 817, ../../app/styles/ntd-main.scss */
 .chzn-rtl .chzn-choices .search-field input {
   direction: rtl;
 }
 
-/* line 817, ../../app/styles/ntd-main.scss */
+/* line 820, ../../app/styles/ntd-main.scss */
 .chzn-rtl .chzn-choices li {
   float: right;
 }
 
-/* line 820, ../../app/styles/ntd-main.scss */
+/* line 823, ../../app/styles/ntd-main.scss */
 .chzn-rtl .chzn-choices .search-choice {
   margin: 3px 5px 3px 0;
   padding: 3px 5px 3px 19px;
 }
 
-/* line 824, ../../app/styles/ntd-main.scss */
+/* line 827, ../../app/styles/ntd-main.scss */
 .chzn-rtl .chzn-choices .search-choice .search-choice-close {
   background-position: right top;
   left: 4px;
   right: auto;
 }
 
-/* line 829, ../../app/styles/ntd-main.scss */
+/* line 832, ../../app/styles/ntd-main.scss */
 .chzn-rtl.chzn-container-single .chzn-results {
   margin: 0 0 4px 4px;
   padding: 0 4px 0 0;
 }
 
-/* line 833, ../../app/styles/ntd-main.scss */
+/* line 836, ../../app/styles/ntd-main.scss */
 .chzn-rtl .chzn-results .group-option {
   padding-left: 0;
   padding-right: 15px;
 }
 
-/* line 837, ../../app/styles/ntd-main.scss */
+/* line 840, ../../app/styles/ntd-main.scss */
 .chzn-rtl.chzn-container-active.chzn-with-drop .chzn-single div {
   border-right: none;
 }
 
-/* line 840, ../../app/styles/ntd-main.scss */
+/* line 843, ../../app/styles/ntd-main.scss */
 .chzn-rtl.chzn-container-single.chzn-with-drop .chzn-single div b {
   background-position: -12px 5px;
 }
 
-/* line 843, ../../app/styles/ntd-main.scss */
+/* line 846, ../../app/styles/ntd-main.scss */
 .chzn-rtl.chzn-container-single .chzn-single div b {
   background-position: 6px 5px;
 }
 
-/* line 846, ../../app/styles/ntd-main.scss */
+/* line 849, ../../app/styles/ntd-main.scss */
 .chzn-rtl .chzn-search input {
   background: url("../images/chosen-sprite.png") no-repeat -28px -20px, white;
   direction: rtl;
   padding: 4px 5px 4px 20px;
+}
+
+/* line 856, ../../app/styles/ntd-main.scss */
+[class*="span"] .chzn-container {
+  width: 100% !important;
 }
 
 /* line 1, ../../app/styles/ntd-table.scss */
@@ -9400,6 +9410,30 @@ table .sort-asc .sort-icon {
 /* line 149, ../../app/styles/ntd-table.scss */
 table .sort-desc .sort-icon {
   background-position: right -14px;
+}
+/* line 158, ../../app/styles/ntd-table.scss */
+table select, table textarea, table input[type="text"], table input[type="password"],
+table input[type="datetime"], table input[type="datetime-local"],
+table input[type="date"], table input[type="month"], table input[type="time"],
+table input[type="week"], table input[type="number"], table input[type="email"],
+table input[type="url"], table input[type="search"], table input[type="tel"],
+table input[type="color"], table .uneditable-input {
+  margin-bottom: 0;
+}
+
+/* line 166, ../../app/styles/ntd-table.scss */
+.table-param tr th.param-name {
+  width: 20%;
+  text-align: right;
+  background: #f9f9f9;
+}
+/* line 173, ../../app/styles/ntd-table.scss */
+.table-param tr td.param-desc {
+  width: 30%;
+}
+/* line 176, ../../app/styles/ntd-table.scss */
+.table-param tr td.param-desc-col3 {
+  width: 80%;
 }
 
 /* line 2, ../../app/styles/ntd-cascade-list.scss */
