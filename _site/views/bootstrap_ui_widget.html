@@ -3,32 +3,22 @@
         <a href="http://angular-ui.github.io/bootstrap/">Bootstrap UI</a> 组件
     </h1>
 </div>
-<h3>时间日期</h3>
-<div class="control-group input-append">
-    <input type="text" class="input-small" ng-model="datepicker.date" placeholder="时间" data-date-format="yyyy/mm/dd" date-picker>
-    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
-</div>
-<p>日期选择器用 <code>date-picker</code> 属性绑定到 input 元素上.</p>
-<pre class="prettyprint linenums">
-    &lt;div class=&quot;control-group input-append&quot;&gt;
-        &lt;input type=&quot;text&quot; class=&quot;input-small&quot; ng-model=&quot;datepicker.date&quot; placeholder=&quot;&#26102;&#38388;&quot; data-date-format=&quot;yyyy/mm/dd&quot; date-picker&gt;
-        &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;datepicker&quot;&gt;&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-    &lt;/div&gt;
-</pre>
-<hr>
 
-<div class="control-group input-append">
-  <input type="text" class="input-small" ng-model="timepicker.time" time-picker>
-  <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i></buttoni>
+<h3>Alert</h3>
+<div ng-controller="AlertDemoCtrl">
+  <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+  <button class="btn" ng-click="addAlert()">Add Alert</button>
 </div>
-<p>选择器用 <code>date-picker</code> 属性绑定到 input 元素上.</p>
-<pre class="prettyprint linenums">
-    &lt;div class=&quot;control-group input-append&quot;&gt;
-      &lt;input type=&quot;text&quot; ng-model=&quot;timepicker.time&quot; bs-timepicker&gt;
-      &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;timepicker&quot;&gt;&lt;i class=&quot;icon-time&quot;&gt;&lt;/i&gt;&lt;/buttoni&gt;
-    &lt;/div&gt;
-</pre>
 <hr>
+<pre class="prettyprint linenums">
+&lt;div ng-controller=&quot;AlertDemoCtrl&quot;&gt;
+  &lt;alert ng-repeat=&quot;alert in alerts&quot; type=&quot;alert.type&quot; close=&quot;closeAlert($index)&quot;&gt;{{alert.msg}}&lt;/alert&gt;
+  &lt;button class='btn' ng-click=&quot;addAlert()&quot;&gt;Add Alert&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+<div class="well" ng-controller="AlertDemoCtrl">
+    $scope.alerts = {{ alerts | json }};
+</div>
 
 <h3>Collapse</h3>
 <div ng-controller="CollapseDemoCtrl">
@@ -38,7 +28,6 @@
         <div class="well well-large">Some content</div> 
     </div>
 </div>
-
 <pre class="prettyprint linenums">
     &lt;div ng-controller=&quot;CollapseDemoCtrl&quot;&gt;
         &lt;button class=&quot;btn&quot; ng-click=&quot;isCollapsed = !isCollapsed&quot;&gt;Toggle collapse&lt;/button&gt;
@@ -97,22 +86,22 @@
 <div ng-controller="ButtonsCtrl">
     <h4>Single toggle</h4>
     <pre>{{singleModel}}</pre>
-    <button type="button" class="btn btn-primary" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+    <button type="button" class="btn" ng-model="singleModel" btn-checkbox="" btn-checkbox-true="1" btn-checkbox-false="0">
         Single Toggle
     </button>
     <h4>Checkbox</h4>
     <pre>{{checkModel}}</pre>
     <div class="btn-group">
-        <button type="button" class="btn btn-primary" ng-model="checkModel.left" btn-checkbox>Left</button>
-        <button type="button" class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Middle</button>
-        <button type="button" class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Right</button>
+        <button type="button" class="btn" ng-model="checkModel.left" btn-checkbox="">Left</button>
+        <button type="button" class="btn" ng-model="checkModel.middle" btn-checkbox="">Middle</button>
+        <button type="button" class="btn" ng-model="checkModel.right" btn-checkbox="">Right</button>
     </div>
     <h4>Radio</h4>
     <pre>{{radioModel}}</pre>
     <div class="btn-group">
-        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Left'">Left</button>
-        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Middle'">Middle</button>
-        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Right'">Right</button>
+        <button type="button" class="btn" ng-model="radioModel" btn-radio="'Left'">Left</button>
+        <button type="button" class="btn" ng-model="radioModel" btn-radio="'Middle'">Middle</button>
+        <button type="button" class="btn" ng-model="radioModel" btn-radio="'Right'">Right</button>
     </div>
 </div>
 <hr>
@@ -145,12 +134,12 @@
 <div ng-controller="DialogDemoCtrl">
     <div class="row-fluid">
         <div class="span6">
-            <label class="checkbox"><input type=checkbox ng-model="opts.backdrop">Show backdrop</label>
-            <label class="checkbox"><input type=checkbox ng-model="opts.dialogFade">Fade modal dialog </label>
-            <label class="checkbox"><input type=checkbox ng-disabled="!opts.backdrop" ng-model="opts.backdropFade">Fade Backdrop</label>
+            <label class="checkbox"><input type="checkbox" ng-model="opts.backdrop">Show backdrop</label>
+            <label class="checkbox"><input type="checkbox" ng-model="opts.dialogFade">Fade modal dialog </label>
+            <label class="checkbox"><input type="checkbox" ng-disabled="!opts.backdrop" ng-model="opts.backdropFade">Fade Backdrop</label>
             <hr>
-            <label class="checkbox"><input type=checkbox ng-model="opts.keyboard">Close on Escape</label>
-            <label class="checkbox"><input type=checkbox ng-disabled="!opts.backdrop" ng-model="opts.backdropClick">Close on backdrop click</label>
+            <label class="checkbox"><input type="checkbox" ng-model="opts.keyboard">Close on Escape</label>
+            <label class="checkbox"><input type="checkbox" ng-disabled="!opts.backdrop" ng-model="opts.backdropClick">Close on backdrop click</label>
         </div>
         <div class="span6">
             <p>Change options at will and press the open dialog button below!</p>
@@ -237,7 +226,7 @@
             pharetra convallis posuere morbi leo urna, 
             <a><span tooltip-animation="false" tooltip="I don't fade. :-(">fading</span></a> 
             at elementum eu, facilisis sed odio morbi quis commodo odio. In cursus
-            <a><span tooltip-popup-delay='1000' tooltip='appears with delay'>delayed</span></a> turpis massa tincidunt dui ut.
+            <a><span tooltip-popup-delay="1000" tooltip="appears with delay">delayed</span></a> turpis massa tincidunt dui ut.
         </p>
 
     <p>
@@ -245,10 +234,7 @@
     </p>
     <p>
         Or use custom triggers, like focus: 
-        <input type="text" value="Click me!"
-            tooltip="See? Now click away..." 
-            tooltip-trigger="focus"
-            tooltip-placement="right" />
+        <input type="text" value="Click me!" tooltip="See? Now click away..." tooltip-trigger="focus" tooltip-placement="right">
     </p>
   </div>
 </div>
@@ -306,13 +292,11 @@
         <div>
             <h4>Triggers</h4>
             <button popover="I appeared on mouse enter!" popover-trigger="mouseenter" class="btn">Mouseenter</button>
-            <input type="text" value="Click me!" 
-                popover="I appeared on focus! Click away and I'll vanish..." 
-                popover-trigger="focus" />
+            <input type="text" value="Click me!" popover="I appeared on focus! Click away and I'll vanish..." popover-trigger="focus">
         </div>
         <div>
             <h4>Other</h4>
-            <button Popover-animation="true" popover="I fade in and out!" class="btn">fading</button>
+            <button popover-animation="true" popover="I fade in and out!" class="btn">fading</button>
             <button popover="I have a title!" popover-title="The title." class="btn">title</button>
         </div>
     </div>
@@ -378,14 +362,13 @@
 
 <h3>tab标签</h3>
 <div ng-controller="TabsDemoCtrl">
-    <tabs>
-        <pane heading="Static title">Static content</pane>
-        <pane ng-repeat="pane in panes" heading="{{pane.title}}" active="pane.active">{{pane.content}}</pane>
-    </tabs>
-    <div class="row-fluid">
-        <button class="btn" ng-click="panes[0].active = true">Select second tab</button>
-        <button class="btn" ng-click="panes[1].active = true">Select third tab</button>
-    </div>
+    <p ng-repeat="(key, pane) in panes | filter: {active: true}">{{pane}}</p>
+    <tabset>
+        <tab heading="Static title">Static content</tab>
+        <tab ng-repeat="tab in tabs" select="alertMe()" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+            {{tab.content}}
+        </tab>
+    </tabset>
 </div>
 <hr>
 <pre class="prettyprint linenums">
@@ -490,14 +473,14 @@
     <pagination num-pages="noOfPages" current-page="currentPage"></pagination>
     <pagination num-pages="noOfPages" current-page="currentPage" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></pagination>
     <pagination boundary-links="true" num-pages="noOfPages" current-page="currentPage" max-size="maxSize"></pagination>
-    <pagination num-pages="noOfPages" current-page="currentPage"  max-size="maxSize"></pagination>
+    <pagination num-pages="noOfPages" current-page="currentPage" max-size="maxSize"></pagination>
     <pagination direction-links="false" num-pages="noOfPages" current-page="currentPage"></pagination>
     <button class="btn" ng-click="setPage(3)">Set current page to: 3</button>
     The selected page no: {{currentPage}}
 
-    <pagination  num-pages="bigNoOfPages" current-page="bigCurrentPage" max-size="maxSize" class="pagination" boundary-links="true"></pagination>
+    <pagination num-pages="bigNoOfPages" current-page="bigCurrentPage" max-size="maxSize" class="pagination" boundary-links="true"></pagination>
 </div>
-<pre prettyprint linenums>
+<pre prettyprint="" linenums="">
     &lt;div ng-controller=&quot;PaginationDemoCtrl&quot;&gt;
         &lt;pagination num-pages=&quot;noOfPages&quot; current-page=&quot;currentPage&quot;&gt;&lt;/pagination&gt;
         &lt;pagination num-pages=&quot;noOfPages&quot; current-page=&quot;currentPage&quot; class=&quot;pagination-small&quot; previous-text=&quot;&amp;laquo;&quot; next-text=&quot;&amp;raquo;&quot;&gt;&lt;/pagination&gt;
