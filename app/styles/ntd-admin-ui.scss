@@ -1,0 +1,106 @@
+// Icon images path 
+$iconSpritePath:          "../images/glyphicons-halflings.png" !default;
+$iconWhiteSpritePath:     "../images/glyphicons-halflings-white.png" !default;
+
+$bodyBackground:  #fdfdfd;
+$textColor:       #666;
+$navbarInverseBackgroundHighlight: #3d3d3d;
+$navbarInverseBackground: #2d2d2d;
+$navbarInverseBorder: #353535;
+     
+$sansFontFamily:  "Helvetica Neue", Helvetica, "microsoft yahei", Arial, sans-serif !default;
+
+@import "compass_twitter_bootstrap";
+@import "compass_twitter_bootstrap_responsive";
+
+$logoPath:                "../images/logo.png";
+$iconMinus:               "../images/minus.png";
+$iconPlus:                "../images/plus.png";
+$iconSorting:             "../images/sorting_sprite.png";
+$loginBgImg:              "../images/login_bg.jpg";
+$iconAnimateRefreshPath:  "../images/loading.gif";
+$SubmenuSprites:          "../images/menu_sprites.png";
+
+// Font
+$fontSizeSmall:   12px;
+
+// Base widget header gradient color
+$BaseWidgetHeaderGradientStart:  #f9f9f9;
+$BaseWidgetHeaderGradientEnd:    #ededed;
+$BaseWidgetHeaderActiveBgColor:  #ebf3fd;
+
+// Info box
+$infoBoxBorderColor:        #d5d5d5;
+$infoBoxItemNumberColor:    #08c;
+$infoBoxItemNumberFontSize: 32px;
+$infoBoxItemNameColor:      #666;
+$infoBoxGradientStart:      #f9f9f9;
+$infoBoxGradientEnd:        #ededed;
+
+// Submenu nav
+$submenuActiveBorderColor:            #08c;
+$submenuActiveBgColor:                #08c;
+$submenuChildBorderColor:             #ddd;
+$submenuChildHoverColor:              #08c;
+$submenuChildActiveColor:             #08c;
+$submenuChildLinkColor:               #999;
+$submenuChildLinkBgColor:             #fff;
+$submenuChildLinkHoverBorderTopColor: #ddd;
+
+// Advance search filter
+$advanceSearchFilterBgColor:           #f9f9f9;
+$advanceSearchFilterBorderColor:       #e3e3e3;
+$advanceSearchFilterArrowHoverBgColor: #e3e3e3;
+
+// Footable
+$footableDetailFontSize: 12px;
+$footableDetailBgColor:  #eee;
+
+// Box widget
+$boxWidgetBorder: #ddd;
+
+// Mixin
+@mixin base-widget-header-gradient {
+    @include text-shadow(0 1px 0 $white);
+    //@include box-shadow(0 1px 0 0 $white inset);
+    @include background-image(linear-gradient($BaseWidgetHeaderGradientStart, $BaseWidgetHeaderGradientEnd)); 
+}
+
+
+// Icon animate
+@-webkit-keyframes rotate {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(360deg);}
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+@include keyframes(rotate) {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(360deg);}
+}
+
+// Custom styles
+@import "ntd-main";
+@import "ntd-table";
+@import "ntd-cascade-list";
+@import "ntd-login";
+@import "ntd-easy-pie-chart";
+@import "ntd-foo-table";
+@import "ntd-404";
+@import "ntd-responsive";
+@import "ntd-toggle-switch";
+

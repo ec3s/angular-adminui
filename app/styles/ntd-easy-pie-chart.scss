@@ -1,0 +1,30 @@
+﻿// Easy pie chart
+.easy-pie-chart-widget {
+    text-align: center;
+    h3 {
+        text-align: left;
+    }
+    .box {
+        text-align: center;
+    }
+    .easy-pie-chart {
+        display: inline-block;
+        margin: 10px auto;
+        .caption {
+            margin-top: 10px;
+            text-align: center;
+        }
+    }
+}
+
+.easyPieChart {
+    position: relative;
+    text-align: center;
+    canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+

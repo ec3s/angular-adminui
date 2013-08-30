@@ -1,0 +1,111 @@
+@media (max-width: 767px) {
+
+body {
+    padding-top: 0;
+}
+#J_subMenu {
+    margin-bottom: 20px;
+    .affix {
+        position: relative;
+    }
+}
+.help-inline {
+    margin-top: 10px;
+    padding-left: 0;
+}
+.advance-search-filter {
+    .skeleton {
+        .control-group {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="password"],
+        select, input[type="button"], button {
+            display: block;
+            margin: 10px 0;
+            width: 100%;
+            @include ctb-input-block-level();
+            @include ctb-box-sizing(border-box);
+        }
+    }
+}
+.easy-pie-chart-widget {
+    text-align: center;
+}
+.info-box {
+    .stat {
+        margin: 10px 0;
+    }
+}
+.page-404 {
+    width: auto;
+}
+.pagination-right, .pagination-center {
+    text-align: left;
+}
+.media {
+    margin-bottom: 10px;
+
+}
+.form-inline {
+    input[type="text"], input[type="password"],
+    select, input[type="button"], button {
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+        @include ctb-input-block-level();
+        @include ctb-box-sizing(border-box);
+    }
+}
+  // Remove the horizontal form styles
+.form-horizontal {
+    .control-label {
+        float: none;
+        width: auto;
+        padding-top: 0;
+        text-align: left;
+    }
+    // Move over all input controls and content
+    .controls {
+        margin-left: 0;
+    }
+    // Move the options list down to align with labels
+    .control-list {
+        padding-top: 0; // has to be padding because margin collaspes
+    }
+    // Move over buttons in .form-actions to align with .controls
+    .form-actions {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.table-widget {
+    .pull-right {
+        clear: both;
+        float: none;
+    }
+}
+
+.page-header {
+    .page-action {
+        float: none;
+        margin-top: 0;
+    }
+}
+
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+    position: fixed;
+}
+.help-inline {
+    display: block;
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+}

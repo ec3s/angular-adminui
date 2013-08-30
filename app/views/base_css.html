@@ -1,0 +1,368 @@
+<div class="page-header">
+    <h1>基本CSS样式</h1>
+</div>
+<h3>
+    Page actions
+    <small>位置为页面主区域的最顶部</small>
+</h3>
+<p>Page actions放到page-header的里面， 返回按钮在最左侧，页面的,其它的样式为<code>btn</code>，不允许使用其他的样式</p>
+<ul>
+    <li>主要操作在最右侧样式为<code>btn-primary</code> </li>
+    <li>其它按钮均为<code>btn</code>样式，并放在<code>btn-group</code>的容器里，数量 3 个以内， 按钮的文字应简短精确，适当的可以用<code>tooltip</code>补充说明</li>
+    <li>返回按钮，不许更改文字及位置， 要跳转到哪个页面通过 <code>tooltip</code>， 并延迟 500毫秒 来提示</li>
+</ul>
+<p class="page-action">
+    <button class="btn" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay='500'><i class="icon-arrow-left"></i></button>
+    <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay='500'>操作</button>
+    <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay='500'>操作</button>
+    <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay='500'>操作</button>
+    <button class="btn btn-primary" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay='500'>主要操作</button>
+</p>
+<pre class="prettyprint linenums">
+&lt;div class=&quot;page-action&quot;&gt;
+    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#36820;&#22238;&#26576;&#20010;&#39029;&#38754;&quot; tooltip-popup-delay='500'&gt;&lt;i class=&quot;icon-arrow-left&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
+    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
+    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
+    &lt;button class=&quot;btn btn-primary&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#20027;&#35201;&#25805;&#20316;&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+
+<h3>
+    Page header
+</h3>
+<p>为<code>div</code>添加<code>page-header</code>样式, 每个页面有且只有一个<code>page-header</code>并且里面的<code>h</code>标签必须为<code>h1</code></p>
+<div class="page-header">
+    <h1>
+        页面标题
+        <small>页面的一些说明</small>
+    </h1>
+</div>
+<pre class="prettyprint linenums">
+&lt;div class=&quot;page-header&quot;&gt;
+    &lt;h1&gt;
+        &#39029;&#38754;&#26631;&#39064;
+        &lt;small&gt;&#39029;&#38754;&#30340;&#19968;&#20123;&#35828;&#26126;&lt;/small&gt;
+    &lt;/h1&gt;
+&lt;/div&gt;
+</pre>
+
+<h3>page header 和 page action 组合应用</h3>
+<div class="page-header">
+    <div class="page-action">
+        <button class="btn" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay='500'><i class="icon-arrow-left"></i></button>
+        <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay='500'>操作</button>
+        <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay='500'>操作</button>
+        <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay='500'>操作</button>
+        <button class="btn btn-primary" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay='500'>主要操作</button>
+    </div>
+    <h1>
+        页面标题
+        <small>页面的一些说明</small>
+    </h1>
+</div>
+
+<h3>警告框</h3>
+<div class="alert">警告</div>
+<pre class="prettyprint linenums">
+    &lt;div class=&quot;alert&quot;&gt;
+        ... ...
+    &lt;/div&gt;
+</pre>
+<div class="alert alert-error">失败，错误, 危险</div>
+<pre class="prettyprint linenums">
+    &lt;div class=&quot;alert alert-error&quot;&gt;
+        ... ...
+    &lt;/div&gt;
+</pre>
+<div class="alert alert-success">成功</div>
+<pre class="prettyprint linenums">
+    &lt;div class=&quot;alert alert-success&quot;&gt;
+        ... ...
+    &lt;/div&gt;
+</pre>
+<div class="alert alert-info">需要注意</div>
+<pre class="prettyprint linenums">
+    &lt;div class=&quot;alert alert-info&quot;&gt;
+        ... ...
+    &lt;/div&gt;
+</pre>
+
+<h3>默认按钮</h3>
+<p>任何赋予<code>.btn</code>类的页面元素都会显示按钮样式。不过，通常是用于更好的表现<code>&lt;a&gt;</code> 和 <code>&lt;button&gt;</code> 页面元素。</p>
+<table class="table-normal">
+    <thead>
+        <tr>
+            <th>按钮</th>
+            <th>class=""</th>
+            <th>描述</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><button type="button" class="btn">默认</button></td>
+            <td><code>btn</code></td>
+            <td>带渐变的标准灰色按钮</td>
+        </tr>
+        <tr>
+            <td><button type="button" class="btn btn-primary">主要</button></td>
+            <td><code>btn btn-primary</code></td>
+            <td>提供额外的视觉感, 可在一系列的按钮中指出主要操作</td>
+        </tr>
+        <!-- tr>
+            <td><button type="button" class="btn btn-info">信息</button></td>
+            <td><code>btn btn-info</code></td>
+            <td>默认样式的替代样式</td>
+        </tr -->
+        <tr>
+            <td><button type="button" class="btn btn-success">成功</button></td>
+            <td><code>btn btn-success</code></td>
+            <td>表示成功或积极的动作</td>
+        </tr>
+        <tr>
+            <td><button type="button" class="btn btn-warning">警告</button></td>
+            <td><code>btn btn-warning</code></td>
+            <td>提醒应该谨慎采取这个动作</td>
+        </tr>
+        <tr>
+            <td><button type="button" class="btn btn-danger">危险</button></td>
+            <td><code>btn btn-danger</code></td>
+            <td>表示这个动作危险或存在危险</td>
+        </tr>
+        <!-- tr>
+            <td><button type="button" class="btn btn-inverse">反向</button></td>
+            <td><code>btn btn-inverse</code></td>
+            <td>备用的暗灰色按钮，不依赖于语义和用途</td>
+        </tr>
+        <tr>
+            <td><button type="button" class="btn btn-link">链接</button></td>
+            <td><code>btn btn-link</code></td>
+            <td>简化一个按钮, 使它看起来像一个链接，同时保持按钮的行为</td>
+        </tr -->
+    </tbody>
+</table>
+
+<h3>Lead body copy</h3>
+<p>通过添加 <code>.lead</code> 让段落突出显示</p>
+<p class="lead">
+    突出显示的一些文字
+</p>
+<pre class="prettyprint linenums">
+&lt;p class=&quot;lead&quot;&gt;
+    &#31361;&#20986;&#26174;&#31034;&#30340;&#19968;&#20123;&#25991;&#23383;
+&lt;/p&gt;
+</pre>
+<h3>强调类</h3>
+<p class="muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+<p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+<p class="text-error">Donec ullamcorper nulla non metus auctor fringilla.</p>
+<p class="text-info">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</p>
+<p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+<pre class="prettyprint linenums">
+    &lt;p class=&quot;muted&quot;&gt;Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.&lt;/p&gt;
+    &lt;p class=&quot;text-warning&quot;&gt;Etiam porta sem malesuada magna mollis euismod.&lt;/p&gt;
+    &lt;p class=&quot;text-error&quot;&gt;Donec ullamcorper nulla non metus auctor fringilla.&lt;/p&gt;
+    &lt;p class=&quot;text-info&quot;&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.&lt;/p&gt;
+    &lt;p class=&quot;text-success&quot;&gt;Duis mollis, est non commodo luctus, nisi erat porttitor ligula.&lt;/p&gt;
+</pre>
+
+<h3>水平描述</h3>
+<dl class="dl-horizontal">
+    <dt>Description lists</dt>
+    <dd>A description list is perfect for defining terms.</dd>
+    <dt>Euismod</dt>
+    <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+    <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+    <dt>Malesuada porta</dt>
+    <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+    <dt>Felis euismod semper eget lacinia</dt>
+    <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+</dl>
+<h3>Div stacked</h3>
+<div class="div-stacked">
+    <div class="stacked-item" ng-controller="CollapseDemoCtrl">
+        <div class="stacked-item-hd">
+            <strong>test one</strong>
+            <button class="btn btn-mini pull-right" ng-click="isCollapsed = !isCollapsed">编辑</button>
+        </div>      
+        <div class="stacked-item-bd" ng-show="isCollapsed">
+            <table class="table-normal">
+                <thead>
+                    <tr>
+                        <th>test new</th>
+                        <th>test new</th>
+                        <th>test new</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>test body</td>
+                        <td>test body</td>
+                        <td>
+                            <div ng-controller="confirmButtonCtrl" class="ng-scope">
+                                <a class="btn btn-danger" confirm-button="talk('Hello, Web Developer!');" data-original-title="" title="">删除</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="stacked-item">
+        <div class="stacked-item-hd">
+            <strong>test one</strong>
+            <button class="btn btn-mini pull-right">编辑</button>
+        </div>      
+    </div>
+</div>
+
+<h3>Box widget</h3>
+<div class="box">
+    <div class="box-hd">
+        <div class="opts">
+            <div class="btn-group">
+                <input type="button" class="btn btn-mini" value="添加">
+                <input type="button" class="btn btn-danger btn-mini" value="删除">
+            </div>
+        </div>
+        <h3>组件标题</h3>
+    </div>
+    <div class="box-bd">
+        <div class="alert alert-block">
+            暂无任何信息
+        </div>
+    </div>
+</div>
+
+<h3>标签</h3>
+<table class="table-normal">
+    <thead>
+        <tr>
+            <th>标签</th>
+            <th>标记</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <span class="label">默认样式</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label&quot;&gt;Default&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="label label-success">成功</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label label-success&quot;&gt;Success&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="label label-warning">警告</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label label-warning&quot;&gt;Warning&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="label label-important">重要</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label label-important&quot;&gt;Important&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="label label-info">信息</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label label-info&quot;&gt;Info&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="label label-inverse">反色</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;label label-inverse&quot;&gt;Inverse&lt;/span&gt;</code>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>徽章</h3>
+<table class="table-normal">
+    <thead>
+        <tr>
+            <th>名称</th>
+            <th>案例</th>
+            <th>标记</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>默认样式</td>
+            <td>
+                <span class="badge">1</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge&quot;&gt;1&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>成功</td>
+            <td>
+                <span class="badge badge-success">2</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge badge-success&quot;&gt;2&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>警告</td>
+            <td>
+                <span class="badge badge-warning">4</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge badge-warning&quot;&gt;4&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>重要</td>
+            <td>
+                <span class="badge badge-important">6</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge badge-important&quot;&gt;6&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>信息</td>
+            <td>
+                <span class="badge badge-info">8</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge badge-info&quot;&gt;8&lt;/span&gt;</code>
+            </td>
+        </tr>
+        <tr>
+            <td>反色</td>
+            <td>
+                <span class="badge badge-inverse">10</span>
+            </td>
+            <td>
+                <code>&lt;span class=&quot;badge badge-inverse&quot;&gt;10&lt;/span&gt;</code>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Loading</h3>
+<p>
+    <img src="../images/loading.gif" />
+    <code>&lt;img src=&quot;../images/loading.gif&quot; /&gt;</code>
+</p>

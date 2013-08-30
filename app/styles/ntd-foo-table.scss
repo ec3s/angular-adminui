@@ -1,0 +1,32 @@
+// Footable
+.footable {
+    &.breakpoint {
+        & > tbody {
+            & > tr {
+                & > td {
+                    &.expand {
+                        padding-left: 40px;
+                        background: url(#{$iconPlus}) no-repeat 5px center;
+                    }
+                }
+                &.footable-detail-show {
+                    & > td {
+                        &.expand {
+                            background: url(#{$iconMinus}) no-repeat 5px center;
+                        }
+                    }
+                }
+                &.footable-row-detail {
+                    font-size: $footableDetailFontSize;
+                    background: $footableDetailBgColor;
+                }
+                &:hover {
+                    background: $tableBackgroundHover;
+                    &:not(.footable-row-detail) {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

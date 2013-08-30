@@ -1,0 +1,9 @@
+node_modules
+app/components
+dist
+.tmp
+.sass-cache
+
+#sublime text
+angular-admin.sublime-project
+angular-admin.sublime-workspace

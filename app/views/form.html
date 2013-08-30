@@ -1,0 +1,609 @@
+<div class="page-header">
+    <h1>表单</h1>
+</div>
+<h2>声明</h2>
+<ul>
+    <li>
+        <p>当表单元素占据一行时且右侧有大量空白时， 请指定 <code>input</code> 的宽度为 <code>.input-xxlarge</code> 属性</p>
+    </li>
+    <li>
+        <p>
+            当 <code>label</code> 与 <code>input</code> 相关联时要为 <code>label</code>添加<code>for</code>, <code>input</code>
+            添加对应的<code>id</code>
+        </p>
+    </li>
+    <li>
+        <p>为没有特殊要求的、可输入类型的表单添加最小长度为 <code>span3</code> 的样式 </p>
+    </li>
+    <li>
+        <p>
+            <code>placeholder</code> 属性提供可描述输入字段预期值的提示信息（hint）， 不可与label的内容相同。
+        </p>
+    </li>
+    <li>
+        <p>为必填项的表单添加 <code>required</code> 属性</p>
+    </li>
+</ul>
+
+
+<h3>默认样式</h3>
+<p>无需对<code>&lt;form&gt;</code>添加任何类或改变标签结构，每个单独的表单控件都已经被赋予了样式。默认是堆叠、label左侧对齐并在控件之上。</p>
+<form>
+    <fieldset>
+        <legend>Legend</legend>
+        <label>Label name</label>
+        <input type="text" placeholder="Type something…">
+        <span class="help-block">Example block-level help text here.</span>
+        <label class="checkbox">
+            <input type="checkbox"> Check me out
+        </label>
+        <button type="submit" class="btn">Submit</button>
+    </fieldset>
+</form>
+<pre class="prettyprint linenums">
+&lt;form&gt;
+    &lt;fieldset&gt;
+      &lt;legend&gt;Legend&lt;/legend&gt;
+      &lt;label&gt;Label name&lt;/label&gt;
+      &lt;input type="text" placeholder="Type something…"&gt;
+      &lt;span class="help-block"&gt;Example block-level help text here.&lt;/span&gt;
+      &lt;label class="checkbox"&gt;
+          &lt;input type="checkbox"&gt; Check me out
+      &lt;/label&gt;
+      &lt;button type="submit" class="btn"&gt;Submit&lt;/button&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+
+<h3>水平表单</h3>
+<p>右侧对齐并且左侧浮动的label和控件排列在同一行。这需要对默认的表单格式做修改：</p>
+<ul>
+    <li>为表单添加<code>.form-horizontal</code>类</li>
+    <li>将label和控件包裹在<code>.control-group</code>中</li>
+    <li>为label添加<code>.control-label</code>类</li>
+    <li>将任何相关的控件包裹在<code>.controls</code>中，以确保最佳的对齐</li>
+    <li>当label对应为非表单元素时， 请为元素包裹标签如： <code>span, p</code> 等， 并添加<code>.control-text</code>类</li>
+</ul>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label" for="text">文字区域</label>
+            <div class="controls">
+                <input type="text" id="text" class="span3" placeholder="text">
+                <span class="help-inline">状态提示信息</span>
+                <span class="help-block">帮助信息</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">密码</label>
+            <div class="controls">
+                <input type="password" id="password" class="span3" placeholder="Password" required>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="disabled">禁用区域</label>
+            <div class="controls">
+                <input type="text" id="disabled"class="span3" disabled placeholder="disabled">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="readonly">只读区域</label>
+            <div class="controls">
+                <input type="text" id="readonly" class="span3" readonly placeholder="readonly">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="selection">选项区域</label>
+            <div class="controls">
+                <select id="selection" class="span3">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="selection">文本区域</label>
+            <div class="controls">
+                <p class="control-text">文字</p>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">保存</button>
+            <button type="button" class="btn">取消</button>
+        </div>
+    </fieldset>
+</form>
+<pre class="prettyprint linenums">
+&lt;form class=&quot;form-horizontal ng-scope ng-pristine ng-valid&quot;&gt;
+    &lt;fieldset&gt;
+        &lt;div class=&quot;control-group&quot;&gt;
+            &lt;label class=&quot;control-label&quot; for=&quot;text&quot;&gt;&#25991;&#23383;&#21306;&#22495;&lt;/label&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;input type=&quot;text&quot; id=&quot;text&quot; class=&quot;span3&quot; placeholder=&quot;text&quot;&gt;
+                &lt;span class=&quot;help-inline&quot;&gt;&#29366;&#24577;&#25552;&#31034;&#20449;&#24687;&lt;/span&gt;
+                &lt;span class=&quot;help-block&quot;&gt;&#24110;&#21161;&#20449;&#24687;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;control-group&quot;&gt;
+            &lt;label class=&quot;control-label&quot; for=&quot;password&quot;&gt;&#23494;&#30721;&lt;/label&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;input type=&quot;password&quot; id=&quot;password&quot; class=&quot;span3&quot; placeholder=&quot;Password&quot; required=&quot;&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;control-group&quot;&gt;
+            &lt;label class=&quot;control-label&quot; for=&quot;disabled&quot;&gt;&#31105;&#29992;&#21306;&#22495;&lt;/label&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;input type=&quot;text&quot; id=&quot;disabled&quot; class=&quot;span3&quot; disabled=&quot;&quot; placeholder=&quot;disabled&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;control-group&quot;&gt;
+            &lt;label class=&quot;control-label&quot; for=&quot;readonly&quot;&gt;&#21482;&#35835;&#21306;&#22495;&lt;/label&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;input type=&quot;text&quot; id=&quot;readonly&quot; class=&quot;span3&quot; readonly=&quot;&quot; placeholder=&quot;readonly&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;control-group&quot;&gt;
+            &lt;label class=&quot;control-label&quot; for=&quot;selection&quot;&gt;&#36873;&#39033;&#21306;&#22495;&lt;/label&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;select id=&quot;selection&quot; class=&quot;span3&quot;&gt;
+                    &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;
+                    &lt;option value=&quot;2&quot;&gt;2&lt;/option&gt;
+                    &lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;
+                    &lt;option value=&quot;4&quot;&gt;4&lt;/option&gt;
+                    &lt;option value=&quot;5&quot;&gt;5&lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;control-group&quot;&gt;
+            &lt;label class=&quot;control-label&quot; for=&quot;selection&quot;&gt;&#25991;&#26412;&#21306;&#22495;&lt;/label&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;p class=&quot;control-text&quot;&gt;&#25991;&#23383;&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-actions&quot;&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;&#20445;&#23384;&lt;/button&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn&quot;&gt;&#21462;&#28040;&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+<h3>输入框（Input）</h3>
+<p>大部分常用的表单控件、文本输入控件。包括所有HTML5所支持的：text、password、datetime、 datetime-local、date、 month、time、week、number、email、url、search、tel 和 color</p>
+
+<p>任何时候都需要指定<code>&lt;type&gt;</code>属性</p>
+<form class="form-inline">
+    <input type="text" placeholder="Text input">
+</form>
+<pre class="prettyprint linenums">
+&lt;input type="text" placeholder="Text input"&gt;
+</pre>
+
+<h3>文本域（Textarea）</h3>
+<p>此表单控件支持多行文本。最小高度为<code>row="3"</code>可根据需要修改<code>rows</code>属性。</p>
+<form class="form-inline">
+    <textarea rows="3" class="span5"></textarea>
+</form>
+<pre class="prettyprint linenums">
+&lt;textarea rows="3" class="span5"&gt;&lt;/textarea&gt;
+</pre>
+
+<pre class="prettyprint linenums">
+    &lt;form class=&quot;form-horizontal&quot;&gt;
+        &lt;fieldset&gt;
+            &lt;div class=&quot;control-group&quot;&gt;
+                &lt;label class=&quot;control-label&quot; for=&quot;inputEmail&quot;&gt;&#25991;&#23383;&#21306;&#22495;&lt;/label&gt;
+                &lt;div class=&quot;controls&quot;&gt;
+                    &lt;input type=&quot;text&quot; placeholder=&quot;Email&quot;&gt;
+                    &lt;span class=&quot;help-inline&quot;&gt;状态提示信息&lt;/span&gt;
+                    &lt;span class=&quot;help-block&quot;&gt;帮助信息&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            ...
+        &lt;/fieldset&gt;
+    &lt;/form&gt;
+</pre>
+
+<h3>扩展表单控件</h3>
+<input type="number">
+<h3>两栏表单</h3>
+<form class="form-horizontal">
+    <div class="form-column">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label">文字区域</label>
+                <div class="controls">
+                    <input type="text" placeholder="Email">
+                    <span class="help-inline">状态提示信息</span>
+                    <span class="help-block">帮助信息</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">密码</label>
+                <div class="controls">
+                    <input type="password" placeholder="Password" required>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">禁用区域</label>
+                <div class="controls">
+                    <input type="text" disabled placeholder="disabled">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">只读区域</label>
+                <div class="controls">
+                    <input type="text" readonly placeholder="readonly">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">选项区域</label>
+                <div class="controls">
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="form-column">
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label">文字区域</label>
+                <div class="controls">
+                    <input type="text" placeholder="Email">
+                    <span class="help-inline">状态提示信息</span>
+                    <span class="help-block">帮助信息</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">密码</label>
+                <div class="controls">
+                    <input type="password" placeholder="Password" required>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">禁用区域</label>
+                <div class="controls">
+                    <input type="text" disabled placeholder="disabled">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">只读区域</label>
+                <div class="controls">
+                    <input type="text" readonly placeholder="readonly">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">选项区域</label>
+                <div class="controls">
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">保存</button>
+        <button type="button" class="btn">取消</button>
+    </div>
+</form>
+<pre class="prettyprint linenums">
+    &lt;form class=&quot;form-horizontal&quot;&gt;
+        &lt;div class=&quot;form-column&quot;&gt;
+            &lt;fieldset&gt;
+                &#34920;&#21333;&#20869;&#23481;
+            &lt;/fieldset&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-column&quot;&gt;
+            &lt;fieldset&gt;
+                &#34920;&#21333;&#20869;&#23481;
+            &lt;/fieldset&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-actions&quot;&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;&#20445;&#23384;&lt;/button&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn&quot;&gt;&#21462;&#28040;&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+</pre>
+<h3>行内表单</h3>
+<form class="form-inline">
+    <input type="text" class="input-small" placeholder="Email">
+    <input type="password" class="input-small" placeholder="Password">
+    <select name="" id="" class="input-small">
+        <option value="">请选择</option>
+    </select>
+    <label class="checkbox">
+        <input type="checkbox"> Remember me
+    </label>
+    <button type="submit" class="btn">Sign in</button>
+</form>
+
+<pre class="prettyprint linenums">
+    &lt;form class=&quot;form-inline&quot;&gt;
+        ...
+    &lt;/form&gt;
+</pre>
+<h3>行内复选框</h3>
+<p>
+    <label class="checkbox inline">
+      <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+    </label>
+    <label class="checkbox inline">
+      <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+    </label>
+    <label class="checkbox inline">
+      <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+    </label>
+</p>
+<pre class="prettyprint linenums">
+&lt;label class=&quot;checkbox inline&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;inlineCheckbox1&quot; value=&quot;option1&quot;&gt; 1
+&lt;/label&gt;
+&lt;label class=&quot;checkbox inline&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;inlineCheckbox2&quot; value=&quot;option2&quot;&gt; 2
+&lt;/label&gt;
+&lt;label class=&quot;checkbox inline&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;inlineCheckbox3&quot; value=&quot;option3&quot;&gt; 3
+&lt;/label&gt;
+</pre>
+
+<h3>分组表单</h3>
+<div>
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>分组标题一</legend>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">文字区域</label>
+                <div class="controls">
+                    <input type="text" placeholder="Email">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">密码</label>
+                <div class="controls">
+                    <input type="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">选项区域</label>
+                <div class="controls">
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>分组标题二</legend>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">文字区域</label>
+                <div class="controls">
+                    <input type="text" placeholder="Email">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">密码</label>
+                <div class="controls">
+                    <input type="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">选项区域</label>
+                <div class="controls">
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">保存</button>
+                <button type="button" class="btn">取消</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<pre class="prettyprint linenums">
+    &lt;form class=&quot;form-horizontal&quot;&gt;
+        &lt;fieldset&gt;
+            &lt;legend&gt;&#20998;&#32452;&#26631;&#39064;&#19968;&lt;/legend&gt;
+            ...
+        &lt;/fieldset&gt;
+        &lt;fieldset&gt;
+            &lt;legend&gt;&#20998;&#32452;&#26631;&#39064;&#20108;&lt;/legend&gt;
+            ...
+        &lt;/fieldset&gt;
+    &lt;/form&gt;
+</pre>
+
+<h3>表格内表单</h3>
+<table class="table-normal">
+    <tr>
+        <th>标题 一</th>
+        <th>标题 二</th>
+        <th>标题 三</th>
+        <th>标题 四</th>
+        <th>标题 五</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <select name="" id="">
+                <option value="">请选择</option>
+            </select>
+        </td>
+    </tr>
+</table>
+
+<h3>表单提示信息</h3>
+<p>Bootstrap包含了（错误）error、（警告）warning、（通知）info和（成功）success信息的样式。为<code>.control-group</code>添加适当的属性即可使用这些样式。</p>
+<div>
+    <form class="form-horizontal">
+        <div class="control-group warning">
+            <label class="control-label" for="inputWarning">Input with warning</label>
+            <div class="controls">
+                <input type="text" id="inputWarning">
+                <span class="help-inline">Something may have gone wrong</span>
+            </div>
+        </div>
+         
+        <div class="control-group error">
+            <label class="control-label" for="inputError">Input with error</label>
+            <div class="controls">
+                <input type="text" id="inputError">
+                <span class="help-inline">Please correct the error</span>
+            </div>
+        </div>
+         
+        <div class="control-group info">
+            <label class="control-label" for="inputInfo">Input with info</label>
+            <div class="controls">
+                <input type="text" id="inputInfo">
+                <span class="help-inline">Username is already taken</span>
+            </div>
+        </div>
+         
+        <div class="control-group success">
+            <label class="control-label" for="inputSuccess">Input with success</label>
+            <div class="controls">
+                <input type="text" id="inputSuccess">
+                <span class="help-inline">Woohoo!</span>
+            </div>
+        </div>
+    </form>
+</div>
+<pre class="prettyprint linenums">
+    &lt;form class=&quot;form-horizontal&quot;&gt;
+        &lt;div class=&quot;control-group warning&quot;&gt;
+            &lt;label class=&quot;control-label&quot; for=&quot;inputWarning&quot;&gt;Input with warning&lt;/label&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;input type=&quot;text&quot; id=&quot;inputWarning&quot;&gt;
+                &lt;span class=&quot;help-inline&quot;&gt;Something may have gone wrong&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;control-group error&quot;&gt;
+           &lt;label class=&quot;control-label&quot; for=&quot;inputError&quot;&gt;Input with error&lt;/label&gt;
+           &lt;div class=&quot;controls&quot;&gt;
+               &lt;input type=&quot;text&quot; id=&quot;inputError&quot;&gt;
+               &lt;span class=&quot;help-inline&quot;&gt;Please correct the error&lt;/span&gt;
+           &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;control-group info&quot;&gt;
+            &lt;label class=&quot;control-label&quot; for=&quot;inputInfo&quot;&gt;Input with info&lt;/label&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;input type=&quot;text&quot; id=&quot;inputInfo&quot;&gt;
+                &lt;span class=&quot;help-inline&quot;&gt;Username is taken&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;control-group success&quot;&gt;
+            &lt;label class=&quot;control-label&quot; for=&quot;inputSuccess&quot;&gt;Input with success&lt;/label&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;input type=&quot;text&quot; id=&quot;inputSuccess&quot;&gt;
+                &lt;span class=&quot;help-inline&quot;&gt;Woohoo!&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+</pre>
+
+<h3>表单长度</h3>
+<form>
+    <fieldset>
+        <div class="controls">
+            <input class="span5" type="text" placeholder=".span5">
+        </div>
+        <div class="controls controls-row">
+            <input class="span4" type="text" placeholder=".span4">
+            <input class="span1" type="text" placeholder=".span1">
+        </div>
+        <div class="controls controls-row">
+            <input class="span3" type="text" placeholder=".span3">
+            <input class="span2" type="text" placeholder=".span2">
+        </div>
+        <div class="controls controls-row">
+            <input class="span2" type="text" placeholder=".span2">
+            <input class="span3" type="text" placeholder=".span3">
+        </div>
+        <div class="controls controls-row">
+            <input class="span1" type="text" placeholder=".span1">
+            <input class="span4" type="text" placeholder=".span4">
+        </div>
+    </fieldset>
+</form>
+<pre class="prettyprint linenums">
+    &lt;form&gt;
+        &lt;fieldset&gt;
+            &lt;div class=&quot;controls&quot;&gt;
+                &lt;input class=&quot;span5&quot; type=&quot;text&quot; placeholder=&quot;.span5&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;controls controls-row&quot;&gt;
+                &lt;input class=&quot;span4&quot; type=&quot;text&quot; placeholder=&quot;.span4&quot;&gt;
+                &lt;input class=&quot;span1&quot; type=&quot;text&quot; placeholder=&quot;.span1&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;controls controls-row&quot;&gt;
+                &lt;input class=&quot;span3&quot; type=&quot;text&quot; placeholder=&quot;.span3&quot;&gt;
+                &lt;input class=&quot;span2&quot; type=&quot;text&quot; placeholder=&quot;.span2&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;controls controls-row&quot;&gt;
+                &lt;input class=&quot;span2&quot; type=&quot;text&quot; placeholder=&quot;.span2&quot;&gt;
+                &lt;input class=&quot;span3&quot; type=&quot;text&quot; placeholder=&quot;.span3&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;controls controls-row&quot;&gt;
+                &lt;input class=&quot;span1&quot; type=&quot;text&quot; placeholder=&quot;.span1&quot;&gt;
+                &lt;input class=&quot;span4&quot; type=&quot;text&quot; placeholder=&quot;.span4&quot;&gt;
+            &lt;/div&gt;
+        &lt;/fieldset&gt;
+    &lt;/form&gt;
+</pre>
+<form>
+    <div class="controls docs-input-sizes">
+        <input class="input-mini" type="text" placeholder=".input-mini">
+        <input class="input-small" type="text" placeholder=".input-small">
+        <input class="input-medium" type="text" placeholder=".input-medium">
+        <input class="input-large" type="text" placeholder=".input-large">
+        <input class="input-xlarge" type="text" placeholder=".input-xlarge">
+        <input class="input-xxlarge" type="text" placeholder=".input-xxlarge">
+    </div>
+</form>
+<pre class="prettyprint linenums">
+    &lt;form&gt;
+        &lt;div class=&quot;controls docs-input-sizes&quot;&gt;
+            &lt;input class=&quot;input-mini&quot; type=&quot;text&quot; placeholder=&quot;.input-mini&quot;&gt;
+            &lt;input class=&quot;input-small&quot; type=&quot;text&quot; placeholder=&quot;.input-small&quot;&gt;
+            &lt;input class=&quot;input-medium&quot; type=&quot;text&quot; placeholder=&quot;.input-medium&quot;&gt;
+            &lt;input class=&quot;input-large&quot; type=&quot;text&quot; placeholder=&quot;.input-large&quot;&gt;
+            &lt;input class=&quot;input-xlarge&quot; type=&quot;text&quot; placeholder=&quot;.input-xlarge&quot;&gt;
+            &lt;input class=&quot;input-xxlarge&quot; type=&quot;text&quot; placeholder=&quot;.input-xxlarge&quot;&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+</pre>
