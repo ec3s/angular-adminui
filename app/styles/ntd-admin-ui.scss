@@ -2,16 +2,17 @@
 $iconSpritePath:          "../images/glyphicons-halflings.png" !default;
 $iconWhiteSpritePath:     "../images/glyphicons-halflings-white.png" !default;
 
-$bodyBackground:  #fdfdfd;
-$textColor:       #666;
+$body-bg:  #fdfdfd;
+$text-color:       #666;
 $navbarInverseBackgroundHighlight: #3d3d3d;
 $navbarInverseBackground: #2d2d2d;
 $navbarInverseBorder: #353535;
      
-$sansFontFamily:  "Helvetica Neue", Helvetica, "microsoft yahei", Arial, sans-serif !default;
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, "microsoft yahei", Arial, sans-serif !default;
 
-@import "compass_twitter_bootstrap";
-@import "compass_twitter_bootstrap_responsive";
+//@import "compass_twitter_bootstrap";
+//@import "compass_twitter_bootstrap_responsive";
+@import "compass_twitter_bootstrap/bootstrap";
 
 $logoPath:                "../images/logo.png";
 $iconMinus:               "../images/minus.png";
@@ -22,7 +23,7 @@ $iconAnimateRefreshPath:  "../images/loading.gif";
 $SubmenuSprites:          "../images/menu_sprites.png";
 
 // Font
-$fontSizeSmall:   12px;
+$font-size-small:   12px;
 
 // Base widget header gradient color
 $BaseWidgetHeaderGradientStart:  #f9f9f9;

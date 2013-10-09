@@ -25,7 +25,7 @@ body {
             margin: 10px 0;
             width: 100%;
             @include ctb-input-block-level();
-            @include ctb-box-sizing(border-box);
+            @include box-sizing(border-box);
         }
     }
 }
@@ -54,7 +54,7 @@ body {
         margin: 10px 0;
         width: 100%;
         @include ctb-input-block-level();
-        @include ctb-box-sizing(border-box);
+        @include box-sizing(border-box);
     }
 }
   // Remove the horizontal form styles

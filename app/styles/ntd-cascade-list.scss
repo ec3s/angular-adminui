@@ -6,10 +6,10 @@
     background-color: $white;
     border: 1px solid #ccc;
     padding: 4px;
-    font-size: $baseFontSize;
+    font-size: $font-size-base;
     font-weight: normal;
-    font-family: $sansFontFamily;
-    line-height: $baseLineHeight;
+    font-family: $font-family-sans-serif;
+    line-height: $line-height-base;
     color: $gray;
 
     -webkit-border-radius: 4px;
@@ -45,7 +45,7 @@
     /*float: left;*/
     position: absolute;
     list-style: none;
-    border-right: 1px solid $grayLighter;
+    border-right: 1px solid $gray-lighter;
     overflow: auto;
 }
 /*
@@ -72,12 +72,12 @@
 
 .cascade-list li.selective
 {
-    background-color: $grayLighter;
+    background-color: $gray-lighter;
 }
 
 .cascade-list li.selective.has-child
 {
-    background-color: $grayLighter;
+    background-color: $gray-lighter;
     background-position: 98% -47px;
 }
 

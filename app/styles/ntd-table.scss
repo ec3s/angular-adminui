@@ -1,15 +1,15 @@
 ﻿.table-normal {
     width: 100%;
-    margin-bottom: $baseLineHeight;
+    margin-bottom: $line-height-base;
     background-color: $white;
     // Cells
     th,
     td {
         padding: 8px;
-        line-height: $baseLineHeight;
+        line-height: $line-height-base;
         text-align: left;
         //vertical-align: top;
-        border-top: 1px solid $tableBorder;
+        border-top: 1px solid $table-border-color;
     }
     th {
         font-weight: normal;
@@ -31,22 +31,23 @@
     }
     // Account for multiple tbody instances
     tbody + tbody {
-        border-top: 2px solid $tableBorder;
+        border-top: 2px solid $table-border-color;
     }
 
     // Nesting
     .table {
-        background-color: $bodyBackground;
+        background-color: $body-bg;
     }
 
-    border: 1px solid $tableBorder;
+    border: 1px solid $table-border-color;
     border-collapse: separate; // Done so we can round those corners!
     *border-collapse: collapse; // IE7 can't round corners anyway
     border-left: 0;
-    @include ctb-border-radius($baseBorderRadius);
+    @include ctb-border-radius($border-radius-base
+$border-radius-base);
     th,
     td {
-        border-left: 1px solid $tableBorder;
+        border-left: 1px solid $table-border-color;
     }
     // Prevent a double border
     caption + thead tr:first-child th,
@@ -63,22 +64,26 @@
     // For first th or td in the first row in the first thead or tbody
     thead:first-child tr:first-child > th:first-child,
     tbody:first-child tr:first-child > td:first-child {
-        @include ctb-border-top-left-radius($baseBorderRadius);
+        @include ctb-border-top-left-radius($border-radius-base
+$border-radius-base);
     }
     thead:first-child tr:first-child > th:last-child,
     tbody:first-child tr:first-child > td:last-child {
-        @include ctb-border-top-right-radius($baseBorderRadius);
+        @include ctb-border-top-right-radius($border-radius-base
+$border-radius-base);
     }
     // For first th or td in the last row in the last thead or tbody
     thead:last-child tr:last-child > th:first-child,
     tbody:last-child tr:last-child > td:first-child,
     tfoot:last-child tr:last-child > td:first-child {
-        @include ctb-border-bottom-left-radius($baseBorderRadius);
+        @include ctb-border-bottom-left-radius($border-radius-base
+$border-radius-base);
     }
     thead:last-child tr:last-child > th:last-child,
     tbody:last-child tr:last-child > td:last-child,
     tfoot:last-child tr:last-child > td:last-child {
-        @include ctb-border-bottom-right-radius($baseBorderRadius);
+        @include ctb-border-bottom-right-radius($border-radius-base
+$border-radius-base);
     }
 
     // Clear border-radius for first and last td in the last row in the last tbody for table with tfoot
@@ -95,19 +100,21 @@
     caption + tbody tr:first-child td:first-child,
     colgroup + thead tr:first-child th:first-child,
     colgroup + tbody tr:first-child td:first-child {
-        @include ctb-border-top-left-radius($baseBorderRadius);
+        @include ctb-border-top-left-radius($border-radius-base
+$border-radius-base);
     }
     caption + thead tr:first-child th:last-child,
     caption + tbody tr:first-child td:last-child,
     colgroup + thead tr:first-child th:last-child,
     colgroup + tbody tr:first-child td:last-child {
-        @include ctb-border-top-right-radius($baseBorderRadius);
+        @include ctb-border-top-right-radius($border-radius-base
+$border-radius-base);
     }
 
     tbody {
         tr:hover td,
         tr:hover th {
-            background-color: $tableBackgroundHover;
+            background-color: $table-bg-hover;
             @include transition-property(background-color);
             @include transition-duration(.2s);
             @include transition-timing-function(ease-in);
@@ -117,7 +124,7 @@
     &.table-condensed {
         th, td {
             padding: 4px 5px;
-            font-size: $fontSizeSmall;
+            font-size: $font-size-small;
         }
     }
 }

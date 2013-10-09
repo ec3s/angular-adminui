@@ -21,7 +21,7 @@
                     background: $footableDetailBgColor;
                 }
                 &:hover {
-                    background: $tableBackgroundHover;
+                    background: $table-bg-hover;
                     &:not(.footable-row-detail) {
                         cursor: pointer;
                     }

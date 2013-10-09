@@ -1,27 +1,47 @@
-<div id="J_subMenu" nav-bar sub-treemenu slim-scroll slim-scroll-menu="yes">
-    <ul class="sub-nav nav nav-tabs nav-stacked">
-        <li data-match-route="/"><a href="#/">用户面板</a></li>
-        <li data-match-route="/base-css"><a href="#/base-css">基本样式</a></li>
-        <li data-match-route="/table"><a href="#/table">表格</a></li>
-        <li data-match-route="/form"><a href="#/form">表单</a></li>
-        <li data-match-route="/widget"><a href="#/widget">Admin UI 组件</a>
-        <li data-match-route="/bootstrap-ui-widget"><a href="#/bootstrap-ui-widget">Bootstrap UI 组件</a>
-        </li>
-        <li data-match-route="/sub.*">
-            <a><i class="pull-right icon-chevron-down"></i>子菜单</a>
-            <ul>
-                <li data-match-route="/sub/test">
-                    <a href="#/sub/test">分类一</a>
+<div class="col-md-3">
+    <div class="bs-sidebar hidden-print affix-top" role="complementary">
+        <div id="J_subMenu" nav-bar sub-treemenu slim-scroll slim-scroll-menu="yes">
+            <ul class="sub-nav nav bs-sidenav nav-tabs nav-stacked">
+                <li class="active" data-match-route="/">
+                    <a href="#/">用户面板</a>
                 </li>
-                <li data-match-route="/sub/test2">
-                    <a href="#/sub/test2">分类二</a>
+                <li data-match-route="/base-css">
+                    <a href="#/base-css">基本样式</a>
                 </li>
-                <li data-match-route="/sub/test3">
-                    <a href="#/sub/test3">分类三</a>
+                <li data-match-route="/table">
+                    <a href="#/table">表格</a>
                 </li>
-            </ul>
-        </li>
-        <li data-match-route="/login"><a href="#/login">登录页面</a></li>
-        <li data-match-route="/404"><a href="#/404">404页面</a></li>
-    </ul>
-</div>
+                <li data-match-route="/form">
+                    <a href="#/form">表单</a>
+                </li>
+                <li data-match-route="/widget">
+                    <a href="#/widget">Admin UI 组件</a>
+                    <li data-match-route="/bootstrap-ui-widget">
+                        <a href="#/bootstrap-ui-widget">Bootstrap UI 组件</a>
+                    </li>
+                    <li data-match-route="/sub.*">
+                        <a> <i class="pull-right icon-chevron-down"></i>
+                            子菜单
+                        </a>
+                        <ul>
+                            <li data-match-route="/sub/test">
+                                <a href="#/sub/test">分类一</a>
+                            </li>
+                            <li data-match-route="/sub/test2">
+                                <a href="#/sub/test2">分类二</a>
+                            </li>
+                            <li data-match-route="/sub/test3">
+                                <a href="#/sub/test3">分类三</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-match-route="/login">
+                        <a href="#/login">登录页面</a>
+                    </li>
+                    <li data-match-route="/404">
+                        <a href="#/404">404页面</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
