@@ -3,6 +3,7 @@ app/components
 dist
 .tmp
 .sass-cache
+.DS_Store
 
 #sublime text
 angular-admin.sublime-project
