@@ -215,6 +215,35 @@ body {
         }
     }
 }
+.panel {
+    .panel-heading {
+        .btn-group {
+            position: relative;
+            margin-top: -2px;
+        }
+    }
+}
+.div-stacked {
+    border: 1px solid #ddd;
+    @include border-radius($border-radius-base);
+    .stacked-item {
+        border-bottom: 1px solid #ddd;
+        &:last-child {
+            border: none;
+        }
+    }
+    .stacked-item-hd {
+        padding: 8px;
+        overflow: hidden;
+    }
+    .stacked-item-bd {
+        padding: 8px;
+        border-top: 1px solid #ddd;
+        .table-normal {
+            margin: 0;
+        }
+    }
+}
 // .user-infomation {
 //     padding-top: 5px;
 //     text-align: center;
@@ -289,28 +318,6 @@ body {
 //     }
 // }
 // 
-// .div-stacked {
-//     border: 1px solid #ddd;
-//     @include border-radius($border-radius-base);
-//     .stacked-item {
-//         border-bottom: 1px solid #ddd;
-//         &:last-child {
-//             border: none;
-//         }
-//     }
-//     .stacked-item-hd {
-//         padding: 8px;
-//         overflow: hidden;
-//     }
-//     .stacked-item-bd {
-//         padding: 8px;
-//         border-top: 1px solid #ddd;
-//         // background: #f5f5f5;
-//         .table-normal {
-//             margin: 0;
-//         }
-//     }
-// }
 // 
 // // Box widget
 // .box {
