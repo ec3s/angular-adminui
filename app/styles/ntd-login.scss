@@ -27,8 +27,8 @@
 
     input[type="text"],input[type="password"] {
         margin-bottom: 20px;
-        @include ctb-input-block-level();
-        @include box-sizing(border-box);
+        // @include input-block-level();
+         @include box-sizing(border-box);
     }
 
     .login-actions {
