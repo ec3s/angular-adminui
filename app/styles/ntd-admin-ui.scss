@@ -14,10 +14,10 @@ $font-family-sans-serif:  "Helvetica Neue", Helvetica, "microsoft yahei", Arial,
 @import "../components/bootstrap-sass/lib/bootstrap";
 
 // $logoPath:                "../images/logo.png";
-// $iconMinus:               "../images/minus.png";
-// $iconPlus:                "../images/plus.png";
-// $iconSorting:             "../images/sorting_sprite.png";
-// $loginBgImg:              "../images/login_bg.jpg";
+$iconMinus:               "../images/minus.png";
+$iconPlus:                "../images/plus.png";
+$iconSorting:             "../images/sorting_sprite.png";
+$loginBgImg:              "../images/login_bg.jpg";
 // $iconAnimateRefreshPath:  "../images/loading.gif";
 // $SubmenuSprites:          "../images/menu_sprites.png";
 // 
@@ -29,11 +29,11 @@ $font-family-sans-serif:  "Helvetica Neue", Helvetica, "microsoft yahei", Arial,
 // $BaseWidgetHeaderGradientEnd:    #ededed;
 // $BaseWidgetHeaderActiveBgColor:  #ebf3fd;
 // 
-// // Info box
+// Info box
 // $infoBoxBorderColor:        #d5d5d5;
-// $infoBoxItemNumberColor:    #08c;
-// $infoBoxItemNumberFontSize: 32px;
-// $infoBoxItemNameColor:      #666;
+$infoBoxItemNumberColor:    #08c;
+$infoBoxItemNumberFontSize: 32px;
+$infoBoxItemNameColor:      #666;
 // $infoBoxGradientStart:      #f9f9f9;
 // $infoBoxGradientEnd:        #ededed;
 // 
@@ -52,9 +52,9 @@ $font-family-sans-serif:  "Helvetica Neue", Helvetica, "microsoft yahei", Arial,
 // $advanceSearchFilterBorderColor:       #e3e3e3;
 // $advanceSearchFilterArrowHoverBgColor: #e3e3e3;
 // 
-// // Footable
-// $footableDetailFontSize: 12px;
-// $footableDetailBgColor:  #eee;
+// Footable
+$footableDetailFontSize: 12px;
+$footableDetailBgColor:  #eee;
 // 
 // // Box widget
 // $boxWidgetBorder: #ddd;
@@ -95,11 +95,11 @@ $font-family-sans-serif:  "Helvetica Neue", Helvetica, "microsoft yahei", Arial,
 // 
 // // Custom styles
 @import "ntd-main";
-// @import "ntd-table";
+@import "ntd-table";
 // @import "ntd-cascade-list";
 // @import "ntd-login";
-// @import "ntd-easy-pie-chart";
-// @import "ntd-foo-table";
+@import "ntd-easy-pie-chart";
+@import "ntd-foo-table";
 // @import "ntd-404";
 // @import "ntd-responsive";
 // @import "ntd-toggle-switch";

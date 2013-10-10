@@ -1,6 +1,7 @@
 node_modules
 app/components
 dist
+.tern-project
 .tmp
 .sass-cache
 .DS_Store

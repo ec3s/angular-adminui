@@ -32,6 +32,11 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.well {
+    h3 {
+        margin-top: 10px;
+    }
+}
 // h1,h2,h3,h4,h5,h6,legend {
 //     font-weight: normal;
 // }
@@ -191,30 +196,25 @@ body {
 //     margin-top: 0;
 // }
 // 
-// // Info box
-// .info-box {
-//     margin-bottom: 20px;
-//     overflow: hidden;
-//     .stat {
-//         border: 1px solid $infoBoxBorderColor;
-//         padding: 10px;
-//         color: $infoBoxItemNameColor;
-//         text-align: center;
-//         @include border-radius($border-radius-base);
-//         @include text-shadow(0 1px 0 #FFFFFF);
-//         @include box-shadow(0 1px 0 0 #FFFFFF inset, 0 1px 0 rgba(255,255,255,0.4));
-//         @include background-image(linear-gradient($infoBoxGradientStart, $infoBoxGradientEnd)); 
-//         background-color: $infoBoxGradientEnd;
-// 
-//         strong {
-//             display: block;
-//             font-weight: normal;
-//             font-size: $infoBoxItemNumberFontSize;
-//             color: $infoBoxItemNumberColor;
-//             margin:5px 0;
-//         }
-//     }
-// }
+// Info box
+.info-box {
+    overflow: hidden;
+    .stat {
+        @extend .panel;
+        @extend .panel-default;
+        @extend .panel-body;
+        padding: 10px;
+        background-color: $panel-default-heading-bg;
+        text-align: center;
+
+        strong {
+            display: block;
+            font-weight: normal;
+            font-size: $infoBoxItemNumberFontSize;
+            color: $infoBoxItemNumberColor;
+        }
+    }
+}
 // .user-infomation {
 //     padding-top: 5px;
 //     text-align: center;
