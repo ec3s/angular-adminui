@@ -109,7 +109,7 @@ body {
         background-color: $brand-danger;
     }
 }
-// // Submenu nav
+// Submenu nav
 // .sub-nav {
 //     margin-bottom: 5px;
 //     @include box-shadow(0 1px 4px rgba(0,0,0,.065));
@@ -244,6 +244,12 @@ body {
         }
     }
 }
+.page-header {
+    .page-action {
+        float: right;
+        margin-top: 10px;
+    }
+}
 // .user-infomation {
 //     padding-top: 5px;
 //     text-align: center;
@@ -346,12 +352,6 @@ body {
 //         .alert {
 //             margin-bottom: 0;
 //         }
-//     }
-// }
-// .page-header {
-//     .page-action {
-//         float: right;
-//         margin-top: 15px;
 //     }
 // }
 // 
