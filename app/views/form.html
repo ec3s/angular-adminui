@@ -73,30 +73,30 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-<div class="highlight">
-<pre><code class="language-html xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">role</span>=<span class="value">"form"</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"exampleInputEmail1"</span>&gt;</span>Email address<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"email"</span> <span class="attribute">class</span>=<span class="value">"form-control"</span> <span class="attribute">id</span>=<span class="value">"exampleInputEmail1"</span> <span class="attribute">placeholder</span>=<span class="value">"Enter email"</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"exampleInputPassword1"</span>&gt;</span>Password<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"password"</span> <span class="attribute">class</span>=<span class="value">"form-control"</span> <span class="attribute">id</span>=<span class="value">"exampleInputPassword1"</span> <span class="attribute">placeholder</span>=<span class="value">"Password"</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"exampleInputFile"</span>&gt;</span>File input<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"file"</span> <span class="attribute">id</span>=<span class="value">"exampleInputFile"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"help-block"</span>&gt;</span>Example block-level help text here.<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"checkbox"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">label</span>&gt;</span>
-      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span>&gt;</span> Check me out
-    <span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">class</span>=<span class="value">"btn btn-default"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code></pre>
 
-</div>
+<pre class="prettyprint linenums">
+  &lt;form&nbsp;role=&quot;form&quot;&gt;
+  &nbsp;&nbsp;&lt;div&nbsp;class=&quot;form-group&quot;&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;for=&quot;exampleInputEmail1&quot;&gt;Email&nbsp;address&lt;/label&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=&quot;email&quot;&nbsp;class=&quot;form-control&quot;&nbsp;id=&quot;exampleInputEmail1&quot;&nbsp;placeholder=&quot;Enter&nbsp;email&quot;&gt;
+  &nbsp;&nbsp;&lt;/div&gt;
+  &nbsp;&nbsp;&lt;div&nbsp;class=&quot;form-group&quot;&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;for=&quot;exampleInputPassword1&quot;&gt;Password&lt;/label&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=&quot;password&quot;&nbsp;class=&quot;form-control&quot;&nbsp;id=&quot;exampleInputPassword1&quot;&nbsp;placeholder=&quot;Password&quot;&gt;
+  &nbsp;&nbsp;&lt;/div&gt;
+  &nbsp;&nbsp;&lt;div&nbsp;class=&quot;form-group&quot;&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;for=&quot;exampleInputFile&quot;&gt;File&nbsp;input&lt;/label&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=&quot;file&quot;&nbsp;id=&quot;exampleInputFile&quot;&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&nbsp;class=&quot;help-block&quot;&gt;Example&nbsp;block-level&nbsp;help&nbsp;text&nbsp;here.&lt;/p&gt;
+  &nbsp;&nbsp;&lt;/div&gt;
+  &nbsp;&nbsp;&lt;div&nbsp;class=&quot;checkbox&quot;&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=&quot;checkbox&quot;&gt;&nbsp;Check&nbsp;me&nbsp;out
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;
+  &nbsp;&nbsp;&lt;/div&gt;
+  &nbsp;&nbsp;&lt;button&nbsp;type=&quot;submit&quot;&nbsp;class=&quot;btn&nbsp;btn-default&quot;&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+</pre>
 <h3>水平表单</h3>
 <p>右侧对齐并且左侧浮动的label和控件排列在同一行。这需要对默认的表单格式做修改：</p>
 <ul>
