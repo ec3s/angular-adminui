@@ -110,7 +110,89 @@ body {
     }
 }
 // Submenu nav
-// .sub-nav {
+.sub-nav {
+    @extend .list-group;
+    li {
+        @extend .list-group-item;
+        padding: 0;
+        cursor: pointer;
+        a {
+            padding: 10px 15px;
+            display: block;
+            color: $list-group-link-color;
+            .glyphicon-chevron-down {
+                opacity: .25;
+            }
+            &:hover {
+                background-color: $list-group-hover-bg;
+                text-decoration: none;
+                .glyphicon-chevron-down {
+                    opacity: .5;
+                }
+            }
+        }
+        &.active {
+            a {
+                color: $list-group-active-color;
+                background-color: $list-group-active-bg;
+                border-color: $list-group-active-border;
+            }
+            ul {
+                li {
+                    &:hover {
+                        border-color: $list-group-border;
+                    }
+                    a {
+                        background-color: #fff;
+                        color: $list-group-link-color;
+                        &:hover {
+                            background-color: $list-group-hover-bg;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+        ul {
+            @extend .list-unstyled;
+            display: none;
+            margin: -1px;
+            font-size: $font-size-small;
+            li {
+                &:first-child {
+                    @include border-top-radius(0);
+                }
+                &:last-child {
+                    @include border-bottom-radius(0);
+                }
+                a {
+                    padding-left: 25px;
+                    &:hover {
+                        border-color: $list-group-border !important;
+                        background: $list-group-hover-bg url($submenuSprites) no-repeat 15px 14px;
+                    }
+                }
+                &.active{
+                    border-color: $list-group-border;
+                    a {
+                        background: $list-group-bg url($submenuSprites) no-repeat 15px -22px;
+                        &:hover {
+                            border-color: $list-group-border !important;
+                            background: $list-group-hover-bg url($submenuSprites) no-repeat 15px -22px;
+                        }
+                    }
+                }
+            }
+            &:last-child {
+                li {
+                    &:last-child {
+                        @include border-top-radius($list-group-border-radius);
+                    }
+                }
+            }
+        }
+    }
+}
 //     margin-bottom: 5px;
 //     @include box-shadow(0 1px 4px rgba(0,0,0,.065));
 //     li {
