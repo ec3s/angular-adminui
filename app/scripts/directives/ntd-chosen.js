@@ -238,14 +238,16 @@
           chosen.search_field.bind('keyup', function(e) {
             if (chosen && chosen.results_showing) {
               searchTxt.$search = chosen.get_search_text();
-              if (oldSearch != searchTxt.$search) {
-                oldSearch = searchTxt.$search;
-                chosenEl.trigger('liszt:load_data', {
-                  onSearch: onSearch,
-                  optionsModelName: optionsModelName
-                });
+              delay(function(){
+                if (oldSearch != searchTxt.$search) {
+                    oldSearch = searchTxt.$search;
+                    chosenEl.trigger('liszt:load_data', {
+                      onSearch: onSearch,
+                      optionsModelName: optionsModelName
+                    });
+                        }
+                  }, 500 );
               }
-            }
           });
         }
 
@@ -351,3 +353,10 @@
   app.directive('ntdChosen', ['$parse', '$timeout', Chosen]);
   app.directive('ntdLinkage', ['$parse', Linkage]);
 })(angular.module('ntd.directives'), angular);
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){
+    clearTimeout (timer);
+    timer = setTimeout(callback, ms);
+  };
+})();
