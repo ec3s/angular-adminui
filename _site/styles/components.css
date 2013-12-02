@@ -411,8 +411,8 @@
   cursor: default;
   background-color: transparent;
 }
-.input-append.date .add-on i,
-.input-prepend.date .add-on i {
+.input-append.date .input-group-addon i,
+.input-prepend.date .input-group-addon i {
   display: block;
   cursor: pointer;
   width: 16px;
@@ -431,7 +431,7 @@
   -moz-border-radius: 0 3px 3px 0;
   border-radius: 0 3px 3px 0;
 }
-.input-daterange .add-on {
+.input-daterange .input-group-addon {
   display: inline-block;
   width: auto;
   min-width: 16px;
@@ -473,10 +473,10 @@
   left: auto;
   right: 13px;
 }
-.bootstrap-timepicker .add-on {
+.bootstrap-timepicker .input-group-addon {
   cursor: pointer;
 }
-.bootstrap-timepicker .add-on i {
+.bootstrap-timepicker .input-group-addon i {
   display: inline-block;
   width: 16px;
   height: 16px;

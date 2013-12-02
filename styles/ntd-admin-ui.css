@@ -303,9 +303,9 @@ a:hover {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003566}}
 .container,
-.navbar-static-top .container,
-.navbar-fixed-top .container,
-.navbar-fixed-bottom .container {
+.navprogress-bar-static-top .container,
+.navprogress-bar-fixed-top .container,
+.navprogress-bar-fixed-bottom .container {
   width: 940px;
 }
 
@@ -430,22 +430,22 @@ a:hover {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003600}}
-.row-fluid {
+.row {
   width: 100%;
   *zoom: 1;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000315}}
-.row-fluid:before, .row-fluid:after {
+.row:before, .row:after {
   display: table;
   content: "";
   line-height: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000322}}
-.row-fluid:after {
+.row:after {
   clear: both;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003603}}
-.row-fluid [class*="span"] {
+.row [class*="span"] {
   display: block;
   width: 100%;
   min-height: 30px;
@@ -457,199 +457,199 @@ a:hover {
   *margin-left: 2.07447%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003609}}
-.row-fluid [class*="span"]:first-child {
+.row [class*="span"]:first-child {
   margin-left: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span12 {
+.row .span12 {
   width: 100%;
   *width: 99.94681%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset12 {
+.row .offset12 {
   margin-left: 104.25532%;
   *margin-left: 104.14894%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset12:first-child {
+.row .offset12:first-child {
   margin-left: 102.12766%;
   *margin-left: 102.02128%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span11 {
+.row .span11 {
   width: 91.48936%;
   *width: 91.43617%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset11 {
+.row .offset11 {
   margin-left: 95.74468%;
   *margin-left: 95.6383%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset11:first-child {
+.row .offset11:first-child {
   margin-left: 93.61702%;
   *margin-left: 93.51064%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span10 {
+.row .span10 {
   width: 82.97872%;
   *width: 82.92553%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset10 {
+.row .offset10 {
   margin-left: 87.23404%;
   *margin-left: 87.12766%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset10:first-child {
+.row .offset10:first-child {
   margin-left: 85.10638%;
   *margin-left: 85.0%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span9 {
+.row .span9 {
   width: 74.46809%;
   *width: 74.41489%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset9 {
+.row .offset9 {
   margin-left: 78.7234%;
   *margin-left: 78.61702%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset9:first-child {
+.row .offset9:first-child {
   margin-left: 76.59574%;
   *margin-left: 76.48936%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span8 {
+.row .span8 {
   width: 65.95745%;
   *width: 65.90426%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset8 {
+.row .offset8 {
   margin-left: 70.21277%;
   *margin-left: 70.10638%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset8:first-child {
+.row .offset8:first-child {
   margin-left: 68.08511%;
   *margin-left: 67.97872%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span7 {
+.row .span7 {
   width: 57.44681%;
   *width: 57.39362%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset7 {
+.row .offset7 {
   margin-left: 61.70213%;
   *margin-left: 61.59574%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset7:first-child {
+.row .offset7:first-child {
   margin-left: 59.57447%;
   *margin-left: 59.46809%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span6 {
+.row .span6 {
   width: 48.93617%;
   *width: 48.88298%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset6 {
+.row .offset6 {
   margin-left: 53.19149%;
   *margin-left: 53.08511%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset6:first-child {
+.row .offset6:first-child {
   margin-left: 51.06383%;
   *margin-left: 50.95745%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span5 {
+.row .span5 {
   width: 40.42553%;
   *width: 40.37234%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset5 {
+.row .offset5 {
   margin-left: 44.68085%;
   *margin-left: 44.57447%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset5:first-child {
+.row .offset5:first-child {
   margin-left: 42.55319%;
   *margin-left: 42.44681%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span4 {
+.row .span4 {
   width: 31.91489%;
   *width: 31.8617%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset4 {
+.row .offset4 {
   margin-left: 36.17021%;
   *margin-left: 36.06383%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset4:first-child {
+.row .offset4:first-child {
   margin-left: 34.04255%;
   *margin-left: 33.93617%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span3 {
+.row .span3 {
   width: 23.40426%;
   *width: 23.35106%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset3 {
+.row .offset3 {
   margin-left: 27.65957%;
   *margin-left: 27.55319%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset3:first-child {
+.row .offset3:first-child {
   margin-left: 25.53191%;
   *margin-left: 25.42553%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span2 {
+.row .span2 {
   width: 14.89362%;
   *width: 14.84043%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset2 {
+.row .offset2 {
   margin-left: 19.14894%;
   *margin-left: 19.04255%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset2:first-child {
+.row .offset2:first-child {
   margin-left: 17.02128%;
   *margin-left: 16.91489%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-.row-fluid .span1 {
+.row .span1 {
   width: 6.38298%;
   *width: 6.32979%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-.row-fluid .offset1 {
+.row .offset1 {
   margin-left: 10.6383%;
   *margin-left: 10.53191%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-.row-fluid .offset1:first-child {
+.row .offset1:first-child {
   margin-left: 8.51064%;
   *margin-left: 8.40426%;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_grid\.scss}line{font-family:\0000314}}
 [class*="span"].hide,
-.row-fluid [class*="span"].hide {
+.row [class*="span"].hide {
   display: none;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_grid\.scss}line{font-family:\0000319}}
 [class*="span"].pull-right,
-.row-fluid [class*="span"].pull-right {
+.row [class*="span"].pull-right {
   float: right;
 }
 
@@ -671,19 +671,19 @@ a:hover {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_layouts\.scss}line{font-family:\0000312}}
-.container-fluid {
+.container {
   padding-right: 20px;
   padding-left: 20px;
   *zoom: 1;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000315}}
-.container-fluid:before, .container-fluid:after {
+.container:before, .container:after {
   display: table;
   content: "";
   line-height: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000322}}
-.container-fluid:after {
+.container:after {
   clear: both;
 }
 
@@ -721,12 +721,12 @@ cite {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_type\.scss}line{font-family:\0000331}}
-.muted {
+.text-muted {
   color: #999999;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_type\.scss}line{font-family:\0000332}}
-a.muted:hover {
+a.text-muted:hover {
   color: gray;
 }
 
@@ -741,12 +741,12 @@ a.text-warning:hover {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_type\.scss}line{font-family:\0000337}}
-.text-error {
+.text-danger {
   color: #b94a48;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_type\.scss}line{font-family:\0000338}}
-a.text-error:hover {
+a.text-danger:hover {
   color: #953b39;
 }
 
@@ -870,8 +870,8 @@ li {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_type\.scss}line{font-family:\00003112}}
-ul.unstyled,
-ol.unstyled {
+ul.list-unstyled,
+ol.list-unstyled {
   margin-left: 0;
   list-style: none;
 }
@@ -1368,7 +1368,7 @@ textarea::-webkit-input-placeholder {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003262}}
-.input-small {
+.input-sm {
   width: 90px;
 }
 
@@ -1378,7 +1378,7 @@ textarea::-webkit-input-placeholder {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003264}}
-.input-large {
+.input-lg {
   width: 210px;
 }
 
@@ -1397,10 +1397,10 @@ input[class*="span"],
 select[class*="span"],
 textarea[class*="span"],
 .uneditable-input[class*="span"],
-.row-fluid input[class*="span"],
-.row-fluid select[class*="span"],
-.row-fluid textarea[class*="span"],
-.row-fluid .uneditable-input[class*="span"] {
+.row input[class*="span"],
+.row select[class*="span"],
+.row textarea[class*="span"],
+.row .uneditable-input[class*="span"] {
   float: none;
   margin-left: 0;
 }
@@ -1410,12 +1410,12 @@ textarea[class*="span"],
 .input-append .uneditable-input[class*="span"],
 .input-prepend input[class*="span"],
 .input-prepend .uneditable-input[class*="span"],
-.row-fluid input[class*="span"],
-.row-fluid select[class*="span"],
-.row-fluid textarea[class*="span"],
-.row-fluid .uneditable-input[class*="span"],
-.row-fluid .input-prepend [class*="span"],
-.row-fluid .input-append [class*="span"] {
+.row input[class*="span"],
+.row select[class*="span"],
+.row textarea[class*="span"],
+.row .uneditable-input[class*="span"],
+.row .input-prepend [class*="span"],
+.row .input-append [class*="span"] {
   display: inline-block;
 }
 
@@ -1532,7 +1532,7 @@ textarea.span1,
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003311}}
 .controls-row [class*="span"],
-.row-fluid .controls-row [class*="span"] {
+.row .controls-row [class*="span"] {
   float: left;
 }
 
@@ -1562,17 +1562,17 @@ input[type="checkbox"][readonly] {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003163}}
-.control-group.warning > label,
-.control-group.warning .help-block,
-.control-group.warning .help-inline {
+.form-group.warning > label,
+.form-group.warning .help-block,
+.form-group.warning .help-inline {
   color: #c09853;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003171}}
-.control-group.warning .checkbox,
-.control-group.warning .radio,
-.control-group.warning input,
-.control-group.warning select,
-.control-group.warning textarea {
+.form-group.warning .checkbox,
+.form-group.warning .radio,
+.form-group.warning input,
+.form-group.warning select,
+.form-group.warning textarea {
   color: #c09853;
   border-color: #c09853;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1580,36 +1580,36 @@ input[type="checkbox"][readonly] {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003175}}
-.control-group.warning .checkbox:focus,
-.control-group.warning .radio:focus,
-.control-group.warning input:focus,
-.control-group.warning select:focus,
-.control-group.warning textarea:focus {
+.form-group.warning .checkbox:focus,
+.form-group.warning .radio:focus,
+.form-group.warning input:focus,
+.form-group.warning select:focus,
+.form-group.warning textarea:focus {
   border-color: #a47e3c;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #dbc59e;
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #dbc59e;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #dbc59e;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003185}}
-.control-group.warning .input-prepend .add-on,
-.control-group.warning .input-append .add-on {
+.form-group.warning .input-prepend .input-group-addon,
+.form-group.warning .input-append .input-group-addon {
   color: #c09853;
   background-color: #fcf8e3;
   border-color: #c09853;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003163}}
-.control-group.error > label,
-.control-group.error .help-block,
-.control-group.error .help-inline {
+.form-group.error > label,
+.form-group.error .help-block,
+.form-group.error .help-inline {
   color: #b94a48;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003171}}
-.control-group.error .checkbox,
-.control-group.error .radio,
-.control-group.error input,
-.control-group.error select,
-.control-group.error textarea {
+.form-group.error .checkbox,
+.form-group.error .radio,
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
   color: #b94a48;
   border-color: #b94a48;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1617,36 +1617,36 @@ input[type="checkbox"][readonly] {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003175}}
-.control-group.error .checkbox:focus,
-.control-group.error .radio:focus,
-.control-group.error input:focus,
-.control-group.error select:focus,
-.control-group.error textarea:focus {
+.form-group.error .checkbox:focus,
+.form-group.error .radio:focus,
+.form-group.error input:focus,
+.form-group.error select:focus,
+.form-group.error textarea:focus {
   border-color: #953b39;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003185}}
-.control-group.error .input-prepend .add-on,
-.control-group.error .input-append .add-on {
+.form-group.error .input-prepend .input-group-addon,
+.form-group.error .input-append .input-group-addon {
   color: #b94a48;
   background-color: #f2dede;
   border-color: #b94a48;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003163}}
-.control-group.success > label,
-.control-group.success .help-block,
-.control-group.success .help-inline {
+.form-group.success > label,
+.form-group.success .help-block,
+.form-group.success .help-inline {
   color: #468847;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003171}}
-.control-group.success .checkbox,
-.control-group.success .radio,
-.control-group.success input,
-.control-group.success select,
-.control-group.success textarea {
+.form-group.success .checkbox,
+.form-group.success .radio,
+.form-group.success input,
+.form-group.success select,
+.form-group.success textarea {
   color: #468847;
   border-color: #468847;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1654,36 +1654,36 @@ input[type="checkbox"][readonly] {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003175}}
-.control-group.success .checkbox:focus,
-.control-group.success .radio:focus,
-.control-group.success input:focus,
-.control-group.success select:focus,
-.control-group.success textarea:focus {
+.form-group.success .checkbox:focus,
+.form-group.success .radio:focus,
+.form-group.success input:focus,
+.form-group.success select:focus,
+.form-group.success textarea:focus {
   border-color: #356635;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003185}}
-.control-group.success .input-prepend .add-on,
-.control-group.success .input-append .add-on {
+.form-group.success .input-prepend .input-group-addon,
+.form-group.success .input-append .input-group-addon {
   color: #468847;
   background-color: #dff0d8;
   border-color: #468847;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003163}}
-.control-group.info > label,
-.control-group.info .help-block,
-.control-group.info .help-inline {
+.form-group.info > label,
+.form-group.info .help-block,
+.form-group.info .help-inline {
   color: #3a87ad;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003171}}
-.control-group.info .checkbox,
-.control-group.info .radio,
-.control-group.info input,
-.control-group.info select,
-.control-group.info textarea {
+.form-group.info .checkbox,
+.form-group.info .radio,
+.form-group.info input,
+.form-group.info select,
+.form-group.info textarea {
   color: #3a87ad;
   border-color: #3a87ad;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1691,19 +1691,19 @@ input[type="checkbox"][readonly] {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003175}}
-.control-group.info .checkbox:focus,
-.control-group.info .radio:focus,
-.control-group.info input:focus,
-.control-group.info select:focus,
-.control-group.info textarea:focus {
+.form-group.info .checkbox:focus,
+.form-group.info .radio:focus,
+.form-group.info input:focus,
+.form-group.info select:focus,
+.form-group.info textarea:focus {
   border-color: #2d6987;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7ab5d3;
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7ab5d3;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7ab5d3;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003185}}
-.control-group.info .input-prepend .add-on,
-.control-group.info .input-append .add-on {
+.form-group.info .input-prepend .input-group-addon,
+.form-group.info .input-append .input-group-addon {
   color: #3a87ad;
   background-color: #d9edf7;
   border-color: #3a87ad;
@@ -1810,8 +1810,8 @@ select:focus:invalid:focus {
   z-index: 2;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003450}}
-.input-append .add-on,
-.input-prepend .add-on {
+.input-append .input-group-addon,
+.input-prepend .input-group-addon {
   display: inline-block;
   width: auto;
   height: 20px;
@@ -1826,10 +1826,10 @@ select:focus:invalid:focus {
   border: 1px solid #ccc;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003466}}
-.input-append .add-on,
+.input-append .input-group-addon,
 .input-append .btn,
 .input-append .btn-group > .dropdown-toggle,
-.input-prepend .add-on,
+.input-prepend .input-group-addon,
 .input-prepend .btn,
 .input-prepend .btn-group > .dropdown-toggle {
   vertical-align: top;
@@ -1845,12 +1845,12 @@ select:focus:invalid:focus {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003478}}
-.input-prepend .add-on,
+.input-prepend .input-group-addon,
 .input-prepend .btn {
   margin-right: -1px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003482}}
-.input-prepend .add-on:first-child,
+.input-prepend .input-group-addon:first-child,
 .input-prepend .btn:first-child {
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
@@ -1874,13 +1874,13 @@ select:focus:invalid:focus {
   border-radius: 0 4px 4px 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003499}}
-.input-append .add-on,
+.input-append .input-group-addon,
 .input-append .btn,
 .input-append .btn-group {
   margin-left: -1px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003504}}
-.input-append .add-on:last-child,
+.input-append .input-group-addon:last-child,
 .input-append .btn:last-child,
 .input-append .btn-group:last-child > .dropdown-toggle {
   -webkit-border-radius: 0 4px 4px 0;
@@ -1905,7 +1905,7 @@ select:focus:invalid:focus {
   border-radius: 0 4px 4px 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003520}}
-.input-prepend.input-append .add-on:first-child,
+.input-prepend.input-append .input-group-addon:first-child,
 .input-prepend.input-append .btn:first-child {
   margin-right: -1px;
   -webkit-border-radius: 4px 0 0 4px;
@@ -1913,7 +1913,7 @@ select:focus:invalid:focus {
   border-radius: 4px 0 0 4px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003525}}
-.input-prepend.input-append .add-on:last-child,
+.input-prepend.input-append .input-group-addon:last-child,
 .input-prepend.input-append .btn:last-child {
   margin-left: -1px;
   -webkit-border-radius: 0 4px 4px 0;
@@ -2047,29 +2047,29 @@ input.search-query {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003630}}
-.control-group {
+.form-group {
   margin-bottom: 10px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003635}}
-legend + .control-group {
+legend + .form-group {
   margin-top: 20px;
   -webkit-margin-top-collapse: separate;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003645}}
-.form-horizontal .control-group {
+.form-horizontal .form-group {
   margin-bottom: 20px;
   *zoom: 1;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000315}}
-.form-horizontal .control-group:before, .form-horizontal .control-group:after {
+.form-horizontal .form-group:before, .form-horizontal .form-group:after {
   display: table;
   content: "";
   line-height: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000322}}
-.form-horizontal .control-group:after {
+.form-horizontal .form-group:after {
   clear: both;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_forms\.scss}line{font-family:\00003650}}
@@ -2265,8 +2265,8 @@ table {
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_tables\.scss}line{font-family:\00003179}}
 table td[class*="span"],
 table th[class*="span"],
-.row-fluid table td[class*="span"],
-.row-fluid table th[class*="span"] {
+.row table td[class*="span"],
+.row table th[class*="span"] {
   display: table-cell;
   float: none;
   margin-left: 0;
@@ -2413,8 +2413,8 @@ table th[class*="span"],
 .nav-pills > .active > a > [class*=" icon-"],
 .nav-list > .active > a > [class^="icon-"],
 .nav-list > .active > a > [class*=" icon-"],
-.navbar-inverse .nav > .active > a > [class^="icon-"],
-.navbar-inverse .nav > .active > a > [class*=" icon-"],
+.navprogress-bar-inverse .nav > .active > a > [class^="icon-"],
+.navprogress-bar-inverse .nav > .active > a > [class*=" icon-"],
 .dropdown-menu > li > a:hover > [class^="icon-"],
 .dropdown-menu > li > a:hover > [class*=" icon-"],
 .dropdown-menu > .active > a > [class^="icon-"],
@@ -2620,7 +2620,7 @@ table th[class*="span"],
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_sprites\.scss}line{font-family:\0000388}}
-.icon-barcode {
+.icon-progress-barcode {
   background-position: -456px -24px;
 }
 
@@ -3278,14 +3278,14 @@ table th[class*="span"],
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_dropdowns\.scss}line{font-family:\00003148}}
 .dropup .caret,
-.navbar-fixed-bottom .dropdown .caret {
+.navprogress-bar-fixed-bottom .dropdown .caret {
   border-top: 0;
   border-bottom: 4px solid black;
   content: "";
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_dropdowns\.scss}line{font-family:\00003154}}
 .dropup .dropdown-menu,
-.navbar-fixed-bottom .dropdown .dropdown-menu {
+.navprogress-bar-fixed-bottom .dropdown .dropdown-menu {
   top: auto;
   bottom: 100%;
   margin-bottom: 1px;
@@ -3552,7 +3552,7 @@ button.close {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_buttons\.scss}line{font-family:\0000372}}
-.btn-large {
+.btn-lg {
   padding: 11px 19px;
   font-size: 17.5px;
   -webkit-border-radius: 6px;
@@ -3561,13 +3561,13 @@ button.close {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_buttons\.scss}line{font-family:\0000378}}
-.btn-large [class^="icon-"],
-.btn-large [class*=" icon-"] {
+.btn-lg [class^="icon-"],
+.btn-lg [class*=" icon-"] {
   margin-top: 4px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_buttons\.scss}line{font-family:\0000383}}
-.btn-small {
+.btn-sm {
   padding: 2px 10px;
   font-size: 11.9px;
   -webkit-border-radius: 3px;
@@ -3576,19 +3576,19 @@ button.close {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_buttons\.scss}line{font-family:\0000389}}
-.btn-small [class^="icon-"],
-.btn-small [class*=" icon-"] {
+.btn-sm [class^="icon-"],
+.btn-sm [class*=" icon-"] {
   margin-top: 0;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_buttons\.scss}line{font-family:\0000393}}
-.btn-mini [class^="icon-"],
-.btn-mini [class*=" icon-"] {
+.btn-xs [class^="icon-"],
+.btn-xs [class*=" icon-"] {
   margin-top: -1px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_buttons\.scss}line{font-family:\0000398}}
-.btn-mini {
+.btn-xs {
   padding: 0 6px;
   font-size: 10.5px;
   -webkit-border-radius: 3px;
@@ -3822,20 +3822,20 @@ input[type="submit"].btn::-moz-focus-inner {
   border: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_buttons\.scss}line{font-family:\00003193}}
-button.btn.btn-large,
-input[type="submit"].btn.btn-large {
+button.btn.btn-lg,
+input[type="submit"].btn.btn-lg {
   *padding-top: 7px;
   *padding-bottom: 7px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_buttons\.scss}line{font-family:\00003197}}
-button.btn.btn-small,
-input[type="submit"].btn.btn-small {
+button.btn.btn-sm,
+input[type="submit"].btn.btn-sm {
   *padding-top: 3px;
   *padding-bottom: 3px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_buttons\.scss}line{font-family:\00003201}}
-button.btn.btn-mini,
-input[type="submit"].btn.btn-mini {
+button.btn.btn-xs,
+input[type="submit"].btn.btn-xs {
   *padding-top: 1px;
   *padding-bottom: 1px;
 }
@@ -3896,15 +3896,15 @@ input[type="submit"].btn.btn-mini {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\0000323}}
-.btn-toolbar {
+.btn-toolprogress-bar {
   font-size: 0;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\0000329}}
-.btn-toolbar > .btn + .btn,
-.btn-toolbar > .btn-group + .btn,
-.btn-toolbar > .btn + .btn-group {
+.btn-toolprogress-bar > .btn + .btn,
+.btn-toolprogress-bar > .btn-group + .btn,
+.btn-toolprogress-bar > .btn + .btn-group {
   margin-left: 5px;
 }
 
@@ -3929,17 +3929,17 @@ input[type="submit"].btn.btn-mini {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\0000349}}
-.btn-group > .btn-mini {
+.btn-group > .btn-xs {
   font-size: 10.5px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\0000352}}
-.btn-group > .btn-small {
+.btn-group > .btn-sm {
   font-size: 11.9px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\0000355}}
-.btn-group > .btn-large {
+.btn-group > .btn-lg {
   font-size: 17.5px;
 }
 
@@ -4013,7 +4013,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\00003110}}
-.btn-group > .btn-mini + .dropdown-toggle {
+.btn-group > .btn-xs + .dropdown-toggle {
   padding-left: 5px;
   padding-right: 5px;
   *padding-top: 2px;
@@ -4021,13 +4021,13 @@ input[type="submit"].btn.btn-mini {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\00003116}}
-.btn-group > .btn-small + .dropdown-toggle {
+.btn-group > .btn-sm + .dropdown-toggle {
   *padding-top: 5px;
   *padding-bottom: 4px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\00003120}}
-.btn-group > .btn-large + .dropdown-toggle {
+.btn-group > .btn-lg + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px;
   *padding-top: 7px;
@@ -4077,21 +4077,21 @@ input[type="submit"].btn.btn-mini {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\00003169}}
-.btn-mini .caret,
-.btn-small .caret,
-.btn-large .caret {
+.btn-xs .caret,
+.btn-sm .caret,
+.btn-lg .caret {
   margin-top: 6px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\00003172}}
-.btn-large .caret {
+.btn-lg .caret {
   border-left-width: 5px;
   border-right-width: 5px;
   border-top-width: 5px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\00003178}}
-.dropup .btn-large .caret {
+.dropup .btn-lg .caret {
   border-bottom-width: 5px;
 }
 
@@ -4144,14 +4144,14 @@ input[type="submit"].btn.btn-mini {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\00003222}}
-.btn-group-vertical > .btn-large:first-child {
+.btn-group-vertical > .btn-lg:first-child {
   -webkit-border-radius: 6px 6px 0 0;
   -moz-border-radius: 6px 6px 0 0;
   border-radius: 6px 6px 0 0;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_button-groups\.scss}line{font-family:\00003225}}
-.btn-group-vertical > .btn-large:last-child {
+.btn-group-vertical > .btn-lg:last-child {
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
@@ -4202,7 +4202,7 @@ input[type="submit"].btn.btn-mini {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_alerts\.scss}line{font-family:\0000347}}
 .alert-danger,
-.alert-error {
+.alert-danger {
   background-color: #f2dede;
   border-color: #eed3d7;
   color: #b94a48;
@@ -4210,7 +4210,7 @@ input[type="submit"].btn.btn-mini {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_alerts\.scss}line{font-family:\0000353}}
 .alert-danger h4,
-.alert-error h4 {
+.alert-danger h4 {
   color: #b94a48;
 }
 
@@ -4701,16 +4701,16 @@ input[type="submit"].btn.btn-mini {
   cursor: default;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000310}}
-.navbar {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000310}}
+.navprogress-bar {
   overflow: visible;
   margin-bottom: 20px;
   *position: relative;
   *z-index: 2;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000321}}
-.navbar-inner {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000321}}
+.navprogress-bar-inner {
   min-height: 40px;
   padding-left: 20px;
   padding-right: 20px;
@@ -4732,29 +4732,29 @@ input[type="submit"].btn.btn-mini {
   *zoom: 1;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000315}}
-.navbar-inner:before, .navbar-inner:after {
+.navprogress-bar-inner:before, .navprogress-bar-inner:after {
   display: table;
   content: "";
   line-height: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000322}}
-.navbar-inner:after {
+.navprogress-bar-inner:after {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000336}}
-.navbar .container {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000336}}
+.navprogress-bar .container {
   width: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000341}}
-.nav-collapse.collapse {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000341}}
+.navprogress-bar-collapse.collapse {
   height: auto;
   overflow: visible;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000349}}
-.navbar .brand {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000349}}
+.navprogress-bar .navprogress-bar-brand {
   float: left;
   display: block;
   padding: 10px 20px 10px;
@@ -4764,104 +4764,104 @@ input[type="submit"].btn.btn-mini {
   color: #777777;
   text-shadow: 0 1px 0 white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000359}}
-.navbar .brand:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000359}}
+.navprogress-bar .navprogress-bar-brand:hover {
   text-decoration: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000366}}
-.navbar-text {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000366}}
+.navprogress-bar-text {
   margin-bottom: 0;
   line-height: 40px;
   color: #777777;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000374}}
-.navbar-link {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000374}}
+.navprogress-bar-link {
   color: #777777;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000376}}
-.navbar-link:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000376}}
+.navprogress-bar-link:hover {
   color: #333333;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000383}}
-.navbar .divider-vertical {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000383}}
+.navprogress-bar .divider-vertical {
   height: 40px;
   margin: 0 9px;
   border-left: 1px solid #f2f2f2;
   border-right: 1px solid white;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000393}}
-.navbar .btn,
-.navbar .btn-group {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000393}}
+.navprogress-bar .btn,
+.navprogress-bar .btn-group {
   margin-top: 5px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\0000398}}
-.navbar .btn-group .btn,
-.navbar .input-prepend .btn,
-.navbar .input-append .btn {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\0000398}}
+.navprogress-bar .btn-group .btn,
+.navprogress-bar .input-prepend .btn,
+.navprogress-bar .input-append .btn {
   margin-top: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003104}}
-.navbar-form {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003104}}
+.navprogress-bar-form {
   margin-bottom: 0;
   *zoom: 1;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000315}}
-.navbar-form:before, .navbar-form:after {
+.navprogress-bar-form:before, .navprogress-bar-form:after {
   display: table;
   content: "";
   line-height: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000322}}
-.navbar-form:after {
+.navprogress-bar-form:after {
   clear: both;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003110}}
-.navbar-form input,
-.navbar-form select,
-.navbar-form .radio,
-.navbar-form .checkbox {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003110}}
+.navprogress-bar-form input,
+.navprogress-bar-form select,
+.navprogress-bar-form .radio,
+.navprogress-bar-form .checkbox {
   margin-top: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003115}}
-.navbar-form input,
-.navbar-form select,
-.navbar-form .btn {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003115}}
+.navprogress-bar-form input,
+.navprogress-bar-form select,
+.navprogress-bar-form .btn {
   display: inline-block;
   margin-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003121}}
-.navbar-form input[type="image"],
-.navbar-form input[type="checkbox"],
-.navbar-form input[type="radio"] {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003121}}
+.navprogress-bar-form input[type="image"],
+.navprogress-bar-form input[type="checkbox"],
+.navprogress-bar-form input[type="radio"] {
   margin-top: 3px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003125}}
-.navbar-form .input-append,
-.navbar-form .input-prepend {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003125}}
+.navprogress-bar-form .input-append,
+.navprogress-bar-form .input-prepend {
   margin-top: 5px;
   white-space: nowrap;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003128}}
-.navbar-form .input-append input,
-.navbar-form .input-prepend input {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003128}}
+.navprogress-bar-form .input-append input,
+.navprogress-bar-form .input-prepend input {
   margin-top: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003136}}
-.navbar-search {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003136}}
+.navprogress-bar-search {
   position: relative;
   float: left;
   margin-top: 5px;
   margin-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003141}}
-.navbar-search .search-query {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003141}}
+.navprogress-bar-search .search-query {
   margin-bottom: 0;
   padding: 4px 14px;
   font-family: "Helvetica Neue", Helvetica, "microsoft yahei", Arial, sans-serif;
@@ -4873,21 +4873,21 @@ input[type="submit"].btn.btn-mini {
   border-radius: 15px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003154}}
-.navbar-static-top {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003154}}
+.navprogress-bar-static-top {
   position: static;
   margin-bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003157}}
-.navbar-static-top .navbar-inner {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003157}}
+.navprogress-bar-static-top .navprogress-bar-inner {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003169}}
-.navbar-fixed-top,
-.navbar-fixed-bottom {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003169}}
+.navprogress-bar-fixed-top,
+.navprogress-bar-fixed-bottom {
   position: fixed;
   right: 0;
   left: 0;
@@ -4895,20 +4895,20 @@ input[type="submit"].btn.btn-mini {
   margin-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003177}}
-.navbar-fixed-top .navbar-inner,
-.navbar-static-top .navbar-inner {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003177}}
+.navprogress-bar-fixed-top .navprogress-bar-inner,
+.navprogress-bar-static-top .navprogress-bar-inner {
   border-width: 0 0 1px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003180}}
-.navbar-fixed-bottom .navbar-inner {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003180}}
+.navprogress-bar-fixed-bottom .navprogress-bar-inner {
   border-width: 1px 0 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003184}}
-.navbar-fixed-top .navbar-inner,
-.navbar-fixed-bottom .navbar-inner {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003184}}
+.navprogress-bar-fixed-top .navprogress-bar-inner,
+.navprogress-bar-fixed-bottom .navprogress-bar-inner {
   padding-left: 0;
   padding-right: 0;
   -webkit-border-radius: 0;
@@ -4916,39 +4916,39 @@ input[type="submit"].btn.btn-mini {
   border-radius: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003194}}
-.navbar-static-top .container,
-.navbar-fixed-top .container,
-.navbar-fixed-bottom .container {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003194}}
+.navprogress-bar-static-top .container,
+.navprogress-bar-fixed-top .container,
+.navprogress-bar-fixed-bottom .container {
   width: 940px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003199}}
-.navbar-fixed-top {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003199}}
+.navprogress-bar-fixed-top {
   top: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003204}}
-.navbar-fixed-top .navbar-inner,
-.navbar-static-top .navbar-inner {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003204}}
+.navprogress-bar-fixed-top .navprogress-bar-inner,
+.navprogress-bar-static-top .navprogress-bar-inner {
   -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003210}}
-.navbar-fixed-bottom {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003210}}
+.navprogress-bar-fixed-bottom {
   bottom: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003212}}
-.navbar-fixed-bottom .navbar-inner {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003212}}
+.navprogress-bar-fixed-bottom .navprogress-bar-inner {
   -webkit-box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
   box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003222}}
-.navbar .nav {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003222}}
+.navprogress-bar .nav {
   position: relative;
   left: 0;
   display: block;
@@ -4956,19 +4956,19 @@ input[type="submit"].btn.btn-mini {
   margin: 0 10px 0 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003229}}
-.navbar .nav.pull-right {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003229}}
+.navprogress-bar .nav.pull-right {
   float: right;
   margin-right: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003233}}
-.navbar .nav > li {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003233}}
+.navprogress-bar .nav > li {
   float: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003238}}
-.navbar .nav > li > a {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003238}}
+.navprogress-bar .nav > li > a {
   float: none;
   padding: 10px 15px 10px;
   color: #777777;
@@ -4976,23 +4976,23 @@ input[type="submit"].btn.btn-mini {
   text-shadow: 0 1px 0 white;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003246}}
-.navbar .nav .dropdown-toggle .caret {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003246}}
+.navprogress-bar .nav .dropdown-toggle .caret {
   margin-top: 8px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003253}}
-.navbar .nav > li > a:focus,
-.navbar .nav > li > a:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003253}}
+.navprogress-bar .nav > li > a:focus,
+.navprogress-bar .nav > li > a:hover {
   background-color: transparent;
   color: #333333;
   text-decoration: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003262}}
-.navbar .nav > .active > a,
-.navbar .nav > .active > a:hover,
-.navbar .nav > .active > a:focus {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003262}}
+.navprogress-bar .nav > .active > a,
+.navprogress-bar .nav > .active > a:hover,
+.navprogress-bar .nav > .active > a:focus {
   color: #555555;
   text-decoration: none;
   background-color: #e6e6e6;
@@ -5001,8 +5001,8 @@ input[type="submit"].btn.btn-mini {
   box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003271}}
-.navbar .btn-navbar {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003271}}
+.navprogress-bar .navprogress-bar-btn {
   display: none;
   float: right;
   padding: 7px 10px;
@@ -5028,18 +5028,18 @@ input[type="submit"].btn.btn-mini {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.075);
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003489}}
-.navbar .btn-navbar:hover, .navbar .btn-navbar:active, .navbar .btn-navbar.active, .navbar .btn-navbar.disabled, .navbar .btn-navbar[disabled] {
+.navprogress-bar .navprogress-bar-btn:hover, .navprogress-bar .navprogress-bar-btn:active, .navprogress-bar .navprogress-bar-btn.active, .navprogress-bar .navprogress-bar-btn.disabled, .navprogress-bar .navprogress-bar-btn[disabled] {
   color: white;
   background-color: #e6e6e6;
   *background-color: #d9d9d9;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003497}}
-.navbar .btn-navbar:active, .navbar .btn-navbar.active {
+.navprogress-bar .navprogress-bar-btn:active, .navprogress-bar .navprogress-bar-btn.active {
   background-color: #cccccc \9;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003280}}
-.navbar .btn-navbar .icon-bar {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003280}}
+.navprogress-bar .navprogress-bar-btn .icon-progress-bar {
   display: block;
   width: 18px;
   height: 2px;
@@ -5052,13 +5052,13 @@ input[type="submit"].btn.btn-mini {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003288}}
-.btn-navbar .icon-bar + .icon-bar {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003288}}
+.navprogress-bar-btn .icon-progress-bar + .icon-progress-bar {
   margin-top: 3px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003299}}
-.navbar .nav > li > .dropdown-menu:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003299}}
+.navprogress-bar .nav > li > .dropdown-menu:before {
   content: '';
   display: inline-block;
   border-left: 7px solid transparent;
@@ -5069,8 +5069,8 @@ input[type="submit"].btn.btn-mini {
   top: -7px;
   left: 9px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003310}}
-.navbar .nav > li > .dropdown-menu:after {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003310}}
+.navprogress-bar .nav > li > .dropdown-menu:after {
   content: '';
   display: inline-block;
   border-left: 6px solid transparent;
@@ -5081,71 +5081,71 @@ input[type="submit"].btn.btn-mini {
   left: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003323}}
-.navbar-fixed-bottom .nav > li > .dropdown-menu:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003323}}
+.navprogress-bar-fixed-bottom .nav > li > .dropdown-menu:before {
   border-top: 7px solid #ccc;
   border-top-color: rgba(0, 0, 0, 0.2);
   border-bottom: 0;
   bottom: -7px;
   top: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003330}}
-.navbar-fixed-bottom .nav > li > .dropdown-menu:after {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003330}}
+.navprogress-bar-fixed-bottom .nav > li > .dropdown-menu:after {
   border-top: 6px solid white;
   border-bottom: 0;
   bottom: -6px;
   top: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003339}}
-.navbar .nav li.dropdown > a:hover .caret {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003339}}
+.navprogress-bar .nav li.dropdown > a:hover .caret {
   border-top-color: #555555;
   border-bottom-color: #555555;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003347}}
-.navbar .nav li.dropdown.open > .dropdown-toggle,
-.navbar .nav li.dropdown.active > .dropdown-toggle,
-.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003347}}
+.navprogress-bar .nav li.dropdown.open > .dropdown-toggle,
+.navprogress-bar .nav li.dropdown.active > .dropdown-toggle,
+.navprogress-bar .nav li.dropdown.open.active > .dropdown-toggle {
   background-color: #e6e6e6;
   color: #555555;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003351}}
-.navbar .nav li.dropdown > .dropdown-toggle .caret {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003351}}
+.navprogress-bar .nav li.dropdown > .dropdown-toggle .caret {
   border-top-color: #777777;
   border-bottom-color: #777777;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003357}}
-.navbar .nav li.dropdown.open > .dropdown-toggle .caret,
-.navbar .nav li.dropdown.active > .dropdown-toggle .caret,
-.navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003357}}
+.navprogress-bar .nav li.dropdown.open > .dropdown-toggle .caret,
+.navprogress-bar .nav li.dropdown.active > .dropdown-toggle .caret,
+.navprogress-bar .nav li.dropdown.open.active > .dropdown-toggle .caret {
   border-top-color: #555555;
   border-bottom-color: #555555;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003364}}
-.navbar .pull-right > li > .dropdown-menu,
-.navbar .nav > li > .dropdown-menu.pull-right {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003364}}
+.navprogress-bar .pull-right > li > .dropdown-menu,
+.navprogress-bar .nav > li > .dropdown-menu.pull-right {
   left: auto;
   right: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003367}}
-.navbar .pull-right > li > .dropdown-menu:before,
-.navbar .nav > li > .dropdown-menu.pull-right:before {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003367}}
+.navprogress-bar .pull-right > li > .dropdown-menu:before,
+.navprogress-bar .nav > li > .dropdown-menu.pull-right:before {
   left: auto;
   right: 12px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003371}}
-.navbar .pull-right > li > .dropdown-menu:after,
-.navbar .nav > li > .dropdown-menu.pull-right:after {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003371}}
+.navprogress-bar .pull-right > li > .dropdown-menu:after,
+.navprogress-bar .nav > li > .dropdown-menu.pull-right:after {
   left: auto;
   right: 13px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003375}}
-.navbar .pull-right > li > .dropdown-menu .dropdown-menu,
-.navbar .nav > li > .dropdown-menu.pull-right .dropdown-menu {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003375}}
+.navprogress-bar .pull-right > li > .dropdown-menu .dropdown-menu,
+.navprogress-bar .nav > li > .dropdown-menu.pull-right .dropdown-menu {
   left: auto;
   right: 100%;
   margin-left: 0;
@@ -5155,8 +5155,8 @@ input[type="submit"].btn.btn-mini {
   border-radius: 6px 0 6px 6px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003390}}
-.navbar-inverse .navbar-inner {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003390}}
+.navprogress-bar-inverse .navprogress-bar-inner {
   background-color: #1b1b1b;
   background-image: -moz-linear-gradient(top, #222222, #111111);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#111111));
@@ -5167,77 +5167,77 @@ input[type="submit"].btn.btn-mini {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f1f1f', endColorstr='#0e0e0e', GradientType=0);
   border-color: #252525;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003396}}
-.navbar-inverse .brand,
-.navbar-inverse .nav > li > a {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003396}}
+.navprogress-bar-inverse .navprogress-bar-brand,
+.navprogress-bar-inverse .nav > li > a {
   color: #999999;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003399}}
-.navbar-inverse .brand:hover,
-.navbar-inverse .nav > li > a:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003399}}
+.navprogress-bar-inverse .navprogress-bar-brand:hover,
+.navprogress-bar-inverse .nav > li > a:hover {
   color: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003404}}
-.navbar-inverse .brand {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003404}}
+.navprogress-bar-inverse .navprogress-bar-brand {
   color: #999999;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003408}}
-.navbar-inverse .navbar-text {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003408}}
+.navprogress-bar-inverse .navprogress-bar-text {
   color: #999999;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003413}}
-.navbar-inverse .nav > li > a:focus,
-.navbar-inverse .nav > li > a:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003413}}
+.navprogress-bar-inverse .nav > li > a:focus,
+.navprogress-bar-inverse .nav > li > a:hover {
   background-color: transparent;
   color: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003420}}
-.navbar-inverse .nav .active > a,
-.navbar-inverse .nav .active > a:hover,
-.navbar-inverse .nav .active > a:focus {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003420}}
+.navprogress-bar-inverse .nav .active > a,
+.navprogress-bar-inverse .nav .active > a:hover,
+.navprogress-bar-inverse .nav .active > a:focus {
   color: white;
   background-color: #111111;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003426}}
-.navbar-inverse .navbar-link {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003426}}
+.navprogress-bar-inverse .navprogress-bar-link {
   color: #999999;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003428}}
-.navbar-inverse .navbar-link:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003428}}
+.navprogress-bar-inverse .navprogress-bar-link:hover {
   color: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003434}}
-.navbar-inverse .divider-vertical {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003434}}
+.navprogress-bar-inverse .divider-vertical {
   border-left-color: #111111;
   border-right-color: #222222;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003442}}
-.navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
-.navbar-inverse .nav li.dropdown.active > .dropdown-toggle,
-.navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003442}}
+.navprogress-bar-inverse .nav li.dropdown.open > .dropdown-toggle,
+.navprogress-bar-inverse .nav li.dropdown.active > .dropdown-toggle,
+.navprogress-bar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
   background-color: #111111;
   color: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003446}}
-.navbar-inverse .nav li.dropdown > a:hover .caret {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003446}}
+.navprogress-bar-inverse .nav li.dropdown > a:hover .caret {
   border-top-color: white;
   border-bottom-color: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003450}}
-.navbar-inverse .nav li.dropdown > .dropdown-toggle .caret {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003450}}
+.navprogress-bar-inverse .nav li.dropdown > .dropdown-toggle .caret {
   border-top-color: #999999;
   border-bottom-color: #999999;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003456}}
-.navbar-inverse .nav li.dropdown.open > .dropdown-toggle .caret,
-.navbar-inverse .nav li.dropdown.active > .dropdown-toggle .caret,
-.navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle .caret {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003456}}
+.navprogress-bar-inverse .nav li.dropdown.open > .dropdown-toggle .caret,
+.navprogress-bar-inverse .nav li.dropdown.active > .dropdown-toggle .caret,
+.navprogress-bar-inverse .nav li.dropdown.open.active > .dropdown-toggle .caret {
   border-top-color: white;
   border-bottom-color: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003463}}
-.navbar-inverse .navbar-search .search-query {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003463}}
+.navprogress-bar-inverse .navprogress-bar-search .search-query {
   color: white;
   background-color: #515151;
   border-color: #111111;
@@ -5250,19 +5250,19 @@ input[type="submit"].btn.btn-mini {
   transition: none;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000383}}
-.navbar-inverse .navbar-search .search-query:-moz-placeholder {
+.navprogress-bar-inverse .navprogress-bar-search .search-query:-moz-placeholder {
   color: #cccccc;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000386}}
-.navbar-inverse .navbar-search .search-query:-ms-input-placeholder {
+.navprogress-bar-inverse .navprogress-bar-search .search-query:-ms-input-placeholder {
   color: #cccccc;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000389}}
-.navbar-inverse .navbar-search .search-query::-webkit-input-placeholder {
+.navprogress-bar-inverse .navprogress-bar-search .search-query::-webkit-input-placeholder {
   color: #cccccc;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003473}}
-.navbar-inverse .navbar-search .search-query:focus, .navbar-inverse .navbar-search .search-query.focused {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003473}}
+.navprogress-bar-inverse .navprogress-bar-search .search-query:focus, .navprogress-bar-inverse .navprogress-bar-search .search-query.focused {
   padding: 5px 15px;
   color: #333333;
   text-shadow: 0 1px 0 white;
@@ -5273,8 +5273,8 @@ input[type="submit"].btn.btn-mini {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
   outline: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navbar\.scss}line{font-family:\00003486}}
-.navbar-inverse .btn-navbar {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_navprogress-bar\.scss}line{font-family:\00003486}}
+.navprogress-bar-inverse .navprogress-bar-btn {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #0e0e0e;
@@ -5292,13 +5292,13 @@ input[type="submit"].btn.btn-mini {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003489}}
-.navbar-inverse .btn-navbar:hover, .navbar-inverse .btn-navbar:active, .navbar-inverse .btn-navbar.active, .navbar-inverse .btn-navbar.disabled, .navbar-inverse .btn-navbar[disabled] {
+.navprogress-bar-inverse .navprogress-bar-btn:hover, .navprogress-bar-inverse .navprogress-bar-btn:active, .navprogress-bar-inverse .navprogress-bar-btn.active, .navprogress-bar-inverse .navprogress-bar-btn.disabled, .navprogress-bar-inverse .navprogress-bar-btn[disabled] {
   color: white;
   background-color: #040404;
   *background-color: black;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003497}}
-.navbar-inverse .btn-navbar:active, .navbar-inverse .btn-navbar.active {
+.navprogress-bar-inverse .navprogress-bar-btn:active, .navprogress-bar-inverse .navprogress-bar-btn.active {
   background-color: black \9;
 }
 
@@ -5911,37 +5911,37 @@ input[type="submit"].btn.btn-mini {
   bottom: -10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_thumbnails\.scss}line{font-family:\000039}}
-.thumbnails {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_img-thumbnails\.scss}line{font-family:\000039}}
+.img-thumbnails {
   margin-left: -20px;
   list-style: none;
   *zoom: 1;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000315}}
-.thumbnails:before, .thumbnails:after {
+.img-thumbnails:before, .img-thumbnails:after {
   display: table;
   content: "";
   line-height: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000322}}
-.thumbnails:after {
+.img-thumbnails:after {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_thumbnails\.scss}line{font-family:\0000315}}
-.row-fluid .thumbnails {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_img-thumbnails\.scss}line{font-family:\0000315}}
+.row .img-thumbnails {
   margin-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_thumbnails\.scss}line{font-family:\0000320}}
-.thumbnails > li {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_img-thumbnails\.scss}line{font-family:\0000320}}
+.img-thumbnails > li {
   float: left;
   margin-bottom: 20px;
   margin-left: 20px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_thumbnails\.scss}line{font-family:\0000327}}
-.thumbnail {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_img-thumbnails\.scss}line{font-family:\0000327}}
+.img-thumbnail {
   display: block;
   padding: 4px;
   line-height: 20px;
@@ -5958,24 +5958,24 @@ input[type="submit"].btn.btn-mini {
   transition: all 0.2s ease-in-out;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_thumbnails\.scss}line{font-family:\0000337}}
-a.thumbnail:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_img-thumbnails\.scss}line{font-family:\0000337}}
+a.img-thumbnail:hover {
   border-color: #0088cc;
   -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_thumbnails\.scss}line{font-family:\0000343}}
-.thumbnail > img {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_img-thumbnails\.scss}line{font-family:\0000343}}
+.img-thumbnail > img {
   display: block;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_thumbnails\.scss}line{font-family:\0000349}}
-.thumbnail .caption {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_img-thumbnails\.scss}line{font-family:\0000349}}
+.img-thumbnail .caption {
   padding: 9px;
   color: #555555;
 }
@@ -6127,72 +6127,72 @@ a.label:hover, a.badge:hover {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_labels-badges\.scss}line{font-family:\0000376}}
-.btn-mini .label,
-.btn-mini .badge {
+.btn-xs .label,
+.btn-xs .badge {
   top: 0;
 }
 
-@-webkit-keyframes progress-bar-stripes {
-  /* line 11, ../../app/styles/compass_twitter_bootstrap/_progress-bars.scss */
+@-webkit-keyframes progress-progress-bar-stripes {
+  /* line 11, ../../app/styles/compass_twitter_bootstrap/_progress-progress-bars.scss */
   from {
     background-position: 40px 0;
   }
 
-  /* line 12, ../../app/styles/compass_twitter_bootstrap/_progress-bars.scss */
+  /* line 12, ../../app/styles/compass_twitter_bootstrap/_progress-progress-bars.scss */
   to {
     background-position: 0 0;
   }
 }
 
-@-moz-keyframes progress-bar-stripes {
-  /* line 17, ../../app/styles/compass_twitter_bootstrap/_progress-bars.scss */
+@-moz-keyframes progress-progress-bar-stripes {
+  /* line 17, ../../app/styles/compass_twitter_bootstrap/_progress-progress-bars.scss */
   from {
     background-position: 40px 0;
   }
 
-  /* line 18, ../../app/styles/compass_twitter_bootstrap/_progress-bars.scss */
+  /* line 18, ../../app/styles/compass_twitter_bootstrap/_progress-progress-bars.scss */
   to {
     background-position: 0 0;
   }
 }
 
-@-ms-keyframes progress-bar-stripes {
-  /* line 23, ../../app/styles/compass_twitter_bootstrap/_progress-bars.scss */
+@-ms-keyframes progress-progress-bar-stripes {
+  /* line 23, ../../app/styles/compass_twitter_bootstrap/_progress-progress-bars.scss */
   from {
     background-position: 40px 0;
   }
 
-  /* line 24, ../../app/styles/compass_twitter_bootstrap/_progress-bars.scss */
+  /* line 24, ../../app/styles/compass_twitter_bootstrap/_progress-progress-bars.scss */
   to {
     background-position: 0 0;
   }
 }
 
-@-o-keyframes progress-bar-stripes {
-  /* line 29, ../../app/styles/compass_twitter_bootstrap/_progress-bars.scss */
+@-o-keyframes progress-progress-bar-stripes {
+  /* line 29, ../../app/styles/compass_twitter_bootstrap/_progress-progress-bars.scss */
   from {
     background-position: 0 0;
   }
 
-  /* line 30, ../../app/styles/compass_twitter_bootstrap/_progress-bars.scss */
+  /* line 30, ../../app/styles/compass_twitter_bootstrap/_progress-progress-bars.scss */
   to {
     background-position: 40px 0;
   }
 }
 
-@keyframes progress-bar-stripes {
-  /* line 35, ../../app/styles/compass_twitter_bootstrap/_progress-bars.scss */
+@keyframes progress-progress-bar-stripes {
+  /* line 35, ../../app/styles/compass_twitter_bootstrap/_progress-progress-bars.scss */
   from {
     background-position: 40px 0;
   }
 
-  /* line 36, ../../app/styles/compass_twitter_bootstrap/_progress-bars.scss */
+  /* line 36, ../../app/styles/compass_twitter_bootstrap/_progress-progress-bars.scss */
   to {
     background-position: 0 0;
   }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\0000345}}
 .progress {
   overflow: hidden;
   height: 20px;
@@ -6213,8 +6213,8 @@ a.label:hover, a.badge:hover {
   border-radius: 4px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\0000355}}
-.progress .bar {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\0000355}}
+.progress .progress-bar {
   width: 0%;
   height: 100%;
   color: white;
@@ -6242,15 +6242,15 @@ a.label:hover, a.badge:hover {
   transition: width 0.6s ease;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\0000368}}
-.progress .bar + .bar {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\0000368}}
+.progress .progress-bar + .progress-bar {
   -webkit-box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   -moz-box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\0000373}}
-.progress-striped .bar {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\0000373}}
+.progress-striped .progress-bar {
   background-color: #149bdf;
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -6263,17 +6263,17 @@ a.label:hover, a.badge:hover {
   background-size: 40px 40px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\0000379}}
-.progress.active .bar {
-  -webkit-animation: progress-bar-stripes 2s linear infinite;
-  -moz-animation: progress-bar-stripes 2s linear infinite;
-  -ms-animation: progress-bar-stripes 2s linear infinite;
-  -o-animation: progress-bar-stripes 2s linear infinite;
-  animation: progress-bar-stripes 2s linear infinite;
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\0000379}}
+.progress.active .progress-bar {
+  -webkit-animation: progress-progress-bar-stripes 2s linear infinite;
+  -moz-animation: progress-progress-bar-stripes 2s linear infinite;
+  -ms-animation: progress-progress-bar-stripes 2s linear infinite;
+  -o-animation: progress-progress-bar-stripes 2s linear infinite;
+  animation: progress-progress-bar-stripes 2s linear infinite;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\0000393}}
-.progress-danger .bar, .progress .bar-danger {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\0000393}}
+.progress-danger .progress-bar, .progress .progress-bar-danger {
   background-color: #de514c;
   background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#c43c35));
@@ -6284,8 +6284,8 @@ a.label:hover, a.badge:hover {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5a56', endColorstr='#c03b34', GradientType=0);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\0000396}}
-.progress-danger.progress-striped .bar, .progress-striped .bar-danger {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\0000396}}
+.progress-danger.progress-striped .progress-bar, .progress-striped .progress-bar-danger {
   background-color: #ee5f5b;
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -6294,8 +6294,8 @@ a.label:hover, a.badge:hover {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\00003101}}
-.progress-success .bar, .progress .bar-success {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\00003101}}
+.progress-success .progress-bar, .progress .progress-bar-success {
   background-color: #5db95d;
   background-image: -moz-linear-gradient(top, #62c462, #57a957);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#57a957));
@@ -6306,8 +6306,8 @@ a.label:hover, a.badge:hover {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5ec35e', endColorstr='#55a655', GradientType=0);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\00003104}}
-.progress-success.progress-striped .bar, .progress-striped .bar-success {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\00003104}}
+.progress-success.progress-striped .progress-bar, .progress-striped .progress-bar-success {
   background-color: #62c462;
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -6316,8 +6316,8 @@ a.label:hover, a.badge:hover {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\00003109}}
-.progress-info .bar, .progress .bar-info {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\00003109}}
+.progress-info .progress-bar, .progress .progress-bar-info {
   background-color: #4cb2d0;
   background-image: -moz-linear-gradient(top, #5bc0de, #339bb9);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#339bb9));
@@ -6328,8 +6328,8 @@ a.label:hover, a.badge:hover {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#57bedd', endColorstr='#3298b5', GradientType=0);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\00003112}}
-.progress-info.progress-striped .bar, .progress-striped .bar-info {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\00003112}}
+.progress-info.progress-striped .progress-bar, .progress-striped .progress-bar-info {
   background-color: #5bc0de;
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -6338,8 +6338,8 @@ a.label:hover, a.badge:hover {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\00003117}}
-.progress-warning .bar, .progress .bar-warning {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\00003117}}
+.progress-warning .progress-bar, .progress .progress-bar-warning {
   background-color: #f9a834;
   background-image: -moz-linear-gradient(top, #fbb450, #f89406);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fbb450), to(#f89406));
@@ -6350,8 +6350,8 @@ a.label:hover, a.badge:hover {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbb24b', endColorstr='#f39106', GradientType=0);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-bars\.scss}line{font-family:\00003120}}
-.progress-warning.progress-striped .bar, .progress-striped .bar-warning {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_progress-progress-bars\.scss}line{font-family:\00003120}}
+.progress-warning.progress-striped .progress-bar, .progress-striped .progress-bar-warning {
   background-color: #fbb450;
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -6525,8 +6525,8 @@ a.label:hover, a.badge:hover {
   margin-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_hero-unit\.scss}line{font-family:\000036}}
-.hero-unit {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_jumbotron\.scss}line{font-family:\000036}}
+.jumbotron {
   padding: 60px;
   margin-bottom: 30px;
   font-size: 18px;
@@ -6538,16 +6538,16 @@ a.label:hover, a.badge:hover {
   -moz-border-radius: 6px;
   border-radius: 6px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_hero-unit\.scss}line{font-family:\0000315}}
-.hero-unit h1 {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_jumbotron\.scss}line{font-family:\0000315}}
+.jumbotron h1 {
   margin-bottom: 0;
   font-size: 60px;
   line-height: 1;
   color: inherit;
   letter-spacing: -1px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_hero-unit\.scss}line{font-family:\0000322}}
-.hero-unit li {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_jumbotron\.scss}line{font-family:\0000322}}
+.jumbotron li {
   line-height: 30px;
 }
 
@@ -6612,64 +6612,64 @@ a.label:hover, a.badge:hover {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000316}}
-.visible-phone {
+.visible-xs {
   display: none !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000317}}
-.visible-tablet {
+.visible-sm {
   display: none !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000320}}
-.hidden-desktop {
+.hidden-md {
   display: none !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000321}}
-.visible-desktop {
+.visible-md {
   display: inherit !important;
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000326}}
-  .hidden-desktop {
+  .hidden-md {
     display: inherit !important;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000327}}
-  .visible-desktop {
+  .visible-md {
     display: none !important;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000329}}
-  .visible-tablet {
+  .visible-sm {
     display: inherit !important;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000331}}
-  .hidden-tablet {
+  .hidden-sm {
     display: none !important;
   }
 }
 @media (max-width: 767px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000337}}
-  .hidden-desktop {
+  .hidden-md {
     display: inherit !important;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000338}}
-  .visible-desktop {
+  .visible-md {
     display: none !important;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000340}}
-  .visible-phone {
+  .visible-xs {
     display: inherit !important;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-utilities\.scss}line{font-family:\0000342}}
-  .hidden-phone {
+  .hidden-xs {
     display: none !important;
   }
 }
@@ -6681,15 +6681,15 @@ a.label:hover, a.badge:hover {
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-767px-max\.scss}line{font-family:\0000316}}
-  .navbar-fixed-top,
-  .navbar-fixed-bottom,
-  .navbar-static-top {
+  .navprogress-bar-fixed-top,
+  .navprogress-bar-fixed-bottom,
+  .navprogress-bar-static-top {
     margin-left: -20px;
     margin-right: -20px;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-767px-max\.scss}line{font-family:\0000321}}
-  .container-fluid {
+  .container {
     padding: 0;
   }
 
@@ -6711,18 +6711,18 @@ a.label:hover, a.badge:hover {
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-767px-max\.scss}line{font-family:\0000347}}
-  .row-fluid {
+  .row {
     width: 100%;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-767px-max\.scss}line{font-family:\0000352}}
   .row,
-  .thumbnails {
+  .img-thumbnails {
     margin-left: 0;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-767px-max\.scss}line{font-family:\0000355}}
-  .thumbnails > li {
+  .img-thumbnails > li {
     float: none;
     margin-left: 0;
   }
@@ -6730,7 +6730,7 @@ a.label:hover, a.badge:hover {
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-767px-max\.scss}line{font-family:\0000362}}
   [class*="span"],
   .uneditable-input[class*="span"],
-  .row-fluid [class*="span"] {
+  .row [class*="span"] {
     float: none;
     display: block;
     width: 100%;
@@ -6742,7 +6742,7 @@ a.label:hover, a.badge:hover {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-767px-max\.scss}line{font-family:\0000370}}
   .span12,
-  .row-fluid .span12 {
+  .row .span12 {
     width: 100%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -6750,12 +6750,12 @@ a.label:hover, a.badge:hover {
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-767px-max\.scss}line{font-family:\0000374}}
-  .row-fluid [class*="offset"]:first-child {
+  .row [class*="offset"]:first-child {
     margin-left: 0;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-767px-max\.scss}line{font-family:\0000387}}
-  .input-large,
+  .input-lg,
   .input-xlarge,
   .input-xxlarge,
   input[class*="span"],
@@ -6804,7 +6804,7 @@ a.label:hover, a.badge:hover {
 }
 @media (max-width: 480px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-767px-max\.scss}line{font-family:\00003124}}
-  .nav-collapse {
+  .navprogress-bar-collapse {
     -webkit-transform: translate3d(0, 0, 0);
   }
 
@@ -6898,9 +6898,9 @@ a.label:hover, a.badge:hover {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003566}}
   .container,
-  .navbar-static-top .container,
-  .navbar-fixed-top .container,
-  .navbar-fixed-bottom .container {
+  .navprogress-bar-static-top .container,
+  .navprogress-bar-fixed-top .container,
+  .navprogress-bar-fixed-bottom .container {
     width: 724px;
   }
 
@@ -7025,22 +7025,22 @@ a.label:hover, a.badge:hover {
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003600}}
-  .row-fluid {
+  .row {
     width: 100%;
     *zoom: 1;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000315}}
-  .row-fluid:before, .row-fluid:after {
+  .row:before, .row:after {
     display: table;
     content: "";
     line-height: 0;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000322}}
-  .row-fluid:after {
+  .row:after {
     clear: both;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003603}}
-  .row-fluid [class*="span"] {
+  .row [class*="span"] {
     display: block;
     width: 100%;
     min-height: 30px;
@@ -7052,186 +7052,186 @@ a.label:hover, a.badge:hover {
     *margin-left: 2.70924%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003609}}
-  .row-fluid [class*="span"]:first-child {
+  .row [class*="span"]:first-child {
     margin-left: 0;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span12 {
+  .row .span12 {
     width: 100%;
     *width: 99.94681%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset12 {
+  .row .offset12 {
     margin-left: 105.52486%;
     *margin-left: 105.41848%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset12:first-child {
+  .row .offset12:first-child {
     margin-left: 102.76243%;
     *margin-left: 102.65605%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span11 {
+  .row .span11 {
     width: 91.43646%;
     *width: 91.38327%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset11 {
+  .row .offset11 {
     margin-left: 96.96133%;
     *margin-left: 96.85494%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset11:first-child {
+  .row .offset11:first-child {
     margin-left: 94.1989%;
     *margin-left: 94.09251%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span10 {
+  .row .span10 {
     width: 82.87293%;
     *width: 82.81974%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset10 {
+  .row .offset10 {
     margin-left: 88.39779%;
     *margin-left: 88.29141%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset10:first-child {
+  .row .offset10:first-child {
     margin-left: 85.63536%;
     *margin-left: 85.52898%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span9 {
+  .row .span9 {
     width: 74.30939%;
     *width: 74.2562%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset9 {
+  .row .offset9 {
     margin-left: 79.83425%;
     *margin-left: 79.72787%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset9:first-child {
+  .row .offset9:first-child {
     margin-left: 77.07182%;
     *margin-left: 76.96544%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span8 {
+  .row .span8 {
     width: 65.74586%;
     *width: 65.69266%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset8 {
+  .row .offset8 {
     margin-left: 71.27072%;
     *margin-left: 71.16434%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset8:first-child {
+  .row .offset8:first-child {
     margin-left: 68.50829%;
     *margin-left: 68.4019%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span7 {
+  .row .span7 {
     width: 57.18232%;
     *width: 57.12913%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset7 {
+  .row .offset7 {
     margin-left: 62.70718%;
     *margin-left: 62.6008%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset7:first-child {
+  .row .offset7:first-child {
     margin-left: 59.94475%;
     *margin-left: 59.83837%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span6 {
+  .row .span6 {
     width: 48.61878%;
     *width: 48.56559%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset6 {
+  .row .offset6 {
     margin-left: 54.14365%;
     *margin-left: 54.03726%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset6:first-child {
+  .row .offset6:first-child {
     margin-left: 51.38122%;
     *margin-left: 51.27483%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span5 {
+  .row .span5 {
     width: 40.05525%;
     *width: 40.00206%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset5 {
+  .row .offset5 {
     margin-left: 45.58011%;
     *margin-left: 45.47373%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset5:first-child {
+  .row .offset5:first-child {
     margin-left: 42.81768%;
     *margin-left: 42.7113%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span4 {
+  .row .span4 {
     width: 31.49171%;
     *width: 31.43852%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset4 {
+  .row .offset4 {
     margin-left: 37.01657%;
     *margin-left: 36.91019%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset4:first-child {
+  .row .offset4:first-child {
     margin-left: 34.25414%;
     *margin-left: 34.14776%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span3 {
+  .row .span3 {
     width: 22.92818%;
     *width: 22.87499%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset3 {
+  .row .offset3 {
     margin-left: 28.45304%;
     *margin-left: 28.34666%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset3:first-child {
+  .row .offset3:first-child {
     margin-left: 25.69061%;
     *margin-left: 25.58422%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span2 {
+  .row .span2 {
     width: 14.36464%;
     *width: 14.31145%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset2 {
+  .row .offset2 {
     margin-left: 19.8895%;
     *margin-left: 19.78312%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset2:first-child {
+  .row .offset2:first-child {
     margin-left: 17.12707%;
     *margin-left: 17.02069%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span1 {
+  .row .span1 {
     width: 5.8011%;
     *width: 5.74791%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset1 {
+  .row .offset1 {
     margin-left: 11.32597%;
     *margin-left: 11.21958%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset1:first-child {
+  .row .offset1:first-child {
     margin-left: 8.56354%;
     *margin-left: 8.45715%;
   }
@@ -7357,9 +7357,9 @@ a.label:hover, a.badge:hover {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003566}}
   .container,
-  .navbar-static-top .container,
-  .navbar-fixed-top .container,
-  .navbar-fixed-bottom .container {
+  .navprogress-bar-static-top .container,
+  .navprogress-bar-fixed-top .container,
+  .navprogress-bar-fixed-bottom .container {
     width: 1170px;
   }
 
@@ -7484,22 +7484,22 @@ a.label:hover, a.badge:hover {
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003600}}
-  .row-fluid {
+  .row {
     width: 100%;
     *zoom: 1;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000315}}
-  .row-fluid:before, .row-fluid:after {
+  .row:before, .row:after {
     display: table;
     content: "";
     line-height: 0;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\0000322}}
-  .row-fluid:after {
+  .row:after {
     clear: both;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003603}}
-  .row-fluid [class*="span"] {
+  .row [class*="span"] {
     display: block;
     width: 100%;
     min-height: 30px;
@@ -7511,186 +7511,186 @@ a.label:hover, a.badge:hover {
     *margin-left: 2.51091%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003609}}
-  .row-fluid [class*="span"]:first-child {
+  .row [class*="span"]:first-child {
     margin-left: 0;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span12 {
+  .row .span12 {
     width: 100%;
     *width: 99.94681%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset12 {
+  .row .offset12 {
     margin-left: 105.12821%;
     *margin-left: 105.02182%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset12:first-child {
+  .row .offset12:first-child {
     margin-left: 102.5641%;
     *margin-left: 102.45772%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span11 {
+  .row .span11 {
     width: 91.45299%;
     *width: 91.3998%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset11 {
+  .row .offset11 {
     margin-left: 96.5812%;
     *margin-left: 96.47481%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset11:first-child {
+  .row .offset11:first-child {
     margin-left: 94.01709%;
     *margin-left: 93.91071%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span10 {
+  .row .span10 {
     width: 82.90598%;
     *width: 82.85279%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset10 {
+  .row .offset10 {
     margin-left: 88.03419%;
     *margin-left: 87.92781%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset10:first-child {
+  .row .offset10:first-child {
     margin-left: 85.47009%;
     *margin-left: 85.3637%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span9 {
+  .row .span9 {
     width: 74.35897%;
     *width: 74.30578%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset9 {
+  .row .offset9 {
     margin-left: 79.48718%;
     *margin-left: 79.3808%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset9:first-child {
+  .row .offset9:first-child {
     margin-left: 76.92308%;
     *margin-left: 76.81669%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span8 {
+  .row .span8 {
     width: 65.81197%;
     *width: 65.75877%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset8 {
+  .row .offset8 {
     margin-left: 70.94017%;
     *margin-left: 70.83379%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset8:first-child {
+  .row .offset8:first-child {
     margin-left: 68.37607%;
     *margin-left: 68.26969%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span7 {
+  .row .span7 {
     width: 57.26496%;
     *width: 57.21177%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset7 {
+  .row .offset7 {
     margin-left: 62.39316%;
     *margin-left: 62.28678%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset7:first-child {
+  .row .offset7:first-child {
     margin-left: 59.82906%;
     *margin-left: 59.72268%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span6 {
+  .row .span6 {
     width: 48.71795%;
     *width: 48.66476%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset6 {
+  .row .offset6 {
     margin-left: 53.84615%;
     *margin-left: 53.73977%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset6:first-child {
+  .row .offset6:first-child {
     margin-left: 51.28205%;
     *margin-left: 51.17567%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span5 {
+  .row .span5 {
     width: 40.17094%;
     *width: 40.11775%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset5 {
+  .row .offset5 {
     margin-left: 45.29915%;
     *margin-left: 45.19276%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset5:first-child {
+  .row .offset5:first-child {
     margin-left: 42.73504%;
     *margin-left: 42.62866%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span4 {
+  .row .span4 {
     width: 31.62393%;
     *width: 31.57074%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset4 {
+  .row .offset4 {
     margin-left: 36.75214%;
     *margin-left: 36.64575%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset4:first-child {
+  .row .offset4:first-child {
     margin-left: 34.18803%;
     *margin-left: 34.08165%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span3 {
+  .row .span3 {
     width: 23.07692%;
     *width: 23.02373%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset3 {
+  .row .offset3 {
     margin-left: 28.20513%;
     *margin-left: 28.09875%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset3:first-child {
+  .row .offset3:first-child {
     margin-left: 25.64103%;
     *margin-left: 25.53464%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span2 {
+  .row .span2 {
     width: 14.52991%;
     *width: 14.47672%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset2 {
+  .row .offset2 {
     margin-left: 19.65812%;
     *margin-left: 19.55174%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset2:first-child {
+  .row .offset2:first-child {
     margin-left: 17.09402%;
     *margin-left: 16.98763%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003616}}
-  .row-fluid .span1 {
+  .row .span1 {
     width: 5.98291%;
     *width: 5.92971%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003619}}
-  .row-fluid .offset1 {
+  .row .offset1 {
     margin-left: 11.11111%;
     *margin-left: 11.00473%;
   }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_mixins\.scss}line{font-family:\00003622}}
-  .row-fluid .offset1:first-child {
+  .row .offset1:first-child {
     margin-left: 8.54701%;
     *margin-left: 8.44063%;
   }
@@ -7792,96 +7792,96 @@ a.label:hover, a.badge:hover {
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-1200px-min\.scss}line{font-family:\0000318}}
-  .thumbnails {
+  .img-thumbnails {
     margin-left: -30px;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-1200px-min\.scss}line{font-family:\0000321}}
-  .thumbnails > li {
+  .img-thumbnails > li {
     margin-left: 30px;
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-1200px-min\.scss}line{font-family:\0000324}}
-  .row-fluid .thumbnails {
+  .row .img-thumbnails {
     margin-left: 0;
   }
 }
 @media (max-width: 979px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000313}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000313}}
   body {
     padding-top: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000318}}
-  .navbar-fixed-top,
-  .navbar-fixed-bottom {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000318}}
+  .navprogress-bar-fixed-top,
+  .navprogress-bar-fixed-bottom {
     position: static;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000321}}
-  .navbar-fixed-top {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000321}}
+  .navprogress-bar-fixed-top {
     margin-bottom: 20px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000324}}
-  .navbar-fixed-bottom {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000324}}
+  .navprogress-bar-fixed-bottom {
     margin-top: 20px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000328}}
-  .navbar-fixed-top .navbar-inner,
-  .navbar-fixed-bottom .navbar-inner {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000328}}
+  .navprogress-bar-fixed-top .navprogress-bar-inner,
+  .navprogress-bar-fixed-bottom .navprogress-bar-inner {
     padding: 5px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000331}}
-  .navbar .container {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000331}}
+  .navprogress-bar .container {
     width: auto;
     padding: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000336}}
-  .navbar .brand {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000336}}
+  .navprogress-bar .navprogress-bar-brand {
     padding-left: 10px;
     padding-right: 10px;
     margin: 0 0 0 -5px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000345}}
-  .nav-collapse {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000345}}
+  .navprogress-bar-collapse {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000349}}
-  .nav-collapse .nav {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000349}}
+  .navprogress-bar-collapse .nav {
     float: none;
     margin: 0 0 10px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000353}}
-  .nav-collapse .nav > li {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000353}}
+  .navprogress-bar-collapse .nav > li {
     float: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000356}}
-  .nav-collapse .nav > li > a {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000356}}
+  .navprogress-bar-collapse .nav > li > a {
     margin-bottom: 2px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000359}}
-  .nav-collapse .nav > .divider-vertical {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000359}}
+  .navprogress-bar-collapse .nav > .divider-vertical {
     display: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000362}}
-  .nav-collapse .nav .nav-header {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000362}}
+  .navprogress-bar-collapse .nav .nav-header {
     color: #777777;
     text-shadow: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000368}}
-  .nav-collapse .nav > li > a,
-  .nav-collapse .dropdown-menu a {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000368}}
+  .navprogress-bar-collapse .nav > li > a,
+  .navprogress-bar-collapse .dropdown-menu a {
     padding: 9px 15px;
     font-weight: bold;
     color: #777777;
@@ -7890,8 +7890,8 @@ a.label:hover, a.badge:hover {
     border-radius: 3px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000375}}
-  .nav-collapse .btn {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000375}}
+  .navprogress-bar-collapse .btn {
     padding: 4px 10px 4px;
     font-weight: normal;
     -webkit-border-radius: 4px;
@@ -7899,37 +7899,37 @@ a.label:hover, a.badge:hover {
     border-radius: 4px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000380}}
-  .nav-collapse .dropdown-menu li + li a {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000380}}
+  .navprogress-bar-collapse .dropdown-menu li + li a {
     margin-bottom: 2px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000384}}
-  .nav-collapse .nav > li > a:hover,
-  .nav-collapse .dropdown-menu a:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000384}}
+  .navprogress-bar-collapse .nav > li > a:hover,
+  .navprogress-bar-collapse .dropdown-menu a:hover {
     background-color: #f2f2f2;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000388}}
-  .navbar-inverse .nav-collapse .nav > li > a,
-  .navbar-inverse .nav-collapse .dropdown-menu a {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000388}}
+  .navprogress-bar-inverse .navprogress-bar-collapse .nav > li > a,
+  .navprogress-bar-inverse .navprogress-bar-collapse .dropdown-menu a {
     color: #999999;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000392}}
-  .navbar-inverse .nav-collapse .nav > li > a:hover,
-  .navbar-inverse .nav-collapse .dropdown-menu a:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000392}}
+  .navprogress-bar-inverse .navprogress-bar-collapse .nav > li > a:hover,
+  .navprogress-bar-inverse .navprogress-bar-collapse .dropdown-menu a:hover {
     background-color: #111111;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\0000396}}
-  .nav-collapse.in .btn-group {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\0000396}}
+  .navprogress-bar-collapse.in .btn-group {
     margin-top: 5px;
     padding: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003101}}
-  .nav-collapse .dropdown-menu {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003101}}
+  .navprogress-bar-collapse .dropdown-menu {
     position: static;
     top: auto;
     left: auto;
@@ -7948,30 +7948,30 @@ a.label:hover, a.badge:hover {
     box-shadow: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003115}}
-  .nav-collapse .open > .dropdown-menu {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003115}}
+  .navprogress-bar-collapse .open > .dropdown-menu {
     display: block;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003120}}
-  .nav-collapse .dropdown-menu:before,
-  .nav-collapse .dropdown-menu:after {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003120}}
+  .navprogress-bar-collapse .dropdown-menu:before,
+  .navprogress-bar-collapse .dropdown-menu:after {
     display: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003123}}
-  .nav-collapse .dropdown-menu .divider {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003123}}
+  .navprogress-bar-collapse .dropdown-menu .divider {
     display: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003128}}
-  .nav-collapse .nav > li > .dropdown-menu:before, .nav-collapse .nav > li > .dropdown-menu:after {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003128}}
+  .navprogress-bar-collapse .nav > li > .dropdown-menu:before, .navprogress-bar-collapse .nav > li > .dropdown-menu:after {
     display: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003134}}
-  .nav-collapse .navbar-form,
-  .nav-collapse .navbar-search {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003134}}
+  .navprogress-bar-collapse .navprogress-bar-form,
+  .navprogress-bar-collapse .navprogress-bar-search {
     float: none;
     padding: 10px 15px;
     margin: 10px 0;
@@ -7982,40 +7982,40 @@ a.label:hover, a.badge:hover {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003143}}
-  .navbar-inverse .nav-collapse .navbar-form,
-  .navbar-inverse .nav-collapse .navbar-search {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003143}}
+  .navprogress-bar-inverse .navprogress-bar-collapse .navprogress-bar-form,
+  .navprogress-bar-inverse .navprogress-bar-collapse .navprogress-bar-search {
     border-top-color: #111111;
     border-bottom-color: #111111;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003148}}
-  .navbar .nav-collapse .nav.pull-right {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003148}}
+  .navprogress-bar .navprogress-bar-collapse .nav.pull-right {
     float: none;
     margin-left: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003154}}
-  .nav-collapse,
-  .nav-collapse.collapse {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003154}}
+  .navprogress-bar-collapse,
+  .navprogress-bar-collapse.collapse {
     overflow: hidden;
     height: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003159}}
-  .navbar .btn-navbar {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003159}}
+  .navprogress-bar .navprogress-bar-btn {
     display: block;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003165}}
-  .navbar-static .navbar-inner {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003165}}
+  .navprogress-bar-static .navprogress-bar-inner {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 @media (min-width: 980px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navbar\.scss}line{font-family:\00003180}}
-  .nav-collapse.collapse {
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/compass_twitter_bootstrap\/_responsive-navprogress-bar\.scss}line{font-family:\00003180}}
+  .navprogress-bar-collapse.collapse {
     height: auto !important;
     overflow: visible !important;
   }
@@ -8120,7 +8120,7 @@ select {
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/ntd-main\.scss}line{font-family:\0000329}}
 .label,
 .badge,
-.btn-small {
+.btn-sm {
   font-size: 12px;
 }
 
@@ -8139,7 +8139,7 @@ form.form-horizontal .help-block {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/ntd-main\.scss}line{font-family:\0000350}}
-.navbar .brand {
+.navprogress-bar .navprogress-bar-brand {
   margin-right: 20px;
   padding-left: 50px;
   font-weight: bold;
@@ -8160,7 +8160,7 @@ form.form-horizontal .help-block {
   background: url(../images/logo.png) 20px 6px no-repeat;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/ntd-main\.scss}line{font-family:\0000361}}
-.navbar .brand:hover {
+.navprogress-bar .navprogress-bar-brand:hover {
   text-decoration: none;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.4);
   background-position: 20px -46px;
@@ -8345,12 +8345,12 @@ form.form-horizontal .help-block {
   display: none;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/ntd-main\.scss}line{font-family:\00003217}}
-.advance-search-filter .skeleton .control-group {
+.advance-search-filter .skeleton .form-group {
   display: inline-block;
   margin: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/ntd-main\.scss}line{font-family:\00003220}}
-.advance-search-filter .skeleton .control-group .controls {
+.advance-search-filter .skeleton .form-group .controls {
   margin: 0;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/ntd-main\.scss}line{font-family:\00003225}}
@@ -8868,7 +8868,7 @@ table .sort-desc .sort-icon {
   }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/ntd-responsive\.scss}line{font-family:\0000318}}
-  .advance-search-filter .skeleton .control-group {
+  .advance-search-filter .skeleton .form-group {
     display: block;
     margin-bottom: 10px;
   }
@@ -8960,8 +8960,8 @@ table .sort-desc .sort-icon {
 }
 @media (max-width: 979px) and (min-width: 768px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/gitHub\/angular-adminui\/app\/styles\/ntd-responsive\.scss}line{font-family:\0000395}}
-  .navbar-fixed-top,
-  .navbar-fixed-bottom {
+  .navprogress-bar-fixed-top,
+  .navprogress-bar-fixed-bottom {
     position: fixed;
   }
 

@@ -12,7 +12,7 @@
     <li>返回按钮，不许更改文字及位置， 要跳转到哪个页面通过 <code>tooltip</code>， 并延迟 500毫秒 来提示</li>
 </ul>
 <p class="page-action">
-    <button class="btn" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay="500"><i class="icon-arrow-left"></i></button>
+    <button class="btn" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay="500"><i class="glyphicon-arrow-left"></i></button>
     <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
     <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
     <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
@@ -50,7 +50,7 @@
 <h3>page header 和 page action 组合应用</h3>
 <div class="page-header">
     <div class="page-action">
-        <button class="btn" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay="500"><i class="icon-arrow-left"></i></button>
+        <button class="btn" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay="500"><i class="glyphicon-arrow-left"></i></button>
         <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
         <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
         <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
@@ -69,9 +69,9 @@
         ... ...
     &lt;/div&gt;
 </pre>
-<div class="alert alert-error">失败，错误, 危险</div>
+<div class="alert alert-danger">失败，错误, 危险</div>
 <pre class="prettyprint linenums">
-    &lt;div class=&quot;alert alert-error&quot;&gt;
+    &lt;div class=&quot;alert alert-danger&quot;&gt;
         ... ...
     &lt;/div&gt;
 </pre>
@@ -153,15 +153,15 @@
 &lt;/p&gt;
 </pre>
 <h3>强调类</h3>
-<p class="muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+<p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
 <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
-<p class="text-error">Donec ullamcorper nulla non metus auctor fringilla.</p>
+<p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
 <p class="text-info">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</p>
 <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
 <pre class="prettyprint linenums">
-    &lt;p class=&quot;muted&quot;&gt;Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.&lt;/p&gt;
+    &lt;p class=&quot;text-muted&quot;&gt;Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.&lt;/p&gt;
     &lt;p class=&quot;text-warning&quot;&gt;Etiam porta sem malesuada magna mollis euismod.&lt;/p&gt;
-    &lt;p class=&quot;text-error&quot;&gt;Donec ullamcorper nulla non metus auctor fringilla.&lt;/p&gt;
+    &lt;p class=&quot;text-danger&quot;&gt;Donec ullamcorper nulla non metus auctor fringilla.&lt;/p&gt;
     &lt;p class=&quot;text-info&quot;&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.&lt;/p&gt;
     &lt;p class=&quot;text-success&quot;&gt;Duis mollis, est non commodo luctus, nisi erat porttitor ligula.&lt;/p&gt;
 </pre>
@@ -183,7 +183,7 @@
     <div class="stacked-item" ng-controller="CollapseDemoCtrl">
         <div class="stacked-item-hd">
             <strong>test one</strong>
-            <button class="btn btn-mini pull-right" ng-click="isCollapsed = !isCollapsed">编辑</button>
+            <button class="btn btn-xs pull-right" ng-click="isCollapsed = !isCollapsed">编辑</button>
         </div>      
         <div class="stacked-item-bd" ng-show="isCollapsed">
             <table class="table-normal">
@@ -211,7 +211,7 @@
     <div class="stacked-item">
         <div class="stacked-item-hd">
             <strong>test one</strong>
-            <button class="btn btn-mini pull-right">编辑</button>
+            <button class="btn btn-xs pull-right">编辑</button>
         </div>      
     </div>
 </div>
@@ -221,8 +221,8 @@
     <div class="box-hd">
         <div class="opts">
             <div class="btn-group">
-                <input type="button" class="btn btn-mini" value="添加">
-                <input type="button" class="btn btn-danger btn-mini" value="删除">
+                <input type="button" class="btn btn-xs" value="添加">
+                <input type="button" class="btn btn-danger btn-xs" value="删除">
             </div>
         </div>
         <h3>组件标题</h3>
