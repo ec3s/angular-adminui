@@ -67,7 +67,8 @@ var chosenCtrl = function ($scope, $http, $q) {
 };
 chosenCtrl.prototype.getOptionPromise = function ($http, $q, search) {
   var deferred = $q.defer();
-  $http.jsonp('http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=' + search + '&apikey=ju6z9mjyajq2djue3gbvv26t&page_limit=10&page=1' + '&callback=JSON_CALLBACK').success(function (data) {
+  var url = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=' + search + '&apikey=ju6z9mjyajq2djue3gbvv26t&page_limit=10&page=1' + '&callback=JSON_CALLBACK';
+  $http.jsonp(url).success(function (data) {
     deferred.resolve(data.movies);
   }).error(function (error) {
     deferred.reject(error);
