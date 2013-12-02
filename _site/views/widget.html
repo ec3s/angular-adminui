@@ -42,8 +42,8 @@
 <p ng-controller="switcherCtrl">
     <span toggle-switcher="" id="checkboxid" name="checkboxname" ng-true-title="On" ng-false-title="Off" ng-model="selected" ng-disabled="switchDisabled" class="small">
     </span>
-    <button class="btn btn-sm" ng-click="switchDisabled = true" type="button">禁用</button>
-    <button class="btn btn-sm" ng-click="switchDisabled = false" type="button">启用</button>
+    <button class="btn btn-small" ng-click="switchDisabled = true" type="button">禁用</button>
+    <button class="btn btn-small" ng-click="switchDisabled = false" type="button">启用</button>
     <span>{{selected}}</span>
 </p>
 <pre class="prettyprint linenums">
@@ -81,7 +81,7 @@
 <h3>Field error</h3>
 <form name="myForm" ng-submit="save()">
     <label for="personName">Example for fied error</label>
-    <input type="text" id="personName" class="col-md-3" name="personName" ng-model="person.name" required="">
+    <input type="text" id="personName" class="span3" name="personName" ng-model="person.name" required="">
     <span class="help-inline" field-error="" for="myForm.personName">显示错误信息</span>
     <!-- <span ng-show="myForm.personName.$error.required">Required!</span>
     <span ng-show="myForm.personName.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span> -->
@@ -190,9 +190,9 @@
     </div>
 </div>
 
-<h3>Nav progress-bar</h3>
-<p>通过<code>nav-progress-bar</code>属性来调用， 通过<code>data-match-route="正则表达式"</code>来匹配路径</p>
-<div nav-progress-bar="">
+<h3>Nav bar</h3>
+<p>通过<code>nav-bar</code>属性来调用， 通过<code>data-match-route="正则表达式"</code>来匹配路径</p>
+<div nav-bar="">
     <ul class="nav nav-tabs nav-stacked">
         <li data-match-route="/"><a href="#/">用户面板</a></li>
         <li data-match-route="/table"><a href="#/table">表格</a></li>
@@ -201,7 +201,7 @@
     </li></ul>
 </div>
 <pre class="prettyprint linenums">
-&lt;div nav-progress-bar&gt;
+&lt;div nav-bar&gt;
     &lt;ul class=&quot;nav nav-tabs nav-stacked&quot;&gt;
         &lt;li data-match-route=&quot;/&quot;&gt;&lt;a href=&quot;#/&quot;&gt;&#29992;&#25143;&#38754;&#26495;&lt;/a&gt;&lt;/li&gt;
         &lt;li data-match-route=&quot;/table&quot;&gt;&lt;a href=&quot;#/table&quot;&gt;&#34920;&#26684;&lt;/a&gt;&lt;/li&gt;
@@ -330,10 +330,10 @@
 <p>为<code>label</code>添加<code>label-state="这里文字为解释说明label的"</code></p>
 <form class="form-horizontal">
     <fieldset>
-        <div class="form-group">
+        <div class="control-group">
             <label class="control-label" label-state="这里输入提示信息">文字区域</label>
             <div class="controls">
-                <input type="text" class="col-md-3" placeholder="文字">
+                <input type="text" class="span3" placeholder="文字">
             </div>
         </div>
     </fieldset>
@@ -343,52 +343,52 @@
 <p>为表单加上 <code>advance-filter</code> 属性， 当属性为<code>advance-filter="opened"</code>时表单默认展开</p>
 <form class="form-horizontal" advance-filter="">
     <fieldset>
-        <div class="form-group">
+        <div class="control-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-lg" placeholder="文字区域">
+                <input type="text" class="input-large" placeholder="文字区域">
             </div>
         </div>
-        <div class="form-group">
+        <div class="control-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-lg" placeholder="文字区域">
+                <input type="text" class="input-large" placeholder="文字区域">
             </div>
         </div>
     </fieldset>
 
      <fieldset>
-        <div class="form-group">
+        <div class="control-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-lg" placeholder="文字区域">
+                <input type="text" class="input-large" placeholder="文字区域">
             </div>
         </div>
-        <div class="form-group">
+        <div class="control-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-lg" placeholder="文字区域">
+                <input type="text" class="input-large" placeholder="文字区域">
             </div>
         </div>
     </fieldset>
 
     <fieldset>
-        <div class="form-group">
+        <div class="control-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-lg" placeholder="文字区域">
+                <input type="text" class="input-large" placeholder="文字区域">
             </div>
         </div>
-        <div class="form-group">
+        <div class="control-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-lg" placeholder="文字区域">
+                <input type="text" class="input-large" placeholder="文字区域">
             </div>
         </div>
-        <div class="form-group">
+        <div class="control-group">
             <label class="control-label" for="inputPassword">选项区域</label>
             <div class="controls">
-                <select class="input-lg">
+                <select class="input-large">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -484,14 +484,14 @@ $scope.dptList = {{dptList|json}}
     <input type="text" ng-model="easyPieChart[0].usage">
 </div>
 <p><code>easy-pie-chart="item"</code> 属性来调用easy pie chart</p>
-<div class="row clearfix">
-    <div class="col-md-2" ng-repeat="item in easyPieChart">
+<div class="row-fluid clearfix">
+    <div class="span2" ng-repeat="item in easyPieChart">
         <div easy-pie-chart="item"></div>
     </div>
 </div>
 <pre>$scope.easyPieChart = {{ easyPieChart | json }}</pre>
 <pre class="prettyprint linenums">
-&lt;div class=&quot;row clearfix&quot;&gt;
+&lt;div class=&quot;row-fluid clearfix&quot;&gt;
     &lt;div class=&quot;span2&quot; ng-repeat=&quot;item in easyPieChart&quot; &gt;
         &lt;div easy-pie-chart=&quot;item&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
@@ -500,8 +500,8 @@ $scope.dptList = {{dptList|json}}
 
 <h3>Pie chart</h3>
 <p>通过属性 <code>ntd-pie</code> 来调用, 注：必须指定 ID</p>
-<div class="row" ng-controller="PieCtrl">
-    <div class="col-md-12 clearfix">
+<div class="row-fluid" ng-controller="PieCtrl">
+    <div class="span12 clearfix">
         <div>
             <div id="sample-pie" ntd-pie="" data="ageData" pie-height="300" pie-width="800"></div>
         </div>
@@ -515,25 +515,25 @@ $scope.dptList = {{dptList|json}}
 </div>
 
 <h3>时间日期</h3>
-<div class="form-group input-append">
-    <input type="text" class="input-sm" ng-model="datepicker.date" placeholder="时间" data-date-format="yyyy/mm/dd" date-picker="">
-    <button type="button" class="btn" data-toggle="datepicker"><i class="glyphicon-calendar"></i></button>
+<div class="control-group input-append">
+    <input type="text" class="input-small" ng-model="datepicker.date" placeholder="时间" data-date-format="yyyy/mm/dd" date-picker="">
+    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
 </div>
 <p>日期选择器用 <code>date-picker</code> 属性绑定到 input 元素上.</p>
 <pre class="prettyprint linenums">
-    &lt;div class=&quot;form-group input-append&quot;&gt;
-        &lt;input type=&quot;text&quot; class=&quot;input-sm&quot; ng-model=&quot;datepicker.date&quot; placeholder=&quot;&#26102;&#38388;&quot; data-date-format=&quot;yyyy/mm/dd&quot; date-picker&gt;
+    &lt;div class=&quot;control-group input-append&quot;&gt;
+        &lt;input type=&quot;text&quot; class=&quot;input-small&quot; ng-model=&quot;datepicker.date&quot; placeholder=&quot;&#26102;&#38388;&quot; data-date-format=&quot;yyyy/mm/dd&quot; date-picker&gt;
         &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;datepicker&quot;&gt;&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt;&lt;/button&gt;
     &lt;/div&gt;
 </pre>
 <hr>
-<div class="form-group input-append">
-  <input type="text" class="input-sm" ng-model="timepicker.time" time-picker="">
-  <button type="button" class="btn" data-toggle="timepicker"><i class="glyphicon-time"></i>
+<div class="control-group input-append">
+  <input type="text" class="input-small" ng-model="timepicker.time" time-picker="">
+  <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i>
 </button></div>
 <p>选择器用 <code>time-picker</code> 属性绑定到 input 元素上.</p>
 <pre class="prettyprint linenums">
-    &lt;div class=&quot;form-group input-append&quot;&gt;
+    &lt;div class=&quot;control-group input-append&quot;&gt;
       &lt;input type=&quot;text&quot; ng-model=&quot;timepicker.time&quot; time-picker&gt;
       &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;timepicker&quot;&gt;&lt;i class=&quot;icon-time&quot;&gt;&lt;/i&gt;&lt;/buttoni&gt;
     &lt;/div&gt;

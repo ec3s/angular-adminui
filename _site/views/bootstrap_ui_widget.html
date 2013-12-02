@@ -54,7 +54,7 @@
         </accordion-group>
         <accordion-group heading="Dynamic Body Content">
             <p>The body of the accordion group grows to fit the contents</p>
-            <button class="btn btn-sm" ng-click="addItem()">Add Item</button>
+            <button class="btn btn-small" ng-click="addItem()">Add Item</button>
             <div ng-repeat="item in items">{{item}}</div>
         </accordion-group>
     </accordion>
@@ -75,7 +75,7 @@
             &lt;/accordion-group&gt;
             &lt;accordion-group heading=&quot;Dynamic Body Content&quot;&gt;
                 &lt;p&gt;The body of the accordion group grows to fit the contents&lt;/p&gt;
-                &lt;button class=&quot;btn btn-sm&quot; ng-click=&quot;addItem()&quot;&gt;Add Item&lt;/button&gt;
+                &lt;button class=&quot;btn btn-small&quot; ng-click=&quot;addItem()&quot;&gt;Add Item&lt;/button&gt;
                 &lt;div ng-repeat=&quot;item in items&quot;&gt;{{item}}&lt;/div&gt;
             &lt;/accordion-group&gt;
         &lt;/accordion&gt;
@@ -132,8 +132,8 @@
 
 <h3>对话框</h3>
 <div ng-controller="DialogDemoCtrl">
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row-fluid">
+        <div class="span6">
             <label class="checkbox"><input type="checkbox" ng-model="opts.backdrop">Show backdrop</label>
             <label class="checkbox"><input type="checkbox" ng-model="opts.dialogFade">Fade modal dialog </label>
             <label class="checkbox"><input type="checkbox" ng-disabled="!opts.backdrop" ng-model="opts.backdropFade">Fade Backdrop</label>
@@ -141,7 +141,7 @@
             <label class="checkbox"><input type="checkbox" ng-model="opts.keyboard">Close on Escape</label>
             <label class="checkbox"><input type="checkbox" ng-disabled="!opts.backdrop" ng-model="opts.backdropClick">Close on backdrop click</label>
         </div>
-        <div class="col-md-6">
+        <div class="span6">
             <p>Change options at will and press the open dialog button below!</p>
             <p><button class="btn btn-primary" ng-click="openDialog()">Open Dialog</button></p>
 
@@ -152,7 +152,7 @@
 </div>
 <pre class="prettyprint linenums">
     &lt;div ng-controller=&quot;DialogDemoCtrl&quot;&gt;
-        &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;row-fluid&quot;&gt;
             &lt;div class=&quot;span6&quot;&gt;
                 &lt;label class=&quot;checkbox&quot;&gt;&lt;input type=checkbox ng-model=&quot;opts.backdrop&quot;&gt;Show backdrop&lt;/label&gt;
                 &lt;label class=&quot;checkbox&quot;&gt;&lt;input type=checkbox ng-model=&quot;opts.dialogFade&quot;&gt;Fade modal dialog &lt;/label&gt;
@@ -377,7 +377,7 @@
             &lt;pane heading=&quot;Static title&quot;&gt;Static content&lt;/pane&gt;
             &lt;pane ng-repeat=&quot;pane in panes&quot; heading=&quot;{{pane.title}}&quot; active=&quot;pane.active&quot;&gt;{{pane.content}}&lt;/pane&gt;
         &lt;/tabs&gt;
-        &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;row-fluid&quot;&gt;
             &lt;button class=&quot;btn&quot; ng-click=&quot;panes[0].active = true&quot;&gt;Select second tab&lt;/button&gt;
             &lt;button class=&quot;btn&quot; ng-click=&quot;panes[1].active = true&quot;&gt;Select third tab&lt;/button&gt;
         &lt;/div&gt;
