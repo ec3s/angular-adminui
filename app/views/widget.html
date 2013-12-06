@@ -98,14 +98,20 @@
 </pre>
 <h3>Field error</h3>
 <form name="myForm" ng-submit="save()">
-    <label for="personName">Example for fied error</label>
-    <input type="text" id="personName" class= "form-control input-sm" name="personName" ng-model="person.name" required style="margin-bottom:10px;">
-    <span class="help-inline" field-error for="myForm.personName">显示错误信息</span>
-    <!-- <span ng-show="myForm.personName.$error.required">Required!</span>
-    <span ng-show="myForm.personName.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span> -->
-    <p>
-        <input type="submit" class="btn btn-default" ng-disabled="!myForm.$valid" value="保存"/>
-    </p>
+    <div class="form-group">
+        <label for="personName">Example for fied error</label>
+        <div class="col-md-3" style="float:none; padding:0;">
+            <input type="text" id="personName" class= "form-control" name="personName" ng-model="person.name" required style="margin-bottom:10px;">
+        </div>   
+        <span class="help-inline" field-error for="myForm.personName">显示错误信息</span>
+        <!-- <span ng-show="myForm.personName.$error.required">Required!</span>
+        <span ng-show="myForm.personName.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span> -->
+        <p>
+            <input type="submit" class="btn btn-default" ng-disabled="!myForm.$valid" value="保存"/>
+        </p>
+    </div>
+     
+    
 </form>
 
 <h3>Chosen</h3>
@@ -121,7 +127,7 @@
     <p>已选中：{{lang}}</p>
     <p>
         <select data-ng-model="lang" 
-            class="ntd-chosen"
+            class="ntd-chosen col-lg-3"
             data-placeholder="请选择"
             data-ng-options="option.id as option.name for option in options">
         </select>
@@ -129,7 +135,7 @@
     </p>
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
-            class=&quot;ntd-chosen&quot;
+            class=&quot;ntd-chosen col-lg-3&quot;
             data-placeholder=&quot;&#35831;&#36873;&#25321;&quot;
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
         &lt;/select&gt;
@@ -137,6 +143,7 @@
     <p>
         <select data-ng-model="lang" 
             data-ntd-chosen
+            class="col-lg-3"
             data-disable-search-threshold="10"
             data-ng-options="option.id as option.name for option in options">
         </select>
@@ -144,6 +151,7 @@
     </p>
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
+            class=&quot;col-lg-3&quot;
             data-ntd-chosen
             data-disable-search-threshold=&quot;10&quot;
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
@@ -152,6 +160,7 @@
     <p>
         <select data-ng-model="lang" 
             data-ntd-chosen
+            class="col-lg-3"
             data-allow-single-deselect="true"
             data-disable-search-threshold="10"
             data-ng-options="option.id as option.name for option in options">
@@ -162,6 +171,7 @@
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
             data-ntd-chosen
+            class=&quot;col-lg-3&quot;
             data-allow-single-deselect=&quot;true&quot;
             data-disable-search-threshold=&quot;10&quot;
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
@@ -180,6 +190,7 @@
     <p>
         <select data-ng-model="auto" 
             data-ntd-chosen
+            class="col-lg-3"
             data-on-search-promise="optionPromise($search)"
             data-ng-options="movie.id as movie.title for movie in movies">
         </select>
@@ -187,6 +198,7 @@
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;auto&quot; 
             data-ntd-chosen
+            class=&quot;col-lg-3&quot;
             data-on-search-promise=&quot;optionPromise($search)&quot;
             data-ng-options=&quot;movie.id as movie.title for movie in movies&quot;&gt;
         &lt;/select&gt;
@@ -198,6 +210,7 @@
     <p>
         <select data-ng-model="multipleLang" 
             data-ntd-chosen
+            class="col-lg-3"
             data-placeholder="选点东西吧"
             multiple
             data-ng-options="option.id as option.name for option in options">
@@ -206,6 +219,7 @@
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;multipleLang&quot; 
             data-ntd-chosen
+            class=&quot;col-lg-3&quot;
             data-placeholder=&quot;&#36873;&#28857;&#19996;&#35199;&#21543;&quot;
             multiple
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
@@ -229,7 +243,7 @@
 <h3>Nav bar</h3>
 <p>通过<code>nav-bar</code>属性来调用， 通过<code>data-match-route="正则表达式"</code>来匹配路径</p>
 <div nav-bar>
-    <ul class="nav nav-tabs nav-stacked">
+    <ul class="nav nav-pills nav-stacked" style="margin-bottom:10px;">
         <li data-match-route="/"><a href="#/">用户面板</a></li>
         <li data-match-route="/table"><a href="#/table">表格</a></li>
         <li data-match-route="/form"><a href="#/form">表单</a></li>
@@ -238,7 +252,7 @@
 </div>
 <pre class="prettyprint linenums">
 &lt;div nav-bar&gt;
-    &lt;ul class=&quot;nav nav-tabs nav-stacked&quot;&gt;
+    &lt;ul class=&quot;nav nav-pills nav-stacked&quot;&gt;
         &lt;li data-match-route=&quot;/&quot;&gt;&lt;a href=&quot;#/&quot;&gt;&#29992;&#25143;&#38754;&#26495;&lt;/a&gt;&lt;/li&gt;
         &lt;li data-match-route=&quot;/table&quot;&gt;&lt;a href=&quot;#/table&quot;&gt;&#34920;&#26684;&lt;/a&gt;&lt;/li&gt;
         &lt;li data-match-route=&quot;/form&quot;&gt;&lt;a href=&quot;#/form&quot;&gt;&#34920;&#21333;&lt;/a&gt;&lt;/li&gt;
@@ -368,9 +382,7 @@
     <fieldset>
         <div class="form-group">
             <label class="control-label" label-state="这里输入提示信息">文字区域</label>
-            <div class="controls">
-                <input type="text" class="form-control input-sm" placeholder="文字">
-            </div>
+            <input type="text" class="form-control input-sm" placeholder="文字">
         </div>
     </fieldset>
 </form>
@@ -381,57 +393,43 @@
     <fieldset>
         <div class="form-group">
             <label class="control-label">文字区域</label>
-            <div class="controls">
                 <input type="text" class=" form-control input-sm " placeholder="文字区域">
-            </div>
         </div>
         <div class="form-group">
             <label class="control-label">文字区域</label>
-            <div class="controls">
-                <input type="text" class=" form-control input-sm " placeholder="文字区域">
-            </div>
+                <input type="text" class=" form-control input-sm " placeholder="文字区域">        
         </div>
     </fieldset>
 
      <fieldset>
         <div class="form-group">
-            <label class="control-label">文字区域</label>
-            <div class="controls">
+            <label class="control-label">文字区域</label>            
                 <input type="text" class=" form-control input-sm " placeholder="文字区域">
-            </div>
         </div>
         <div class="form-group">
-            <label class="control-label">文字区域</label>
-            <div class="controls">
-                <input type="text" class=" form-control input-sm " placeholder="文字区域">
-            </div>
+            <label class="control-label">文字区域</label>        
+                <input type="text" class=" form-control input-sm " placeholder="文字区域">            
         </div>
     </fieldset>
 
     <fieldset>
         <div class="form-group">
-            <label class="control-label">文字区域</label>
-            <div class="controls">
-                <input type="text" class=" form-control input-sm " placeholder="文字区域">
-            </div>
+            <label class="control-label">文字区域</label>            
+                <input type="text" class=" form-control input-sm " placeholder="文字区域">            
         </div>
         <div class="form-group">
-            <label class="control-label">文字区域</label>
-            <div class="controls">
-                <input type="text" class=" form-control input-sm " placeholder="文字区域">
-            </div>
+            <label class="control-label">文字区域</label>            
+                <input type="text" class=" form-control input-sm " placeholder="文字区域">            
         </div>
         <div class="form-group">
-            <label class="control-label" for="inputPassword">选项区域</label>
-            <div class="controls">
-                <select class=" form-control input-sm ">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
+            <label class="control-label" for="inputPassword">选项区域</label>         
+            <select class=" form-control input-sm ">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
         </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">提交</button>

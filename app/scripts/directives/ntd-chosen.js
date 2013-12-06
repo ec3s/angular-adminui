@@ -263,7 +263,7 @@
       restrict: 'AC',
       template: '<span><span' +
       ' data-ng-repeat="linkage in linkages">' +
-      ' <select data-ntd-chosen' +
+      ' <select class="col-lg-3" data-ntd-chosen' +
       ' data-placeholder="请选择"' +
       ' data-disable-search-threshold="10"' +
       ' data-ng-change="change($index)"' +
