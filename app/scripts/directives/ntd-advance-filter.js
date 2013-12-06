@@ -6,7 +6,7 @@
     '<div ng-transclude></div>' +
     '<div class="more">' +
         '<a data-class="J_toggleShowFilterBtn">' +
-          '<i class="icon-chevron-down"></i>' +
+          '<i class="glyphicon glyphicon-chevron-down"></i>' +
         '</a>' +
     '</div>' +
   '</div>';

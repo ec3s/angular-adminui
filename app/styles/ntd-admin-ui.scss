@@ -48,11 +48,11 @@ $infoBoxItemNameColor:      #666;
 // $submenuChildLinkBgColor:             #fff;
 // $submenuChildLinkHoverBorderTopColor: #ddd;
 // 
-// // Advance search filter
-// $advanceSearchFilterBgColor:           #f9f9f9;
-// $advanceSearchFilterBorderColor:       #e3e3e3;
-// $advanceSearchFilterArrowHoverBgColor: #e3e3e3;
-// 
+// Advance search filter
+$advanceSearchFilterBgColor:           #f9f9f9;
+$advanceSearchFilterBorderColor:       #e3e3e3;
+$advanceSearchFilterArrowHoverBgColor: #e3e3e3;
+
 // Footable
 $footableDetailFontSize: 12px;
 $footableDetailBgColor:  #eee;
@@ -60,48 +60,48 @@ $footableDetailBgColor:  #eee;
 // // Box widget
 // $boxWidgetBorder: #ddd;
 // 
-// // Mixin
-// @mixin base-widget-header-gradient {
-//     @include text-shadow(0 1px 0 $white);
-//     //@include box-shadow(0 1px 0 0 $white inset);
-//     @include background-image(linear-gradient($BaseWidgetHeaderGradientStart, $BaseWidgetHeaderGradientEnd)); 
-// }
-// 
-// 
-// // Icon animate
-// @-webkit-keyframes rotate {
-//   from {-webkit-transform:rotate(0deg);}
-//   to {-webkit-transform:rotate(360deg);}
-// }
-// 
-// @mixin keyframes($name) {
-//   @-webkit-keyframes #{$name} {
-//     @content; 
-//   }
-//   @-moz-keyframes #{$name} {
-//     @content;
-//   }
-//   @-ms-keyframes #{$name} {
-//     @content;
-//   }
-//   @keyframes #{$name} {
-//     @content;
-//   } 
-// }
-// 
-// @include keyframes(rotate) {
-//   from {-webkit-transform:rotate(0deg);}
-//   to {-webkit-transform:rotate(360deg);}
-// }
-// 
-// // Custom styles
+// Mixin
+@mixin base-widget-header-gradient {
+    @include text-shadow(0 1px 0 #fff);
+    @include box-shadow(0 1px 0 0 #fff inset);
+    // @include background-image(linear-gradient($BaseWidgetHeaderGradientStart, $BaseWidgetHeaderGradientEnd)); 
+}
+
+
+// Icon animate
+@-webkit-keyframes rotate {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(360deg);}
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+@include keyframes(rotate) {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(360deg);}
+}
+
+// Custom styles
 @import "ntd-main";
 @import "ntd-table";
-// @import "ntd-cascade-list";
+@import "ntd-cascade-list";
 @import "ntd-login";
 @import "ntd-easy-pie-chart";
 @import "ntd-foo-table";
 // @import "ntd-404";
 // @import "ntd-responsive";
-// @import "ntd-toggle-switch";
+@import "ntd-toggle-switch";
 // 

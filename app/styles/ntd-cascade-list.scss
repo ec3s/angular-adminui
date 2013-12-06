@@ -3,7 +3,7 @@
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle;
-    background-color: $white;
+    background-color: #fff;
     border: 1px solid #ccc;
     padding: 4px;
     font-size: $font-size-base;
@@ -64,6 +64,10 @@
     padding-right: 1.5em;
     cursor: pointer;
 }
+.cascade-list .form-control{
+    display: inline-block;    
+}
+
 
 .cascade-list li.has-child 
 {
@@ -83,8 +87,8 @@
 
 .cascade-list ul.selective li.selective
 {
-    background-color: $blue;
-    color: $white;
+    background-color: #049cdb;
+    color: #fff;
 }
 
 .cascade-list ul.selective li.selective.has-child

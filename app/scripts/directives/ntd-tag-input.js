@@ -31,7 +31,7 @@
       '<i data-ng-click="remove($index)" class="icon-remove"></i>' +
       '</li>' +
       '<li class="input-li">' +
-      '<input id="{{id}}" data-ng-model="tagInput"' +
+      '<input id="{{id}}" class="form-control" data-ng-model="tagInput"' +
       ' placeholder="{{placeholder}}" type="text" autocomplete="false" />' +
       '</li>' +
       '</ul>' +

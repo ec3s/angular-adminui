@@ -179,10 +179,10 @@ https://github.com/ghinda/css-toggle-switch
     vertical-align: middle;
 }
 .toggle.small {
-    height: 26px;
+    height: 30px;
 }
 .toggle.small p {
-    line-height: 26px;
+    line-height: 30px;
     font-size: 12px;
 }
 .toggle {
@@ -222,6 +222,8 @@ https://github.com/ghinda/css-toggle-switch
 .switch label {
     line-height: 30px;
     vertical-align: middle;
+    cursor: pointer;
+    font-weight: normal;
 }
 .toggle input ~ .slide-button {
     display: inline-block;
@@ -268,7 +270,7 @@ https://github.com/ghinda/css-toggle-switch
     border-color: #0044cc #0044cc #002a80;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-    right: 50%;
+    right: 50%;   
 }
 .toggle input:checked ~ .slide-button {
     right: 50%;

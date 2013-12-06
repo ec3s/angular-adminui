@@ -8,7 +8,7 @@
       scope: { tips: '@labelState' },
       template: '<span ng-transclude></span>' +
         '<i tooltip-popup-delay="300" ' +
-        'tooltip="{{tips}}" class="icon-question-sign"></i>'
+        'tooltip="{{tips}}" class="glyphicon glyphicon-question-sign"></i>'
     };
   }
   

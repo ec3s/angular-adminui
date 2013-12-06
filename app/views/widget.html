@@ -33,7 +33,7 @@
         ng-click="click($event)"
         ng-change="change($event)">
     </span>
-    <input type="button" class="btn" ng-click="do()" value="switcher" >
+    <input type="button" class="btn btn-default" ng-click="do()" value="switcher" >
     <span>{{opened}}</span>
 </p>
 <pre class="prettyprint linenums">
@@ -60,8 +60,8 @@
         ng-disabled="switchDisabled"
         class="small">
     </span>
-    <button class="btn btn-small" ng-click="switchDisabled = true" type="button">禁用</button>
-    <button class="btn btn-small" ng-click="switchDisabled = false" type="button">启用</button>
+    <button class="btn btn-default btn-sm" ng-click="switchDisabled = true" type="button">禁用</button>
+    <button class="btn btn-default btn-sm" ng-click="switchDisabled = false" type="button">启用</button>
     <span>{{selected}}</span>
 </p>
 <pre class="prettyprint linenums">
@@ -79,12 +79,12 @@
 <p>在<code>ngView</code>之外放置 <code>flashAlert</code>, 否则页面跳转时消息显示不出来</p>
 <div ng-controller="flashMessageCtrl">
     <p>
-        <button class="btn btn-primary" ng-click="sendMsg()">flash messge</button>
+        <button class="btn btn-default btn-primary" ng-click="sendMsg()">flash messge</button>
         点击其它页面将会看到发出去的消息
     </p>
 </div>
 <pre class="prettyprint linenums">
-    &lt;button class=&quot;btn btn-info&quot; ng-click=&quot;sendMsg()&quot;&gt;flash messge&lt;/button&gt;
+    &lt;button class=&quot;btn btn-default btn-info&quot; ng-click=&quot;sendMsg()&quot;&gt;flash messge&lt;/button&gt;
 </pre>
 <pre class="well">
   var queue = [
@@ -99,12 +99,12 @@
 <h3>Field error</h3>
 <form name="myForm" ng-submit="save()">
     <label for="personName">Example for fied error</label>
-    <input type="text" id="personName" class="span3" name="personName" ng-model="person.name" required>
+    <input type="text" id="personName" class= "form-control input-sm" name="personName" ng-model="person.name" required style="margin-bottom:10px;">
     <span class="help-inline" field-error for="myForm.personName">显示错误信息</span>
     <!-- <span ng-show="myForm.personName.$error.required">Required!</span>
     <span ng-show="myForm.personName.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span> -->
     <p>
-        <input type="submit" class="btn" ng-disabled="!myForm.$valid" value="保存"/>
+        <input type="submit" class="btn btn-default" ng-disabled="!myForm.$valid" value="保存"/>
     </p>
 </form>
 
@@ -364,12 +364,12 @@
 
 <h3>Label state</h3>
 <p>为<code>label</code>添加<code>label-state="这里文字为解释说明label的"</code></p>
-<form class="form-horizontal">
+<form class="form-horizontal form-inline">
     <fieldset>
-        <div class="control-group">
+        <div class="form-group">
             <label class="control-label" label-state="这里输入提示信息">文字区域</label>
             <div class="controls">
-                <input type="text" class="span3" placeholder="文字">
+                <input type="text" class="form-control input-sm" placeholder="文字">
             </div>
         </div>
     </fieldset>
@@ -377,54 +377,54 @@
 
 <h3>高级表单筛选</h3>
 <p>为表单加上 <code>advance-filter</code> 属性， 当属性为<code>advance-filter="opened"</code>时表单默认展开</p>
-<form class="form-horizontal" advance-filter>
+<form class="form-horizontal form-inline" advance-filter role="form">
     <fieldset>
-        <div class="control-group">
+        <div class="form-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
+                <input type="text" class=" form-control input-sm " placeholder="文字区域">
             </div>
         </div>
-        <div class="control-group">
+        <div class="form-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
+                <input type="text" class=" form-control input-sm " placeholder="文字区域">
             </div>
         </div>
     </fieldset>
 
      <fieldset>
-        <div class="control-group">
+        <div class="form-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
+                <input type="text" class=" form-control input-sm " placeholder="文字区域">
             </div>
         </div>
-        <div class="control-group">
+        <div class="form-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
+                <input type="text" class=" form-control input-sm " placeholder="文字区域">
             </div>
         </div>
     </fieldset>
 
     <fieldset>
-        <div class="control-group">
+        <div class="form-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
+                <input type="text" class=" form-control input-sm " placeholder="文字区域">
             </div>
         </div>
-        <div class="control-group">
+        <div class="form-group">
             <label class="control-label">文字区域</label>
             <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
+                <input type="text" class=" form-control input-sm " placeholder="文字区域">
             </div>
         </div>
-        <div class="control-group">
+        <div class="form-group">
             <label class="control-label" for="inputPassword">选项区域</label>
             <div class="controls">
-                <select class="input-large">
+                <select class=" form-control input-sm ">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -529,19 +529,19 @@ $scope.dptList = {{dptList|json}}
 
 <h3>Easy Pie Chart</h3>
 <div>
-    <input type="text" ng-model="easyPieChart[0].percent">
-    <input type="text" ng-model="easyPieChart[0].usage">
+    <input type="text" class="input-sm form-control" ng-model="easyPieChart[0].percent">
+    <input type="text" class="input-sm form-control" ng-model="easyPieChart[0].usage">
 </div>
 <p><code>easy-pie-chart="item"</code> 属性来调用easy pie chart</p>
 <div class="row-fluid clearfix">
-    <div class="span2" ng-repeat="item in easyPieChart">
+    <div class="col-md-2" ng-repeat="item in easyPieChart">
         <div easy-pie-chart="item"></div>
     </div>
 </div>
 <pre>$scope.easyPieChart = {{ easyPieChart | json }}</pre>
 <pre class="prettyprint linenums">
 &lt;div class=&quot;row-fluid clearfix&quot;&gt;
-    &lt;div class=&quot;span2&quot; ng-repeat=&quot;item in easyPieChart&quot; &gt;
+    &lt;div class=&quot;col-md-2&quot; ng-repeat=&quot;item in easyPieChart&quot; &gt;
         &lt;div easy-pie-chart=&quot;item&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
@@ -550,7 +550,7 @@ $scope.dptList = {{dptList|json}}
 <h3>Pie chart</h3>
 <p>通过属性 <code>ntd-pie</code> 来调用, 注：必须指定 ID</p>
 <div class="row-fluid" ng-controller="PieCtrl">
-    <div class="span12 clearfix">
+    <div class="col-md-12 clearfix">
         <div >
             <div id="sample-pie" ntd-pie data="ageData" pie-height="300" pie-width="800"></div>
         </div>
@@ -564,25 +564,25 @@ $scope.dptList = {{dptList|json}}
 </div>
 
 <h3>时间日期</h3>
-<div class="control-group input-append">
-    <input type="text" class="input-small" ng-model="datepicker.date" placeholder="时间" data-date-format="yyyy/mm/dd" date-picker>
+<div class="form-group input-append">
+    <input type="text" class="input-sm form-control" ng-model="datepicker.date" placeholder="时间" data-date-format="yyyy/mm/dd" date-picker>
     <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
 </div>
 <p>日期选择器用 <code>date-picker</code> 属性绑定到 input 元素上.</p>
 <pre class="prettyprint linenums">
-    &lt;div class=&quot;control-group input-append&quot;&gt;
-        &lt;input type=&quot;text&quot; class=&quot;input-small&quot; ng-model=&quot;datepicker.date&quot; placeholder=&quot;&#26102;&#38388;&quot; data-date-format=&quot;yyyy/mm/dd&quot; date-picker&gt;
+    &lt;div class=&quot;form-group input-append&quot;&gt;
+        &lt;input type=&quot;text&quot; class=&quot;input-sm form-control&quot; ng-model=&quot;datepicker.date&quot; placeholder=&quot;&#26102;&#38388;&quot; data-date-format=&quot;yyyy/mm/dd&quot; date-picker&gt;
         &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;datepicker&quot;&gt;&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt;&lt;/button&gt;
     &lt;/div&gt;
 </pre>
 <hr>
-<div class="control-group input-append">
-  <input type="text" class="input-small" ng-model="timepicker.time" time-picker>
+<div class="form-group input-append">
+  <input type="text" class="input-sm form-control" ng-model="timepicker.time" time-picker>
   <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i></buttoni>
 </div>
 <p>选择器用 <code>time-picker</code> 属性绑定到 input 元素上.</p>
 <pre class="prettyprint linenums">
-    &lt;div class=&quot;control-group input-append&quot;&gt;
+    &lt;div class=&quot;form-group input-append&quot;&gt;
       &lt;input type=&quot;text&quot; ng-model=&quot;timepicker.time&quot; time-picker&gt;
       &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;timepicker&quot;&gt;&lt;i class=&quot;icon-time&quot;&gt;&lt;/i&gt;&lt;/buttoni&gt;
     &lt;/div&gt;
