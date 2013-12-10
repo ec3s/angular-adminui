@@ -381,48 +381,50 @@
 <form class="form-horizontal form-inline">
     <fieldset>
         <div class="form-group">
-            <label class="control-label" label-state="这里输入提示信息">文字区域</label>
-            <input type="text" class="form-control input-sm" placeholder="文字">
+            <label class="control-label col-sm-5" label-state="这里输入提示信息">文字区域</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control input-sm" placeholder="文字">
+            </div>
         </div>
     </fieldset>
 </form>
 
 <h3>高级表单筛选</h3>
 <p>为表单加上 <code>advance-filter</code> 属性， 当属性为<code>advance-filter="opened"</code>时表单默认展开</p>
-<form class="form-horizontal form-inline" advance-filter role="form">
+<form class="form-horizontal" advance-filter role="form">
     <fieldset>
         <div class="form-group">
-            <label class="control-label">文字区域</label>
+            <label>文字区域</label>
                 <input type="text" class=" form-control input-sm " placeholder="文字区域">
         </div>
         <div class="form-group">
-            <label class="control-label">文字区域</label>
+            <label>文字区域</label>
                 <input type="text" class=" form-control input-sm " placeholder="文字区域">        
         </div>
     </fieldset>
 
      <fieldset>
         <div class="form-group">
-            <label class="control-label">文字区域</label>            
+            <label>文字区域</label>            
                 <input type="text" class=" form-control input-sm " placeholder="文字区域">
         </div>
         <div class="form-group">
-            <label class="control-label">文字区域</label>        
+            <label>文字区域</label>        
                 <input type="text" class=" form-control input-sm " placeholder="文字区域">            
         </div>
     </fieldset>
 
     <fieldset>
         <div class="form-group">
-            <label class="control-label">文字区域</label>            
+            <label>文字区域</label>            
                 <input type="text" class=" form-control input-sm " placeholder="文字区域">            
         </div>
         <div class="form-group">
-            <label class="control-label">文字区域</label>            
+            <label>文字区域</label>            
                 <input type="text" class=" form-control input-sm " placeholder="文字区域">            
         </div>
         <div class="form-group">
-            <label class="control-label" for="inputPassword">选项区域</label>         
+            <label for="inputPassword">选项区域</label>         
             <select class=" form-control input-sm ">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -430,10 +432,8 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-        </div>
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary">提交</button>
-        </div>
+        </div>        
+        <button type="submit" class="btn btn-default btn-primary">提交</button>
     </fieldset>
 </form>
 <pre class="prettyprint linenums">
@@ -443,9 +443,7 @@
     &lt;/fieldset&gt;
     &lt;fieldset&gt;
         展开时展现的表单
-        &lt;div class=&quot;form-actions&quot;&gt;
-            表单的提交写在最后一个fieldset里
-        &lt;/div&gt;
+            表单的提交写在最后一个fieldset里        
     &lt;/fieldset&gt;
 &lt;/form&gt;
 </pre>
@@ -526,19 +524,23 @@ $scope.dptList = {{dptList|json}}
 </div>
 
 <h3>Easy Pie Chart</h3>
-<div>
-    <input type="text" class="input-sm form-control" ng-model="easyPieChart[0].percent">
-    <input type="text" class="input-sm form-control" ng-model="easyPieChart[0].usage">
+<div class="row form-group">
+    <div class="col-sm-3">
+        <input type="text" class="input-sm form-control" ng-model="easyPieChart[0].percent">
+    </div>
+    <div class="col-sm-3">
+        <input type="text" class="input-sm form-control" ng-model="easyPieChart[0].usage">
+    </div>
 </div>
 <p><code>easy-pie-chart="item"</code> 属性来调用easy pie chart</p>
-<div class="row-fluid clearfix">
+<div class="row clearfix">
     <div class="col-md-2" ng-repeat="item in easyPieChart">
         <div easy-pie-chart="item"></div>
     </div>
 </div>
 <pre>$scope.easyPieChart = {{ easyPieChart | json }}</pre>
 <pre class="prettyprint linenums">
-&lt;div class=&quot;row-fluid clearfix&quot;&gt;
+&lt;div class=&quot;row clearfix&quot;&gt;
     &lt;div class=&quot;col-md-2&quot; ng-repeat=&quot;item in easyPieChart&quot; &gt;
         &lt;div easy-pie-chart=&quot;item&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
@@ -547,7 +549,7 @@ $scope.dptList = {{dptList|json}}
 
 <h3>Pie chart</h3>
 <p>通过属性 <code>ntd-pie</code> 来调用, 注：必须指定 ID</p>
-<div class="row-fluid" ng-controller="PieCtrl">
+<div class="row" ng-controller="PieCtrl">
     <div class="col-md-12 clearfix">
         <div >
             <div id="sample-pie" ntd-pie data="ageData" pie-height="300" pie-width="800"></div>
@@ -562,27 +564,118 @@ $scope.dptList = {{dptList|json}}
 </div>
 
 <h3>时间日期</h3>
-<div class="form-group input-append">
+<!-- <div class="form-group input-group">
     <input type="text" class="input-sm form-control" ng-model="datepicker.date" placeholder="时间" data-date-format="yyyy/mm/dd" date-picker>
-    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+    <button type="button" class="btn btn-default" data-toggle="datepicker"><i class="glyphicon glyphicon-calendar"></i></button>
+</div> -->
+
+
+<div class="form-group">
+    <div ng-controller="DatepickerDemoCtrl">
+    <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+
+    <div ng-model="dt" style="width: 280px">
+        <datepicker min="minDate" show-weeks="showWeeks"></datepicker>
+    </div>
+
+    <hr>
+
+    <div class="input-group">
+        <input class="form-control" type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" />
+        <span class="input-group-btn">
+            <button class="btn btn-info" ng-click="open()"> <span class="glyphicon glyphicon-calendar"></span> </button>
+        </span>
+    </div>
+
+    <hr />
+    <button class="btn btn-sm btn-info" ng-click="today()">Today</button>
+    <button class="btn btn-sm btn-info" ng-click="dt = '2009-08-24'">2009-08-24</button>
+    <button class="btn btn-sm btn-success" ng-click="toggleWeeks()" tooltip="For inline datepicker">Toggle Weeks</button>
+    <button class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
+    <button class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today restriction">Min date</button>
+    </div>
 </div>
+
 <p>日期选择器用 <code>date-picker</code> 属性绑定到 input 元素上.</p>
 <pre class="prettyprint linenums">
-    &lt;div class=&quot;form-group input-append&quot;&gt;
-        &lt;input type=&quot;text&quot; class=&quot;input-sm form-control&quot; ng-model=&quot;datepicker.date&quot; placeholder=&quot;&#26102;&#38388;&quot; data-date-format=&quot;yyyy/mm/dd&quot; date-picker&gt;
-        &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;datepicker&quot;&gt;&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;div ng-controller="DatepickerDemoCtrl"&gt;
+    &lt;pre&gt;Selected date is: &lt;em&gt;{{dt | date:'fullDate' }}&lt;/em&gt;&lt;/pre&gt;
+
+    &lt;div ng-model="dt" style="width: 280px"&gt;
+        &lt;datepicker min="minDate" show-weeks="showWeeks"&gt;&lt;/datepicker&gt;
+    &lt;/div&gt;
+
+    &lt;hr&gt;
+
+    &lt;div class="input-group"&gt;
+        &lt;input class="form-control" type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" /&gt;
+        &lt;span class="input-group-btn"&gt;
+            &lt;button class="btn btn-info" ng-click="open()"&gt; &lt;span class="glyphicon glyphicon-calendar"&gt;&lt;/span&gt; &lt;/button&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;hr /&gt;
+    &lt;button class="btn btn-sm btn-info" ng-click="today()"&gt;Today&lt;/button&gt;
+    &lt;button class="btn btn-sm btn-info" ng-click="dt = '2009-08-24'"&gt;2009-08-24&lt;/button&gt;
+    &lt;button class="btn btn-sm btn-success" ng-click="toggleWeeks()" tooltip="For inline datepicker"&gt;Toggle Weeks&lt;/button&gt;
+    &lt;button class="btn btn-sm btn-danger" ng-click="clear()"&gt;Clear&lt;/button&gt;
+    &lt;button class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today restriction"&gt;Min date&lt;/button&gt;
     &lt;/div&gt;
 </pre>
 <hr>
-<div class="form-group input-append">
-  <input type="text" class="input-sm form-control" ng-model="timepicker.time" time-picker>
-  <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i></buttoni>
+<div class="form-group">
+<div ng-controller="TimepickerDemoCtrl">
+
+  <div ng-model="mytime" ng-change="changed()" style="display:inline-block;">
+        <timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+  </div>
+
+
+   <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+
+  <div class="row"> 
+    <div class="col-xs-6">
+        Hours step is:
+      <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+    </div>
+    <div class="col-xs-6">
+        Minutes step is:
+      <select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
+    </div>
+  </div>
+
+  <hr>
+
+  <button class="btn btn-info" ng-click="toggleMode()">12H / 24H</button>
+  <button class="btn btn-default" ng-click="update()">Set to 14:00</button>
+  <button class="btn btn-danger" ng-click="clear()">Clear</button>
+
+</div>
 </div>
 <p>选择器用 <code>time-picker</code> 属性绑定到 input 元素上.</p>
 <pre class="prettyprint linenums">
-    &lt;div class=&quot;form-group input-append&quot;&gt;
-      &lt;input type=&quot;text&quot; ng-model=&quot;timepicker.time&quot; time-picker&gt;
-      &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;timepicker&quot;&gt;&lt;i class=&quot;icon-time&quot;&gt;&lt;/i&gt;&lt;/buttoni&gt;
+    &lt;div ng-controller="TimepickerDemoCtrl"&gt;
+        &lt;div ng-model="mytime" ng-change="changed()" style="display:inline-block;"&gt;
+            &lt;timepicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"&gt;&lt;/timepicker&gt;
+        &lt;/div&gt;
+    &lt;pre class="alert alert-info"&gt;Time is: {{mytime | date:'shortTime' }}&lt;/pre&gt;
+
+      &lt;div class="row"&gt; 
+        &lt;div class="col-xs-6"&gt;
+            Hours step is:
+          &lt;select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"&gt;&lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div class="col-xs-6"&gt;
+            Minutes step is:
+          &lt;select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"&gt;&lt;/select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;hr&gt;
+      &lt;button class="btn btn-info" ng-click="toggleMode()"&gt;12H / 24H&lt;/button&gt;
+      &lt;button class="btn btn-default" ng-click="update()"&gt;Set to 14:00&lt;/button&gt;
+      &lt;button class="btn btn-danger" ng-click="clear()"&gt;Clear&lt;/button&gt;
     &lt;/div&gt;
+
 </pre>
 <hr>

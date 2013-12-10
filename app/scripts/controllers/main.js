@@ -164,7 +164,7 @@ adminuiApp
       right: false
     };
   })
-  .controller('DialogDemoCtrl', function ($scope, $dialog){
+  .controller('DialogDemoCtrl', function ($scope, $modal){
       // Inlined template for demo
     var t = '<div class="modal-header">'+
             '<h1>This is the title</h1>'+
@@ -186,7 +186,7 @@ adminuiApp
     };
 
     $scope.openDialog = function(){
-      var d = $dialog.dialog($scope.opts);
+      var d = $modal.dialog($scope.opts);
       // d.open();
       d.open().then(function(result){
         if(result)
@@ -201,7 +201,7 @@ adminuiApp
       var msg = 'This is the content of the message box';
       var btns = [{result:'cancel', label: 'Cancel'}, {result:'ok', label: 'OK', cssClass: 'btn-primary'}];
 
-      $dialog.messageBox(title, msg, btns)
+      $modal.messageBox(title, msg, btns)
         .open()
         .then(function(result){
           if(result){
