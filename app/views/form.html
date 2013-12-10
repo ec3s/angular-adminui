@@ -573,30 +573,57 @@
 <p>创建大一些或小一些的表单控件以匹配按钮尺寸。</p>
 <div class="bs-docs-example bs-example-control-sizing">
     <form role="form">
-        <div class="controls">
+        <div class="form-group">
             <input class="form-control input-lg" type="text" placeholder=".input-lg">
+        </div>
+        <div class="form-group">
             <input type="text" class="form-control" placeholder="Default input">
+            </div>
+        <div class="form-group">
             <input class="form-control input-sm" type="text" placeholder=".input-sm">
-
+        </div>
+        <div class="form-group">
             <select class="form-control input-lg">
                 <option value="">.input-lg</option>
             </select>
+            </div>
+        <div class="form-group">
             <select class="form-control">
                 <option value="">Default select</option>
             </select>
+        </div>
+        <div class="form-group">
             <select class="form-control input-sm">
                 <option value="">.input-sm</option>
             </select>
         </div>
     </form>
 </div>
-<pre class="prettyprint linenums">&lt;input&nbsp;class=&quot;form-control&nbsp;input-lg&quot;&nbsp;type=&quot;text&quot;&nbsp;placeholder=&quot;.input-lg&quot;&gt;
-&lt;input&nbsp;class=&quot;form-control&quot;&nbsp;type=&quot;text&quot;&nbsp;placeholder=&quot;Default&nbsp;input&quot;&gt;
-&lt;input&nbsp;class=&quot;form-control&nbsp;input-sm&quot;&nbsp;type=&quot;text&quot;&nbsp;placeholder=&quot;.input-sm&quot;&gt;
-
-&lt;select&nbsp;class=&quot;form-control&nbsp;input-lg&quot;&gt;...&lt;/select&gt;
-&lt;select&nbsp;class=&quot;form-control&quot;&gt;...&lt;/select&gt;
-&lt;select&nbsp;class=&quot;form-control&nbsp;input-sm&quot;&gt;...&lt;/select&gt;
+<pre class="prettyprint linenums">
+        &lt;div class="form-group"&gt;
+            &lt;input class="form-control input-lg" type="text" placeholder=".input-lg"&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;input type="text" class="form-control" placeholder="Default input"&gt;
+            &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;input class="form-control input-sm" type="text" placeholder=".input-sm"&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;select class="form-control input-lg"&gt;
+                &lt;option value=""&gt;.input-lg&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;select class="form-control"&gt;
+                &lt;option value=""&gt;Default select&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div class="form-group"&gt;
+            &lt;select class="form-control input-sm"&gt;
+                &lt;option value=""&gt;.input-sm&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
 </pre>
 <h3>调整列尺寸</h3>
 <p>用栅格系统中的列包裹input或其任何父元素，都可很容易的为其设置宽度。</p>
