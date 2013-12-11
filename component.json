@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "bootstrap-sass": "~3.0.0",
-    "angular": "~1.0.7",
+    "angular": "~1.2.4",
     "angular-cookies": "~1.0.7",
     "angular-mocks": "~1.0.7",
     "angular-resource": "~1.0.7",
@@ -20,7 +20,7 @@
     "d3": "~3.1.5",
     "footable": "~0.5.0",
     "chosen": "https://github.com/harvesthq/chosen/releases/download/0.13.0/chosen_v0.13.0.zip",
-    "ui.bootstrap": "~0.7.0"   
+    "angular-route":"*"  
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",
