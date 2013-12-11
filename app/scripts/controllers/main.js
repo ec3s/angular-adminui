@@ -101,16 +101,16 @@ adminuiApp
     $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
   })
   .controller('PaginationDemoCtrl', function ($scope) {
-    $scope.noOfPages = 7;
-    $scope.currentPage = 4;
-    $scope.maxSize = 5;
-    
-    $scope.setPage = function (pageNo) {
-      $scope.currentPage = pageNo;
-    };
+  $scope.totalItems = 64;
+  $scope.currentPage = 4;
+  $scope.maxSize = 5;
+  
+  $scope.setPage = function (pageNo) {
+    $scope.currentPage = pageNo;
+  };
 
-    $scope.bigNoOfPages = 18;
-    $scope.bigCurrentPage = 1;
+  $scope.bigTotalItems = 175;
+  $scope.bigCurrentPage = 1;
   })
   .controller('CollapseDemoCtrl', function ($scope) {
     $scope.isCollapsed = false;
@@ -138,8 +138,8 @@ adminuiApp
   })
   .controller('AlertDemoCtrl', function ($scope) {
     $scope.alerts = [
-      { type: 'alert', msg: '警告' }, 
-      { type: 'error', msg: '失败，错误, 危险' }, 
+      { type: 'warning', msg: '警告' }, 
+      { type: 'danger', msg: '失败，错误, 危险' }, 
       { type: 'success', msg: '成功信息' },
       { type: 'info', msg: '需要注意的信息' }
     ];
@@ -164,57 +164,57 @@ adminuiApp
       right: false
     };
   })
-  .controller('DialogDemoCtrl', function ($scope, $modal){
-      // Inlined template for demo
-    var t = '<div class="modal-header">'+
-            '<h1>This is the title</h1>'+
-            '</div>'+
-            '<div class="modal-body">'+
-            '<p>Enter a value to pass to <code>close</code> as the result: <input ng-model="result" /></p>'+
-            '</div>'+
-            '<div class="modal-footer">'+
-            '<button ng-click="close(result)"" class="btn btn-primary" >Close</button>'+
-            '</div>';
+  // .controller('DialogDemoCtrl', function ($scope, $modal){
+  //     // Inlined template for demo
+  //   var t = '<div class="modal-header">'+
+  //           '<h1>This is the title</h1>'+
+  //           '</div>'+
+  //           '<div class="modal-body">'+
+  //           '<p>Enter a value to pass to <code>close</code> as the result: <input ng-model="result" /></p>'+
+  //           '</div>'+
+  //           '<div class="modal-footer">'+
+  //           '<button ng-click="close(result)"" class="btn btn-primary" >Close</button>'+
+  //           '</div>';
 
-    $scope.opts = {
-      backdrop: true,
-      keyboard: true,
-      backdropClick: true,
-      template:  t, // OR: templateUrl: 'path/to/view.html',
-      // templateUrl: 'views/test.html',
-      controller: 'TestDialogController'
-    };
+  //   $scope.opts = {
+  //     backdrop: true,
+  //     keyboard: true,
+  //     backdropClick: true,
+  //     template:  t, // OR: templateUrl: 'path/to/view.html',
+  //     // templateUrl: 'views/test.html',
+  //     controller: 'TestDialogController'
+  //   };
 
-    $scope.openDialog = function(){
-      var d = $modal.dialog($scope.opts);
-      // d.open();
-      d.open().then(function(result){
-        if(result)
-        {
-          alert('dialog closed with result: ' + result);
-        }
-      });
-    };
+  //   $scope.openDialog = function(){
+  //     var d = $modal.dialog($scope.opts);
+  //     // d.open();
+  //     d.open().then(function(result){
+  //       if(result)
+  //       {
+  //         alert('dialog closed with result: ' + result);
+  //       }
+  //     });
+  //   };
 
-    $scope.openMessageBox = function(){
-      var title = 'This is a message box';
-      var msg = 'This is the content of the message box';
-      var btns = [{result:'cancel', label: 'Cancel'}, {result:'ok', label: 'OK', cssClass: 'btn-primary'}];
+  //   $scope.openMessageBox = function(){
+  //     var title = 'This is a message box';
+  //     var msg = 'This is the content of the message box';
+  //     var btns = [{result:'cancel', label: 'Cancel'}, {result:'ok', label: 'OK', cssClass: 'btn-primary'}];
 
-      $modal.messageBox(title, msg, btns)
-        .open()
-        .then(function(result){
-          if(result){
-            alert('dialog closed with result: ' + result);
-          }
-      });
-    };
-  })
-  .controller('TestDialogController', function ($scope, dialog){
-    $scope.close = function(result){
-      dialog.close(result);
-    };
-  })
+  //     $modal.messageBox(title, msg, btns)
+  //       .open()
+  //       .then(function(result){
+  //         if(result){
+  //           alert('dialog closed with result: ' + result);
+  //         }
+  //     });
+  //   };
+  // })
+  // .controller('TestDialogController', function ($scope, dialog){
+  //   $scope.close = function(result){
+  //     dialog.close(result);
+  //   };
+  // })
   .controller('DropdownCtrl', function ($scope) {
     $scope.items = [
       'The first choice!',
@@ -222,25 +222,25 @@ adminuiApp
       'but wait! A third!'
     ];
   })
-  .controller('ModalDemoCtrl',function ($scope) {
+  // .controller('ModalDemoCtrl',function ($scope) {
 
-    $scope.open = function () {
-      $scope.shouldBeOpen = true;
-    };
+  //   $scope.open = function () {
+  //     $scope.shouldBeOpen = true;
+  //   };
 
-    $scope.close = function () {
-      $scope.closeMsg = 'I was closed at: ' + new Date();
-      $scope.shouldBeOpen = false;
-    };
+  //   $scope.close = function () {
+  //     $scope.closeMsg = 'I was closed at: ' + new Date();
+  //     $scope.shouldBeOpen = false;
+  //   };
 
-    $scope.items = ['item1', 'item2'];
+  //   $scope.items = ['item1', 'item2'];
 
-    $scope.opts = {
-      backdropFade: true,
-      dialogFade:true
-    };
+  //   $scope.opts = {
+  //     backdropFade: true,
+  //     dialogFade:true
+  //   };
 
-  })
+  // })
   .controller('TooltipDemoCtrl', function ($scope) {
     $scope.dynamicTooltip = 'Hello, World!';
     $scope.dynamicTooltipText = 'dynamic';
@@ -366,5 +366,70 @@ adminuiApp
   }
 }])
 ;
+// var PaginationDemoCtrl = function ($scope) {
+//   $scope.totalItems = 64;
+//   $scope.currentPage = 4;
+//   $scope.maxSize = 5;
+  
+//   $scope.setPage = function (pageNo) {
+//     $scope.currentPage = pageNo;
+//   };
 
+//   $scope.bigTotalItems = 175;
+//   $scope.bigCurrentPage = 1;
+// };
+
+var ModalDemoCtrl = function ($scope, $modal, $log) {
+  var t = '<div class="modal-header">'+
+            '<h3>'+"I'm a modal!"+'</h3>'+
+        '</div>'+
+        '<div class="modal-body">'+
+            '<ul>'+
+                '<li ng-repeat="item in items">'+
+                    '<a ng-click="selected.item = item">'+'{{ item }}'+'</a>'+
+                '</li>'+
+            '</ul>'+
+            'Selected:'+'<b>'+'{{ selected.item }}'+'</b>'+
+        '</div>'+
+        '<div class="modal-footer">'+
+            '<button class="btn btn-primary" ng-click="ok()">'+'OK'+'</button>'+
+            '<button class="btn btn-warning" ng-click="cancel()">'+'Cancel'+'</button>'+
+        '</div>';
+  $scope.items = ['item1', 'item2', 'item3'];
+  $scope.open = function () {
+
+    var modalInstance = $modal.open({
+      // templateUrl: 'myModalContent.html',
+      template:t,
+      controller: ModalInstanceCtrl,
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
+};
+
+var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
+
+  $scope.items = items;
+  $scope.selected = {
+    item: $scope.items[0]
+  };
+
+  $scope.ok = function () {
+    $modalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+};
 
