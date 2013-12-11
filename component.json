@@ -12,7 +12,7 @@
     "es5-shim": "~2.0.11",
     "json3": "~3.2.4",
     "jquery": "2.0.2",
-    "angular-bootstrap": "~0.7.0",
+    "angular-bootstrap3": "*",
     "jquery.easy-pie-chart": "~1.2.5",
     "bootstrap-datepicker": "~1.1.2",
     "bootstrap-timepicker": "~0.2.3",
