@@ -1,6 +1,7 @@
 'use strict';
 
 var adminuiApp = angular.module('adminuiApp',[
+  'ngRoute',
   'ntd.services', 
   'ntd.directives',
   'ui.bootstrap',
