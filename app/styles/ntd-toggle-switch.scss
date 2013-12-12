@@ -187,7 +187,7 @@ https://github.com/ghinda/css-toggle-switch
 }
 .toggle {
     min-height: 20px;
-    background-color: whitesmoke;
+    // background-color: whitesmoke;
     border: 1px solid #e3e3e3;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -236,12 +236,12 @@ https://github.com/ghinda/css-toggle-switch
     cursor: pointer;
     color: #333333;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-    background-color: whitesmoke;
-    background-image: -moz-linear-gradient(top, white, #e6e6e6);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6));
-    background-image: -webkit-linear-gradient(top, white, #e6e6e6);
-    background-image: -o-linear-gradient(top, white, #e6e6e6);
-    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    // background-color: whitesmoke;
+    // background-image: -moz-linear-gradient(top, white, #e6e6e6);
+    // background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6));
+    // background-image: -webkit-linear-gradient(top, white, #e6e6e6);
+    // background-image: -o-linear-gradient(top, white, #e6e6e6);
+    // background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#e3e3e3', GradientType=0);
     border-color: #e6e6e6 #e6e6e6 #bfbfbf;
@@ -258,14 +258,14 @@ https://github.com/ghinda/css-toggle-switch
 }
 .toggle input:checked ~ .slide-button {
     color: white;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    // text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #006ecc;
-    background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
-    background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
-    background-image: -o-linear-gradient(top, #0088cc, #0044cc);
-    background-image: linear-gradient(to bottom, #0088cc, #0044cc);
-    background-repeat: repeat-x;
+    // background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+    // background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+    // background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+    // background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+    // background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+    // background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0085c7', endColorstr='#0042c7', GradientType=0);
     border-color: #0044cc #0044cc #002a80;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -301,7 +301,7 @@ https://github.com/ghinda/css-toggle-switch
     &.disabled {
         a.slide-button {
             cursor: default;
-            background-image: none;
+            // background-image: none;
             background-color: #E6E6E6;
             @include opacity(0.65);
             @include box-shadow(none);
