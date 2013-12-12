@@ -3,9 +3,9 @@
   'use strict';
   var msgObj = {
     'info': 'alert-info',
-    'error': 'alert-error',
+    'error': 'alert-danger',
     'success': 'alert-success',
-    'warning': 'alert'
+    'warning': 'alert-warning'
   };
 
   function buildHtml(message) {

@@ -97,19 +97,21 @@
   }
 </pre>
 <h3>Field error</h3>
-<form name="myForm" ng-submit="save()">
-    <div class="form-group">
-        <label for="personName">Example for fied error</label>
-        <div class="col-md-3" style="float:none; padding:0;">
+<form name="myForm" class="form-inline" ng-submit="save()">
+       
+    <div class="form-group">         
+            <label class="form-label" for="personName">Example for fied error</label>  
             <input type="text" id="personName" class= "form-control" name="personName" ng-model="person.name" required style="margin-bottom:10px;">
-        </div>   
-        <span class="help-inline" field-error for="myForm.personName">显示错误信息</span>
+    </div>
+    <div class="form-group">        
+            <span class="help-inline" field-error for="myForm.personName">显示错误信息</span>
+    </div>
         <!-- <span ng-show="myForm.personName.$error.required">Required!</span>
         <span ng-show="myForm.personName.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span> -->
         <p>
             <input type="submit" class="btn btn-default" ng-disabled="!myForm.$valid" value="保存"/>
         </p>
-    </div>
+    
      
     
 </form>
@@ -273,6 +275,7 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?</p>
 </div>
+<hr>
 <pre class="prettyprint lineums">
 &lt;div slim-scroll slim-scroll-width=&quot;400&quot; slim-scroll-height=&quot;100&quot;&gt;
     &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?&lt;/p&gt;
@@ -378,11 +381,11 @@
 
 <h3>Label state</h3>
 <p>为<code>label</code>添加<code>label-state="这里文字为解释说明label的"</code></p>
-<form class="form-horizontal form-inline">
+<form class="form-horizontal">
     <fieldset>
         <div class="form-group">
-            <label class="control-label col-sm-5" label-state="这里输入提示信息">文字区域</label>
-            <div class="col-sm-7">
+            <label class="col-sm-2 control-label" label-state="这里输入提示信息">文字区域</label>
+            <div class="col-sm-4">
                 <input type="text" class="form-control input-sm" placeholder="文字">
             </div>
         </div>
@@ -465,18 +468,18 @@
     </div>
 </div>
 <pre class="prettyprint linenums">
-&lt;div class=&quot;cascade-list&quot; 
-     data=&quot;dptList&quot; 
-     ng-model=&quot;dpt.parentCode&quot;
-     name=&quot;parentCode&quot; 
-     parent=&quot;parentCode&quot; 
-     text=&quot;dptName&quot; 
-     path=&quot;dptPath&quot; 
-     value=&quot;dptCode&quot;
-     width=&quot;500px&quot;
-     height=&quot;150px&quot;
-&gt;
-&lt;/div&gt;
+    &lt;div class=&quot;cascade-list&quot; 
+         data=&quot;dptList&quot; 
+         ng-model=&quot;dpt.parentCode&quot;
+         name=&quot;parentCode&quot; 
+         parent=&quot;parentCode&quot; 
+         text=&quot;dptName&quot; 
+         path=&quot;dptPath&quot; 
+         value=&quot;dptCode&quot;
+         width=&quot;500px&quot;
+         height=&quot;150px&quot;
+    &gt;
+    &lt;/div&gt;
 </pre>
 <div class="well" ng-controller="cascadeListCtrl">
 $scope.dpt = {&quot;parentCode&quot;:&quot;14&quot;};<br>

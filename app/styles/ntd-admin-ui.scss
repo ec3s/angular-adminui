@@ -94,6 +94,8 @@ $footableDetailBgColor:  #eee;
   to {-webkit-transform:rotate(360deg);}
 }
 
+
+//field error
 // Custom styles
 @import "ntd-main";
 @import "ntd-table";
@@ -101,7 +103,7 @@ $footableDetailBgColor:  #eee;
 @import "ntd-login";
 @import "ntd-easy-pie-chart";
 @import "ntd-foo-table";
-// @import "ntd-404";
+@import "ntd-404";
 // @import "ntd-responsive";
 @import "ntd-toggle-switch";
 // 
