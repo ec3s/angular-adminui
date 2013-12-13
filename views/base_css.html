@@ -12,18 +12,18 @@
     <li>返回按钮，不许更改文字及位置， 要跳转到哪个页面通过 <code>tooltip</code>， 并延迟 500毫秒 来提示</li>
 </ul>
 <p class="page-action">
-    <button class="btn" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay="500"><i class="icon-arrow-left"></i></button>
-    <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
-    <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
-    <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+    <button class="btn btn-default" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay="500"><span class="glyphicon glyphicon-arrow-left"></span></button>
+    <button class="btn btn-default" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+    <button class="btn btn-default" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+    <button class="btn btn-default" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
     <button class="btn btn-primary" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">主要操作</button>
 </p>
 <pre class="prettyprint linenums">
 &lt;div class=&quot;page-action&quot;&gt;
-    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#36820;&#22238;&#26576;&#20010;&#39029;&#38754;&quot; tooltip-popup-delay='500'&gt;&lt;i class=&quot;icon-arrow-left&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
-    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
-    &lt;button class=&quot;btn&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
+    &lt;button class=&quot;btn btn-default&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#36820;&#22238;&#26576;&#20010;&#39029;&#38754;&quot; tooltip-popup-delay='500'&gt;&lt;i class=&quot;icon-arrow-left&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+    &lt;button class=&quot;btn btn-default&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
+    &lt;button class=&quot;btn btn-default&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
+    &lt;button class=&quot;btn btn-default&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#25805;&#20316;&lt;/button&gt;
     &lt;button class=&quot;btn btn-primary&quot; tooltip-placement=&quot;bottom&quot; tooltip=&quot;&#25353;&#38062;&#35299;&#37322;&#35828;&#26126;&quot; tooltip-popup-delay='500'&gt;&#20027;&#35201;&#25805;&#20316;&lt;/button&gt;
 &lt;/div&gt;
 </pre>
@@ -50,10 +50,10 @@
 <h3>page header 和 page action 组合应用</h3>
 <div class="page-header">
     <div class="page-action">
-        <button class="btn" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay="500"><i class="icon-arrow-left"></i></button>
-        <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
-        <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
-        <button class="btn" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+        <button class="btn btn-default" tooltip-placement="bottom" tooltip="返回某个页面" tooltip-popup-delay="500"><span class="glyphicon glyphicon-arrow-left"></span></button>
+        <button class="btn btn-default" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+        <button class="btn btn-default" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
+        <button class="btn btn-default" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">操作</button>
         <button class="btn btn-primary" tooltip-placement="bottom" tooltip="按钮解释说明" tooltip-popup-delay="500">主要操作</button>
     </div>
     <h1>
@@ -63,15 +63,15 @@
 </div>
 
 <h3>警告框</h3>
-<div class="alert">警告</div>
+<div class="alert alert-warning">警告</div>
 <pre class="prettyprint linenums">
-    &lt;div class=&quot;alert&quot;&gt;
+    &lt;div class=&quot;alert alert-warning&quot;&gt;
         ... ...
     &lt;/div&gt;
 </pre>
-<div class="alert alert-error">失败，错误, 危险</div>
+<div class="alert alert-danger">失败，错误, 危险</div>
 <pre class="prettyprint linenums">
-    &lt;div class=&quot;alert alert-error&quot;&gt;
+    &lt;div class=&quot;alert alert-danger&quot;&gt;
         ... ...
     &lt;/div&gt;
 </pre>
@@ -100,8 +100,8 @@
     </thead>
     <tbody>
         <tr>
-            <td><button type="button" class="btn">默认</button></td>
-            <td><code>btn</code></td>
+            <td><button type="button" class="btn btn-default">默认</button></td>
+            <td><code>btn btn-default</code></td>
             <td>带渐变的标准灰色按钮</td>
         </tr>
         <tr>
@@ -153,15 +153,15 @@
 &lt;/p&gt;
 </pre>
 <h3>强调类</h3>
-<p class="muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+<p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
 <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
-<p class="text-error">Donec ullamcorper nulla non metus auctor fringilla.</p>
+<p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
 <p class="text-info">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</p>
 <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
 <pre class="prettyprint linenums">
-    &lt;p class=&quot;muted&quot;&gt;Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.&lt;/p&gt;
+    &lt;p class=&quot;text-muted&quot;&gt;Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.&lt;/p&gt;
     &lt;p class=&quot;text-warning&quot;&gt;Etiam porta sem malesuada magna mollis euismod.&lt;/p&gt;
-    &lt;p class=&quot;text-error&quot;&gt;Donec ullamcorper nulla non metus auctor fringilla.&lt;/p&gt;
+    &lt;p class=&quot;text-danger&quot;&gt;Donec ullamcorper nulla non metus auctor fringilla.&lt;/p&gt;
     &lt;p class=&quot;text-info&quot;&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.&lt;/p&gt;
     &lt;p class=&quot;text-success&quot;&gt;Duis mollis, est non commodo luctus, nisi erat porttitor ligula.&lt;/p&gt;
 </pre>
@@ -183,7 +183,7 @@
     <div class="stacked-item" ng-controller="CollapseDemoCtrl">
         <div class="stacked-item-hd">
             <strong>test one</strong>
-            <button class="btn btn-mini pull-right" ng-click="isCollapsed = !isCollapsed">编辑</button>
+            <button class="btn btn-default btn-xs pull-right" ng-click="isCollapsed = !isCollapsed">编辑</button>
         </div>      
         <div class="stacked-item-bd" ng-show="isCollapsed">
             <table class="table-normal">
@@ -211,88 +211,88 @@
     <div class="stacked-item">
         <div class="stacked-item-hd">
             <strong>test one</strong>
-            <button class="btn btn-mini pull-right">编辑</button>
+            <button class="btn btn-default btn-xs pull-right">编辑</button>
         </div>      
     </div>
 </div>
 
 <h3>Box widget</h3>
-<div class="box">
-    <div class="box-hd">
-        <div class="opts">
-            <div class="btn-group">
-                <input type="button" class="btn btn-mini" value="添加">
-                <input type="button" class="btn btn-danger btn-mini" value="删除">
-            </div>
-        </div>
-        <h3>组件标题</h3>
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <h3 class="panel-title pull-left">组件标题</h3>
+    <div class="btn-group pull-right">
+      <input type="button" class="btn btn-default btn-xs" value="添加">
+      <input type="button" class="btn btn-danger btn-xs" value="删除">
     </div>
-    <div class="box-bd">
-        <div class="alert alert-block">
-            暂无任何信息
-        </div>
+  </div>
+  <div class="panel-body">
+    <div class="alert alert-warning">
+      暂无任何信息
     </div>
+  </div>
 </div>
 
 <h3>标签</h3>
-<table class="table-normal">
+<div class="table-responsive">
+  <table class="table-normal">
     <thead>
-        <tr>
-            <th>标签</th>
-            <th>标记</th>
-        </tr>
+      <tr>
+        <th>标签</th>
+        <th>标记</th>
+      </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>
-                <span class="label">默认样式</span>
-            </td>
-            <td>
-                <code>&lt;span class=&quot;label&quot;&gt;Default&lt;/span&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span class="label label-success">成功</span>
-            </td>
-            <td>
-                <code>&lt;span class=&quot;label label-success&quot;&gt;Success&lt;/span&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span class="label label-warning">警告</span>
-            </td>
-            <td>
-                <code>&lt;span class=&quot;label label-warning&quot;&gt;Warning&lt;/span&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span class="label label-important">重要</span>
-            </td>
-            <td>
-                <code>&lt;span class=&quot;label label-important&quot;&gt;Important&lt;/span&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span class="label label-info">信息</span>
-            </td>
-            <td>
-                <code>&lt;span class=&quot;label label-info&quot;&gt;Info&lt;/span&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span class="label label-inverse">反色</span>
-            </td>
-            <td>
-                <code>&lt;span class=&quot;label label-inverse&quot;&gt;Inverse&lt;/span&gt;</code>
-            </td>
-        </tr>
+    <tr>
+      <td>
+        <span class="label label-default">默认</span>
+      </td>
+      <td>
+        <code>&lt;span class=&quot;label label-default&quot;&gt;Default&lt;/span&gt;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="label label-success">成功</span>
+      </td>
+      <td>
+        <code>&lt;span class=&quot;label label-success&quot;&gt;Success&lt;/span&gt;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="label label-warning">警告</span>
+      </td>
+      <td>
+        <code>&lt;span class=&quot;label label-warning&quot;&gt;Warning&lt;/span&gt;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="label label-danger">重要</span>
+      </td>
+      <td>
+        <code>&lt;span class=&quot;label label-danger&quot;&gt;Important&lt;/span&gt;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="label label-info">信息</span>
+      </td>
+      <td>
+        <code>&lt;span class=&quot;label label-info&quot;&gt;Info&lt;/span&gt;</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="label label-primary">主要</span>
+      </td>
+      <td>
+        <code>&lt;span class=&quot;label label-primary&quot;&gt;Inverse&lt;/span&gt;</code>
+      </td>
+    </tr>
     </tbody>
-</table>
+  </table>
+</div>
 
 <h3>徽章</h3>
 <table class="table-normal">
@@ -305,7 +305,7 @@
     </thead>
     <tbody>
         <tr>
-            <td>默认样式</td>
+            <td>默认</td>
             <td>
                 <span class="badge">1</span>
             </td>
@@ -313,56 +313,11 @@
                 <code>&lt;span class=&quot;badge&quot;&gt;1&lt;/span&gt;</code>
             </td>
         </tr>
-        <tr>
-            <td>成功</td>
-            <td>
-                <span class="badge badge-success">2</span>
-            </td>
-            <td>
-                <code>&lt;span class=&quot;badge badge-success&quot;&gt;2&lt;/span&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>警告</td>
-            <td>
-                <span class="badge badge-warning">4</span>
-            </td>
-            <td>
-                <code>&lt;span class=&quot;badge badge-warning&quot;&gt;4&lt;/span&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>重要</td>
-            <td>
-                <span class="badge badge-important">6</span>
-            </td>
-            <td>
-                <code>&lt;span class=&quot;badge badge-important&quot;&gt;6&lt;/span&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>信息</td>
-            <td>
-                <span class="badge badge-info">8</span>
-            </td>
-            <td>
-                <code>&lt;span class=&quot;badge badge-info&quot;&gt;8&lt;/span&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>反色</td>
-            <td>
-                <span class="badge badge-inverse">10</span>
-            </td>
-            <td>
-                <code>&lt;span class=&quot;badge badge-inverse&quot;&gt;10&lt;/span&gt;</code>
-            </td>
-        </tr>
     </tbody>
 </table>
 
 <h3>Loading</h3>
 <p>
-    <img src="images/loading.gif">
-    <code>&lt;img src=&quot;images/loading.gif&quot; /&gt;</code>
+    <img src="../images/loading.gif">
+    <code>&lt;img src=&quot;../images/loading.gif&quot; /&gt;</code>
 </p>

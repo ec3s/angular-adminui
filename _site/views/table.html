@@ -2,36 +2,38 @@
     <h1>表格</h1>
 </div>
 <h3>Table param</h3>
-<table class="table table-bordered table-param">
+<div class="table-responsive">
+  <table class="table table-bordered table-param">
     <tr>
-        <th class="param-name">单据号：</th>
-        <td class="param-desc">sn_1609</td>
-        <th class="param-name">状态：</th>
-        <td class="param-desc">打包完毕</td>
+      <th class="param-name">单据号：</th>
+      <td class="param-desc">sn_1609</td>
+      <th class="param-name">状态：</th>
+      <td class="param-desc">打包完毕</td>
     </tr>
     <tr>
-        <th class="param-name">发货库房：</th>
-        <td class="param-desc">北京库房</td>
-        <th class="param-name">货主：</th>
-        <td class="param-desc">品利食品</td>
+      <th class="param-name">发货库房：</th>
+      <td class="param-desc">北京库房</td>
+      <th class="param-name">货主：</th>
+      <td class="param-desc">品利食品</td>
     </tr>
     <tr>
-        <th class="param-name">收件人姓名：</th>
-        <td class="param-desc">张先生</td>
-        <th class="param-name">收件人地址：</th>
-        <td class="param-desc">北京市 市辖区 东城区 建国门内大街恒基中心 B</td>
+      <th class="param-name">收件人姓名：</th>
+      <td class="param-desc">张先生</td>
+      <th class="param-name">收件人地址：</th>
+      <td class="param-desc">北京市 市辖区 东城区 建国门内大街恒基中心 B</td>
     </tr>
     <tr>
-        <th class="param-name">快递公司：</th>
-        <td class="param-desc">顺丰快递</td>
-        <th class="param-name">代收货款：</th>
-        <td class="param-desc">否</td>
+      <th class="param-name">快递公司：</th>
+      <td class="param-desc">顺丰快递</td>
+      <th class="param-name">代收货款：</th>
+      <td class="param-desc">否</td>
     </tr>
     <tr>
-        <th class="param-name">快递公司：</th>
-        <td class="param-desc-col3" colspan="3">顺丰快递</td>
+      <th class="param-name">快递公司：</th>
+      <td class="param-desc-col3" colspan="3">顺丰快递</td>
     </tr>
-</table>
+  </table>
+</div>
 <pre class="prettyprint linenums">
 &lt;table class=&quot;table table-bordered table-param&quot;&gt;
     &lt;tr&gt;
@@ -73,79 +75,81 @@
     日期在对应的 <code>th</code> 和 <code>td</code> 上增加 <code>.date</code>，
     操作在对应的 <code>th</code> 和 <code>td</code> 上增加 <code>.operation</code>
 </p>
-<table class="table-normal">
+<div class="table-responsive">
+  <table class="table-normal">
     <thead>
-        <tr>
-            <th>文字</th>
-            <th class="currency">钱</th>
-            <th class="number">数字</th>
-            <th class="date">日期</th>
-            <th class="operation">操作</th>
-        </tr>
+      <tr>
+        <th>文字</th>
+        <th class="currency">钱</th>
+        <th class="number">数字</th>
+        <th class="date">日期</th>
+        <th class="operation">操作</th>
+      </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>文字</td>
-            <td class="currency">￥200.00</td>
-            <td class="number">234234</td>
-            <td class="date">2013/07/07</td>
-            <td class="operation">
-                <a class="btn btn-small">编辑</a>
-                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
-                    删除
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>文字</td>
-            <td class="currency">￥200.00</td>
-            <td class="number">234234</td>
-            <td class="date">2013/07/07</td>
-            <td class="operation">
-                <a class="btn btn-small">编辑</a>
-                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
-                    删除
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>文字</td>
-            <td class="currency">￥200.00</td>
-            <td class="number">234234</td>
-            <td class="date">2013/07/07</td>
-            <td class="operation">
-                <a class="btn btn-small">编辑</a>
-                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
-                    删除
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>文字</td>
-            <td class="currency">￥200.00</td>
-            <td class="number">234234</td>
-            <td class="date">2013/07/07</td>
-            <td class="operation">
-                <a class="btn btn-small">编辑</a>
-                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
-                    删除
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>文字</td>
-            <td class="currency">￥200.00</td>
-            <td class="number">234234</td>
-            <td class="date">2013/07/07</td>
-            <td class="operation">
-                <a class="btn btn-small">编辑</a>
-                <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
-                    删除
-                </a>
-            </td>
-        </tr>
+    <tr>
+      <td>文字</td>
+      <td class="currency">￥200.00</td>
+      <td class="number">234234</td>
+      <td class="date">2013/07/07</td>
+      <td class="operation">
+        <a class="btn btn-default btn-sm">编辑</a>
+        <a class="btn btn-sm btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+          删除
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>文字</td>
+      <td class="currency">￥200.00</td>
+      <td class="number">234234</td>
+      <td class="date">2013/07/07</td>
+      <td class="operation">
+        <a class="btn btn-default btn-sm">编辑</a>
+        <a class="btn btn-sm btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+          删除
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>文字</td>
+      <td class="currency">￥200.00</td>
+      <td class="number">234234</td>
+      <td class="date">2013/07/07</td>
+      <td class="operation">
+        <a class="btn btn-default btn-sm">编辑</a>
+        <a class="btn btn-sm btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+          删除
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>文字</td>
+      <td class="currency">￥200.00</td>
+      <td class="number">234234</td>
+      <td class="date">2013/07/07</td>
+      <td class="operation">
+        <a class="btn btn-default btn-sm">编辑</a>
+        <a class="btn btn-sm btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+          删除
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>文字</td>
+      <td class="currency">￥200.00</td>
+      <td class="number">234234</td>
+      <td class="date">2013/07/07</td>
+      <td class="operation">
+        <a class="btn btn-default btn-sm">编辑</a>
+        <a class="btn btn-sm btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+          删除
+        </a>
+      </td>
+    </tr>
     </tbody>
-</table>
+  </table>
+</div>
 <pre class="prettyprint linenums">
 &lt;table class=&quot;table-normal&quot;&gt;
     &lt;thead&gt;
@@ -164,8 +168,8 @@
             &lt;td class=&quot;number&quot;&gt;234234&lt;/td&gt;
             &lt;td class=&quot;date&quot;&gt;2013/07/07&lt;/td&gt;
             &lt;td class=&quot;operation&quot;&gt;
-                &lt;a class=&quot;btn btn-small&quot;&gt;&#32534;&#36753;&lt;/a&gt;
-                &lt;a class=&quot;btn btn-small btn-danger&quot; confirm-button=&quot;talk('Hello, WegnerDesign!');&quot;&gt;
+                &lt;a class=&quot;btn btn-sm&quot;&gt;&#32534;&#36753;&lt;/a&gt;
+                &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk('Hello, WegnerDesign!');&quot;&gt;
                     &#21024;&#38500;
                 &lt;/a&gt;
             &lt;/td&gt;
@@ -216,8 +220,8 @@
                 <td class="number">123</td>
                 <td class="date">2013/06/01</td>
                 <td class="operation">
-                    <a class="btn btn-small">编辑</a>
-                    <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                    <a class="btn btn-default btn-sm">编辑</a>
+                    <a class="btn btn-sm btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
                         删除
                     </a>
                 </td>
@@ -231,8 +235,8 @@
                 <td class="number">123</td>
                 <td class="date">2013/06/01</td>
                 <td class="operation">
-                    <a class="btn btn-small">编辑</a>
-                    <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                    <a class="btn btn-default btn-sm">编辑</a>
+                    <a class="btn btn-sm btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
                         删除
                     </a>
                 </td>
@@ -246,8 +250,8 @@
                 <td class="number">123</td>
                 <td class="date">2013/06/01</td>
                 <td class="operation">
-                    <a class="btn btn-small">编辑</a>
-                    <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                    <a class="btn btn-default btn-sm">编辑</a>
+                    <a class="btn btn-sm btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
                         删除
                     </a>
                 </td>
@@ -261,8 +265,8 @@
                 <td class="number">123</td>
                 <td class="date">2013/06/01</td>
                 <td class="operation">
-                    <a class="btn btn-small">编辑</a>
-                    <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                    <a class="btn btn-default btn-sm">编辑</a>
+                    <a class="btn btn-sm btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
                         删除
                     </a>
                 </td>
@@ -276,8 +280,8 @@
                 <td class="number">123</td>
                 <td class="date">2013/06/01</td>
                 <td class="operation">
-                    <a class="btn btn-small">编辑</a>
-                    <a class="btn btn-small btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
+                    <a class="btn btn-default btn-sm">编辑</a>
+                    <a class="btn btn-sm btn-danger" confirm-button="talk('Hello, WegnerDesign!');">
                         删除
                     </a>
                 </td>
@@ -285,29 +289,27 @@
         </tbody>
     </table>
 
-    <div class="table-widget-footer row-fluid">
+    <div class="table-widget-footer">
         <div class="pull-left">
             <div class="operation">
                 <button class="btn btn-danger">删除</button>
                 <div class="btn-group">
-                    <button class="btn">操作</button>
-                    <button class="btn">操作</button>
-                    <button class="btn">操作</button>
+                    <button class="btn btn-default">操作</button>
+                    <button class="btn btn-default">操作</button>
+                    <button class="btn btn-default">操作</button>
                 </div>
             </div>
         </div>
         <div class="pull-right">
-            <div class="pagination">
-                <ul>
-                    <li><a href="#">«</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
-                </ul>
-            </div>
+          <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+          </ul>
         </div>
     </div>
 </div>
@@ -343,8 +345,8 @@
                 &lt;td class=&quot;number&quot;&gt;123&lt;/td&gt;
                 &lt;td class=&quot;date&quot;&gt;2013/06/01&lt;/td&gt;
                 &lt;td class=&quot;operation&quot;&gt;
-                    &lt;a class=&quot;btn btn-small&quot;&gt;&#32534;&#36753;&lt;/a&gt;
-                    &lt;a class=&quot;btn btn-small btn-danger&quot; confirm-button=&quot;talk('Hello, WegnerDesign!');&quot;&gt;
+                    &lt;a class=&quot;btn btn-sm&quot;&gt;&#32534;&#36753;&lt;/a&gt;
+                    &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk('Hello, WegnerDesign!');&quot;&gt;
                         &#21024;&#38500;
                     &lt;/a&gt;
                 &lt;/td&gt;
@@ -358,9 +360,9 @@
             &lt;div class=&quot;operation&quot;&gt;
                 &lt;button class=&quot;btn btn-danger&quot;&gt;&#21024;&#38500;&lt;/button&gt;
                 &lt;div class=&quot;btn-group&quot;&gt;
-                    &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-                    &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-                    &lt;button class=&quot;btn&quot;&gt;&#25805;&#20316;&lt;/button&gt;
+                    &lt;button class=&quot;btn btn-default&quot;&gt;&#25805;&#20316;&lt;/button&gt;
+                    &lt;button class=&quot;btn btn-default&quot;&gt;&#25805;&#20316;&lt;/button&gt;
+                    &lt;button class=&quot;btn btn-default&quot;&gt;&#25805;&#20316;&lt;/button&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
