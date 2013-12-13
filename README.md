@@ -1,2 +1,2 @@
 ## admin ui 
-www.adminui.tk
+http://ec3s.github.io/angular-adminui/
