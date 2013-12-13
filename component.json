@@ -20,7 +20,8 @@
     "d3": "~3.1.5",
     "footable": "~0.5.0",
     "chosen": "https://github.com/harvesthq/chosen/releases/download/0.13.0/chosen_v0.13.0.zip",
-    "angular-route":"*"  
+    "angular-route":"*",
+    "angular-ui-bootstrap3":"*"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",
