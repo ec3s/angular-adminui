@@ -94,6 +94,12 @@ $footableDetailBgColor:  #eee;
   to {-webkit-transform:rotate(360deg);}
 }
 
+//fix colloapse css
+.collapse{
+  display: block;
+  overflow: hidden;
+  height: auto;
+}
 
 //field error
 // Custom styles
