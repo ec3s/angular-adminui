@@ -777,11 +777,11 @@ adminuiApp.controller('TabsDemoCtrl', [
   function ($scope, $timeout, flashMessage) {
     var queue = [
         {
-          state: 'warn',
+          state: 'warning',
           info: 'warn message'
         },
         {
-          state: 'error',
+          state: 'danger',
           info: 'error message'
         }
       ];
