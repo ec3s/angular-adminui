@@ -26,9 +26,9 @@
       },
       template: '<div class="tag-input-container">' +
       '<ul data-ng-class="{true: \'focus\'}[isFocus]">' +
-      '<li class="tag" data-ng-repeat="tag in tags">' +
+      '<li class="tag btn btn-default btn-sm" data-ng-repeat="tag in tags">' +
       '<span>{{tag}}</span>' +
-      '<i data-ng-click="remove($index)" class="icon-remove"></i>' +
+      '<span data-ng-click="remove($index)" class="glyphicon glyphicon-remove"></span>' +
       '</li>' +
       '<li class="input-li">' +
       '<input id="{{id}}" class="form-control" data-ng-model="tagInput"' +
