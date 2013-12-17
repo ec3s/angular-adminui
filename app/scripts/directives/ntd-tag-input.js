@@ -80,6 +80,17 @@
 
         elem.find('input').bind('blur', function() {
           scope.isFocus = false;
+          var oldValue = $(this).val()
+          if (oldValue) {
+            var index = indexOf(scope.tags, oldValue);
+            if (!unique || index === -1) {
+              scope.tags.push(oldValue);
+            } else {
+              angular.element(elem.find('li')[index])
+              .fadeTo('fast', 0.2).fadeTo('fast', 1);
+            }
+          }
+          scope.tagInput = '';
           scope.$apply();
         });
 
