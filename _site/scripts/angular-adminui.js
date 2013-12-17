@@ -936,7 +936,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
         placeholder: '@',
         id: '@'
       },
-      template: '<div class="tag-input-container">' + '<ul data-ng-class="{true: \'focus\'}[isFocus]">' + '<li class="tag" data-ng-repeat="tag in tags">' + '<span>{{tag}}</span>' + '<i data-ng-click="remove($index)" class="icon-remove"></i>' + '</li>' + '<li class="input-li">' + '<input id="{{id}}" class="form-control" data-ng-model="tagInput"' + ' placeholder="{{placeholder}}" type="text" autocomplete="false" />' + '</li>' + '</ul>' + '</div>',
+      template: '<div class="tag-input-container">' + '<ul data-ng-class="{true: \'focus\'}[isFocus]">' + '<li class="tag" data-ng-repeat="tag in tags">' + '<span>{{tag}}</span>' + '<i data-ng-click="remove($index)" class="ico-remove"></i>' + '</li>' + '<li class="input-li">' + '<input id="{{id}}" class="form-control input-sm" data-ng-model="tagInput"' + ' placeholder="{{placeholder}}" type="text" autocomplete="false" />' + '</li>' + '</ul>' + '</div>',
       link: function (scope, elem, attrs) {
         var placeholder = attrs.placeholder;
         var caseSensitive = attrs.caseSensitive || false;
