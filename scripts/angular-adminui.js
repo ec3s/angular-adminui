@@ -824,13 +824,15 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
           chosen.search_field.bind('keyup', function (e) {
             if (chosen && chosen.results_showing) {
               searchTxt.$search = chosen.get_search_text();
-              if (oldSearch != searchTxt.$search) {
-                oldSearch = searchTxt.$search;
-                chosenEl.trigger('liszt:load_data', {
-                  onSearch: onSearch,
-                  optionsModelName: optionsModelName
-                });
-              }
+              delay(function () {
+                if (oldSearch != searchTxt.$search) {
+                  oldSearch = searchTxt.$search;
+                  chosenEl.trigger('liszt:load_data', {
+                    onSearch: onSearch,
+                    optionsModelName: optionsModelName
+                  });
+                }
+              }, 500);
             }
           });
         }
@@ -925,6 +927,13 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
     Linkage
   ]);
 }(angular.module('ntd.directives'), angular));
+var delay = function () {
+    var timer = 0;
+    return function (callback, ms) {
+      clearTimeout(timer);
+      timer = setTimeout(callback, ms);
+    };
+  }();
 (function () {
   'use strict';
   function tagInputDirective() {
@@ -971,6 +980,16 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
         });
         elem.find('input').bind('blur', function () {
           scope.isFocus = false;
+          var oldValue = $(this).val();
+          if (oldValue) {
+            var index = indexOf(scope.tags, oldValue);
+            if (!unique || index === -1) {
+              scope.tags.push(oldValue);
+            } else {
+              angular.element(elem.find('li')[index]).fadeTo('fast', 0.2).fadeTo('fast', 1);
+            }
+          }
+          scope.tagInput = '';
           scope.$apply();
         });
         elem.bind('click', function () {
