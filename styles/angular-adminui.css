@@ -9242,8 +9242,8 @@ https://github.com/ghinda/css-toggle-switch
   /* line 259, ../../app/styles/ntd-toggle-switch.scss */
   .toggle input:checked ~ .slide-button {
     color: white;
-    background-color: #006ecc;
-    border-color: #0044cc;
+    background-color: #428bca;
+    border-color: #357ebd;
     right: 50%;
   }
 
