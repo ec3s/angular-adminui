@@ -59,6 +59,10 @@ adminuiApp
         templateUrl: 'views/test.html',
         controller: 'MainCtrl'
       })
+      .when('/update_guide', {
+        templateUrl: 'views/update_guide.html',
+        controller: 'MainCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
