@@ -238,13 +238,15 @@
           chosen.search_field.bind('keyup', function(e) {
             if (chosen && chosen.results_showing) {
               searchTxt.$search = chosen.get_search_text();
-              if (oldSearch != searchTxt.$search) {
-                oldSearch = searchTxt.$search;
-                chosenEl.trigger('liszt:load_data', {
-                  onSearch: onSearch,
-                  optionsModelName: optionsModelName
-                });
-              }
+              $timeout(function(){
+                  if (oldSearch != searchTxt.$search) {
+                    oldSearch = searchTxt.$search;
+                    chosenEl.trigger('liszt:load_data', {
+                      onSearch: onSearch,
+                      optionsModelName: optionsModelName
+                    });
+                  }
+              },500);            
             }
           });
         }
