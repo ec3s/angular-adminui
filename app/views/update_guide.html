@@ -55,6 +55,10 @@
             <td><code>.glyphicon .glyphicon-*</code></td>
           </tr>
           <tr>
+            <td><code>.icon-inbox .icon-white</code></td>
+            <td><code>.glyphicon .glyphicon-inbox</code></td>
+          </tr>          
+          <tr>
             <td><code>.btn</code></td>
             <td><code>.btn .btn-default</code></td>
           </tr>
@@ -151,6 +155,10 @@
             <td><code>.label-danger</code></td>
           </tr>
           <tr>
+            <td><code>.label-inverse</code></td>
+            <td><code>.label-primary</code></td>
+          </tr>          
+          <tr>
             <td><code>.text-error</code></td>
             <td><code>.text-danger</code></td>
           </tr>
@@ -185,120 +193,6 @@
           <tr>
             <td><code>.accordion-inner</code></td>
             <td><code>.panel-body</code></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <h3 id="migration-new">新增class</h3>
-    <p>我们新增了一些页面元素，同时也对一些原有的元素进行了修改。下面列出了新增或更新之后的样式表。</p>
-    <div class="table-responsive">
-      <table class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>页面元素</th>
-            <th>描述</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Panels</td>
-            <td><code>.panel .panel-default</code> <code>.panel-body</code> <code>.panel-title</code> <code>.panel-heading</code> <code>.panel-footer</code> <code>.panel-collapse</code></td>
-          </tr>
-          <tr>
-            <td>List groups</td>
-            <td><code>.list-group</code> <code>.list-group-item</code> <code>.list-group-item-text</code> <code>.list-group-item-heading</code></td>
-          </tr>
-          <tr>
-            <td>Glyphicons</td>
-            <td><code>.glyphicon</code></td>
-          </tr>
-          <tr>
-            <td>Jumbotron</td>
-            <td><code>.jumbotron</code></td>
-          </tr>
-          <tr>
-            <td>Extra small grid (&lt;768px)</td>
-            <td><code>.col-xs-*</code></td>
-          </tr>
-          <tr>
-            <td>Small grid (≥768px)</td>
-            <td><code>.col-sm-*</code></td>
-          </tr>
-          <tr>
-            <td>Medium grid (≥992px)</td>
-            <td><code>.col-md-*</code></td>
-          </tr>
-          <tr>
-            <td>Large grid (≥1200px)</td>
-            <td><code>.col-lg-*</code></td>
-          </tr>
-          <tr>
-            <td>Responsive utility classes (≥1200px)</td>
-            <td><code>.visible-lg</code> <code>.hidden-lg</code></td>
-          </tr>
-          <tr>
-            <td>Offsets</td>
-            <td><code>.col-sm-offset-*</code> <code>.col-md-offset-*</code> <code>.col-lg-offset-*</code></td>
-          </tr>
-          <tr>
-            <td>Push</td>
-            <td><code>.col-sm-push-*</code> <code>.col-md-push-*</code> <code>.col-lg-push-*</code></td>
-          </tr>
-          <tr>
-            <td>Pull</td>
-            <td><code>.col-sm-pull-*</code> <code>.col-md-pull-*</code> <code>.col-lg-pull-*</code></td>
-          </tr>
-          <tr>
-            <td>Input groups</td>
-            <td><code>.input-group</code> <code>.input-group-addon</code> <code>.input-group-btn</code></td>
-          </tr>
-          <tr>
-            <td>Form controls</td>
-            <td><code>.form-control</code> <code>.form-group</code></td>
-          </tr>
-          <tr>
-            <td>Button group sizes</td>
-            <td><code>.btn-group-xs</code> <code>.btn-group-sm</code> <code>.btn-group-lg</code></td>
-          </tr>
-          <tr>
-            <td>Navbar text</td>
-            <td><code>.navbar-text</code></td>
-          </tr>
-          <tr>
-            <td>Navbar header</td>
-            <td><code>.navbar-header</code></td>
-          </tr>
-          <tr>
-            <td>Justified tabs / pills</td>
-            <td><code>.nav-justified</code></td>
-          </tr>
-          <tr>
-            <td>Responsive images</td>
-            <td><code>.img-responsive</code></td>
-          </tr>
-          <tr>
-            <td>Contextual table rows</td>
-            <td><code>.success</code> <code>.danger</code> <code>.warning</code> <code>.active</code></td>
-          </tr>
-          <tr>
-            <td>Contextual panels</td>
-            <td><code>.panel-success</code> <code>.panel-danger</code> <code>.panel-warning</code> <code>.panel-info</code></td>
-          </tr>
-          <tr>
-            <td>Modal</td>
-            <td><code>.modal-dialog</code> <code>.modal-content</code></td>
-          </tr>
-          <tr>
-            <td>Thumbnail image</td>
-            <td><code>.img-thumbnail</code></td>
-          </tr>
-          <tr>
-            <td>Well sizes</td>
-            <td><code>.well-sm</code> <code>.well-lg</code></td>
-          </tr>
-          <tr>
-            <td>Alert links</td>
-            <td><code>.alert-link</code></td>
           </tr>
         </tbody>
       </table>
@@ -435,31 +329,31 @@ below should still apply, but you may want to consult the
 
 <ul class="nav nav-list">
   <li class="nav-header">Summary of Breaking Changes</li>
-  <li><a href="update_guide/#ngroute-has-been-moved-into-its-own-module">ngRoute has been moved into its own module</a></li>
-  <li><a href="update_guide/#templates-no-longer-automatically-unwrap-promises">Templates no longer automatically unwrap promises</a></li>
-  <li><a href="update_guide/#syntax-for-named-wildcard-parameters-changed-in">Syntax for named wildcard parameters changed in <code>$route</code></a></li>
-  <li><a href="update_guide/#you-can-only-bind-one-expression-to">You can only bind one expression to <code><em>[src]</em></code><em> or <code></code></em><code>[ng-src]</code></a></li>
-  <li><a href="update_guide/#interpolations-inside-dom-event-handlers-are-now-disallowed">Interpolations inside DOM event handlers are now disallowed</a></li>
-  <li><a href="update_guide/#directives-cannot-end-with--start-or--end">Directives cannot end with -start or -end</a></li>
-  <li><a href="update_guide/#in-$q,-promisealways-has-been-renamed-promisefinally">In $q, promise.always has been renamed promise.finally</a></li>
-  <li><a href="update_guide/#ngmobile-is-now-ngtouch">ngMobile is now ngTouch</a></li>
-  <li><a href="update_guide/#resource$then-has-been-removed">resource.$then has been removed</a></li>
-  <li><a href="update_guide/#resource-methods-return-the-promise">Resource methods return the promise</a></li>
-  <li><a href="update_guide/#resource-promises-are-resolved-with-the-resource-instance">Resource promises are resolved with the resource instance</a></li>
-  <li><a href="update_guide/#$locationsearch-supports-multiple-keys">$location.search supports multiple keys</a></li>
-  <li><a href="update_guide/#ngbindhtmlunsafe-has-been-removed-and-replaced-by-ngbindhtml">ngBindHtmlUnsafe has been removed and replaced by ngBindHtml</a></li>
-  <li><a href="update_guide/#form-names-that-are-expressions-are-evaluated">Form names that are expressions are evaluated</a></li>
-  <li><a href="update_guide/#hasownproperty-disallowed-as-an-input-name">hasOwnProperty disallowed as an input name</a></li>
-  <li><a href="update_guide/#directives-order-of-postlink-functions-reversed">Directives: Order of postLink functions reversed</a></li>
-  <li><a href="update_guide/#directive-priority">Directive priority</a></li>
-  <li><a href="update_guide/#ngscenario">ngScenario</a></li>
-  <li><a href="update_guide/#nginclude-and-ngview-replace-its-entire-element-on-update">ngInclude and ngView replace its entire element on update</a></li>
-  <li><a href="update_guide/#urls-are-now-sanitized-against-a-whitelist">URLs are now sanitized against a whitelist</a></li>
-  <li><a href="update_guide/#isolate-scope-only-exposed-to-directives-with-property">Isolate scope only exposed to directives with <code>scope</code> property</a></li>
-  <li><a href="update_guide/#change-to-interpolation-priority">Change to interpolation priority</a></li>
-  <li><a href="update_guide/#underscore-prefixed/suffixed-properties-are-non-bindable">Underscore-prefixed/suffixed properties are non-bindable</a></li>
-  <li><a href="update_guide/#you-cannot-bind-to-select[multiple]">You cannot bind to select[multiple]</a></li>
-  <li><a href="update_guide/#uncommon-region-specific-local-files-were-removed-from-i18n">Uncommon region-specific local files were removed from i18n</a></li>
+  <li><a href="#/update_guide/#ngroute-has-been-moved-into-its-own-module">ngRoute has been moved into its own module</a></li>
+  <li><a href="#/update_guide/#templates-no-longer-automatically-unwrap-promises">Templates no longer automatically unwrap promises</a></li>
+  <li><a href="#/update_guide/#syntax-for-named-wildcard-parameters-changed-in">Syntax for named wildcard parameters changed in <code>$route</code></a></li>
+  <li><a href="#/update_guide/#you-can-only-bind-one-expression-to">You can only bind one expression to <code><em>[src]</em></code><em> or <code></code></em><code>[ng-src]</code></a></li>
+  <li><a href="#/update_guide/#interpolations-inside-dom-event-handlers-are-now-disallowed">Interpolations inside DOM event handlers are now disallowed</a></li>
+  <li><a href="#/update_guide/#directives-cannot-end-with--start-or--end">Directives cannot end with -start or -end</a></li>
+  <li><a href="#/update_guide/#in-$q,-promisealways-has-been-renamed-promisefinally">In $q, promise.always has been renamed promise.finally</a></li>
+  <li><a href="#/update_guide/#ngmobile-is-now-ngtouch">ngMobile is now ngTouch</a></li>
+  <li><a href="#/update_guide/#resource$then-has-been-removed">resource.$then has been removed</a></li>
+  <li><a href="#/update_guide/#resource-methods-return-the-promise">Resource methods return the promise</a></li>
+  <li><a href="#/update_guide/#resource-promises-are-resolved-with-the-resource-instance">Resource promises are resolved with the resource instance</a></li>
+  <li><a href="#/update_guide/#$locationsearch-supports-multiple-keys">$location.search supports multiple keys</a></li>
+  <li><a href="#/update_guide/#ngbindhtmlunsafe-has-been-removed-and-replaced-by-ngbindhtml">ngBindHtmlUnsafe has been removed and replaced by ngBindHtml</a></li>
+  <li><a href="#/update_guide/#form-names-that-are-expressions-are-evaluated">Form names that are expressions are evaluated</a></li>
+  <li><a href="#/update_guide/#hasownproperty-disallowed-as-an-input-name">hasOwnProperty disallowed as an input name</a></li>
+  <li><a href="#/update_guide/#directives-order-of-postlink-functions-reversed">Directives: Order of postLink functions reversed</a></li>
+  <li><a href="#/update_guide/#directive-priority">Directive priority</a></li>
+  <li><a href="#/update_guide/#ngscenario">ngScenario</a></li>
+  <li><a href="#/update_guide/#nginclude-and-ngview-replace-its-entire-element-on-update">ngInclude and ngView replace its entire element on update</a></li>
+  <li><a href="#/update_guide/#urls-are-now-sanitized-against-a-whitelist">URLs are now sanitized against a whitelist</a></li>
+  <li><a href="#/update_guide/#isolate-scope-only-exposed-to-directives-with-property">Isolate scope only exposed to directives with <code>scope</code> property</a></li>
+  <li><a href="#/update_guide/#change-to-interpolation-priority">Change to interpolation priority</a></li>
+  <li><a href="#/update_guide/#underscore-prefixed/suffixed-properties-are-non-bindable">Underscore-prefixed/suffixed properties are non-bindable</a></li>
+  <li><a href="#/update_guide/#you-cannot-bind-to-select[multiple]">You cannot bind to select[multiple]</a></li>
+  <li><a href="#/update_guide/#uncommon-region-specific-local-files-were-removed-from-i18n">Uncommon region-specific local files were removed from i18n</a></li>
 </ul>
 
 
