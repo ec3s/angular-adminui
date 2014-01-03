@@ -1,16 +1,14 @@
-<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner" ng-controller="MainCtrl">
-        <div class="container">
-            <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="../" class="navbar-brand">EC3S ADMIN UI</a>
-            </div>
-            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                <ul class="nav navbar-nav">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">EC3S ADMIN UI</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle">
                             CRM
@@ -50,12 +48,11 @@
                         </ul>
                     </li>
                 </ul>
-
-                <ul class="nav navbar-nav pull-right">
+                <ul class="nav pull-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <span class="badge badge-important">10</span>
-                            <i class="glyphicon glyphicon-inbox"></i>
+                            <i class="icon-inbox icon-white"></i>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -84,7 +81,7 @@
                     </li>
                     <li>
                         <a toggle-submenu="">
-                            <i class="glyphicon glyphicon-list"></i>
+                            <i class="icon-list icon-white"></i>
                         </a>
                     </li>
                     <li class="dropdown">
@@ -99,19 +96,20 @@
                             <li class="divider"></li>
                             <li>
                                 <a href="#">
-                                    <i class="glyphicon glyphicon-lock"></i>
+                                    <i class="icon-lock"></i>
                                     修改密码
                                 </a>
                             </li>
                             <li>
                                 <a href="login.html">
-                                    <i class="glyphicon glyphicon-off"></i>
+                                    <i class="icon-off"></i>
                                     退出
                                 </a>
                             </li>
                         </ul>  
                     </li>
                 </ul>
-            </nav>
+            </div><!--/.nav-collapse -->
         </div>
-    </header>
+    </div>
+</div>

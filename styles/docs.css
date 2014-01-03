@@ -98,7 +98,7 @@
 /* Specify class=linenums on a pre to get line numbering */
 /* line 22, ../../app/styles/prettify.scss */
 ol.linenums {
-  margin: 0 0 0 0 !important;
+  margin: 0 0 0 33px;
   /* IE indents via margin-left */
 }
 

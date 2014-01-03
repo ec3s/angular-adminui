@@ -859,7 +859,7 @@
   display: block;
   width: 12px;
   height: 12px;
-  background: url('../images/chosen-sprite.png') -42px 1px no-repeat;
+  background: url('../../images/chosen-sprite.png') -42px 1px no-repeat;
   font-size: 1px;
 }
 .chzn-container-multi .chzn-choices li.search-choice .search-choice-close:hover {

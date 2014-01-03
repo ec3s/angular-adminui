@@ -1,6 +1,5 @@
 'use strict';
 var adminuiApp = angular.module('adminuiApp', [
-    'ngRoute',
     'ntd.services',
     'ntd.directives',
     'ui.bootstrap',
@@ -264,13 +263,13 @@ adminuiApp.controller('TabsDemoCtrl', [
 ]).controller('PaginationDemoCtrl', [
   '$scope',
   function ($scope) {
-    $scope.totalItems = 64;
+    $scope.noOfPages = 7;
     $scope.currentPage = 4;
     $scope.maxSize = 5;
     $scope.setPage = function (pageNo) {
       $scope.currentPage = pageNo;
     };
-    $scope.bigTotalItems = 175;
+    $scope.bigNoOfPages = 18;
     $scope.bigCurrentPage = 1;
   }
 ]).controller('CollapseDemoCtrl', [
@@ -307,11 +306,11 @@ adminuiApp.controller('TabsDemoCtrl', [
   function ($scope) {
     $scope.alerts = [
       {
-        type: 'warning',
+        type: 'alert',
         msg: '\u8b66\u544a'
       },
       {
-        type: 'danger',
+        type: 'error',
         msg: '\u5931\u8d25\uff0c\u9519\u8bef, \u5371\u9669'
       },
       {
@@ -341,6 +340,55 @@ adminuiApp.controller('TabsDemoCtrl', [
       right: false
     };
   }
+]).controller('DialogDemoCtrl', [
+  '$scope',
+  '$dialog',
+  function ($scope, $dialog) {
+    var t = '<div class="modal-header">' + '<h1>This is the title</h1>' + '</div>' + '<div class="modal-body">' + '<p>Enter a value to pass to <code>close</code> as the result: <input ng-model="result" /></p>' + '</div>' + '<div class="modal-footer">' + '<button ng-click="close(result)"" class="btn btn-primary" >Close</button>' + '</div>';
+    $scope.opts = {
+      backdrop: true,
+      keyboard: true,
+      backdropClick: true,
+      template: t,
+      controller: 'TestDialogController'
+    };
+    $scope.openDialog = function () {
+      var d = $dialog.dialog($scope.opts);
+      d.open().then(function (result) {
+        if (result) {
+          alert('dialog closed with result: ' + result);
+        }
+      });
+    };
+    $scope.openMessageBox = function () {
+      var title = 'This is a message box';
+      var msg = 'This is the content of the message box';
+      var btns = [
+          {
+            result: 'cancel',
+            label: 'Cancel'
+          },
+          {
+            result: 'ok',
+            label: 'OK',
+            cssClass: 'btn-primary'
+          }
+        ];
+      $dialog.messageBox(title, msg, btns).open().then(function (result) {
+        if (result) {
+          alert('dialog closed with result: ' + result);
+        }
+      });
+    };
+  }
+]).controller('TestDialogController', [
+  '$scope',
+  'dialog',
+  function ($scope, dialog) {
+    $scope.close = function (result) {
+      dialog.close(result);
+    };
+  }
 ]).controller('DropdownCtrl', [
   '$scope',
   function ($scope) {
@@ -349,6 +397,25 @@ adminuiApp.controller('TabsDemoCtrl', [
       'And another choice for you.',
       'but wait! A third!'
     ];
+  }
+]).controller('ModalDemoCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.open = function () {
+      $scope.shouldBeOpen = true;
+    };
+    $scope.close = function () {
+      $scope.closeMsg = 'I was closed at: ' + new Date();
+      $scope.shouldBeOpen = false;
+    };
+    $scope.items = [
+      'item1',
+      'item2'
+    ];
+    $scope.opts = {
+      backdropFade: true,
+      dialogFade: true
+    };
   }
 ]).controller('TooltipDemoCtrl', [
   '$scope',
@@ -777,11 +844,11 @@ adminuiApp.controller('TabsDemoCtrl', [
   function ($scope, $timeout, flashMessage) {
     var queue = [
         {
-          state: 'warning',
+          state: 'warn',
           info: 'warn message'
         },
         {
-          state: 'danger',
+          state: 'error',
           info: 'error message'
         }
       ];
@@ -791,37 +858,3 @@ adminuiApp.controller('TabsDemoCtrl', [
   }
 ]);
 ;
-var ModalDemoCtrl = function ($scope, $modal, $log) {
-  var t = '<div class="modal-header">' + '<h3>' + 'I\'m a modal!' + '</h3>' + '</div>' + '<div class="modal-body">' + '<ul>' + '<li ng-repeat="item in items">' + '<a ng-click="selected.item = item">' + '{{ item }}' + '</a>' + '</li>' + '</ul>' + 'Selected:' + '<b>' + '{{ selected.item }}' + '</b>' + '</div>' + '<div class="modal-footer">' + '<button class="btn btn-primary" ng-click="ok()">' + 'OK' + '</button>' + '<button class="btn btn-warning" ng-click="cancel()">' + 'Cancel' + '</button>' + '</div>';
-  $scope.items = [
-    'item1',
-    'item2',
-    'item3'
-  ];
-  $scope.open = function () {
-    var modalInstance = $modal.open({
-        template: t,
-        controller: ModalInstanceCtrl,
-        resolve: {
-          items: function () {
-            return $scope.items;
-          }
-        }
-      });
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
-  };
-};
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
-  $scope.items = items;
-  $scope.selected = { item: $scope.items[0] };
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
-  };
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-};

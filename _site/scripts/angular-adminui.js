@@ -34,7 +34,7 @@ angular.module('ntd.config', []).value('$ntdConfig', {});
 angular.module('ntd.directives', ['ntd.config']);
 (function () {
   'use strict';
-  var fieldsets, showFilterBtn, primaryFieldset, secondaryFieldset, template = '<div class="advance-search-filter">' + '<div ng-transclude></div>' + '<div class="more">' + '<a data-class="J_toggleShowFilterBtn">' + '<i class="glyphicon glyphicon-chevron-down"></i>' + '</a>' + '</div>' + '</div>';
+  var fieldsets, showFilterBtn, primaryFieldset, secondaryFieldset, template = '<div class="advance-search-filter">' + '<div ng-transclude></div>' + '<div class="more">' + '<a data-class="J_toggleShowFilterBtn">' + '<i class="icon-chevron-down"></i>' + '</a>' + '</div>' + '</div>';
   function initAdvanceFilter(elem, attrs) {
     $(':submit', elem).clone().appendTo(primaryFieldset);
     primaryFieldset.addClass('skeleton');
@@ -93,7 +93,7 @@ angular.module('ntd.directives', ['ntd.config']);
         nope = attrs.no || '\u53d6\u6d88';
         title = attrs.title || '\u786e\u8ba4\u5220\u9664?';
         pos = attrs.position || 'top';
-        html = '<div id="button-' + buttonId + '">' + '<p ng-show="test" class="confirmbutton-msg">' + message + '</p>' + '<button type="button" class="confirmbutton-yes btn btn-primary">' + yep + '</button>\n' + '<button type="button" class="confirmbutton-no btn btn-default">' + nope + '</button>' + '</div>';
+        html = '<div id="button-' + buttonId + '">' + '<p ng-show="test" class="confirmbutton-msg">' + message + '</p>' + '<button type="button" class="confirmbutton-yes btn btn-primary">' + yep + '</button>\n' + '<button type="button" class="confirmbutton-no btn">' + nope + '</button>' + '</div>';
         element.popover({
           content: html,
           html: true,
@@ -144,78 +144,178 @@ angular.module('ntd.directives', ['ntd.config']);
     confirmButtonDirective
   ]);
 }());
-function DatepickerDemoCtrl($scope, $timeout) {
-  $scope.today = function () {
-    $scope.dt = new Date();
-  };
-  $scope.today();
-  $scope.showWeeks = true;
-  $scope.toggleWeeks = function () {
-    $scope.showWeeks = !$scope.showWeeks;
-  };
-  $scope.clear = function () {
-    $scope.dt = null;
-  };
-  $scope.disabled = function (date, mode) {
-    return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-  };
-  $scope.toggleMin = function () {
-    $scope.minDate = $scope.minDate ? null : new Date();
-  };
-  $scope.toggleMin();
-  $scope.open = function () {
-    $timeout(function () {
-      $scope.opened = true;
-    });
-  };
-  $scope.dateOptions = {
-    'year-format': '\'yy\'',
-    'starting-day': 1
-  };
-  $scope.formats = [
-    'dd-MMMM-yyyy',
-    'yyyy/MM/dd',
-    'shortDate'
-  ];
-  $scope.format = $scope.formats[0];
-}
-;
-var TimepickerDemoCtrl = function ($scope) {
-  $scope.mytime = new Date();
-  $scope.hstep = 1;
-  $scope.mstep = 15;
-  $scope.options = {
-    hstep: [
-      1,
-      2,
-      3
-    ],
-    mstep: [
-      1,
-      5,
-      10,
-      15,
-      25,
-      30
-    ]
-  };
-  $scope.ismeridian = true;
-  $scope.toggleMode = function () {
-    $scope.ismeridian = !$scope.ismeridian;
-  };
-  $scope.update = function () {
-    var d = new Date();
-    d.setHours(14);
-    d.setMinutes(0);
-    $scope.mytime = d;
-  };
-  $scope.changed = function () {
-    console.log('Time changed to: ' + $scope.mytime);
-  };
-  $scope.clear = function () {
-    $scope.mytime = null;
-  };
-};
+(function () {
+  'use strict';
+  function datePickerDirective($timeout, $ntdConfig) {
+    var isAppleTouch = /(iP(a|o)d|iPhone)/g.test(navigator.userAgent);
+    var regexpMap = function regexpMap(language) {
+      language = language || 'en';
+      return {
+        '/': '[\\/]',
+        '-': '[-]',
+        '.': '[.]',
+        ' ': '[\\s]',
+        'dd': '(?:(?:[0-2]?[0-9]{1})|(?:[3][01]{1}))',
+        'd': '(?:(?:[0-2]?[0-9]{1})|(?:[3][01]{1}))',
+        'mm': '(?:[0]?[1-9]|[1][012])',
+        'm': '(?:[0]?[1-9]|[1][012])',
+        'DD': '(?:' + $.fn.datepicker.dates[language].days.join('|') + ')',
+        'D': '(?:' + $.fn.datepicker.dates[language].daysShort.join('|') + ')',
+        'MM': '(?:' + $.fn.datepicker.dates[language].months.join('|') + ')',
+        'M': '(?:' + $.fn.datepicker.dates[language].monthsShort.join('|') + ')',
+        'yyyy': '(?:(?:[1]{1}[0-9]{1}[0-9]{1}[0-9]{1})|(?:[2]{1}[0-9]{3}))(?![[0-9]])',
+        'yy': '(?:(?:[0-9]{1}[0-9]{1}))(?![[0-9]])'
+      };
+    };
+    var regexpForDateFormat = function regexpForDateFormat(format, language) {
+      var re = format, map = regexpMap(language), i;
+      i = 0;
+      angular.forEach(map, function (v, k) {
+        re = re.split(k).join('${' + i + '}');
+        i++;
+      });
+      i = 0;
+      angular.forEach(map, function (v, k) {
+        re = re.split('${' + i + '}').join(v);
+        i++;
+      });
+      return new RegExp('^' + re + '$', ['i']);
+    };
+    return {
+      restrict: 'A',
+      require: '?ngModel',
+      link: function postLink(scope, element, attrs, controller) {
+        var options = angular.extend({ autoclose: true }, $ntdConfig.datepicker || {}), type = attrs.dateType || options.type || 'date';
+        angular.forEach([
+          'format',
+          'weekStart',
+          'calendarWeeks',
+          'startDate',
+          'endDate',
+          'daysOfWeekDisabled',
+          'autoclose',
+          'startView',
+          'minViewMode',
+          'todayBtn',
+          'todayHighlight',
+          'keyboardNavigation',
+          'language',
+          'forceParse'
+        ], function (key) {
+          if (angular.isDefined(attrs[key]))
+            options[key] = attrs[key];
+        });
+        var language = options.language || 'en', readFormat = attrs.dateFormat || options.format || $.fn.datepicker.dates[language] && $.fn.datepicker.dates[language].format || 'mm/dd/yyyy', format = isAppleTouch ? 'yyyy-mm-dd' : readFormat, dateFormatRegexp = regexpForDateFormat(format, language);
+        if (controller) {
+          controller.$formatters.unshift(function (modelValue) {
+            return type === 'date' && angular.isString(modelValue) && modelValue ? $.fn.datepicker.DPGlobal.parseDate(modelValue, $.fn.datepicker.DPGlobal.parseFormat(readFormat), language) : modelValue;
+          });
+          controller.$parsers.unshift(function (viewValue) {
+            if (!viewValue) {
+              controller.$setValidity('date', true);
+              return null;
+            } else if (type === 'date' && angular.isDate(viewValue)) {
+              controller.$setValidity('date', true);
+              return viewValue;
+            } else if (angular.isString(viewValue) && dateFormatRegexp.test(viewValue)) {
+              controller.$setValidity('date', true);
+              if (isAppleTouch)
+                return new Date(viewValue);
+              return type === 'string' ? viewValue : $.fn.datepicker.DPGlobal.parseDate(viewValue, $.fn.datepicker.DPGlobal.parseFormat(format), language);
+            } else {
+              controller.$setValidity('date', false);
+              return undefined;
+            }
+          });
+          controller.$render = function ngModelRender() {
+            if (isAppleTouch) {
+              var date = controller.$viewValue ? $.fn.datepicker.DPGlobal.formatDate(controller.$viewValue, $.fn.datepicker.DPGlobal.parseFormat(format), language) : '';
+              element.val(date);
+              return date;
+            }
+            if (!controller.$viewValue)
+              element.val('');
+            return element.datepicker('update', controller.$viewValue);
+          };
+        }
+        if (isAppleTouch) {
+          element.prop('type', 'date').css('-webkit-appearance', 'textfield');
+        } else {
+          if (controller) {
+            element.on('changeDate', function (ev) {
+              scope.$apply(function () {
+                controller.$setViewValue(type === 'string' ? element.val() : ev.date);
+              });
+            });
+          }
+          element.datepicker(angular.extend(options, {
+            format: format,
+            language: language
+          }));
+          scope.$on('$destroy', function () {
+            var datepicker = element.data('datepicker');
+            if (datepicker) {
+              datepicker.picker.remove();
+              element.data('datepicker', null);
+            }
+          });
+        }
+        var component = element.siblings('[data-toggle="datepicker"]');
+        if (component.length) {
+          component.on('click', function () {
+            element.trigger('focus');
+          });
+        }
+      }
+    };
+  }
+  angular.module('ntd.directives').directive('datePicker', [
+    '$timeout',
+    '$ntdConfig',
+    datePickerDirective
+  ]);
+}());
+(function () {
+  'use strict';
+  var TIME_REGEXP = '((?:(?:[0-1][0-9])|(?:[2][0-3])|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\s?(?:am|AM|pm|PM))?)';
+  function timePickerDirective($timeout) {
+    return {
+      restrict: 'A',
+      require: '?ngModel',
+      link: function postLink(scope, element, attrs, controller) {
+        if (controller) {
+          element.on('changeTime.timepicker', function (ev) {
+            $timeout(function () {
+              controller.$setViewValue(element.val());
+            });
+          });
+          var timeRegExp = new RegExp('^' + TIME_REGEXP + '$', ['i']);
+          controller.$parsers.unshift(function (viewValue) {
+            if (!viewValue || timeRegExp.test(viewValue)) {
+              controller.$setValidity('time', true);
+              return viewValue;
+            } else {
+              controller.$setValidity('time', false);
+              return;
+            }
+          });
+        }
+        element.attr('data-toggle', 'timepicker');
+        element.parent().addClass('bootstrap-timepicker');
+        element.timepicker();
+        var timepicker = element.data('timepicker');
+        var component = element.siblings('[data-toggle="timepicker"]');
+        if (component.length) {
+          component.on('click', $.proxy(timepicker.showWidget, timepicker));
+        }
+      }
+    };
+  }
+  angular.module('ntd.directives').directive('timePicker', [
+    '$timeout',
+    timePickerDirective
+  ]);
+}());
 (function () {
   'use strict';
   function easyPieChartDirective($timeout) {
@@ -309,7 +409,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
       restrict: 'A',
       transclude: true,
       scope: { tips: '@labelState' },
-      template: '<span ng-transclude></span>' + '<i tooltip-popup-delay="300" ' + 'tooltip="{{tips}}" class="glyphicon glyphicon-question-sign"></i>'
+      template: '<span ng-transclude></span>' + '<i tooltip-popup-delay="300" ' + 'tooltip="{{tips}}" class="icon-question-sign"></i>'
     };
   }
   angular.module('ntd.directives').directive('labelState', [labelStateDirective]);
@@ -347,7 +447,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
   'use strict';
   function toggle_menuClass() {
     $('#J_subMenu').parent().toggle();
-    $('#J_mainContent').toggleClass('col-md-12');
+    $('#J_mainContent').toggleClass('span10');
   }
   function toggleSubmenuDirectice() {
     return {
@@ -473,7 +573,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
       restrict: 'A',
       link: function (scope, element, attrs) {
         if (attrs.slimScrollMenu == 'yes') {
-          var wrapper = '<div class="col-md-2 affix">' + '<div class="slimScroll"></div>' + '</div>';
+          var wrapper = '<div class="span2 affix">' + '<div class="slimScroll"></div>' + '</div>';
           $(element).children().wrap(wrapper);
           attrs.$observe('slimScroll', initSlimScroll);
           $(element).on('click', function () {
@@ -843,7 +943,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
   var Linkage = function ($parse) {
     return {
       restrict: 'AC',
-      template: '<span><span' + ' data-ng-repeat="linkage in linkages">' + ' <select class="col-lg-3" data-ntd-chosen' + ' data-placeholder="\u8bf7\u9009\u62e9"' + ' data-disable-search-threshold="10"' + ' data-ng-change="change($index)"' + ' data-ng-model="values[$index]"' + ' data-allow-single-deselect="true"' + ' data-ng-options="option as option.name' + ' for option in linkage">' + ' <option value=""></option>' + '</select></span></span>',
+      template: '<span><span' + ' data-ng-repeat="linkage in linkages">' + ' <select data-ntd-chosen' + ' data-placeholder="\u8bf7\u9009\u62e9"' + ' data-disable-search-threshold="10"' + ' data-ng-change="change($index)"' + ' data-ng-model="values[$index]"' + ' data-allow-single-deselect="true"' + ' data-ng-options="option as option.name' + ' for option in linkage">' + ' <option value=""></option>' + '</select></span></span>',
       scope: {
         source: '=',
         ngModel: '='
@@ -936,7 +1036,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
         placeholder: '@',
         id: '@'
       },
-      template: '<div class="tag-input-container">' + '<ul data-ng-class="{true: \'focus\'}[isFocus]">' + '<li class="tag" data-ng-repeat="tag in tags">' + '<span>{{tag}}</span>' + '<i data-ng-click="remove($index)" class="ico-remove"></i>' + '</li>' + '<li class="input-li">' + '<input id="{{id}}" class="form-control input-sm" data-ng-model="tagInput"' + ' placeholder="{{placeholder}}" type="text" autocomplete="false" />' + '</li>' + '</ul>' + '</div>',
+      template: '<div class="tag-input-container">' + '<ul data-ng-class="{true: \'focus\'}[isFocus]">' + '<li class="tag" data-ng-repeat="tag in tags">' + '<span>{{tag}}</span>' + '<i data-ng-click="remove($index)" class="icon-remove"></i>' + '</li>' + '<li class="input-li">' + '<input id="{{id}}" data-ng-model="tagInput"' + ' placeholder="{{placeholder}}" type="text" autocomplete="false" />' + '</li>' + '</ul>' + '</div>',
       link: function (scope, elem, attrs) {
         var placeholder = attrs.placeholder;
         var caseSensitive = attrs.caseSensitive || false;
@@ -1020,7 +1120,7 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
   'use strict';
   function fieldErrorDirective() {
     return {
-      template: '<span class="text-danger" ng-show="showError" ng-transclude></span>',
+      template: '<span class="text-error" ng-show="showError" ng-transclude></span>',
       restrict: 'EAC',
       transclude: true,
       scope: { 'for': '=' },
@@ -1038,9 +1138,9 @@ angular.module('ntd.directives').directive('nanoScrollbar', [
   'use strict';
   var msgObj = {
       'info': 'alert-info',
-      'error': 'alert-danger',
+      'error': 'alert-error',
       'success': 'alert-success',
-      'warning': 'alert-warning'
+      'warning': 'alert'
     };
   function buildHtml(message) {
     var noticeHtml = '<div class="alert ' + msgObj[message.state] + '">' + '<strong>' + message.info + '</strong>' + '<button type="button" class="close">\xd7</button>' + '</div>';
