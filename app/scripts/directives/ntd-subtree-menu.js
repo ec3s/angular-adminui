@@ -11,6 +11,9 @@
               $(et).next('ul').slideToggle('fast');
               $(et).parent().toggleClass('opened');
               $(et).bind('selectstart', function() { return false;});
+          }else{
+            var url = $(et).attr('href');
+            $('#bs3').attr('href','http://ec3s.github.io/adminui-3.0/'+ url);
           }
         });
       }
