@@ -100,7 +100,19 @@ $footableDetailBgColor:  #eee;
   overflow: hidden;
   height: auto;
 }
-
+// fix header toggle()
+@media (max-width: 768px) {
+  .collapse{
+    display:none;
+  }
+  .nav.pull-right{
+    float:none!important;
+  }
+  // fix select margin
+  .chzn-container{
+    margin-bottom:15px;
+  }
+}
 //field error
 // Custom styles
 @import "ntd-main";
