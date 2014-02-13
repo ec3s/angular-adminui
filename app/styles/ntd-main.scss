@@ -954,7 +954,7 @@ form {
     padding: 4px 5px 4px 20px;
 }
 // fix for chosen responsive
-[class*="span"] {
+[class*="col-md-"] {
     .chzn-container {
         width: 100% !important;
     }
@@ -975,4 +975,21 @@ form {
     #J_subMenu .affix{
         position:relative;
     }
+}
+//fix chosen 
+.chzn-container-single .chzn-single {
+    background:none;
+}
+.chzn-container .chzn-results li.highlighted,
+.chzn-container-multi .chzn-choices,
+.chzn-container-multi .chzn-choices li.search-choice-disabled,
+.chzn-container-active.chzn-with-drop .chzn-single,
+.chzn-rtl .chzn-search input  {
+    background-image:none;
+    box-shadow:none;
+}
+.chzn-container-multi .chzn-choices li.search-choice {
+    background-color: #fff;
+    background-image: none;
+    box-shadow:none;
 }
