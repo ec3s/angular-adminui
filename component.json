@@ -19,7 +19,7 @@
     "jquery.slimscroll": "*",
     "d3": "~3.1.5",
     "footable": "~0.5.0",
-    "chosen": "https://github.com/harvesthq/chosen/releases/download/0.13.0/chosen_v0.13.0.zip",
+    "chosen": "https://github.com/CandySunPlus/chosen0.13.0.git#master",
     "angular-route":"*",
     "angular-ui-bootstrap3":"*"
   },
