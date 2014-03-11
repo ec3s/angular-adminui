@@ -28,10 +28,10 @@
       '<ul data-ng-class="{true: \'focus\'}[isFocus]">' +
       '<li class="tag" data-ng-repeat="tag in tags">' +
       '<span>{{tag}}</span>' +
-      '<i data-ng-click="remove($index)" class="icon-remove"></i>' +
+      '<i data-ng-click="remove($index)" class="ico-remove"></i>' +
       '</li>' +
       '<li class="input-li">' +
-      '<input id="{{id}}" class="form-control" data-ng-model="tagInput"' +
+      '<input id="{{id}}" class="form-control input-sm" data-ng-model="tagInput"' +
       ' placeholder="{{placeholder}}" type="text" autocomplete="false" />' +
       '</li>' +
       '</ul>' +
@@ -80,6 +80,17 @@
 
         elem.find('input').bind('blur', function() {
           scope.isFocus = false;
+          var oldValue = $(this).val()
+          if (oldValue) {
+            var index = indexOf(scope.tags, oldValue);
+            if (!unique || index === -1) {
+              scope.tags.push(oldValue);
+            } else {
+              angular.element(elem.find('li')[index])
+              .fadeTo('fast', 0.2).fadeTo('fast', 1);
+            }
+          }
+          scope.tagInput = '';
           scope.$apply();
         });
 

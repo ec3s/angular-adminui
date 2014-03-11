@@ -28,8 +28,12 @@
         opacity: ['toggle', 'swing']
       }, 200, 'linear');
 
-    primaryFieldset.find(':submit').toggle();
-    $('.icon-chevron-down', elem).toggleClass('icon-chevron-up');
+     primaryFieldset.find(':submit').toggle();
+     if($('.glyphicon', elem).hasClass('glyphicon-chevron-down')){
+        $('.glyphicon.glyphicon-chevron-down', elem).removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+     }else{
+        $('.glyphicon.glyphicon-chevron-up', elem).removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+     }    
   }
 
   function toggleFilterAction(e, elem) {

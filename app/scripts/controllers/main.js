@@ -357,8 +357,8 @@ adminuiApp
 }])
 .controller('flashMessageCtrl', ['$scope', '$timeout', 'flashMessage', function($scope, $timeout, flashMessage){
   var queue = [
-    {state: 'warn', info: 'warn message'},
-    {state: 'error', info: 'error message'}
+    {state: 'warning', info: 'warn message'},
+    {state: 'danger', info: 'error message'}
   ];
 
   $scope.sendMsg = function(){
