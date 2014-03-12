@@ -454,18 +454,20 @@
 <h3>Cascade list</h3>
 <p>为<code>div</code>容器添加<code>cascade-list</code></p>
 <div ng-controller="cascadeListCtrl" style="margin-bottom:15px;">
-    <div class="cascade-list" 
-         data="dptList" 
-         ng-model="dpt.parentCode"
-         name="parentCode" 
-         parent="parentCode" 
-         text="dptName" 
-         path="dptPath" 
-         value="dptCode"
-         width="500px"
-         height="150px"
+  <div class="form-group">
+    <input type="text" value="" class="form-control" ng-model="dpt.parentCode" />
+  </div>
+  <div class="cascade-list" 
+    data="dptList" 
+    ng-model="dpt.parentCode"
+    name="parentCode" 
+    parent="parentCode" 
+    text="dptName" 
+    path="dptPath" 
+    value="dptCode"
+    height="110px"
     >
-    </div>
+  </div>
 </div>
 <pre class="prettyprint linenums">
     &lt;div class=&quot;cascade-list&quot; 

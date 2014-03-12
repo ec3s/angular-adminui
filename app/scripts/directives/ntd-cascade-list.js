@@ -6,10 +6,11 @@
     var parentItem = getItem(parent);
     var currItem = getItem($scope.ngModel);
     var level = parentItem ? parentItem.level + 1 : 0;
-    var list = $('<ul></ul>').css('margin-left', (level * 33) + '%')
+    var list = $('<ul></ul>')
+      .css('margin-left', (level * 30) + '%')
       .attr('cl-id', parent);
-    for (var i in $tree) {
-      var item = $tree[i];
+
+    angular.forEach($tree, function(item) {
       if (item.parent == parent) {
         var li = $('<li cl-value="' + item.value + '">' + item.text + '</li>')
           .click(onItemClick);
@@ -28,7 +29,7 @@
 
         list.append(li);
       }
-    }
+    });
 
     return list;
   }
@@ -73,8 +74,8 @@
     }
 
     function initList(val) {
-      $element.html('');
 
+      $element.html('');
       if ($tree == undefined || $tree.length == 0) {
         return;
       }
@@ -90,6 +91,7 @@
         parent = item ? item.parent : 0;
       } while (item);
 
+
       var ul = $element.find('ul.selective');
       if (ul.length > 0) {
         var left = $element.parent().offset().left +
@@ -102,11 +104,8 @@
 
     var TreeData = function(data, options) {
       var ret = [];
-
-      for (var i in data) {
-        var item = data[i];
+      angular.forEach(data, function(item) {
         var path = item[options.path].split('/').slice(1, -1);
-
         ret.push({
           value: item[options.value],
           text: item[options.text],
@@ -121,7 +120,7 @@
             return son;
           }
         });
-      }
+      });
       return ret;
     };
 
@@ -134,8 +133,8 @@
           $scope = scope;
 
           $element = $('<div class="cascade-list-inner"></div>')
-            .css('width', attrs.width || '400px')
-            .css('height', attrs.height || '120px');
+            .css('width', attrs.width || '100%')
+            .css('height', attrs.height || '220px');
           element.append($element).addClass('cascade-list');
 
           var options = {

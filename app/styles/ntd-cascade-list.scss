@@ -1,11 +1,9 @@
 ﻿.cascade-list 
 {
-    display: inline-block;
     margin-bottom: 0;
     vertical-align: middle;
     background-color: #fff;
     border: 1px solid #ccc;
-    padding: 4px;
     font-size: $font-size-base;
     font-weight: normal;
     font-family: $font-family-sans-serif;
@@ -38,9 +36,9 @@
 .cascade-list ul
 {
     margin: 0;
-    padding: 0 6px;
+    padding: 4px 6px;
     width: 30%;
-    height: 150px;
+    height: 100%;
     display: block;
     /*float: left;*/
     position: absolute;

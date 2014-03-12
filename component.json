@@ -4,15 +4,12 @@
   "dependencies": {
     "bootstrap-sass": "~3.0.0",
     "angular": "~1.2.4",
-    "angular-cookies": "~1.0.7",
-    "angular-mocks": "~1.0.7",
-    "angular-resource": "~1.0.7",
-    "angular-sanitize": "~1.0.7",
-    "angular-scenario": "~1.0.7",
+    "angular-cookies": "~1.2.4",
+    "angular-resource": "~1.2.4",
+    "angular-sanitize": "~1.2.4",
     "es5-shim": "~2.0.11",
     "json3": "~3.2.4",
     "jquery": "2.0.2",
-    "angular-bootstrap3": "*",
     "jquery.easy-pie-chart": "~1.2.5",
     "bootstrap-datepicker": "~1.1.2",
     "bootstrap-timepicker": "~0.2.3",
@@ -20,11 +17,11 @@
     "d3": "~3.1.5",
     "footable": "~0.5.0",
     "chosen": "https://github.com/CandySunPlus/chosen0.13.0.git#master",
-    "angular-route":"*",
+    "angular-route":"~1.2.4",
     "angular-ui-bootstrap3":"*"
   },
   "devDependencies": {
-    "angular-mocks": "~1.0.5",
-    "angular-scenario": "~1.0.5"
+    "angular-mocks": "~1.2.4",
+    "angular-scenario": "~1.2.4"
   }
 }
