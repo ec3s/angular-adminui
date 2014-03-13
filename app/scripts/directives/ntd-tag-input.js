@@ -27,11 +27,12 @@
       template: '<div class="tag-input-container">' +
       '<ul data-ng-class="{true: \'focus\'}[isFocus]">' +
       '<li class="tag" data-ng-repeat="tag in tags">' +
-      '<span>{{tag}}</span>' +
-      '<i data-ng-click="remove($index)" class="ico-remove"></i>' +
-      '</li>' +
+      '<span>{{tag.name}}</span>' +
+      '<i data-ng-show="tag.deletable" data-ng-click="remove($index)"' +
+      ' class="ico-remove"></i></li>' +
       '<li class="input-li">' +
-      '<input id="{{id}}" class="form-control input-sm" data-ng-model="tagInput"' +
+      '<input id="{{id}}" class="form-control input-sm"' +
+      ' data-ng-model="tagInput"' +
       ' placeholder="{{placeholder}}" type="text" autocomplete="false" />' +
       '</li>' +
       '</ul>' +
@@ -46,13 +47,34 @@
         var uniqueTags = [];
         var oldInput;
 
+        /**
+         *  检查 Tags 中的元素，补充元素属性
+         */
+        var unifyItemInTags = function(tags) {
+          angular.forEach(tags, function(tag, index) {
+            if (angular.isString(tag)) {
+              tags[index] = {
+                'name': tag,
+                'deletable': true
+              };
+            } else if (angular.isObject(tag) &&
+              !tag.hasOwnProperty('deletable')) {
+              tag.deletable = true;
+            }
+          });
+        };
+
+        unifyItemInTags(scope.tags);
+
         // 查看tag 所处位置
         var indexOf = function(tags, tag) {
           if (!caseSensitive) {
-            tag = tag.toLowerCase();
-            tags = tags.join(',').toLowerCase().split(',');
+            var tagName = tag.name.toLowerCase();
+            var allNames = tags.map(function(item) {
+              return item.name.toLowerCase();
+            });
           }
-          return tags.indexOf(tag);
+          return allNames.indexOf(tagName);
         };
 
         if (!angular.isArray(scope.tags)) {
@@ -80,11 +102,15 @@
 
         elem.find('input').bind('blur', function() {
           scope.isFocus = false;
-          var oldValue = $(this).val()
+          var oldValue = $(this).val();
           if (oldValue) {
-            var index = indexOf(scope.tags, oldValue);
+            var item = {
+              'name': oldValue,
+              'deletable': true
+            };
+            var index = indexOf(scope.tags, item);
             if (!unique || index === -1) {
-              scope.tags.push(oldValue);
+              scope.tags.push(item);
             } else {
               angular.element(elem.find('li')[index])
               .fadeTo('fast', 0.2).fadeTo('fast', 1);
@@ -105,14 +131,21 @@
             oldInput = scope.tagInput;
           } else if (e.keyCode == 8 && scope.tags.length > 0) {
             if (oldInput == scope.tagInput) {
-              scope.tags.pop();
-              scope.$apply();
+              var item = scope.tags[scope.tags.length - 1];
+              if (item.deletable === true) {
+                scope.tags.pop();
+                scope.$apply();
+              } else {
+                angular.element(elem.find('li')[scope.tags.length - 1]).stop()
+                  .fadeTo('fast', 0.2).fadeTo('fast', 1);
+                }
             }
           }
         });
 
         // 观察标签变动
         scope.$watch('tags', function(newValue, oldValue) {
+          unifyItemInTags(newValue);
           if (!allwaysPlaceholder) {
             if (angular.isArray(newValue) && newValue.length > 0) {
               elem.find('input').attr('placeholder', '');
@@ -128,9 +161,13 @@
             var lastChar = newValue.substr(-1, 1);
             if (lastChar == ';' || lastChar == '；') {
               if (oldValue) {
-                var index = indexOf(scope.tags, oldValue);
+                var item = {
+                  'name': oldValue,
+                  'deletable': true
+                };
+                var index = indexOf(scope.tags, item);
                 if (!unique || index === -1) {
-                  scope.tags.push(oldValue);
+                  scope.tags.push(item);
                 } else {
                   angular.element(elem.find('li')[index])
                   .fadeTo('fast', 0.2).fadeTo('fast', 1);

@@ -3,6 +3,7 @@
 var chosenCtrl = function($scope, $http, $q) {
   $scope.options = this.getOptions();
   $scope.optionPromise = angular.bind(this, this.getOptionPromise, $http, $q);
+  $scope.tags = [{'name': 'tag0', 'id': 1, 'deletable': false}, 'tag1', 'tag2'];
   $scope.linkages = [{
     id: 1,
     name: 'bb',
