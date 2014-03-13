@@ -68,6 +68,7 @@
         var cancelEdit = function(index) {
           return function(e) {
             angular.element(elem.find('li')[index]).popover('destroy');
+            elem.find('input').focus();
           }
         };
 
@@ -83,6 +84,7 @@
               .fadeTo('fast', 0.2).fadeTo('fast', 1);
             }
             angular.element(elem.find('li')[index]).popover('destroy');
+            elem.find('input').focus();
           }
         };
 
@@ -170,8 +172,8 @@
           });
           angular.element(elem.find('li')[index]).popover('show');
           elem.find('#pop_inp_' + index).focus()
-            .bind('keyup', function(e) {
-              e.stopPropagation();
+            .bind('keypress', function(e) {
+              e.preventDefault();
               if (e.keyCode == 13) {
                 useEdit(index)(e);
               }
@@ -202,7 +204,7 @@
           scope.isFocus = false;
           var oldValue = $(this).val();
           if (oldValue) {
-            var item = {
+            var tag = {
               'name': oldValue
             };
             var index = indexOf(scope.tags, tag);
