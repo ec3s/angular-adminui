@@ -73,8 +73,15 @@
 
         var useEdit = function(index) {
           return function(e) {
-            scope.tags[index].name = elem.find('#pop_inp_' + index).val();
-            scope.$apply();
+            var tagName = elem.find('#pop_inp_' + index).val();
+            var findIndex = indexOf(scope.tags, {'name': tagName});
+            if (!unique || findIndex === -1) {
+              scope.tags[index].name = tagName;
+              scope.$apply();
+            } else {
+              angular.element(elem.find('li')[findIndex])
+              .fadeTo('fast', 0.2).fadeTo('fast', 1);
+            }
             angular.element(elem.find('li')[index]).popover('destroy');
           }
         };
@@ -162,6 +169,13 @@
             title: '修改'
           });
           angular.element(elem.find('li')[index]).popover('show');
+          elem.find('#pop_inp_' + index).focus()
+            .bind('keyup', function(e) {
+              e.stopPropagation();
+              if (e.keyCode == 13) {
+                useEdit(index)(e);
+              }
+            }).val(scope.tags[index].name);
           elem.find('#pop_' + index).find('.btn-primary')
             .bind('click', useEdit(index));
             elem.find('#pop_' + index).find('.btn-default')
