@@ -11,7 +11,9 @@
  *  data-unique bool
  *  标签是否唯一,默认为是
  *
- *  @author Fengming Sun <sunfengming@ec3s.com>
+ * version 0.2
+ *
+ * @author Fengming Sun <sunfengming@ec3s.com>
  */
 (function() {
   'use strict';
