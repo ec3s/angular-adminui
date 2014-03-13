@@ -31,8 +31,7 @@
       '<li class="tag" data-ng-repeat="tag in tags">' +
       '<span>{{tag.name}}</span>' +
       '<i data-ng-show="tag.deletable" data-ng-click="remove($index)"' +
-      ' class="ico-remove"></i></li>' +
-      '<li class="input-li">' +
+      ' class="ico-remove"></i></li><li class="input-li">' +
       '<input id="{{id}}" class="form-control input-sm"' +
       ' data-ng-model="tagInput"' +
       ' placeholder="{{placeholder}}" type="text" autocomplete="false" />' +
