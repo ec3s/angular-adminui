@@ -90,7 +90,7 @@
         };
 
         var isEditable = function(tag) {
-          return !angular.isUndefined(tag.editable) || tag.editable;
+          return !angular.isUndefined(tag.editable) && tag.editable;
         };
 
         var setTagAttribute = function(tag, index) {
@@ -175,7 +175,7 @@
           scope.tags.push(tag);
           tagsAttribute.push({
             'deletable': true,
-            'editable': true
+            'editable': false
           });
         };
 
