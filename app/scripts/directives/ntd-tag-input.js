@@ -216,7 +216,10 @@
             }
           }
           scope.tagInput = '';
-          scope.$apply();
+          if (scope.$root.$$phase != '$apply' &&
+            scope.$root.$$phase != '$digest') {
+            scope.$apply();
+          }
         });
 
         elem.bind('click', function(e) {
