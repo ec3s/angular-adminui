@@ -26,11 +26,10 @@ body {
     padding-top: 60px;
 }
 
-.full-container {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
+.container-full {
+  padding: 0 15px;
+  margin: 0 auto;
+  width: 100%;
 }
 .well {
     h3 {
@@ -332,7 +331,7 @@ form {
         margin-top: 10px;
     }
 }
-.user-infomation {
+.user-information {
     padding-top: 5px;
     text-align: center;
     overflow: hidden; 
