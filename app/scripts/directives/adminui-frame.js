@@ -18,7 +18,7 @@
     };
   };
 
-  var toggleSubMenu = function() {
+  var toggleSubMenu = function(e) {
     this.isSubMenuShow = !this.isSubMenuShow;
   };
 
