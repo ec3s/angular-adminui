@@ -3,7 +3,7 @@
   var AdminuiFrame = function() {
     return {
       restrict: 'A',
-      templateUrl: 'views/adminui-frame.html',
+      templateUrl: 'templates/adminui-frame.html',
       transclude: true,
       link: function(scope, elem, attrs) {
         /* dose default show submenu */

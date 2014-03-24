@@ -4,6 +4,7 @@ var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
+
 module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -282,6 +283,25 @@ module.exports = function (grunt) {
           ]
         }]
       }
+    },
+    ngtemplates: {
+      'ntd-directives': {
+        cwd: '<%= yeoman.app%>',
+        src: 'templates/**.html',
+        dest: '<%= yeoman.dist%>/scripts/angular-adminui-tpl.js',
+        options: {
+          htmlmin: {
+            collapseBooleanAttributes: true,
+            collapseWhitespace: true,
+            removeAttributeQuotes: true,
+            removeComments: true,
+            removeEmptyAttributes: true,
+            removeRedundantAttributes: true,
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true
+          }
+        }
+      }
     }
   });
 
@@ -323,7 +343,8 @@ module.exports = function (grunt) {
     //'uglify',
     //'rev',
     'jade',
-    'usemin'
+    'usemin',
+    'ngtemplates'
   ]);
 
   grunt.registerTask('default', ['build']);
