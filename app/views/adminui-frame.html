@@ -16,11 +16,11 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+        <a data-ng-show="isMessageBoxShow" class="dropdown-toggle" href="#" data-toggle="dropdown">
           <span class="badge">10</span>
           <i class="glyphicon glyphicon-inbox"></i>
         </a>
-        <ul class="dropdown-menu">
+        <ul data-ng-show="isMessageBoxShow" class="dropdown-menu">
           <li><a href="#">这是第 1 条消息</a></li>
           <li><a href="#">这是第 2 条消息</a></li>
           <li><a href="#">这是第 3 条消息</a></li>
@@ -51,6 +51,6 @@
   </div>
 </nav>
 <div class="container-full">
-  <div data-ng-show="isSubMenuShow" class="col-md-2"></div>
+  <div data-ng-show="isSubMenuShow" class="col-md-2" data-ng-include="'views/submenu.html'"></div>
   <div data-ng-class="{true: 'col-md-10', false: 'col-md-12'}[isSubMenuShow]" data-ng-transclude></div>
 </div>

@@ -7,8 +7,11 @@
       transclude: true,
       link: function(scope, elem, attrs) {
         /* dose default show submenu */
-        scope.isSubMenuShow = attrs.showSubmenu ?
-                              scope.$eval(attrs.showSubmenu) : false;
+        scope.isSubMenuShow = attrs.defaultShowSubmenu ?
+                              scope.$eval(attrs.defaultShowSubmenu) : false;
+        /* dose show message box */
+        scope.isMessageBoxShow = attrs.showMessageBox ?
+                                 scope.$eval(attrs.showMessageBox) : false;
         /* bind submenu toggle */
         scope.toggleSubMenu = ng.bind(scope, toggleSubMenu);
       }
