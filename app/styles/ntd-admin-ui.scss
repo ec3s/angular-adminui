@@ -30,7 +30,8 @@ body {
 }
 
 .glyphicon {
-    line-height: inherit;
+    top: 2px;
+    line-height: 1.2;
 }
 
 $iconMinus:               "../images/minus.png";
@@ -112,12 +113,13 @@ $footableDetailBgColor:  #eee;
 //field error
 // Custom styles
 @import "ntd-main";
+@import "ntd-nav";
 @import "ntd-table";
 @import "ntd-cascade-list";
 @import "ntd-login";
 @import "ntd-easy-pie-chart";
 @import "ntd-foo-table";
 @import "ntd-404";
-// @import "ntd-responsive";
+@import "ntd-responsive";
 @import "ntd-toggle-switch";
 // 
