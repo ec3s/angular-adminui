@@ -53,6 +53,8 @@
   </div>
 </nav>
 <div class="container-full">
-  <div data-ng-show="isSubMenuShow" class="col-md-2" data-ng-include="'views/submenu.html'"></div>
-  <div data-ng-class="{true: 'col-md-10', false: 'col-md-12'}[isSubMenuShow]" data-ng-transclude></div>
+  <div class="row">
+    <div data-ng-show="isSubMenuShow" class="col-md-2" data-ng-include="'views/submenu.html'"></div>
+    <div data-ng-class="{true: 'col-md-10', false: 'col-md-12'}[isSubMenuShow]" data-ng-transclude></div>
+  </div>
 </div>

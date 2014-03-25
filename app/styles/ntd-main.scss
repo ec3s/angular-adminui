@@ -131,10 +131,11 @@ form {
             }
         }
         &.active {
+            border-color: $list-group-active-border;
             a {
                 color: $list-group-active-color;
                 background-color: $list-group-active-bg;
-                border-color: $list-group-active-border;
+                @include border-top-radius(0 !important);
             }
             ul {
                 li {
@@ -145,8 +146,29 @@ form {
                         background-color: #fff;
                         color: $list-group-link-color;
                         &:hover {
-                            background-color: $list-group-hover-bg;
                             text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+        &:first-child {
+            a {
+                @include border-top-radius($list-group-border-radius);
+            }
+        }
+        &:last-child {
+            a {
+                @include border-bottom-radius($list-group-border-radius);
+            }
+            ul {
+                &:last-child {
+                    li {
+                        &:last-child {
+                            @include border-bottom-radius($list-group-border-radius);
+                            a {
+                                @include border-bottom-radius($list-group-border-radius);
+                            }
                         }
                     }
                 }
@@ -165,6 +187,7 @@ form {
                     @include border-bottom-radius(0);
                 }
                 a {
+                    @include border-bottom-radius(0);
                     padding-left: 25px;
                     &:hover {
                         border-color: $list-group-border !important;
@@ -182,101 +205,10 @@ form {
                     }
                 }
             }
-            &:last-child {
-                li {
-                    &:last-child {
-                        @include border-top-radius($list-group-border-radius);
-                    }
-                }
-            }
         }
     }
 }
-//     margin-bottom: 5px;
-//     @include box-shadow(0 1px 4px rgba(0,0,0,.065));
-//     li {
-//         a {
-//             cursor: pointer !important;
-//             .icon-chevron-down {
-//                 opacity: .25;
-//             }
-//             &:hover {
-//                 @include transition-property(background-color);
-//                 @include transition-duration(.45s);
-//                 @include transition-timing-function(ease);
-// 
-//                 .icon-chevron-down {
-//                     opacity: .5;
-//                 }
-//             }
-//         }
-//         
-//         &.active{
-//             a, a:hover {
-//                 color: $white;
-//                 border-width: 0;
-//                 padding: 9px 12px;
-//                 background-color: $submenuActiveBgColor;
-// 
-//                 .icon-chevron-down {
-//                     opacity: 1;
-//                 }
-//             }
-//             .icon-chevron-down {
-//                 background-image: url(#{$iconWhiteSpritePath});
-//                 opacity: 1;
-//             }
-//         }
-// 
-//         ul {
-//             margin: 0;
-//             list-style: none;
-//             /*border-left: 1px solid $submenuChildBorderColor;*/
-//             /*border-right: 1px solid $submenuChildBorderColor;*/
-//             display: none;
-// 
-//             li {
-//                 font-size: $font-size-small;
-//                 a {
-//                     display: block;
-//                     margin-top: -1px;
-//                     padding: 8px 12px 8px 24px !important;
-//                     color: $submenuChildLinkColor !important;
-//                     background-color: $submenuChildLinkBgColor !important;
-//                     &:hover {
-//                         border-width: 1px !important;
-//                         text-decoration: none;
-//                         background: url("#{$SubmenuSprites}") no-repeat 15px 14px;
-//                     }
-//                     &:first-child {
-//                         border-top: 1px solid $submenuChildLinkHoverBorderTopColor;
-//                     }
-//                 }
-// 
-//                 &.active {
-//                     a, a:hover {
-//                         color: red;
-//                         border-color: $submenuChildBorderColor;
-//                         background:url(#{$SubmenuSprites}) no-repeat 15px -22px;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-// 
-// .btn-icon{
-//     padding: 2px 4px 0 4px;
-//     [class^="icon-"], [class*=" icon-"] {
-//         margin-top: 0;
-//     }
-// }
-// 
-// // Pagination
-// .pagination{
-//     margin-top: 0;
-// }
-// 
+
 // Info box
 .info-box {
     overflow: hidden;
@@ -292,6 +224,7 @@ form {
             display: block;
             font-weight: normal;
             font-size: $infoBoxItemNumberFontSize;
+            line-height: 28px;
             color: $infoBoxItemNumberColor;
         }
     }

@@ -10,44 +10,40 @@ $navbarInverseBackground: #2d2d2d;
 $navbarInverseBorder: #353535;
      
 $font-family-sans-serif:  "Helvetica Neue", Helvetica, "microsoft yahei", Arial, sans-serif !default;
+$header-font: 24px/30px $font-family-sans-serif;
+$body-font: 12px/18px $font-family-sans-serif; 
+$menu-header-font: 14px/20px $font-family-sans-serif;
 
 @import "compass";
 @import "../components/bootstrap-sass/lib/bootstrap";
 
-// $logoPath:                "../images/logo.png";
+h1 {
+    font: $header-font;
+}
+
+body {
+    font: $body-font;
+}
+
+.navbar {
+    font: $menu-header-font;
+}
+
+.glyphicon {
+    line-height: inherit;
+}
+
 $iconMinus:               "../images/minus.png";
 $iconPlus:                "../images/plus.png";
 $iconSorting:             "../images/sorting_sprite.png";
 $loginBgImg:              "../images/login_bg.jpg";
-// $iconAnimateRefreshPath:  "../images/loading.gif";
 $submenuSprites:          "../images/menu_sprites.png";
-// 
-// // Font
-// $font-size-small:   12px;
-// 
-// // Base widget header gradient color
-// $BaseWidgetHeaderGradientStart:  #f9f9f9;
-// $BaseWidgetHeaderGradientEnd:    #ededed;
-// $BaseWidgetHeaderActiveBgColor:  #ebf3fd;
-// 
+
 // Info box
-// $infoBoxBorderColor:        #d5d5d5;
 $infoBoxItemNumberColor:    #08c;
 $infoBoxItemNumberFontSize: 32px;
 $infoBoxItemNameColor:      #666;
-// $infoBoxGradientStart:      #f9f9f9;
-// $infoBoxGradientEnd:        #ededed;
-// 
-// // Submenu nav
-// $submenuActiveBorderColor:            #08c;
-// $submenuActiveBgColor:                #08c;
-// $submenuChildBorderColor:             #ddd;
-// $submenuChildHoverColor:              #08c;
-// $submenuChildActiveColor:             #08c;
-// $submenuChildLinkColor:               #999;
-// $submenuChildLinkBgColor:             #fff;
-// $submenuChildLinkHoverBorderTopColor: #ddd;
-// 
+
 // Advance search filter
 $advanceSearchFilterBgColor:           #f9f9f9;
 $advanceSearchFilterBorderColor:       #e3e3e3;
