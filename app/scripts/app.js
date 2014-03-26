@@ -52,39 +52,57 @@ angular.module('ntd.directives') .config(
               ]
             },
             {
-              'name': '基本样式',
+              'name': '组件样式',
               'url': '#/base-css',
-              'children': null
+              'children': [
+                {
+                  'name': '基本样式',
+                  'url': '#/base-css',
+                  'children': null
+                },
+                {
+                  'name': '表格样式',
+                  'url': '#/table',
+                  'children': null
+                },
+                {
+                  'name': '表单样式',
+                  'url': '#/form',
+                  'children': null
+                }
+              ]
             },
             {
-              'name': '表格样式',
-              'url': '#/table',
-              'children': null
-            },
-            {
-              'name': '表单样式',
-              'url': '#/form',
-              'children': null
-            },
-            {
-              'name': 'Admin UI组件',
+              'name': 'UI组件',
               'url': '#/widget',
-              'children': null
+              'children': [
+                {
+                  'name': 'Admin UI组件',
+                  'url': '#/widget',
+                  'children': null
+                },
+                {
+                  'name': 'Bootstrap组件',
+                  'url': '#/bootstrap-ui-widget',
+                  'children': null
+                }
+              ]
             },
             {
-              'name': 'Bootstrap组件',
-              'url': '#/bootstrap-ui-widget',
-              'children': null
-            },
-            {
-              'name': '登录页面',
+              'name': '其他页面',
               'url': '#/login',
-              'children': null
-            },
-            {
-              'name': '404页面',
-              'url': '#/404',
-              'children': null
+              'children': [
+                {
+                  'name': '登录页面',
+                  'url': '#/login',
+                  'children': null
+                },
+                {
+                  'name': '404页面',
+                  'url': '#/404',
+                  'children': null
+                }
+              ]
             },
             {
               'name': '升级指南',

@@ -23,11 +23,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
         <a data-ng-show="isMessageBoxShow" class="dropdown-toggle" href="#" data-toggle="dropdown">
-          <span class="badge">{{messages.length}}</span>
+          <span class="badge" data-ng-show="messages.length > 0">{{messages.length}}</span>
           <i class="glyphicon glyphicon-inbox"></i>
         </a>
         <ul data-ng-show="isMessageBoxShow" class="dropdown-menu">
-          <li data-ng-repeat="message in messages"><a href="#">{{message}}</a></li>
+          <li data-ng-repeat="message in messages"><a href="#">{{message.title}}</a></li>
           <li class="divider"></li>
           <li>
           <a href="#">
@@ -44,12 +44,12 @@
         <a class="dropdown-toggle" href="#" data-toggle="dropdown">您好，用户 <b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li class="user-information">
-          <img src="../images/avatar.jpg" alt="user_avatar">
-          <div class="user-content muted">用户名</div>
+          <img data-ng-src="{{userInfo.avatar}}" alt="user_avatar">
+          <div class="user-content muted">{{userInfo.username}}</div>
           </li>
           <li class="divider"></li>
-          <li><a data-ng-click="changePwd()" href="#"><i class="glyphicon glyphicon-lock"></i> 修改密码</a></li>
-          <li><a data-ng-click="logout()" href="#"><i class="glyphicon glyphicon-off"></i>  退出</a></li>
+          <li><a data-ng-click="changePwd($event)" href="#"><i class="glyphicon glyphicon-lock"></i> 修改密码</a></li>
+          <li><a data-ng-click="logout($event)" href="#"><i class="glyphicon glyphicon-off"></i>  退出</a></li>
         </ul>
         </li>
       </ul>
@@ -59,7 +59,7 @@
 </nav>
 <div class="container-fluid">
   <div class="row fix-row">
-    <div class="col-md-2 container-fluid">
+    <div class="col-md-2 container-fluid" data-ng-show="hasSideMenu">
       <div data-ng-show="isSubMenuShow" class="row">
         <div class="col-md-2 affix side-nav">
           <h4>{{sideMenuName}}</h4>
@@ -78,6 +78,6 @@
         </div>
       </div>
     </div>
-    <div data-ng-class="{true: 'col-md-10', false: 'col-md-12'}[isSubMenuShow]" data-ng-transclude></div>
+    <div data-ng-class="{true: 'col-md-10', false: 'col-md-12'}[isSubMenuShow && hasSideMenu]" data-ng-transclude></div>
   </div>
 </div>

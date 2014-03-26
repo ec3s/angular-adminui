@@ -33,7 +33,7 @@
         ng-click="click($event)"
         ng-change="change($event)">
     </span>
-    <input type="button" class="btn btn-default" ng-click="do()" value="switcher" >
+    <input type="button" class="btn btn-sm btn-default" ng-click="do()" value="switcher" >
     <span>{{opened}}</span>
 </p>
 <pre class="prettyprint linenums">
@@ -129,7 +129,7 @@
     <p>已选中：{{lang}}</p>
     <p>
         <select data-ng-model="lang" 
-            class="ntd-chosen col-lg-3"
+            class="ntd-chosen col-sm-3"
             data-placeholder="请选择"
             data-ng-options="option.id as option.name for option in options">
         </select>
@@ -137,7 +137,7 @@
     </p>
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
-            class=&quot;ntd-chosen col-lg-3&quot;
+            class=&quot;ntd-chosen col-sm-3&quot;
             data-placeholder=&quot;&#35831;&#36873;&#25321;&quot;
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
         &lt;/select&gt;
@@ -145,7 +145,7 @@
     <p>
         <select data-ng-model="lang" 
             data-ntd-chosen
-            class="col-lg-3"
+            class="col-sm-3"
             data-disable-search-threshold="10"
             data-ng-options="option.id as option.name for option in options">
         </select>
@@ -153,7 +153,7 @@
     </p>
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
-            class=&quot;col-lg-3&quot;
+            class=&quot;col-sm-3&quot;
             data-ntd-chosen
             data-disable-search-threshold=&quot;10&quot;
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
@@ -162,7 +162,7 @@
     <p>
         <select data-ng-model="lang" 
             data-ntd-chosen
-            class="col-lg-3"
+            class="col-sm-3"
             data-allow-single-deselect="true"
             data-disable-search-threshold="10"
             data-ng-options="option.id as option.name for option in options">
@@ -173,7 +173,7 @@
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
             data-ntd-chosen
-            class=&quot;col-lg-3&quot;
+            class=&quot;col-sm-3&quot;
             data-allow-single-deselect=&quot;true&quot;
             data-disable-search-threshold=&quot;10&quot;
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
@@ -192,7 +192,7 @@
     <p>
         <select data-ng-model="auto" 
             data-ntd-chosen
-            class="col-lg-3"
+            class="col-sm-3"
             data-on-search-promise="optionPromise($search)"
             data-ng-options="movie.id as movie.title for movie in movies">
         </select>
@@ -200,7 +200,7 @@
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;auto&quot; 
             data-ntd-chosen
-            class=&quot;col-lg-3&quot;
+            class=&quot;col-sm-3&quot;
             data-on-search-promise=&quot;optionPromise($search)&quot;
             data-ng-options=&quot;movie.id as movie.title for movie in movies&quot;&gt;
         &lt;/select&gt;
@@ -212,7 +212,7 @@
     <p>
         <select data-ng-model="multipleLang" 
             data-ntd-chosen
-            class="col-lg-3"
+            class="col-sm-3"
             data-placeholder="选点东西吧"
             multiple
             data-ng-options="option.id as option.name for option in options">
@@ -221,7 +221,7 @@
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;multipleLang&quot; 
             data-ntd-chosen
-            class=&quot;col-lg-3&quot;
+            class=&quot;col-sm-3&quot;
             data-placeholder=&quot;&#36873;&#28857;&#19996;&#35199;&#21543;&quot;
             multiple
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
@@ -437,7 +437,7 @@
                 <option value="5">5</option>
             </select>
         </div>        
-        <button type="submit" class="btn btn-default btn-primary">提交</button>
+        <button type="submit" class="btn btn-sm btn-default btn-primary">提交</button>
     </fieldset>
 </form>
 <pre class="prettyprint linenums">

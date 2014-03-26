@@ -316,8 +316,8 @@ form {
     *display: inline;
     /* IE7 inline-block hack */
     *zoom: 1;
+    font: $body-font;
     display: inline-block;
-    font-size: 14px;
     position: relative;
     vertical-align: middle;
 }
@@ -416,9 +416,9 @@ form {
 .chzn-container-single .chzn-single {
     display: block;
     /*@include ctb-ie7-inline-block();*/
-    padding: 4px 12px 1px;
+    padding: 6px 12px 1px;
     margin-bottom: 0; // For input.btn
-    font-size: $font-size-base;
+    font: $body-font;
     line-height: $line-height-base;
     vertical-align: middle;
     cursor: pointer;

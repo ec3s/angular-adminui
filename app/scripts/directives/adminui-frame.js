@@ -12,12 +12,21 @@
         scope.isMessageBoxShow = adminuiFrameProvider.showMessageBox;
         /* bind navigation data */
         scope.navigation = adminuiFrameProvider.navigation;
+        /* init messages */
+        scope.messages = scope.messages ? scope.messages : [];
+        /* init user info */
+        scope.userInfo = ng.extend({
+          'username': 'N/A',
+          'avatar': '../images/avatar.jpg',
+          'logout': function() { console.log('logout'); },
+          'changePwd': function() { console.log('change password'); }
+        }, scope.userInfo);
 
         /* perpare navigation data */
         init(scope.navigation);
 
         /* bind menu select func */
-        scope.select = ng.bind(scope, select, $timeout);
+        scope.select = ng.bind(scope, select, $timeout, elem);
         /* bind submenu toggle */
         scope.toggleSubMenu = ng.bind(scope, toggleSubMenu);
         /* bind select nav */
@@ -26,11 +35,27 @@
         scope.selectMenu = ng.bind(scope, selectMenu);
         /* bind is current selected */
         scope.isSelected = ng.bind(scope, isSelected);
+        /* bind set side menu */
+        scope.setSideMenu = ng.bind(scope, setSideMenu, elem);
+        /* bind logout func */
+        scope.logout = ng.bind(scope, logout);
+        /* bind change password func */
+        scope.changePwd = ng.bind(scope, changePwd);
 
         /* select from path */
         selectPath(scope, $location.path());
       }
     };
+  };
+
+  var logout = function(evt) {
+    evt.preventDefault();
+    this.userInfo.logout();
+  };
+
+  var changePwd = function(evt) {
+    evt.preventDefault();
+    this.userInfo.changePwd();
   };
 
   var init = function(navigation) {
@@ -69,14 +94,13 @@
     }
   };
 
-  var select = function($timeout, nav) {
+  var select = function($timeout, elem, nav) {
     nav.selected = true;
     if (nav.level == 2) {
-      this.sideMenuName = nav.name;
-      setSideMenu.bind(this)(nav.children);
+      this.setSideMenu(nav.children, nav.name);
     } else if (nav.level == 4) {
       $timeout(function() {
-        var collapse = ng.element('.side-nav-menu')
+        var collapse = elem.find('.side-nav-menu')
           .find('.active>.has-sub-menu').parent('li').find('ul');
           collapse.show();
       });
@@ -91,8 +115,14 @@
     return item.selected ? true : false;
   };
 
-  var setSideMenu = function(menu) {
-    this.menu = menu;
+  var setSideMenu = function(elem, menu, name) {
+    if (menu == null || menu.length == 0) {
+      this.hasSideMenu = false;
+    } else {
+      this.hasSideMenu = true;
+      this.sideMenuName = name;
+      this.menu = menu;
+    }
   };
 
   var toggleSubMenu = function(e) {
@@ -110,8 +140,12 @@
 
   var selectNav = function(nav) {
     clearSelected(this.navigation);
-    this.select(nav);
-    setSideMenu.bind(this)(nav.children);
+    if (nav.url != null) {
+      selectPath(this, nav.url.replace('#', ''));
+    } else {
+      this.select(nav);
+    }
+    this.setSideMenu(nav.children, nav.name);
   };
 
 
@@ -120,7 +154,11 @@
       ng.element(evt.target).parent('li').find('ul').toggle();
     } else {
       clearSelected(this.menu);
-      this.select(menu);
+      if (menu.url != null) {
+        selectPath(this, menu.url.replace('#', ''));
+      } else {
+        this.select(menu);
+      }
     }
   };
 
