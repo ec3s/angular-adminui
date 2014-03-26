@@ -100,9 +100,10 @@
       this.setSideMenu(nav.children, nav.name);
     } else if (nav.level == 4) {
       $timeout(function() {
-        var collapse = elem.find('.side-nav-menu')
-          .find('.active>.has-sub-menu').parent('li').find('ul');
-          collapse.show();
+        var collapse = elem.find(
+          '.side-nav-menu'
+        ).find('.active>.has-sub-menu').parent('li').find('ul');
+        collapse.show();
       });
     }
 
@@ -178,7 +179,10 @@
   };
 
   ng.module('ntd.directives').provider(
-    'adminuiFrame', [AdminuiFrameProvider]);
+    'adminuiFrame', [AdminuiFrameProvider]
+  );
   ng.module('ntd.directives').directive(
-    'adminuiFrame', ['adminuiFrame', '$location', '$timeout', AdminuiFrame]);
+    'adminuiFrame',
+    ['adminuiFrame', '$location', '$timeout', AdminuiFrame]
+  );
 })(angular);
