@@ -10,8 +10,14 @@
         <a class="navbar-brand" href="../"></a>
       </div>
     <div class="collapse navbar-collapse bs-navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+      <ul class="nav navbar-nav main-nav">
+        <li class="active"><a href="#" data-toggle="sub-navbar">AdminUI</a>
+          <ul class="sub-navbar">
+            <li><a href="#">子菜单 1</a></li>
+            <li class="active"><a href="#">子菜单 2</a></li>
+            <li><a href="#">子菜单 3</a></li>
+          </ul>
+        </li>
         <li><a href="#">PDM</a></li>
         <li><a href="#">WMS</a></li>
       </ul>
@@ -53,17 +59,7 @@
       </ul>
     </div>
   </div>
-  <nav class="sub-navbar navbar navbar-default navbar-static-top">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">子菜单 1</a></li>
-          <li><a href="#">子菜单 2</a></li>
-          <li><a href="#">子菜单 3</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <nav class="sub-navbar-back"></nav>
 </nav>
 <div class="container-fluid">
   <div class="row fix-row">

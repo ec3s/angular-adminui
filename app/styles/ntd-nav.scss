@@ -29,24 +29,61 @@
             opacity: .6;
         }
     }
+
     .badge {
         background-color: $brand-danger;
     }
 
-    .sub-navbar {
-        margin-bottom: 0;
-        border-bottom: 1px solid #ddd;
-        min-height: 30px;
-        z-index: 500;
-        ul.nav {
-            a {
-                padding: 5px 10px;
+    .main-nav {
+        .active {
+            &:after{
+                margin: 0 auto -5px;
+                position: relative;
+                z-index: 501;
+                display: block;
+                content: ' ';
+                @extend .caret;
+                border-top-color: #000 !important;
+                border-bottom-color: #000 !important;
             }
         }
     }
+
+    .sub-navbar {
+        @extend .nav;
+        @extend .navbar-nav;
+        font: $body-font;
+        position: absolute;
+        padding: 3px 0 0;
+        width: 768px;
+        margin-bottom: 0;
+        z-index: 500;
+        li {
+            &.active {
+                a {
+                    color: #428bcb;
+                }
+                &:after {
+                    content: none; 
+                }
+            }
+            a {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                color: #666;
+            }
+        }
+    }
+    .sub-navbar-back {
+        @extend .navbar-default;
+        @extend .navbar-static-top;
+        @extend .navbar-default;
+        border-bottom: 1px solid #ddd;
+        height: 35px;
+    }
 }
 // Submenu nav
-.sub-nav {
+.side-nav {
     // position: fixed;
     h4 {
         @extend .list-group-item;
@@ -54,8 +91,9 @@
         background-color: $panel-default-heading-bg;
         border-bottom-width: 2px;
     }
-    .sub-nav-menu {
+    .side-nav-menu {
         @extend .list-group;
+        font: $body-font;
         li {
             @extend .list-group-item;
             padding: 0;

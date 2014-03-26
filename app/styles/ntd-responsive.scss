@@ -3,7 +3,7 @@
     body {
         padding-top: 90px;
     }
-    .sub-nav {
+    .side-nav {
         &.affix {
             position: relative;
         }
@@ -37,8 +37,29 @@
 
 }
 
-@media (max-width: 480px) {
-    .sub-navbar {
-        display: none;
+@media (max-width: 767px) {
+    .navbar {
+        .main-nav {
+            .active {
+                &:after {
+                    content: none;
+                }
+            }
+        }
+        .sub-navbar {
+            position: relative;
+            padding: 0 15px;
+            width: 100%;
+            margin: 5px 0;
+            li.active {
+                a {
+                    color: #fff;
+                }
+            }
+        }
+
+        .sub-navbar-back {
+            display: none;
+        }
     }
 }
