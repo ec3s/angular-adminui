@@ -1,3 +1,4 @@
+$active-menu-color: #428bcb;
 .nav li.dropdown.open .caret, .nav li.dropdown.open.active .caret, .nav li.dropdown.open a:hover .caret {
     opacity: 0.4;
 }
@@ -35,6 +36,9 @@
     }
 
     .main-nav {
+        li {
+            position: static;
+        }
         .active {
             &:after{
                 margin: 0 auto -5px;
@@ -54,14 +58,15 @@
         @extend .navbar-nav;
         font: $body-font;
         position: absolute;
+        left: 15px;
+        right: 15px;
         padding: 3px 0 0;
-        width: 768px;
         margin-bottom: 0;
         z-index: 500;
         li {
             &.active {
                 a {
-                    color: #428bcb;
+                    color: $active-menu-color;
                 }
                 &:after {
                     content: none; 
@@ -155,6 +160,9 @@
                     }
                 }
             }
+            a.has-sub-menu {
+                @include border-bottom-radius(0 !important);
+            }
             ul {
                 @extend .list-unstyled;
                 display: none;
@@ -178,6 +186,7 @@
                     &.active{
                         border-color: $list-group-border;
                         a {
+                            color: $active-menu-color;
                             background: $list-group-bg url($submenuSprites) no-repeat 15px -22px;
                             &:hover {
                                 border-color: $list-group-border !important;

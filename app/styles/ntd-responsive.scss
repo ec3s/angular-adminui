@@ -3,11 +3,6 @@
     body {
         padding-top: 90px;
     }
-    .side-nav {
-        &.affix {
-            position: relative;
-        }
-    }
 
     .easy-pie-chart-widget {
         text-align: center;
@@ -35,6 +30,21 @@
         }
     }
 
+    .sub-navbar {
+        width: 768px;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .side-nav {
+        &.affix {
+            position: relative;
+        }
+    }
+    .sub-navbar {
+        width: 990px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -45,9 +55,16 @@
                     content: none;
                 }
             }
+            a {
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
         }
         .sub-navbar {
             position: relative;
+            left: 0;
+            right: 0;
             padding: 0 15px;
             width: 100%;
             margin: 5px 0;
