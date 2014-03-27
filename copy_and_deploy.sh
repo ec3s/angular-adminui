@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cp ./dist/scripts/angular-adminui.js ../angular-adminui-bower/scripts/
+cp ./dist/scripts/angular-adminui-tpl.js ../angular-adminui-bower/scripts/
 
 cp ./dist/styles/angular-adminui.css ../angular-adminui-bower/styles/
 git commit -a
