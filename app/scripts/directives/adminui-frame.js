@@ -79,6 +79,15 @@
         getEndChildren(nav.children, endChildren);
       }
     });
+    return generateMatch(endChildren);
+  };
+
+  var generateMatch = function(endChildren) {
+    ng.forEach(endChildren, function(child) {
+      if (ng.isUndefined(child.match) && child.url != null) {
+        child.match = child.url.replace('#', '');
+      }
+    });
     return endChildren;
   };
 
@@ -86,8 +95,8 @@
     clearSelected(scope.navigation);
     var endChildren = getEndChildren(scope.navigation);
     for (var i = 0; i < endChildren.length; i++) {
-      var url = endChildren[i].url.replace('#', '');
-      if (path == url) {
+      var regexp = new RegExp('^' + endChildren[i].match + '$', ['i']);
+      if (regexp.test(path)) {
         scope.select(endChildren[i]);
         break;
       }
