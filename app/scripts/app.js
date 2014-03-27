@@ -8,6 +8,10 @@ var adminuiApp = angular.module('adminuiApp', [
   'bootstrapPrettify'
 ]);
 
+adminuiApp.run(['$rootScope', function($rootScope) {
+  $rootScope.userInfo = {};
+}]);
+
 /* config adminui frame */
 angular.module('ntd.directives') .config(
   ['adminuiFrameProvider', function(adminuiFrameProvider) {

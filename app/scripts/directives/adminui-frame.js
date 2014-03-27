@@ -6,6 +6,10 @@
       restrict: 'A',
       templateUrl: 'templates/adminui-frame.html',
       transclude: true,
+      scope: {
+        userInfo: '=',
+        messages: '='
+      },
       link: function(scope, elem, attrs) {
         /* dose default show submenu */
         scope.isSubMenuShow = adminuiFrameProvider.defaultShowSubmenu;
@@ -15,7 +19,7 @@
         scope.navigation = adminuiFrameProvider.navigation;
         /* init messages */
         scope.messages = scope.messages ? scope.messages : [];
-        /* init user info */
+
         scope.userInfo = ng.extend({
           'username': 'N/A',
           'avatar': '../images/avatar.jpg',
