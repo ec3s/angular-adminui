@@ -14,7 +14,7 @@
         name: '@',
         ngModel: '=',
         ngChange: '&',
-        click: '&click'
+        click: '&'
       },
       template: '<label class="checkbox toggle">' +
       '<input id="{{id}}" name="{{name}}"' +
@@ -37,7 +37,9 @@
               target: element,
               type: 'click'
             };
-            scope.click(eventModel);
+            scope.$apply(function() {
+              scope.click(angular.extend(scope, {$event: eventModel}));
+            });
           }
         });
         scope.$watch('checked', function(value, oldValue) {
