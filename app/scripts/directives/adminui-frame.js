@@ -1,6 +1,7 @@
 (function(ng) {
   'use strict';
-  var AdminuiFrame = function(adminuiFrameProvider, $location, $timeout) {
+  var AdminuiFrame = function(
+    adminuiFrameProvider, $rootScope, $location, $timeout) {
     return {
       restrict: 'A',
       templateUrl: 'templates/adminui-frame.html',
@@ -24,6 +25,11 @@
 
         /* perpare navigation data */
         init(scope.navigation);
+
+        /* when route changed, reselected */
+        $rootScope.$on('$routeChangeStart', function() {
+          selectPath(scope, $location.path());
+        });
 
         /* bind menu select func */
         scope.select = ng.bind(scope, select, $timeout, elem);
@@ -192,6 +198,6 @@
   );
   ng.module('ntd.directives').directive(
     'adminuiFrame',
-    ['adminuiFrame', '$location', '$timeout', AdminuiFrame]
+    ['adminuiFrame', '$rootScope', '$location', '$timeout', AdminuiFrame]
   );
 })(angular);

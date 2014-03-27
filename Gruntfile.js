@@ -285,7 +285,7 @@ module.exports = function (grunt) {
       }
     },
     ngtemplates: {
-      'ntd-directives': {
+      'ntd.directives': {
         cwd: '<%= yeoman.app%>',
         src: 'templates/**.html',
         dest: '<%= yeoman.dist%>/scripts/angular-adminui-tpl.js',
