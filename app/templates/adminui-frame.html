@@ -41,7 +41,7 @@
         <a href="javascript:;" data-ng-click="toggleSubMenu($event)"><i class="glyphicon glyphicon-list"></i></a>
         </li>
         <li class="dropdown">
-        <a class="dropdown-toggle" href="#" data-toggle="dropdown">您好，用户 <b class="caret"></b></a>
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">您好，{{userInfo.username}}<b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li class="user-information">
           <img data-ng-src="{{userInfo.avatar}}" alt="user_avatar">
