@@ -87,6 +87,18 @@ $active-menu-color: #428bcb;
         height: 35px;
     }
 }
+.flash-alert {
+    z-index: 600;
+    position: fixed;
+    right: 15px;
+    left: 15px;
+    .alert {
+        padding: 10px 15px;
+    }
+    .close {
+        line-height: inherit;
+    }
+}
 // Submenu nav
 .side-nav {
     // position: fixed;
