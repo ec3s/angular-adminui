@@ -37,9 +37,7 @@
               target: element,
               type: 'click'
             };
-            scope.$apply(function() {
-              scope.click(angular.extend(scope, {$event: eventModel}));
-            });
+            scope.click(eventModel);
           }
         });
         scope.$watch('checked', function(value, oldValue) {
