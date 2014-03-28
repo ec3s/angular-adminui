@@ -1,0 +1,25 @@
+.dropdown-checkbox-group {
+    .dropdown-toggle {
+        cursor: pointer;
+        input {
+            margin: 0 5px 0 0;
+            &.part-checked {
+                @include opacity(.3);
+            }
+        }
+    }
+    .dropdown-menu {
+        margin-left: -10px;
+        li {
+            label {
+                @extend a;
+                font: normal $body-font;
+                input {
+                    margin: 0 5px 0 0;
+                }
+                padding: 5px 10px;
+                margin: 0 auto;
+            }
+        }
+    }
+}

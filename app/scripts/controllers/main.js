@@ -1,4 +1,54 @@
 'use strict';
+adminuiApp
+.controller('MainCtrl', ['$scope', '$window', '$location', function($scope, $window, $location){
+  $scope.$location = $location;
+  $scope.name = 'Nobody';
+  $scope.sayHello = function(name) {
+    $scope.name = name;
+    console.log('say hello'+name);
+  }
+  $scope.crmDropdown = [
+    {text: 'CRM Another action', href: '#anotherAction'},
+    {text: 'CRM Something else here', click: '$alert(\'working ngClick!\')'},
+    {text: 'CRM Separated link'}
+  ];
+
+  $scope.pecDropdown = [
+    {text: 'CRM Another action', href: '#anotherAction'},
+    {text: 'CRM Something else here', click: '$alert(\'working ngClick!\')'},
+    {text: 'CRM Separated link'}
+  ];
+
+  $scope.wmsDropdown = [
+    {text: 'CRM Another action', href: '#anotherAction'},
+    {text: 'CRM Something else here', click: '$alert(\'working ngClick!\')'},
+    {text: 'CRM Separated link'}
+  ];
+
+  $scope.easyPieChart = [
+    { caption: 'New Visits',     percent: 58,   usage: '58%',   },
+    { caption: 'Bounce Rate',    percent: 43,   usage: '43%',   },
+    { caption: 'Server Load',    percent: 91,   usage: '91%',   },
+    { caption: 'Used RAM',       percent: 82,   usage: '75M',   },
+    { caption: 'Processor Load', percent: 35,   usage: '35%',   },
+    { caption: 'Bandwidth',      percent: 77,   usage: '1.5TB', }
+  ];
+  $scope.alert = {};
+}]);
+/* for checkbox group */
+var checkboxGroupCtrl = function($scope) {
+  $scope.checkboxGroupData = {
+    'name': '产品管理',
+    'checkboxGroup': [
+      {'name': '查看产品', 'value': 'read', 'checked': true},
+      {'name': '编辑产品', 'value': 'edit'},
+      {'name': '添加产品', 'value': 'add', 'checked': true},
+      {'name': '删除产品', 'value': 'delete'}
+    ]
+  };
+};
+
+adminuiApp.controller('checkboxGroupCtrl', ['$scope', checkboxGroupCtrl]);
 /* for chosen */
 var chosenCtrl = function($scope, $http, $q) {
   $scope.options = this.getOptions();
@@ -41,42 +91,7 @@ chosenCtrl.prototype.getOptions = function() {
   ];
 };
 
-adminuiApp
-.controller('MainCtrl', ['$scope', '$window', '$location', function($scope, $window, $location){
-  $scope.$location = $location;
-  $scope.name = 'Nobody';
-  $scope.sayHello = function(name) {
-    $scope.name = name;
-    console.log('say hello'+name);
-  }
-  $scope.crmDropdown = [
-    {text: 'CRM Another action', href: '#anotherAction'},
-    {text: 'CRM Something else here', click: '$alert(\'working ngClick!\')'},
-    {text: 'CRM Separated link'}
-  ];
 
-  $scope.pecDropdown = [
-    {text: 'CRM Another action', href: '#anotherAction'},
-    {text: 'CRM Something else here', click: '$alert(\'working ngClick!\')'},
-    {text: 'CRM Separated link'}
-  ];
-
-  $scope.wmsDropdown = [
-    {text: 'CRM Another action', href: '#anotherAction'},
-    {text: 'CRM Something else here', click: '$alert(\'working ngClick!\')'},
-    {text: 'CRM Separated link'}
-  ];
-
-  $scope.easyPieChart = [
-    { caption: 'New Visits',     percent: 58,   usage: '58%',   },
-    { caption: 'Bounce Rate',    percent: 43,   usage: '43%',   },
-    { caption: 'Server Load',    percent: 91,   usage: '91%',   },
-    { caption: 'Used RAM',       percent: 82,   usage: '75M',   },
-    { caption: 'Processor Load', percent: 35,   usage: '35%',   },
-    { caption: 'Bandwidth',      percent: 77,   usage: '1.5TB', }
-  ];
-  $scope.alert = {};
-}]);
 
 adminuiApp
 .controller('TabsDemoCtrl', function($scope){

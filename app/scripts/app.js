@@ -13,7 +13,7 @@ adminuiApp.run(['$rootScope', function($rootScope) {
 }]);
 
 /* config adminui frame */
-angular.module('ntd.directives') .config(
+angular.module('ntd.directives').config(
   ['adminuiFrameProvider', function(adminuiFrameProvider) {
     adminuiFrameProvider.setConfig({
       defaultShowSubmenu: true,
