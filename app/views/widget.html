@@ -9,6 +9,21 @@
   <p> 复选分组组件， 添加<code>checkbox-group</code>属性</p>
   <p><code>ng-model</code>为必选属性</p>
   <div data-checkbox-group data-ng-model="checkboxGroupData"></div>
+  <pre class="prettyprint linenums">
+  &lt;div data-checkbox-group data-ng-model=&quot;checkboxGroupData&quot;&gt;&lt;/div&gt;
+  </pre>
+  <p>数据结构</p>
+  <pre class="well">
+    {
+      'name': '产品管理',
+      'checkboxGroup': [
+        {'name': '查看产品', 'value': 'read', 'checked': true},
+        {'name': '编辑产品', 'value': 'edit'},
+        {'name': '添加产品', 'value': 'add', 'checked': true},
+        {'name': '删除产品', 'value': 'delete'}
+      ]
+    };
+  </pre>
 </div>
 
 <h3>Toggle swithers</h3>
@@ -283,12 +298,3 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?</p>
 </div>
 <hr>
-<pre class="prettyprint lineums">
-&lt;div slim-scroll slim-scroll-width=&quot;400&quot; slim-scroll-height=&quot;100&quot;&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?&lt;/p&gt;
-    ... ...
-&lt;/div&gt;
-</pre>
-
-<h3>Confirm button</h3>
-<p>为标签添加<code>confirm-button</code>属性,
