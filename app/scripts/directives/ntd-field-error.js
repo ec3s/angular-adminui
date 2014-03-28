@@ -8,7 +8,7 @@
   'use strict';
   function fieldErrorDirective() {
     return {
-      template: '<span class="text-error" ng-show="showError" ng-transclude></span>',
+      template: '<span class="text-danger" ng-show="showError" ng-transclude></span>',
       restrict: 'EAC',
       transclude: true,
       scope: {

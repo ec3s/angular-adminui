@@ -3,7 +3,7 @@
   'use strict';
   function toggle_menuClass() {
       $('#J_subMenu').parent().toggle();
-      $('#J_mainContent').toggleClass('span10');
+      $('#J_mainContent').toggleClass('col-md-12');
   }
 
   function toggleSubmenuDirectice(){

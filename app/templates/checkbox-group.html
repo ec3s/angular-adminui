@@ -1,0 +1,8 @@
+<div class="dropdown dropdown-checkbox-group">
+  <label class="dropdown-toggle" data-toggle="dropdown">
+    <input type="checkbox" data-ng-click="toggleCheckedAll()" data-ng-class="{'part': 'part-checked'}[status]" data-ng-checked="{'all': true, 'part': true, 'none': false}[status]"/>{{dataSource.name}} <b class="caret"></b>
+  </label>
+  <ul class="dropdown-menu">
+    <li data-ng-repeat="checkbox in dataSource.checkboxGroup"><label><input type="checkbox" data-ng-model="checkbox.checked"/> {{checkbox.name}}</label></li>
+  </ul>
+</div>

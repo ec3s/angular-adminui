@@ -1,28 +1,17 @@
-﻿.cascade-list 
+﻿@import 'compass';
+
+$gray-lighter: #eee;
+.cascade-list 
 {
-    display: inline-block;
     margin-bottom: 0;
     vertical-align: middle;
-    background-color: $white;
+    background-color: #fff;
     border: 1px solid #ccc;
-    padding: 4px;
-    font-size: $baseFontSize;
     font-weight: normal;
-    font-family: $sansFontFamily;
-    line-height: $baseLineHeight;
-    color: $gray;
 
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
-    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
-    -o-transition: border linear 0.2s, box-shadow linear 0.2s;
-    transition: border linear 0.2s, box-shadow linear 0.2s;
+    @include border-radius(4px);
+    @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075));
+    @include transition(border linear 0.2s, box-shadow linear 0.2s);
 }
 
 .cascade-list-inner 
@@ -38,22 +27,15 @@
 .cascade-list ul
 {
     margin: 0;
-    padding: 0 6px;
+    padding: 4px 6px;
     width: 30%;
-    height: 150px;
+    height: 100%;
     display: block;
-    /*float: left;*/
     position: absolute;
     list-style: none;
-    border-right: 1px solid $grayLighter;
+    border-right: 1px solid $gray-lighter;
     overflow: auto;
 }
-/*
-.sprite-arrow-disabled{ background-position: 0 0; width: 7px; height: 8px; } 
-.sprite-arrow-gradient{ background-position: 0 -26px; width: 7px; height: 8px; } 
-.sprite-arrow-solidgrey{ background-position: 0 -52px; width: 7px; height: 8px; } 
-.sprite-arrow-white{ background-position: 0 -78px; width: 7px; height: 8px; } 
-*/
 
 .cascade-list li 
 {
@@ -64,6 +46,10 @@
     padding-right: 1.5em;
     cursor: pointer;
 }
+.cascade-list .form-control{
+    display: inline-block;    
+}
+
 
 .cascade-list li.has-child 
 {
@@ -72,19 +58,19 @@
 
 .cascade-list li.selective
 {
-    background-color: $grayLighter;
+    background-color: $gray-lighter;
 }
 
 .cascade-list li.selective.has-child
 {
-    background-color: $grayLighter;
+    background-color: $gray-lighter;
     background-position: 98% -47px;
 }
 
 .cascade-list ul.selective li.selective
 {
-    background-color: $blue;
-    color: $white;
+    background-color: #049cdb;
+    color: #fff;
 }
 
 .cascade-list ul.selective li.selective.has-child

@@ -1,51 +1,49 @@
 // Icon images path 
 $iconSpritePath:          "../images/glyphicons-halflings.png" !default;
 $iconWhiteSpritePath:     "../images/glyphicons-halflings-white.png" !default;
+$icon-font-path: "fonts/" !default;
 
-$bodyBackground:  #fdfdfd;
-$textColor:       #666;
+$body-bg:  #fdfdfd;
+$text-color:       #666;
 $navbarInverseBackgroundHighlight: #3d3d3d;
 $navbarInverseBackground: #2d2d2d;
 $navbarInverseBorder: #353535;
      
-$sansFontFamily:  "Helvetica Neue", Helvetica, "microsoft yahei", Arial, sans-serif !default;
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, "microsoft yahei", Arial, sans-serif !default;
+$header-font: 24px/30px $font-family-sans-serif;
+$body-font: 12px/18px $font-family-sans-serif; 
+$menu-header-font: 14px/20px $font-family-sans-serif;
 
-@import "compass_twitter_bootstrap";
-@import "compass_twitter_bootstrap_responsive";
+@import "compass";
+@import "../components/bootstrap-sass/lib/bootstrap";
 
-$logoPath:                "../images/logo.png";
+h1 {
+    font: $header-font;
+}
+
+body {
+    font: $body-font;
+}
+
+.navbar {
+    font: $menu-header-font;
+}
+
+.glyphicon {
+    top: 2px;
+    line-height: 1.2;
+}
+
 $iconMinus:               "../images/minus.png";
 $iconPlus:                "../images/plus.png";
 $iconSorting:             "../images/sorting_sprite.png";
 $loginBgImg:              "../images/login_bg.jpg";
-$iconAnimateRefreshPath:  "../images/loading.gif";
-$SubmenuSprites:          "../images/menu_sprites.png";
-
-// Font
-$fontSizeSmall:   12px;
-
-// Base widget header gradient color
-$BaseWidgetHeaderGradientStart:  #f9f9f9;
-$BaseWidgetHeaderGradientEnd:    #ededed;
-$BaseWidgetHeaderActiveBgColor:  #ebf3fd;
+$submenuSprites:          "../images/menu_sprites.png";
 
 // Info box
-$infoBoxBorderColor:        #d5d5d5;
 $infoBoxItemNumberColor:    #08c;
 $infoBoxItemNumberFontSize: 32px;
 $infoBoxItemNameColor:      #666;
-$infoBoxGradientStart:      #f9f9f9;
-$infoBoxGradientEnd:        #ededed;
-
-// Submenu nav
-$submenuActiveBorderColor:            #08c;
-$submenuActiveBgColor:                #08c;
-$submenuChildBorderColor:             #ddd;
-$submenuChildHoverColor:              #08c;
-$submenuChildActiveColor:             #08c;
-$submenuChildLinkColor:               #999;
-$submenuChildLinkBgColor:             #fff;
-$submenuChildLinkHoverBorderTopColor: #ddd;
 
 // Advance search filter
 $advanceSearchFilterBgColor:           #f9f9f9;
@@ -55,15 +53,15 @@ $advanceSearchFilterArrowHoverBgColor: #e3e3e3;
 // Footable
 $footableDetailFontSize: 12px;
 $footableDetailBgColor:  #eee;
-
-// Box widget
-$boxWidgetBorder: #ddd;
-
+// 
+// // Box widget
+// $boxWidgetBorder: #ddd;
+// 
 // Mixin
 @mixin base-widget-header-gradient {
-    @include text-shadow(0 1px 0 $white);
-    //@include box-shadow(0 1px 0 0 $white inset);
-    @include background-image(linear-gradient($BaseWidgetHeaderGradientStart, $BaseWidgetHeaderGradientEnd)); 
+    @include text-shadow(0 1px 0 #fff);
+    @include box-shadow(0 1px 0 0 #fff inset);
+    // @include background-image(linear-gradient($BaseWidgetHeaderGradientStart, $BaseWidgetHeaderGradientEnd)); 
 }
 
 
@@ -93,8 +91,29 @@ $boxWidgetBorder: #ddd;
   to {-webkit-transform:rotate(360deg);}
 }
 
+//fix colloapse css
+.collapse{
+  display: block;
+  overflow: hidden;
+  height: auto;
+}
+// fix header toggle()
+@media (max-width: 768px) {
+  .collapse{
+    display:none;
+  }
+  .nav.pull-right{
+    float:none!important;
+  }
+  // fix select margin
+  .chzn-container{
+    margin-bottom:15px;
+  }
+}
+//field error
 // Custom styles
 @import "ntd-main";
+@import "ntd-nav";
 @import "ntd-table";
 @import "ntd-cascade-list";
 @import "ntd-login";
@@ -103,4 +122,5 @@ $boxWidgetBorder: #ddd;
 @import "ntd-404";
 @import "ntd-responsive";
 @import "ntd-toggle-switch";
-
+@import "adminui-checkbox-group";
+// 

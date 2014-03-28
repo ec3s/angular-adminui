@@ -238,13 +238,15 @@
           chosen.search_field.bind('keyup', function(e) {
             if (chosen && chosen.results_showing) {
               searchTxt.$search = chosen.get_search_text();
-              if (oldSearch != searchTxt.$search) {
-                oldSearch = searchTxt.$search;
-                chosenEl.trigger('liszt:load_data', {
-                  onSearch: onSearch,
-                  optionsModelName: optionsModelName
-                });
-              }
+              $timeout(function(){
+                  if (oldSearch != searchTxt.$search) {
+                    oldSearch = searchTxt.$search;
+                    chosenEl.trigger('liszt:load_data', {
+                      onSearch: onSearch,
+                      optionsModelName: optionsModelName
+                    });
+                  }
+              },500);            
             }
           });
         }
@@ -263,7 +265,7 @@
       restrict: 'AC',
       template: '<span><span' +
       ' data-ng-repeat="linkage in linkages">' +
-      ' <select data-ntd-chosen' +
+      ' <select class="col-sm-3" data-ntd-chosen' +
       ' data-placeholder="请选择"' +
       ' data-disable-search-threshold="10"' +
       ' data-ng-change="change($index)"' +
