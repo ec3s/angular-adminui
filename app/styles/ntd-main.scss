@@ -21,16 +21,23 @@
 
 }
 
-.icon-animate-refresh {
-    background: url(#{$iconWhiteSpritePath}) -240px -24px no-repeat;
-    -webkit-mask-size: 30px 30px;
-    -webkit-animation-name: rotate;
-    -webkit-animation-duration: 1.5s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-}
 body {
-    padding-top: 60px;
+    position: relative;
+    padding-top: 90px;
+}
+
+.container-full {
+  padding: 0 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+.fix-row {
+    margin: auto 0;
+}
+.well {
+    h3 {
+        margin-top: 10px;
+    }
 }
 h1,h2,h3,h4,h5,h6,legend {
     font-weight: normal;
@@ -50,7 +57,7 @@ select
 .label,
 .badge,
 .btn-small { 
-    font-size: $fontSizeSmall;
+    font-size: $font-size-small;
     font-weight: normal;
 }
 
@@ -70,156 +77,69 @@ form {
     }
 }
 
-.nav li.dropdown.open .caret, .nav li.dropdown.open.active .caret, .nav li.dropdown.open a:hover .caret {
-    opacity: 0.4;
-}
-.navbar {
-    .brand {
-        &:before {
-            margin-right: 5px;
-            font-family: 'admin_uiregular';
-            font-size: 28px;
-            content: '\F000';
-        }
-        
-        font-family: 'good_timesregular';
-        font-size: 20px;
-
-        margin-right: 20px;
-
-        color: #000;
-        text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
-        @include transition-property(all);
-        @include transition-duration(.2s);
-        @include transition-timing-function(linear);
-
-        &:hover {
-            text-decoration: none;
-            text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
-            background-position: 20px -46px;
-            opacity: .6;
-        }
-    }
-}
-// Submenu nav
-.sub-nav {
-    margin-bottom: 5px;
-    @include box-shadow(0 1px 4px rgba(0,0,0,.065));
-    li {
-        a {
-            cursor: pointer !important;
-            .icon-chevron-down {
-                opacity: .25;
-            }
-            &:hover {
-                @include transition-property(background-color);
-                @include transition-duration(.45s);
-                @include transition-timing-function(ease);
-
-                .icon-chevron-down {
-                    opacity: .5;
-                }
-            }
-        }
-        
-        &.active{
-            a, a:hover {
-                color: $white;
-                border-width: 0;
-                padding: 9px 12px;
-                background-color: $submenuActiveBgColor;
-
-                .icon-chevron-down {
-                    opacity: 1;
-                }
-            }
-            .icon-chevron-down {
-                background-image: url(#{$iconWhiteSpritePath});
-                opacity: 1;
-            }
-        }
-
-        ul {
-            margin: 0;
-            list-style: none;
-            border-left: 1px solid $submenuChildBorderColor;
-            border-right: 1px solid $submenuChildBorderColor;
-            display: none;
-
-            li {
-                font-size: $fontSizeSmall;
-                a {
-                    display: block;
-                    margin-top: -1px;
-                    padding: 8px 12px 8px 24px !important;
-                    color: $submenuChildLinkColor !important;
-                    background-color: $submenuChildLinkBgColor !important;
-                    &:hover {
-                        border-width: 1px !important;
-                        text-decoration: none;
-                        background: url("#{$SubmenuSprites}") no-repeat 15px 14px;
-                    }
-                    &:first-child {
-                        border-top: 1px solid $submenuChildLinkHoverBorderTopColor;
-                    }
-                }
-
-                &.active {
-                    a, a:hover {
-                        color: red;
-                        border-color: $submenuChildBorderColor;
-                        background:url(#{$SubmenuSprites}) no-repeat 15px -22px;
-                    }
-                }
-            }
-        }
-    }
-}
-
-.btn-icon{
-    padding: 2px 4px 0 4px;
-    [class^="icon-"], [class*=" icon-"] {
-        margin-top: 0;
-    }
-}
-
-// Pagination
-.pagination{
-    margin-top: 0;
-}
-
 // Info box
 .info-box {
-    margin-bottom: 20px;
     overflow: hidden;
     .stat {
-        border: 1px solid $infoBoxBorderColor;
+        @extend .panel;
+        @extend .panel-default;
+        @extend .panel-body;
         padding: 10px;
-        color: $infoBoxItemNameColor;
+        background-color: $panel-default-heading-bg;
         text-align: center;
-        @include border-radius($baseBorderRadius);
-        @include text-shadow(0 1px 0 #FFFFFF);
-        @include box-shadow(0 1px 0 0 #FFFFFF inset, 0 1px 0 rgba(255,255,255,0.4));
-        @include background-image(linear-gradient($infoBoxGradientStart, $infoBoxGradientEnd)); 
-        background-color: $infoBoxGradientEnd;
 
         strong {
             display: block;
             font-weight: normal;
             font-size: $infoBoxItemNumberFontSize;
+            line-height: 28px;
             color: $infoBoxItemNumberColor;
-            margin:5px 0;
         }
     }
 }
-.user-infomation {
+.panel {
+    .panel-heading {
+        .btn-group {
+            position: relative;
+            margin-top: -2px;
+        }
+    }
+}
+.div-stacked {
+    border: 1px solid #ddd;
+    @include border-radius($border-radius-base);
+    .stacked-item {
+        border-bottom: 1px solid #ddd;
+        &:last-child {
+            border: none;
+        }
+    }
+    .stacked-item-hd {
+        padding: 8px;
+        overflow: hidden;
+    }
+    .stacked-item-bd {
+        padding: 8px;
+        border-top: 1px solid #ddd;
+        .table-normal {
+            margin: 0;
+        }
+    }
+}
+.page-header {
+    .page-action {
+        float: right;
+        margin-top: 10px;
+    }
+}
+.user-information {
     padding-top: 5px;
     text-align: center;
     overflow: hidden; 
 
     img {
         margin-bottom: 10px;
-        border: 3px solid $white;
+        border: 3px solid #fff;
         @include box-shadow(0 1px 5px rgba(0,0,0,0.3));
         @include border-radius(500px, 500px);
     }
@@ -237,13 +157,16 @@ form {
     border: 1px solid $advanceSearchFilterBorderColor;
     @include border-radius(4px);
     position: relative;
+    .form-group {
+        margin-bottom: 10px;
+    }
     .skeleton {
         label, .help-inline, .help-block {
             display: none;
         }
-        .control-group {
+        .form-group {
             display: inline-block;
-            margin: 0;
+            margin: 0;            
             .controls {
                 margin: 0;
             }
@@ -272,7 +195,7 @@ form {
             display: block;
             padding: 0 0 5px;
             width: 60px;
-            height: 10px;
+            height: 15px;
             &:hover {
                 background: $advanceSearchFilterArrowHoverBgColor;
             }
@@ -286,121 +209,72 @@ form {
     }
 }
 
-.div-stacked {
-    border: 1px solid #ddd;
-    @include border-radius($baseBorderRadius);
-    .stacked-item {
-        border-bottom: 1px solid #ddd;
-        &:last-child {
-            border: none;
-        }
-    }
-    .stacked-item-hd {
-        padding: 8px;
-        overflow: hidden;
-    }
-    .stacked-item-bd {
-        padding: 8px;
-        border-top: 1px solid #ddd;
-        // background: #f5f5f5;
-        .table-normal {
-            margin: 0;
-        }
-    }
-}
 
 // Box widget
 .box {
-    margin-bottom: $baseLineHeight;
+    margin-bottom: $line-height-base;
     .opts {
         float: right;
     }
     .box-hd {
         padding: 8px;
-        line-height: $baseLineHeight;
-        border: 1px solid $boxWidgetBorder;
+        line-height: $line-height-base;
+        border: 1px solid #ccc;
         @include base-widget-header-gradient;
-        @include border-top-radius($baseBorderRadius);
+        @include border-top-radius($border-radius-base);
         h3 {
             margin: 0;
             font-size: 14px;
-            line-height: $baseLineHeight;
+            line-height: $line-height-base;
         }
     }
     .box-bd {
         padding: 8px;
         border: solid #ddd;
         border-width: 0 1px 1px;
-        background-color: $white;
-        @include border-bottom-radius($baseBorderRadius);
+        background-color: #fff;
+        @include border-bottom-radius($border-radius-base);
         .alert {
             margin-bottom: 0;
         }
     }
 }
-.page-header {
-    .page-action {
-        float: right;
-        margin-top: 15px;
-    }
-}
 
 // Tag input
 .tag-input-container ul {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
+  @include border-radius(3px);
   list-style: none;
   margin: 0;
+  padding:0;
   background-color: white;
   border: 1px solid #cccccc;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border linear, box-shadow linear;
-  -webkit-transition-delay: 0.2s, 0.2s;
-  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
-  transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 .tag-input-container ul.focus {
   border-color: rgba(82, 168, 236, 0.8);
   outline: 0;
   outline: thin dotted \9;
   /* IE6-9 */
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  // -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  // -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  // box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
 .tag-input-container ul .tag {
   padding: 0 2px;
-  margin: 3px 0 0 3px;
+  margin: 2px 0 0 2px;
   display: block;
   border: 1px solid #aaaaaa;
-  background-color: #e4e4e4;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
-  background-image: -webkit-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: -moz-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: -o-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
+  background-color: #fff;
+  @include border-radius(2px);
   float: left;
 }
 .tag-input-container ul .tag span {
-  padding: 0 2px;
+  padding: 3px 2px 2px;
+  float: left;
 }
 .tag-input-container ul .tag i {
   cursor: pointer;
-  width: 12px;
-  height: 12px;
-  margin: 3px 1px 0 1px;
-  background: url("../images/chosen-sprite.png") -42px 1px no-repeat;
+  margin: 3px 3px 0;
+  float: left;
 }
 .tag-input-container ul .input-li input {
   border: none;
@@ -442,8 +316,8 @@ form {
     *display: inline;
     /* IE7 inline-block hack */
     *zoom: 1;
+    font: $body-font;
     display: inline-block;
-    font-size: 14px;
     position: relative;
     vertical-align: middle;
 }
@@ -541,20 +415,23 @@ form {
 }
 .chzn-container-single .chzn-single {
     display: block;
-    @include ctb-ie7-inline-block();
-    padding: 4px 12px 1px;
+    /*@include ctb-ie7-inline-block();*/
+    padding: 6px 12px 1px;
     margin-bottom: 0; // For input.btn
-    font-size: $baseFontSize;
-    line-height: $baseLineHeight;
+    font: $body-font;
+    line-height: $line-height-base;
     vertical-align: middle;
     cursor: pointer;
-    @include ctb-buttonBackground($btnBackground, $btnBackgroundHighlight, $grayDark, 0 1px 1px rgba(255,255,255,.75));
-    border: 1px solid $btnBorder;
+    background: $btn-default-bg;
+    -webkit-border-radius: $border-radius-base;
+    -moz-border-radius: $border-radius-base;
+    border-radius: $border-radius-base;
+    border: 1px solid $btn-default-border;
     *border: 0; // Remove the border to prevent IE7's black border on input:focus
-    border-bottom-color: darken($btnBorder, 10%);
-    @include ctb-border-radius($baseBorderRadius);
-    @include ctb-ie7-restore-left-whitespace(); // Give IE7 some love
-    @include ctb-box-shadow(#{inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)});
+    border-bottom-color: darken($btn-default-border, 10%);
+     //@include ctb-ie7-restore-left-whitespace(); Give IE7 some love
+    @include box-shadow(#{inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)});
+    height: 30px;
     position: relative;
     text-decoration: none;
     white-space: nowrap;
@@ -678,7 +555,8 @@ form {
     -moz-box-shadow: none;
     box-shadow: none;
     color: #555555;
-    height: 20px;
+    // height: 20px;
+    height: 26px;
     margin: 0;
     padding: 4px;
     outline: 0;
@@ -687,25 +565,25 @@ form {
     color: #999;
 }
 .chzn-container-multi .chzn-choices .search-choice {
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding;
-    background-clip: padding-box;
-    background-color: #eeeeee;
+    // -webkit-background-clip: padding-box;
+    // -moz-background-clip: padding;
+    // background-clip: padding-box;
+    // background-color: #eeeeee;
     border: 1px solid #cccccc;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background-color: #f8f8f8;
-    background-image: -moz-linear-gradient(top, #ffffff, #eeeeee);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
-    background-image: -webkit-linear-gradient(top, #ffffff, #eeeeee);
-    background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
-    background-image: linear-gradient(to bottom, #ffffff, #eeeeee);
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    background-color: #fff;
+    // background-image: -moz-linear-gradient(top, #ffffff, #eeeeee);
+    // background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#eeeeee));
+    // background-image: -webkit-linear-gradient(top, #ffffff, #eeeeee);
+    // background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
+    // background-image: linear-gradient(to bottom, #ffffff, #eeeeee);
+    // background-repeat: repeat-x;
+    // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
+    // -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    // -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    // box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     color: #333333;
     cursor: default;
     line-height: 13px;
@@ -750,7 +628,7 @@ form {
     transition: border linear .2s, box-shadow linear .2s;
 }
 .chzn-container-active.chzn-with-drop .chzn-single {
-    background-color: #eeeeee;
+    // background-color: #eeeeee;
     border: 1px solid rgba(82, 168, 236, 0.8);
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .075) inset, 0 0 8px rgba(82, 168, 236, .6);
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .075) inset, 0 0 8px rgba(82, 168, 236, .6);
@@ -768,17 +646,17 @@ form {
     background-position: -18px 5px;
 }
 .chzn-container-active .chzn-choices {
-    background-color: $inputBackground;
-    border: 1px solid $inputBorder;
-    @include ctb-box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
-    @include ctb-transition(#{border linear .2s, box-shadow linear .2s});
-
+    background-color: $input-bg;
+    border: 1px solid $input-border;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+    @include transition(#{border linear .2s, box-shadow linear .2s});
+    
     // Focus state
     &:focus {
       border-color: rgba(82,168,236,.8);
       outline: 0;
       outline: thin dotted \9; /* IE6-9 */
-      @include ctb-box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)});
+      @include box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)});
     }
 }
 .chzn-container-active .chzn-choices .search-field input {
@@ -852,8 +730,48 @@ form {
     padding: 4px 5px 4px 20px;
 }
 // fix for chosen responsive
-[class*="span"] {
+[class*="col-md-"] {
     .chzn-container {
         width: 100% !important;
     }
+}
+//
+.help-inline{
+    display: inline-block;
+    margin-top: 15px;
+    padding-left:5px;
+}
+
+.nav-tabs > li a{
+    height:40px;
+}
+
+//fix for sideBar responsive
+@media(max-width:992px){
+    #J_subMenu .affix{
+        position:relative;
+    }
+}
+//fix chosen 
+.chzn-container-single .chzn-single {
+    background:none;
+}
+.chzn-container .chzn-results li.highlighted,
+.chzn-container-multi .chzn-choices,
+.chzn-container-multi .chzn-choices li.search-choice-disabled,
+.chzn-container-active.chzn-with-drop .chzn-single,
+.chzn-rtl .chzn-search input  {
+    background-image:none;
+    box-shadow:none;
+}
+.chzn-container-multi .chzn-choices li.search-choice {
+    background-color: #fff;
+    background-image: none;
+    box-shadow:none;
+}
+.alert {
+    button {
+        line-height: inherit;
+    }
+    padding: 10px 15px;
 }

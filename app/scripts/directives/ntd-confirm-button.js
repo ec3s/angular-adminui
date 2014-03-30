@@ -20,7 +20,7 @@
           '<button type=\"button\" class=\"confirmbutton-yes btn btn-primary\">' +
             yep +
           '</button>\n' +
-          '<button type="button" class=\"confirmbutton-no btn\">' +
+          '<button type="button" class=\"confirmbutton-no btn btn-default\">' +
             nope +
           '</button>' +
         '</div>';

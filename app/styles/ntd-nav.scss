@@ -1,0 +1,215 @@
+$active-menu-color: #428bcb;
+.nav li.dropdown.open .caret, .nav li.dropdown.open.active .caret, .nav li.dropdown.open a:hover .caret {
+    opacity: 0.4;
+}
+.navbar {
+    border-bottom-width: 0;
+    .navbar-brand {
+        &:before {
+            margin-right: 5px;
+            font-family: 'admin_uiregular';
+            font-size: 25px;
+            content: '\F000';
+        }
+        
+        font-family: 'good_timesregular';
+        font-size: 20px;
+
+        margin-right: 20px;
+
+        color: #000;
+        text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+        @include transition-property(all);
+        @include transition-duration(.2s);
+        @include transition-timing-function(linear);
+
+        &:hover {
+            text-decoration: none;
+            text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+            background-position: 20px -46px;
+            opacity: .6;
+        }
+    }
+
+    .badge {
+        background-color: $brand-danger;
+    }
+
+    .main-nav {
+        li {
+            position: static;
+        }
+        .active {
+            &:after{
+                margin: 0 auto -5px;
+                position: relative;
+                z-index: 501;
+                display: block;
+                content: ' ';
+                @extend .caret;
+                border-top-color: #000 !important;
+                border-bottom-color: #000 !important;
+            }
+        }
+    }
+
+    .sub-navbar {
+        @extend .nav;
+        @extend .navbar-nav;
+        font: $body-font;
+        position: absolute;
+        left: 15px;
+        right: 15px;
+        padding: 3px 0 0;
+        margin-bottom: 0;
+        z-index: 500;
+        li {
+            &.active {
+                a {
+                    color: $active-menu-color;
+                }
+                &:after {
+                    content: none; 
+                }
+            }
+            a {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                color: #666;
+            }
+        }
+    }
+    .sub-navbar-back {
+        @extend .navbar-default;
+        @extend .navbar-static-top;
+        @extend .navbar-default;
+        border-bottom: 1px solid #ddd;
+        height: 35px;
+    }
+}
+.message-container {
+    z-index: 600;
+    position: fixed;
+    right: 15px;
+    left: 15px;
+    .alert {
+        padding: 10px 15px;
+    }
+    .close {
+        line-height: inherit;
+    }
+}
+// Submenu nav
+.side-nav {
+    // position: fixed;
+    h4 {
+        @extend .list-group-item;
+        font: bold $menu-header-font;
+        background-color: $panel-default-heading-bg;
+        border-bottom-width: 2px;
+        padding: 8px 15px;
+    }
+    .side-nav-menu {
+        @extend .list-group;
+        font: $body-font;
+        li {
+            @extend .list-group-item;
+            padding: 0;
+            cursor: pointer;
+            a {
+                padding: 8px 15px;
+                display: block;
+                color: $list-group-link-color;
+                .glyphicon-chevron-down {
+                    opacity: .25;
+                }
+                &:hover {
+                    background-color: $list-group-hover-bg;
+                    text-decoration: none;
+                    .glyphicon-chevron-down {
+                        opacity: .5;
+                    }
+                }
+            }
+            &.active {
+                border-color: $list-group-active-border;
+                a {
+                    color: $list-group-active-color;
+                    background-color: $list-group-active-bg;
+                    @include border-top-radius(0 !important);
+                }
+                ul {
+                    li {
+                        &:hover {
+                            border-color: $list-group-border;
+                        }
+                        a {
+                            background-color: #fff;
+                            color: $list-group-link-color;
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
+            &:first-child {
+                @include border-top-radius(0);
+            }
+            &:last-child {
+                a {
+                    @include border-bottom-radius(0);
+                }
+                ul {
+                    &:last-child {
+                        li {
+                            &:last-child {
+                                @include border-bottom-radius($list-group-border-radius);
+                                a {
+                                    @include border-bottom-radius($list-group-border-radius);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            a.has-sub-menu {
+                @include border-bottom-radius(0 !important);
+            }
+            ul {
+                @extend .list-unstyled;
+                display: none;
+                margin: -1px;
+                font-size: $font-size-small;
+                li {
+                    &:first-child {
+                        @include border-top-radius(0);
+                    }
+                    &:last-child {
+                        @include border-bottom-radius(0);
+                    }
+                    a {
+                        @include border-bottom-radius(0);
+                        padding-left: 25px;
+                        &:hover {
+                            border-color: $list-group-border !important;
+                            background: $list-group-hover-bg url($submenuSprites) no-repeat 15px 14px;
+                        }
+                    }
+                    &.active{
+                        border-color: $list-group-border;
+                        a {
+                            color: $active-menu-color;
+                            background: $list-group-bg url($submenuSprites) no-repeat 15px -22px;
+                            &:hover {
+                                border-color: $list-group-border !important;
+                                background: $list-group-hover-bg url($submenuSprites) no-repeat 15px -22px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

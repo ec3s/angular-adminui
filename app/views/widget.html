@@ -4,7 +4,29 @@
     </h1>
 </div>
 
-<h3>toggle swithers</h3>
+<h3>Checkbox group</h3>
+<div data-ng-controller="checkboxGroupCtrl">
+  <p> 复选分组组件， 添加<code>checkbox-group</code>属性</p>
+  <p><code>ng-model</code>为必选属性</p>
+  <div data-checkbox-group data-ng-model="checkboxGroupData"></div>
+  <pre class="prettyprint linenums">
+  &lt;div data-checkbox-group data-ng-model=&quot;checkboxGroupData&quot;&gt;&lt;/div&gt;
+  </pre>
+  <p>数据结构</p>
+  <pre class="well">
+    {
+      'name': '产品管理',
+      'checkboxGroup': [
+        {'name': '查看产品', 'value': 'read', 'checked': true},
+        {'name': '编辑产品', 'value': 'edit'},
+        {'name': '添加产品', 'value': 'add', 'checked': true},
+        {'name': '删除产品', 'value': 'delete'}
+      ]
+    };
+  </pre>
+</div>
+
+<h3>Toggle swithers</h3>
 <p>开关组件， 添加<code>toggle-switcher</code>属性</p>
 <p>
     <code>id</code>, 
@@ -14,7 +36,7 @@
     <code>ng-true-value</code>, 
     <code>ng-false-value</code>, 
     <code>ng-model</code>, 
-    <code>ng-click</code>, 
+    <code>data-click</code>, 
     <code>ng-change</code>, 
     <code>ng-disabled</code>, 
     <code>class</code>
@@ -30,10 +52,10 @@
         ng-true-value="open"
         ng-false-value="close"
         ng-model="opened"
-        ng-click="click($event)"
+        data-click="click($event)"
         ng-change="change($event)">
     </span>
-    <input type="button" class="btn" ng-click="do()" value="switcher" >
+    <input type="button" class="btn btn-sm btn-default" ng-click="do()" value="switcher" >
     <span>{{opened}}</span>
 </p>
 <pre class="prettyprint linenums">
@@ -45,7 +67,7 @@
     ng-true-value=&quot;open&quot;
     ng-false-value=&quot;close&quot;
     ng-model=&quot;selected&quot;
-    ng-click=&quot;click($event)&quot;
+    data-click=&quot;click($event)&quot;
     ng-change=&quot;change($event)&quot;&gt;
 &lt;/span&gt;
 </pre>
@@ -60,8 +82,8 @@
         ng-disabled="switchDisabled"
         class="small">
     </span>
-    <button class="btn btn-small" ng-click="switchDisabled = true" type="button">禁用</button>
-    <button class="btn btn-small" ng-click="switchDisabled = false" type="button">启用</button>
+    <button class="btn btn-default btn-sm" ng-click="switchDisabled = true" type="button">禁用</button>
+    <button class="btn btn-default btn-sm" ng-click="switchDisabled = false" type="button">启用</button>
     <span>{{selected}}</span>
 </p>
 <pre class="prettyprint linenums">
@@ -76,36 +98,43 @@
 &lt;/span&gt;
 </pre>
 <h3>Flash alert</h3>
-<p>在<code>ngView</code>之外放置 <code>flashAlert</code>, 否则页面跳转时消息显示不出来</p>
 <div ng-controller="flashMessageCtrl">
-    <p>
-        <button class="btn btn-primary" ng-click="sendMsg()">flash messge</button>
-        点击其它页面将会看到发出去的消息
-    </p>
+	<p>
+		<button class="btn btn-default btn-info" ng-click="sendMsg('info type message.', 'info')">info flash message</button>
+		<button class="btn btn-default btn-danger" ng-click="sendMsg('error type message.', 'error')">error flash message</button>
+		<button class="btn btn-default btn-success" ng-click="sendMsg('success type message.', 'success')">success flash message</button>
+	</p>
+	<p>
+		<button class="btn btn-default btn-primary" ng-click="sendMsg('message from pre page.', 'info', true)">flash messge when route changed</button>
+		点击其它页面将会看到发出去的消息
+	</p>
 </div>
 <pre class="prettyprint linenums">
-    &lt;button class=&quot;btn btn-info&quot; ng-click=&quot;sendMsg()&quot;&gt;flash messge&lt;/button&gt;
+	&lt;button class=&quot;btn btn-default btn-info&quot; ng-click=&quot;sendMsg(&#39;message from pre page.&#39;, '#39;info'#39;, true)&quot;&gt;flash messge when route changed&lt;/button&gt;
 </pre>
 <pre class="well">
-  var queue = [
-    {state: 'warn', info: 'warn message'},
-    {state: 'error', info: 'error message'}
-  ];
-
-  $scope.sendMsg = function(){
-    flashMessage.notify(queue);
+  $scope.sendMsg = function(msg, level, showOnNextPage){
+	flash.notify({state: 'warning', info: 'warn message', showOnNextPage});
   }
 </pre>
 <h3>Field error</h3>
-<form name="myForm" ng-submit="save()">
-    <label for="personName">Example for fied error</label>
-    <input type="text" id="personName" class="span3" name="personName" ng-model="person.name" required>
-    <span class="help-inline" field-error for="myForm.personName">显示错误信息</span>
-    <!-- <span ng-show="myForm.personName.$error.required">Required!</span>
-    <span ng-show="myForm.personName.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span> -->
-    <p>
-        <input type="submit" class="btn" ng-disabled="!myForm.$valid" value="保存"/>
-    </p>
+<form name="myForm" class="form-inline" ng-submit="save()">
+       
+    <div class="form-group">         
+            <label class="form-label" for="personName">Example for fied error</label>  
+            <input type="text" id="personName" class= "form-control" name="personName" ng-model="person.name" required style="margin-bottom:10px;">
+    </div>
+    <div class="form-group">        
+            <span class="help-inline" field-error for="myForm.personName">显示错误信息</span>
+    </div>
+        <!-- <span ng-show="myForm.personName.$error.required">Required!</span>
+        <span ng-show="myForm.personName.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span> -->
+        <p>
+            <input type="submit" class="btn btn-default" ng-disabled="!myForm.$valid" value="保存"/>
+        </p>
+    
+     
+    
 </form>
 
 <h3>Chosen</h3>
@@ -121,7 +150,7 @@
     <p>已选中：{{lang}}</p>
     <p>
         <select data-ng-model="lang" 
-            class="ntd-chosen"
+            class="ntd-chosen col-sm-3"
             data-placeholder="请选择"
             data-ng-options="option.id as option.name for option in options">
         </select>
@@ -129,7 +158,7 @@
     </p>
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
-            class=&quot;ntd-chosen&quot;
+            class=&quot;ntd-chosen col-sm-3&quot;
             data-placeholder=&quot;&#35831;&#36873;&#25321;&quot;
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
         &lt;/select&gt;
@@ -137,6 +166,7 @@
     <p>
         <select data-ng-model="lang" 
             data-ntd-chosen
+            class="col-sm-3"
             data-disable-search-threshold="10"
             data-ng-options="option.id as option.name for option in options">
         </select>
@@ -144,6 +174,7 @@
     </p>
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
+            class=&quot;col-sm-3&quot;
             data-ntd-chosen
             data-disable-search-threshold=&quot;10&quot;
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
@@ -152,6 +183,7 @@
     <p>
         <select data-ng-model="lang" 
             data-ntd-chosen
+            class="col-sm-3"
             data-allow-single-deselect="true"
             data-disable-search-threshold="10"
             data-ng-options="option.id as option.name for option in options">
@@ -162,6 +194,7 @@
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
             data-ntd-chosen
+            class=&quot;col-sm-3&quot;
             data-allow-single-deselect=&quot;true&quot;
             data-disable-search-threshold=&quot;10&quot;
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
@@ -180,6 +213,7 @@
     <p>
         <select data-ng-model="auto" 
             data-ntd-chosen
+            class="col-sm-3"
             data-on-search-promise="optionPromise($search)"
             data-ng-options="movie.id as movie.title for movie in movies">
         </select>
@@ -187,6 +221,7 @@
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;auto&quot; 
             data-ntd-chosen
+            class=&quot;col-sm-3&quot;
             data-on-search-promise=&quot;optionPromise($search)&quot;
             data-ng-options=&quot;movie.id as movie.title for movie in movies&quot;&gt;
         &lt;/select&gt;
@@ -198,6 +233,7 @@
     <p>
         <select data-ng-model="multipleLang" 
             data-ntd-chosen
+            class="col-sm-3"
             data-placeholder="选点东西吧"
             multiple
             data-ng-options="option.id as option.name for option in options">
@@ -206,12 +242,14 @@
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;multipleLang&quot; 
             data-ntd-chosen
+            class=&quot;col-sm-3&quot;
             data-placeholder=&quot;&#36873;&#28857;&#19996;&#35199;&#21543;&quot;
             multiple
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
         &lt;/select&gt;
     </pre>
 
+    <a name="taginput"></a>
     <h3>Tag Input</h3>
     <ul>
         <li><p>分号为分隔符</p></li>
@@ -229,7 +267,7 @@
 <h3>Nav bar</h3>
 <p>通过<code>nav-bar</code>属性来调用， 通过<code>data-match-route="正则表达式"</code>来匹配路径</p>
 <div nav-bar>
-    <ul class="nav nav-tabs nav-stacked">
+    <ul class="nav nav-pills nav-stacked" style="margin-bottom:10px;">
         <li data-match-route="/"><a href="#/">用户面板</a></li>
         <li data-match-route="/table"><a href="#/table">表格</a></li>
         <li data-match-route="/form"><a href="#/form">表单</a></li>
@@ -238,7 +276,7 @@
 </div>
 <pre class="prettyprint linenums">
 &lt;div nav-bar&gt;
-    &lt;ul class=&quot;nav nav-tabs nav-stacked&quot;&gt;
+    &lt;ul class=&quot;nav nav-pills nav-stacked&quot;&gt;
         &lt;li data-match-route=&quot;/&quot;&gt;&lt;a href=&quot;#/&quot;&gt;&#29992;&#25143;&#38754;&#26495;&lt;/a&gt;&lt;/li&gt;
         &lt;li data-match-route=&quot;/table&quot;&gt;&lt;a href=&quot;#/table&quot;&gt;&#34920;&#26684;&lt;/a&gt;&lt;/li&gt;
         &lt;li data-match-route=&quot;/form&quot;&gt;&lt;a href=&quot;#/form&quot;&gt;&#34920;&#21333;&lt;/a&gt;&lt;/li&gt;
@@ -259,332 +297,4 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?</p>
 </div>
-<pre class="prettyprint lineums">
-&lt;div slim-scroll slim-scroll-width=&quot;400&quot; slim-scroll-height=&quot;100&quot;&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quod, aspernatur magnam amet laboriosam consectetur possimus illum velit eius facere praesentium doloribus inventore corrupti nisi reiciendis asperiores molestiae optio enim?&lt;/p&gt;
-    ... ...
-&lt;/div&gt;
-</pre>
-
-<h3>Confirm button</h3>
-<p>为标签添加<code>confirm-button</code>属性, </p>
-<div ng-controller="confirmButtonCtrl">
-    <p>
-        <a class="btn btn-danger" title="自定义标题" message="当前品类下包含参数将一并删除，确认删除该品类？" confirm-button="talk('Hello, Web Developer!');">删除</a>
-    </p>
-</div>
-<pre class="prettyprint linenums">
-&lt;a class=&quot;btn btn-danger&quot; title=&quot;&#33258;&#23450;&#20041;&#26631;&#39064;&quot; message=&quot;&#33258;&#23450;&#20041;&#20869;&#23481;&quot; confirm-button=&quot;talk('Hello, Web Developer!');&quot;&gt;&#21024;&#38500;&lt;/a&gt;
-</pre>
-
-<h3>Footable</h3>
-<p>在表格上添加 <code>foo-table</code> 属性</p>
-<p>提供三个属性</p>
-<ul>
-    <li>在<code>th</code>添加<code>data-class="expand"</code>属性来设置展开的列(始终显示)</li>
-    <li>在<code>th</code>添加<code>data-hide="tablet"</code>属性来设置当分辨率低于1024该列将会被隐藏</li>
-    <li>在<code>th</code>添加<code>data-hide="phone"</code>属性来设置当分辨率低于480该列将会被隐藏</li>
-</ul>
-<table class="table-normal" foo-table>
-    <thead>
-        <tr>
-            <th data-class="expand">
-                First Name
-            </th>
-            <th>
-                Last Name
-            </th>
-            <th data-hide="tablet">
-                Job Title
-            </th>
-            <th data-hide="tablet">
-                DOB
-            </th>
-            <th data-hide="phone">
-                Status
-          </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Shay</td>
-            <td>Halladay</td>
-            <td>Internet Marketing Manager</td>
-            <td>4 May 1990</td>
-            <td>Suspended</td>
-        </tr>
-        <tr>
-            <td>Shay</td>
-            <td>Halladay</td>
-            <td>Internet Marketing Manager</td>
-            <td>4 May 1990</td>
-            <td>Suspended</td>
-        </tr>
-    </tbody>
-</table>
-<pre class="prettyprint linenums">
-&lt;table class=&quot;table-normal&quot; foo-table&gt;
-    &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th data-class=&quot;expand&quot;&gt;
-                First Name
-            &lt;/th&gt;
-            &lt;th&gt;
-                Last Name
-            &lt;/th&gt;
-            &lt;th data-hide=&quot;tablet&quot;&gt;
-                Job Title
-            &lt;/th&gt;
-            &lt;th data-hide=&quot;tablet&quot;&gt;
-                DOB
-            &lt;/th&gt;
-            &lt;th data-hide=&quot;phone&quot;&gt;
-                Status
-          &lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Shay&lt;/td&gt;
-            &lt;td&gt;Halladay&lt;/td&gt;
-            &lt;td&gt;Internet Marketing Manager&lt;/td&gt;
-            &lt;td&gt;4 May 1990&lt;/td&gt;
-            &lt;td&gt;Suspended&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;Shay&lt;/td&gt;
-            &lt;td&gt;Halladay&lt;/td&gt;
-            &lt;td&gt;Internet Marketing Manager&lt;/td&gt;
-            &lt;td&gt;4 May 1990&lt;/td&gt;
-            &lt;td&gt;Suspended&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-&lt;/table&gt;
-</pre>
-
-<h3>Label state</h3>
-<p>为<code>label</code>添加<code>label-state="这里文字为解释说明label的"</code></p>
-<form class="form-horizontal">
-    <fieldset>
-        <div class="control-group">
-            <label class="control-label" label-state="这里输入提示信息">文字区域</label>
-            <div class="controls">
-                <input type="text" class="span3" placeholder="文字">
-            </div>
-        </div>
-    </fieldset>
-</form>
-
-<h3>高级表单筛选</h3>
-<p>为表单加上 <code>advance-filter</code> 属性， 当属性为<code>advance-filter="opened"</code>时表单默认展开</p>
-<form class="form-horizontal" advance-filter>
-    <fieldset>
-        <div class="control-group">
-            <label class="control-label">文字区域</label>
-            <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label">文字区域</label>
-            <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
-            </div>
-        </div>
-    </fieldset>
-
-     <fieldset>
-        <div class="control-group">
-            <label class="control-label">文字区域</label>
-            <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label">文字区域</label>
-            <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
-            </div>
-        </div>
-    </fieldset>
-
-    <fieldset>
-        <div class="control-group">
-            <label class="control-label">文字区域</label>
-            <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label">文字区域</label>
-            <div class="controls">
-                <input type="text" class="input-large" placeholder="文字区域">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="inputPassword">选项区域</label>
-            <div class="controls">
-                <select class="input-large">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary">提交</button>
-        </div>
-    </fieldset>
-</form>
-<pre class="prettyprint linenums">
-&lt;form class=&quot;form-horizontal&quot; advance-filter&gt;
-    &lt;fieldset&gt;
-        收起时展现的表单
-    &lt;/fieldset&gt;
-    &lt;fieldset&gt;
-        展开时展现的表单
-        &lt;div class=&quot;form-actions&quot;&gt;
-            表单的提交写在最后一个fieldset里
-        &lt;/div&gt;
-    &lt;/fieldset&gt;
-&lt;/form&gt;
-</pre>
-
-<h3>Cascade list</h3>
-<p>为<code>div</code>容器添加<code>cascade-list</code></p>
-<div ng-controller="cascadeListCtrl" style="margin-bottom:15px;">
-    <div class="cascade-list" 
-         data="dptList" 
-         ng-model="dpt.parentCode"
-         name="parentCode" 
-         parent="parentCode" 
-         text="dptName" 
-         path="dptPath" 
-         value="dptCode"
-         width="500px"
-         height="150px"
-    >
-    </div>
-</div>
-<pre class="prettyprint linenums">
-&lt;div class=&quot;cascade-list&quot; 
-     data=&quot;dptList&quot; 
-     ng-model=&quot;dpt.parentCode&quot;
-     name=&quot;parentCode&quot; 
-     parent=&quot;parentCode&quot; 
-     text=&quot;dptName&quot; 
-     path=&quot;dptPath&quot; 
-     value=&quot;dptCode&quot;
-     width=&quot;500px&quot;
-     height=&quot;150px&quot;
-&gt;
-&lt;/div&gt;
-</pre>
-<div class="well" ng-controller="cascadeListCtrl">
-$scope.dpt = {&quot;parentCode&quot;:&quot;14&quot;};<br>
-$scope.dptList = {{dptList|json}}
-</div>
-<h3>Notice message</h3>
-<div class="notice"></div>
-<div ng-controller="noticeCtrl">
-    <p>
-        <button class="btn btn-info" ng-click="sendMsg({state:'info', info:'提示信息'})">提示信息</button>
-        <button class="btn btn-danger" ng-click="sendMsg({state:'error', info:'错误信息'})">错误信息</button>
-        <button class="btn btn-success" ng-click="sendMsg({state:'success', info:'成功信息'})">成功信息</button>
-        <button class="btn btn-warning" ng-click="sendMsg({state:'warning', info:'警告信息'})">警告信息</button>
-        <button 
-            class="btn btn-warning" 
-            ng-click="sendMsg({state:'success', info:'成功信息，页面即将跳转...', redirect_url: '/table'})"
-            >
-            callback url
-        </button>
-    </p>
-</div>
-
-<pre class="prettyprint linenum">
-    &lt;button class=&quot;btn btn-info&quot; ng-click=&quot;sendMsg({state:'info', info:'&#25552;&#31034;&#20449;&#24687;'})&quot;&gt;&#25552;&#31034;&#20449;&#24687;&lt;/button&gt;
-    &lt;button class=&quot;btn btn-danger&quot; ng-click=&quot;sendMsg({state:'error', info:'&#38169;&#35823;&#20449;&#24687;'})&quot;&gt;&#38169;&#35823;&#20449;&#24687;&lt;/button&gt;
-    &lt;button class=&quot;btn btn-success&quot; ng-click=&quot;sendMsg({state:'success', info:'&#25104;&#21151;&#20449;&#24687;'})&quot;&gt;&#25104;&#21151;&#20449;&#24687;&lt;/button&gt;
-    &lt;button class=&quot;btn btn-warning&quot; ng-click=&quot;sendMsg({state:'warning', info:'&#35686;&#21578;&#20449;&#24687;'})&quot;&gt;&#35686;&#21578;&#20449;&#24687;&lt;/button&gt;
-    &lt;button class=&quot;btn btn-warning&quot; ng-click=&quot;sendMsg({state:'success', info:'&#25104;&#21151;&#20449;&#24687;&#65292;&#39029;&#38754;&#21363;&#23558;&#36339;&#36716;...', redirect_url: '/table'})&quot;&gt;callback url&lt;/button&gt;
-</pre>
-<hr>
-
-<h3>Loading button</h3>
-<div ng-controller="loadingButtonCtrl">
-    <p>
-        <button class="btn btn-primary" loading-button="isProcessing" data-loading-text="加载中..." ng-click="do()">
-            Button loading
-        </button>
-    </p>
-    <p>通过属性来调用 <code>loading-button</code>, <code>data-loading-tex</code>指定加载时显示的文字</p>
-    <pre class="prettyprint linenum">
-&lt;button class=&quot;btn btn-primary&quot; loading-button=&quot;isProcessing&quot; data-loading-text=&quot;&#21152;&#36733;&#20013;...&quot; ng-click=&quot;do()&quot;&gt;
-    Button loading
-&lt;/button&gt;
-    </pre>
-</div>
-
-<h3>Easy Pie Chart</h3>
-<div>
-    <input type="text" ng-model="easyPieChart[0].percent">
-    <input type="text" ng-model="easyPieChart[0].usage">
-</div>
-<p><code>easy-pie-chart="item"</code> 属性来调用easy pie chart</p>
-<div class="row-fluid clearfix">
-    <div class="span2" ng-repeat="item in easyPieChart">
-        <div easy-pie-chart="item"></div>
-    </div>
-</div>
-<pre>$scope.easyPieChart = {{ easyPieChart | json }}</pre>
-<pre class="prettyprint linenums">
-&lt;div class=&quot;row-fluid clearfix&quot;&gt;
-    &lt;div class=&quot;span2&quot; ng-repeat=&quot;item in easyPieChart&quot; &gt;
-        &lt;div easy-pie-chart=&quot;item&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-<h3>Pie chart</h3>
-<p>通过属性 <code>ntd-pie</code> 来调用, 注：必须指定 ID</p>
-<div class="row-fluid" ng-controller="PieCtrl">
-    <div class="span12 clearfix">
-        <div >
-            <div id="sample-pie" ntd-pie data="ageData" pie-height="300" pie-width="800"></div>
-        </div>
-    </div>
-</div>
-<pre class="prettyprint linenum">
-    &lt;div id=&quot;sample-pie&quot; ntd-pie data=&quot;ageData&quot; pie-height=&quot;300&quot; pie-width=&quot;800&quot;&gt;&lt;/div&gt;
-</pre>
-<div class="well" ng-controller="PieCtrl">
-    $scope.ageData = {{ ageData  | json }}
-</div>
-
-<h3>时间日期</h3>
-<div class="control-group input-append">
-    <input type="text" class="input-small" ng-model="datepicker.date" placeholder="时间" data-date-format="yyyy/mm/dd" date-picker>
-    <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
-</div>
-<p>日期选择器用 <code>date-picker</code> 属性绑定到 input 元素上.</p>
-<pre class="prettyprint linenums">
-    &lt;div class=&quot;control-group input-append&quot;&gt;
-        &lt;input type=&quot;text&quot; class=&quot;input-small&quot; ng-model=&quot;datepicker.date&quot; placeholder=&quot;&#26102;&#38388;&quot; data-date-format=&quot;yyyy/mm/dd&quot; date-picker&gt;
-        &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;datepicker&quot;&gt;&lt;i class=&quot;icon-calendar&quot;&gt;&lt;/i&gt;&lt;/button&gt;
-    &lt;/div&gt;
-</pre>
-<hr>
-<div class="control-group input-append">
-  <input type="text" class="input-small" ng-model="timepicker.time" time-picker>
-  <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i></buttoni>
-</div>
-<p>选择器用 <code>time-picker</code> 属性绑定到 input 元素上.</p>
-<pre class="prettyprint linenums">
-    &lt;div class=&quot;control-group input-append&quot;&gt;
-      &lt;input type=&quot;text&quot; ng-model=&quot;timepicker.time&quot; time-picker&gt;
-      &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;timepicker&quot;&gt;&lt;i class=&quot;icon-time&quot;&gt;&lt;/i&gt;&lt;/buttoni&gt;
-    &lt;/div&gt;
-</pre>
 <hr>

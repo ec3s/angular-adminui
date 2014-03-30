@@ -24,7 +24,7 @@
       restrict: 'A',
       link: function(scope, element, attrs) {
         if (attrs.slimScrollMenu == 'yes') {
-          var wrapper = '<div class="span2 affix">' +
+          var wrapper = '<div class="col-md-2 affix">' +
                           '<div class="slimScroll"></div>' +
                         '</div>';
           $(element).children().wrap(wrapper);

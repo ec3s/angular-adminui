@@ -1,136 +1,21 @@
 ﻿.table-normal {
-    width: 100%;
-    margin-bottom: $baseLineHeight;
-    background-color: $white;
-    // Cells
-    th,
-    td {
-        padding: 8px;
-        line-height: $baseLineHeight;
-        text-align: left;
-        //vertical-align: top;
-        border-top: 1px solid $tableBorder;
+    @extend .table;
+    @extend .table-bordered;
+    @extend .table-hover;
+    thead {
+        background-color: $panel-default-heading-bg;
     }
-    th {
-        font-weight: normal;
-        @include base-widget-header-gradient;
+    td, th {
+        vertical-align: middle !important;
     }
-    // Bottom align for column headings
-    thead th {
-        vertical-align: bottom;
-    }
-    // Remove top border from thead by default
-    caption + thead tr:first-child th,
-    caption + thead tr:first-child td,
-
-    colgroup + thead tr:first-child th,
-    colgroup + thead tr:first-child td,
-    thead:first-child tr:first-child th,
-    thead:first-child tr:first-child td {
-        border-top: 0;
-    }
-    // Account for multiple tbody instances
-    tbody + tbody {
-        border-top: 2px solid $tableBorder;
-    }
-
-    // Nesting
-    .table {
-        background-color: $bodyBackground;
-    }
-
-    border: 1px solid $tableBorder;
-    border-collapse: separate; // Done so we can round those corners!
-    *border-collapse: collapse; // IE7 can't round corners anyway
-    border-left: 0;
-    @include ctb-border-radius($baseBorderRadius);
-    th,
-    td {
-        border-left: 1px solid $tableBorder;
-    }
-    // Prevent a double border
-    caption + thead tr:first-child th,
-    caption + tbody tr:first-child th,
-    caption + tbody tr:first-child td,
-    colgroup + thead tr:first-child th,
-    colgroup + tbody tr:first-child th,
-    colgroup + tbody tr:first-child td,
-    thead:first-child tr:first-child th,
-    tbody:first-child tr:first-child th,
-    tbody:first-child tr:first-child td {
-        border-top: 0;
-    }
-    // For first th or td in the first row in the first thead or tbody
-    thead:first-child tr:first-child > th:first-child,
-    tbody:first-child tr:first-child > td:first-child {
-        @include ctb-border-top-left-radius($baseBorderRadius);
-    }
-    thead:first-child tr:first-child > th:last-child,
-    tbody:first-child tr:first-child > td:last-child {
-        @include ctb-border-top-right-radius($baseBorderRadius);
-    }
-    // For first th or td in the last row in the last thead or tbody
-    thead:last-child tr:last-child > th:first-child,
-    tbody:last-child tr:last-child > td:first-child,
-    tfoot:last-child tr:last-child > td:first-child {
-        @include ctb-border-bottom-left-radius($baseBorderRadius);
-    }
-    thead:last-child tr:last-child > th:last-child,
-    tbody:last-child tr:last-child > td:last-child,
-    tfoot:last-child tr:last-child > td:last-child {
-        @include ctb-border-bottom-right-radius($baseBorderRadius);
-    }
-
-    // Clear border-radius for first and last td in the last row in the last tbody for table with tfoot
-    tfoot + tbody:last-child tr:last-child td:first-child {
-        @include ctb-border-bottom-left-radius(0);
-    }
-    tfoot + tbody:last-child tr:last-child td:last-child {
-        @include ctb-border-bottom-right-radius(0);
-    }
-
-
-    // Special fixes to round the left border on the first td/th
-    caption + thead tr:first-child th:first-child,
-    caption + tbody tr:first-child td:first-child,
-    colgroup + thead tr:first-child th:first-child,
-    colgroup + tbody tr:first-child td:first-child {
-        @include ctb-border-top-left-radius($baseBorderRadius);
-    }
-    caption + thead tr:first-child th:last-child,
-    caption + tbody tr:first-child td:last-child,
-    colgroup + thead tr:first-child th:last-child,
-    colgroup + tbody tr:first-child td:last-child {
-        @include ctb-border-top-right-radius($baseBorderRadius);
-    }
-
-    tbody {
-        tr:hover td,
-        tr:hover th {
-            background-color: $tableBackgroundHover;
-            @include transition-property(background-color);
-            @include transition-duration(.2s);
-            @include transition-timing-function(ease-in);
-        }
-    }
-
-    &.table-condensed {
-        th, td {
-            padding: 4px 5px;
-            font-size: $fontSizeSmall;
-        }
-    }
-}
-
-table {
     .align-center,
-    .operation { text-align: center; }
+    .operation {text-align: center;}
     .align-right, .currency, .number { text-align: right; }
     .currency{
         font-family: verdana;
     }
     .active {
-        background: $BaseWidgetHeaderActiveBgColor;
+        background-color: $table-bg-accent !important;
     }
     .sort-icon {
         display: inline-block;
@@ -150,23 +35,14 @@ table {
             background-position: right -14px;
         }
     }
-    select, textarea, input[type="text"], input[type="password"], 
-    input[type="datetime"], input[type="datetime-local"], 
-    input[type="date"], input[type="month"], input[type="time"], 
-    input[type="week"], input[type="number"], input[type="email"], 
-    input[type="url"], input[type="search"], input[type="tel"], 
-    input[type="color"], .uneditable-input {
-        margin-bottom: 0;
-    }
 }
-
 .table-param {
     tr {
         th {
             &.param-name {
                 width: 20%;
                 text-align: right;
-                background: #f9f9f9;
+                background-color: $panel-default-heading-bg;
             }
         }
         td {
@@ -179,3 +55,53 @@ table {
         }
     }
 }
+.table-widget-footer {
+    @extend .clearfix;
+    margin: 0 0 20px 0;
+    .pagination {
+        margin: 0;
+    }
+}
+
+i[tooltip-popup-delay]{
+ padding-left:5px;
+}
+// 
+// table {
+//     .align-center,
+//     .operation { text-align: center; }
+//     .align-right, .currency, .number { text-align: right; }
+//     .currency{
+//         font-family: verdana;
+//     }
+//     .active {
+//         background: $BaseWidgetHeaderActiveBgColor;
+//     }
+//     .sort-icon {
+//         display: inline-block;
+//         float: right;
+//         margin-left: 5px;
+//         width: 16px; 
+//         height: 16px;
+//         background: url(#{$iconSorting}) no-repeat right 2px;
+//     }
+//     .sort-asc {
+//         .sort-icon {
+//             background-position: right -30px;
+//         }
+//     }
+//     .sort-desc {
+//         .sort-icon {
+//             background-position: right -14px;
+//         }
+//     }
+//     select, textarea, input[type="text"], input[type="password"], 
+//     input[type="datetime"], input[type="datetime-local"], 
+//     input[type="date"], input[type="month"], input[type="time"], 
+//     input[type="week"], input[type="number"], input[type="email"], 
+//     input[type="url"], input[type="search"], input[type="tel"], 
+//     input[type="color"], .uneditable-input {
+//         margin-bottom: 0;
+//     }
+// }
+// 
