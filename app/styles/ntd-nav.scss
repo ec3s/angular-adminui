@@ -116,6 +116,7 @@ $active-menu-color: #428bcb;
                 display: block;
                 color: $list-group-link-color;
                 .glyphicon-chevron-down {
+                    top: 3px;
                     opacity: .25;
                 }
                 &:hover {

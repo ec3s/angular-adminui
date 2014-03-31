@@ -22,7 +22,7 @@
 
         scope.userInfo = ng.extend({
           'username': 'N/A',
-          'avatar': '../images/avatar.jpg',
+          'avatar': 'images/avatar.jpg',
           'logout': function() { console.log('logout'); },
           'changePwd': function() { console.log('change password'); }
         }, scope.userInfo);
