@@ -129,7 +129,6 @@ form {
 .page-header {
     .page-action {
         float: right;
-        margin-top: 10px;
     }
 }
 .user-information {
@@ -416,7 +415,7 @@ form {
 .chzn-container-single .chzn-single {
     display: block;
     /*@include ctb-ie7-inline-block();*/
-    padding: 6px 12px 1px;
+    padding: 5px 12px; 
     margin-bottom: 0; // For input.btn
     font: $body-font;
     line-height: $line-height-base;
@@ -431,10 +430,15 @@ form {
     border-bottom-color: darken($btn-default-border, 10%);
      //@include ctb-ie7-restore-left-whitespace(); Give IE7 some love
     @include box-shadow(#{inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)});
-    height: 30px;
+    // height: 30px;
+    height: auto;
     position: relative;
     text-decoration: none;
     white-space: nowrap;
+    &:after {
+        content: ' ';
+        clear: both;
+    }
 
 }
 .chzn-container-single .chzn-single span {

@@ -18,7 +18,17 @@ $menu-header-font: 14px/20px $font-family-sans-serif;
 
 $font-size-base: 12px !default;
 $font-size-large: ceil($font-size-base * 1.17) !default; // ~14px
-$line-height-base: 1.5 !default; // 18/12
+$line-height-base: 1.5 !default; // 18/12;
+$line-height-computed: floor($font-size-base * $line-height-base) !default; // ~20px
+
+$padding-base-vertical: 6px !default;
+$padding-base-horizontal: 12px !default;
+$padding-large-vertical: 10px !default;
+$padding-large-horizontal: 16px !default;
+$padding-small-vertical: 5px !default;
+$padding-small-horizontal: 10px !default;
+
+$input-height-small: ($line-height-computed + ($padding-small-vertical * 2) + 2) !default;
 $font-size-h1: floor($font-size-base * 2) !default; // ~24px
 $font-size-h2: floor($font-size-base * 1.7) !default; 
 $font-size-h3: ceil($font-size-base * 1.5) !default; 
@@ -36,7 +46,7 @@ $font-size-h6: ceil($font-size-base * 0.85) !default;
 }
 
 .glyphicon {
-    top: 3px;
+    top: 2px;
 }
 
 $iconMinus:               "../images/minus.png";
