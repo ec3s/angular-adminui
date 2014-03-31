@@ -4,5 +4,6 @@
   </label>
   <ul class="dropdown-menu">
     <li data-ng-repeat="checkbox in dataSource.checkboxGroup"><label><input type="checkbox" data-ng-model="checkbox.checked"/> {{checkbox.name}}</label></li>
+    <li data-ng-show="dataSource.checkboxGroup.length <= 0"><label>无可选项目</label></li>
   </ul>
 </div>

@@ -46,6 +46,11 @@ var checkboxGroupCtrl = function($scope) {
       {'name': '删除产品', 'value': 'delete'}
     ]
   };
+  $scope.emptyCheckboxGroupData = {
+    'name': '空分组',
+    'checkboxGroup': [
+    ]
+  };
 };
 
 adminuiApp.controller('checkboxGroupCtrl', ['$scope', checkboxGroupCtrl]);
