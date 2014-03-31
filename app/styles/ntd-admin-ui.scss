@@ -17,7 +17,7 @@ $menu-header-font: 14px/20px $font-family-sans-serif;
 @import "compass";
 
 $font-size-base: 12px !default;
-$font-size-large: ceil($font-size-base * 1.17) !default; // ~14px
+$font-size-large: ceil($font-size-base * 1.16) !default; // ~14px
 $line-height-base: 1.5 !default; // 18/12;
 $line-height-computed: floor($font-size-base * $line-height-base) !default; // ~20px
 
