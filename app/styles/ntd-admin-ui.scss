@@ -15,23 +15,28 @@ $body-font: 12px/18px $font-family-sans-serif;
 $menu-header-font: 14px/20px $font-family-sans-serif;
 
 @import "compass";
+
+$font-size-base: 12px !default;
+$font-size-large: ceil($font-size-base * 1.17) !default; // ~14px
+$line-height-base: 1.5 !default; // 18/12
+$font-size-h1: floor($font-size-base * 2) !default; // ~24px
+$font-size-h2: floor($font-size-base * 1.7) !default; 
+$font-size-h3: ceil($font-size-base * 1.5) !default; 
+$font-size-h4: ceil($font-size-base * 1.25) !default; 
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil($font-size-base * 0.85) !default; 
+
+
 @import "../components/bootstrap-sass/lib/bootstrap";
 
-h1 {
-    font: $header-font;
-}
 
-body {
-    font: $body-font;
-}
 
 .navbar {
-    font: $menu-header-font;
+    font: $font-size-large $font-family-sans-serif;
 }
 
 .glyphicon {
-    top: 2px;
-    line-height: 1.2;
+    top: 3px;
 }
 
 $iconMinus:               "../images/minus.png";
