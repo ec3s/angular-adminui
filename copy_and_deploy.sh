@@ -1,5 +1,8 @@
 #!/bin/bash
 
+git -C ../angular-adminui-bower pull 
+git -C ../angular-adminui-page pull
+
 cp ./dist/scripts/angular-adminui.js ../angular-adminui-bower/scripts/
 cp ./dist/scripts/angular-adminui-tpl.js ../angular-adminui-bower/scripts/
 cp ./dist/styles/angular-adminui.css ../angular-adminui-bower/styles/
