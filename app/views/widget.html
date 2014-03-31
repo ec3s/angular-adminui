@@ -4,6 +4,31 @@
     </h1>
 </div>
 
+<h3>Pagination</h3>
+<div data-ng-controller="paginationCtrl">
+  <p>分页组件，添加 <code>adminui-pagination</code>属性</p>
+  <p><code>ng-model</code>为必选属性</p>
+  <pre>当前页码: {{pageInfo.page}}</pre>
+  <p>使用中需要通过<code>$route.current.params</code>实时获取页码更新到 model 中以选中</p>
+  <div data-adminui-pagination data-ng-model="pageInfo"></div>
+  <pre class="prettyprint linenums">
+  &lt;div data-adminui-pagination data-ng-model=&quot;pageInfo&quot;&gt;&lt;/div&gt;
+  </pre>
+  <p>model 中的可配置项</p>
+  <pre class="well">
+    {
+      directionLinks: true, //是否显示首末页跳转
+      previousText: '«',
+      nextText: '»',
+      total: 1, // 总页数
+      size: 5, // 最大显示页数
+      page: 1, // 当前页数
+      pageKey: 'page', // url 中参数名
+      rotate: false // 是否显示省略号
+    }
+  </pre>
+</div>
+
 <h3>Checkbox group</h3>
 <div data-ng-controller="checkboxGroupCtrl">
   <p> 复选分组组件， 添加<code>checkbox-group</code>属性</p>

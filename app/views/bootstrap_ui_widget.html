@@ -482,25 +482,10 @@
     &lt;/div&gt;
 </pre>
 
-<h3>分页</h3>
+<h3>分页 Pager</h3>
 <div ng-controller="PaginationDemoCtrl">
-    <h4>Default</h4>
-    <pre>The selected page no: {{currentPage}}</pre>
-    <div>
-        <pagination total-items="totalItems" page="currentPage"></pagination>
-        <pagination boundary-links="true" total-items="totalItems" page="currentPage" class="pagination-small" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
-        <pagination direction-links="false" boundary-links="true" total-items="totalItems" page="currentPage"></pagination>
-        <pagination direction-links="false" total-items="totalItems" page="currentPage" num-pages="smallnumPages"></pagination>
-    </div>
-    <button class="btn btn-default" ng-click="setPage(3)">Set current page to: 3</button>
-    <hr />
-    <h4>Pager</h4>
     <pager total-items="totalItems" page="currentPage"></pager>
     <hr />
-    <h4>Limit the maximimum visible buttons</h4>
-    <pre>Page: {{bigCurrentPage}} / {{numPages}}</pre>
-    <pagination total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" class="pagination-small" boundary-links="true"></pagination>
-    <pagination total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" class="pagination-small" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
 </div>
 
 <pre class="prettyprint linenums" >

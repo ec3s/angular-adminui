@@ -49,6 +49,18 @@ var checkboxGroupCtrl = function($scope) {
 };
 
 adminuiApp.controller('checkboxGroupCtrl', ['$scope', checkboxGroupCtrl]);
+
+/* for pagination */
+var paginationCtrl = function($scope, $route) {
+  var page = $route.current.params['page'];
+  $scope.pageInfo = {
+    'page': page ? page : 1,
+    'total': 10
+  };
+};
+
+adminuiApp.controller('paginationCtrl', ['$scope', '$route', paginationCtrl]);
+
 /* for chosen */
 var chosenCtrl = function($scope, $http, $q) {
   $scope.options = this.getOptions();
