@@ -90,8 +90,12 @@ $active-menu-color: #428bcb;
     position: fixed;
     right: 15px;
     left: 15px;
+    @include opacity(.95);
     .alert {
         padding: 10px 15px;
+    }
+    .close {
+        line-height: .8;
     }
 }
 // Submenu nav
