@@ -71,8 +71,10 @@ form {
             margin-bottom: 5px;
             padding-top: 5px;
         }
-        .help-block {
-            margin-top: 10px;
+        .form-group{
+            .help-block {
+                margin-bottom: 0;
+            }
         }
     }
 }
@@ -127,7 +129,7 @@ form {
     }
 }
 .page-header {
-    margin-top: 45px;
+    margin-top: 15px;
     .page-action {
         float: right;
     }
@@ -707,10 +709,21 @@ form {
     }
 }
 //
-.help-inline{
-    display: inline-block;
-    margin-top: 15px;
-    padding-left:5px;
+.form-horizontal {
+    .form-group {
+        .help-inline-wrapper{
+            @extend .row;
+            div:first-child {
+                padding-right: 0;
+            }
+
+        }
+    }
+    .help-inline{
+        @extend .control-label;
+        text-align: left;
+        // padding: $padding-base-vertical + 1 0;
+    }
 }
 
 .nav-tabs > li a{

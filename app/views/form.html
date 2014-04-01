@@ -28,7 +28,7 @@
         <div class="form-group">
             <label for="exampleInputFile">File input</label>
             <input type="file" id="exampleInputFile">
-            <p class="help-block">Example block-level help text here.</p>
+            <span class="help-block">Example block-level help text here.</span>
         </div>
         <div class="checkbox">
             <label>
@@ -50,7 +50,7 @@
 &nbsp;&nbsp;&lt;div&nbsp;class=&quot;form-group&quot;&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;for=&quot;exampleInputFile&quot;&gt;File&nbsp;input&lt;/label&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type=&quot;file&quot;&nbsp;id=&quot;exampleInputFile&quot;&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&nbsp;class=&quot;help-block&quot;&gt;Example&nbsp;block-level&nbsp;help&nbsp;text&nbsp;here.&lt;/p&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class=&quot;help-block&quot;&gt;Example&nbsp;block-level&nbsp;help&nbsp;text&nbsp;here.&lt;/span&gt;
 &nbsp;&nbsp;&lt;/div&gt;
 &nbsp;&nbsp;&lt;div&nbsp;class=&quot;checkbox&quot;&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;
@@ -126,15 +126,24 @@
 </p>
 <div class="bs-docs-example">
     <form class="form-horizontal">
-        <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <div class="help-inline-wrapper">
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Email"></div>
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+            </div>
+            <div class="col-sm-2 help-inline">inline help</div>
+          </div>
+          <span class="help-block">block of help</span>
         </div>
+      </div>
         <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password"></div>
+          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+            <span class="help-block">block of help</span>
+          </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
