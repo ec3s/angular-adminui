@@ -38,17 +38,21 @@ $active-menu-color: #428bcb;
     .main-nav {
         li {
             position: static;
-        }
-        .active {
-            &:after{
-                margin: 0 auto -5px;
-                position: relative;
-                z-index: 501;
-                display: block;
-                content: ' ';
-                @extend .caret;
-                border-top-color: #000 !important;
-                border-bottom-color: #000 !important;
+            &.active {
+                a {
+                    position: relative;
+                    &:after{
+                        content: ' ';
+                        display: block;
+                        @extend .caret;
+                        z-index: 501;
+                        position: absolute;
+                        border-bottom: 4px solid $gray-lighter;
+                        border-top: 0 solid transparent;
+                        margin: 12px 0 0 -4px;
+                        left: 50%;
+                    }
+                }
             }
         }
     }
@@ -67,13 +71,13 @@ $active-menu-color: #428bcb;
                 a {
                     color: $active-menu-color;
                 }
-                &:after {
-                    content: none; 
-                }
             }
             a {
-                padding: 8px 15px;
+                padding: 9px 15px 7px;
                 color: #666;
+                &:after {
+                    content: none !important; 
+                }
             }
         }
     }
