@@ -51,8 +51,10 @@
     .navbar {
         .main-nav {
             .active {
-                &:after {
-                    content: none;
+                a {
+                    &:after {
+                        content: none !important;
+                    }
                 }
             }
             a {
