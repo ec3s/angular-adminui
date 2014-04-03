@@ -47,7 +47,7 @@ $active-menu-color: #428bcb;
                         @extend .caret;
                         z-index: 501;
                         position: absolute;
-                        border-bottom: 4px solid $gray-lighter;
+                        border-bottom: 4px solid $navbar-default-bg;
                         border-top: 0 solid transparent;
                         margin: 12px 0 0 -4px;
                         left: 50%;
