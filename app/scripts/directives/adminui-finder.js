@@ -13,7 +13,7 @@
 
         scope.finderList = finder.getExpandList(null);
 
-        scope.showChildren = ng.bind(finder, finder.showChildren);
+        scope.showChildren = ng.bind(finder, finder.showChildren, scope);
         scope.hasChildren = ng.bind(finder, finder.hasChildren);
         scope.isItemSelected = ng.bind(finder, finder.isItemSelected);
         scope.isLevelSelected = ng.bind(finder, finder.isLevelSelected);
@@ -62,10 +62,12 @@
   /**
    * show children item for selected
    */
-  Finder.prototype.showChildren = function(item) {
+  Finder.prototype.showChildren = function(scope, item) {
     var childLevel = this.getLevel(item) + 1;
     var children = this.getChildren(item);
     this.selectedItems = this.getAllSelected(item);
+    scope.ngModel = this.selectedItems.slice(-1).pop().value;
+
     if (this.expandList.length >= childLevel) {
       /* remove all item deep more then current child  */
       this.expandList.splice(childLevel, this.expandList.length - childLevel);
