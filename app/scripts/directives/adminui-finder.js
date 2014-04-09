@@ -1,6 +1,6 @@
 (function(ng) {
   'use strict';
-  var FinderDirective = function() {
+  var FinderDirective = function($timeout) {
     return {
       'restrict': 'A',
       'templateUrl': 'templates/finder.html',
@@ -9,22 +9,78 @@
         'ngModel': '='
       },
       'link': function(scope, elem, attrs) {
-        var finder = new Finder(scope.source);
+        var finder = new Finder(scope, $timeout, elem);
 
-        scope.finderList = finder.getExpandList(null);
+        /* watch for ngModel change to reselect finder */
+        scope.$watch('ngModel', function(value, oldValue) {
+          if (finder.isClick == false && value != oldValue) {
+            finder.selectItemByValue(scope, value);
+          } else {
+            finder.isClick = false;
+          }
+        });
 
-        scope.showChildren = ng.bind(finder, finder.showChildren, scope);
-        scope.hasChildren = ng.bind(finder, finder.hasChildren);
-        scope.isItemSelected = ng.bind(finder, finder.isItemSelected);
-        scope.isLevelSelected = ng.bind(finder, finder.isLevelSelected);
+        /* watch for data source change to reload finder  */
+        scope.$watch('source', function(value, oldValue) {
+          if (value != oldValue) {
+            finder = new Finder(scope, $timeout, elem);
+          }
+        }, true);
       }
     };
   };
 
-  var Finder = function(dataSource) {
-    this.dataSource = this.initData(dataSource);
+  var Finder = function(scope, $timeout, elem) {
+    this.dataSource = this.initData(scope.source);
+    this.elem = elem;
+    this.$timeout = $timeout;
+    this.isClick = false;
     this.expandList = [];
     this.selectedItems = [];
+    this.initialize(scope);
+  };
+
+  Finder.prototype.initialize = function(scope) {
+    scope.finderList = this.getExpandList(null);
+    /* select finder for initialize */
+    this.selectItemByValue(scope, scope.ngModel);
+
+    /* bind fn to view */
+    scope.showChildren = ng.bind(this, this.showChildren, scope);
+    scope.hasChildren = ng.bind(this, this.hasChildren);
+    scope.isItemSelected = ng.bind(this, this.isItemSelected);
+    scope.isLevelSelected = ng.bind(this, this.isLevelSelected);
+  };
+
+  /**
+   * select item by value
+   */
+  Finder.prototype.selectItemByValue = function(scope, value) {
+    var item = this.getItemByValue(scope.source, value);
+    if (item != null) {
+      var selectedItems = this.getAllSelected(item);
+      ng.forEach(selectedItems, function(item) {
+        this.showChildren(scope, item);
+      }, this);
+    } else {
+      if (this.expandList.length > 1) {
+        this.expandList.splice(1, this.expandList.length - 1);
+      }
+      this.selectedItems = [];
+    }
+  };
+
+  /**
+   * get item by value
+   */
+  Finder.prototype.getItemByValue = function(source, value) {
+    var result = null;
+    ng.forEach(source, function(item) {
+      if (item.value == value) {
+        result = item;
+      }
+    });
+    return result;
   };
 
   /**
@@ -62,11 +118,17 @@
   /**
    * show children item for selected
    */
-  Finder.prototype.showChildren = function(scope, item) {
+  Finder.prototype.showChildren = function(scope, item, evt) {
     var childLevel = this.getLevel(item) + 1;
     var children = this.getChildren(item);
     this.selectedItems = this.getAllSelected(item);
     scope.ngModel = this.selectedItems.slice(-1).pop().value;
+
+    if (ng.isUndefined(evt)) {
+      this.scrollToView(this.selectedItems.length - 1);
+    } else {
+      this.isClick = true;
+    }
 
     if (this.expandList.length >= childLevel) {
       /* remove all item deep more then current child  */
@@ -75,6 +137,19 @@
     if (children != null) {
       this.expandList[childLevel] = this.getChildren(item);
     }
+  };
+
+  /**
+   * scroll list to show selected item
+   */
+  Finder.prototype.scrollToView = function(listIndex) {
+    this.$timeout(function() {
+      var ul = ng.element(this.elem.find('ul')[listIndex]);
+      var li = ul.find('li.selected');
+      var index = ul.find('li').index(li);
+      console.log(li.innerHeight());
+      ul.scrollTop(index * li.innerHeight() - ul.innerHeight() / 2);
+    }.bind(this));
   };
 
   /**
@@ -190,5 +265,5 @@
     }
   };
 
-  ng.module('ntd.directives').directive('adminuiFinder', [FinderDirective]);
+  ng.module('ntd.directives').directive('adminuiFinder', ['$timeout', FinderDirective]);
 })(angular);

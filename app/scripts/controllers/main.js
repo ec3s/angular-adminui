@@ -334,7 +334,7 @@ adminuiApp
   };
 })
 .controller('cascadeListCtrl', function($scope, $q, $timeout){
-  $scope.dpt = null;
+  $scope.dpt = 83;
   var dptList = [
     {'dptCode':'1','dptMasterId':0,'dptName':'\u884c\u653f\u90e8','dptPath':'\/1\/','id':1,'parentCode':'0'},
     {'dptCode':'10','dptMasterId':0,'dptName':'\u4f01\u4e1a\u8054\u76df\u53d1\u5c55\u90e8','dptPath':'\/10\/','id':10,'parentCode':'0'},
@@ -357,7 +357,7 @@ adminuiApp
     {'dptCode':'5','dptMasterId':0,'dptName':'\u54c1\u724c\u53d1\u5c55\u4e8b\u4e1a\u90e8','dptPath':'\/5\/','id':5,'parentCode':'0'},
     {'dptCode':'82','dptMasterId':0,'dptName':'\u5b98\u7f51\u7ec4','dptPath':'\/5\/82\/','id':82,'parentCode':'5'},
     {'dptCode':'95','dptMasterId':0,'dptName':'\u7535\u8bdd\u5ba2\u670d\u90e8','dptPath':'\/5\/82\/95\/','id':95,'parentCode':'82'},
-    {'dptCode':'99','dptMasterId':0,'dptName':'\u7535\u8bdd\u5ba2\u670d\u90e8','dptPath':'\/5\/82\/95\/','id':95,'parentCode':'95'},
+    {'dptCode':'99','dptMasterId':0,'dptName':'网络服务部','dptPath':'\/5\/82\/99\/','id':95,'parentCode':'95'},
     {'dptCode':'93','dptMasterId':0,'dptName':'\u5929\u732b\u7ec4','dptPath':'\/5\/93\/','id':93,'parentCode':'5'},
     {'dptCode':'83','dptMasterId':0,'dptName':'\u5728\u7ebf\u5ba2\u670d\u90e8','dptPath':'\/5\/93\/83\/','id':83,'parentCode':'93'},
     {'dptCode':'94','dptMasterId':0,'dptName':'\u552e\u540e\u90e8','dptPath':'\/5\/94\/','id':94,'parentCode':'5'},
@@ -386,6 +386,9 @@ adminuiApp
     return unifyDptList;
   };
   $scope.unifyDptList = unifyDptList(dptList);
+  $scope.add = function() {
+    $scope.unifyDptList.push({'value': '101', 'text': 'VIP服务组', 'path': '/5/93/83/101'});
+  };
 })
 .controller('chosenCtrl', ['$scope', '$http', '$q', chosenCtrl])
 .controller('switcherCtrl', ['$scope', function($scope) {

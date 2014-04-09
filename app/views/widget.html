@@ -11,11 +11,13 @@
     <input type="text" value="" class="form-control" ng-model="dpt" />
   </div>
   <div data-adminui-finder data-source="unifyDptList" data-ng-model="dpt"></div>
+  <br/>
+  <button data-ng-click="add()" class="btn btn-default"> 动态添加</button>
 </div>
 <pre class="prettyprint linenums">
     &lt;div data-adminui-finder data-source=&quot;unifyDptList&quot; data-ng-model=&quot;dpt&quot;&gt;&lt;/div&gt;
 </pre>
-<p>finder 中每个节点项目都必须有 <code>value</code> <code>text</code> <code>path</code>,
+<p>finder 中每个节点项目都必须有 <code>value</code> <code>text</code> <code>path</code> 三个属性,
 其中 value 为项目选中后 ngmodel 中得到的对应属性，text 用于显示， path 则是 value 对应深度及所属（包含自己）的描述字符，最后一个斜线可忽略
 </p>
 <div class="well" ng-controller="cascadeListCtrl">
