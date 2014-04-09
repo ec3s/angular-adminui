@@ -147,7 +147,6 @@
       var ul = ng.element(this.elem.find('ul')[listIndex]);
       var li = ul.find('li.selected');
       var index = ul.find('li').index(li);
-      console.log(li.innerHeight());
       ul.scrollTop(index * li.innerHeight() - ul.innerHeight() / 2);
     }.bind(this));
   };
