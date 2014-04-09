@@ -264,5 +264,6 @@
     }
   };
 
-  ng.module('ntd.directives').directive('adminuiFinder', ['$timeout', FinderDirective]);
+  ng.module('ntd.directives')
+  .directive('adminuiFinder', ['$timeout', FinderDirective]);
 })(angular);
