@@ -1,7 +1,7 @@
 ﻿@import 'compass';
 
 $gray-lighter: #eee;
-.cascade-list 
+.adminui-finder-container
 {
     margin-bottom: 0;
     vertical-align: middle;
@@ -14,7 +14,7 @@ $gray-lighter: #eee;
     @include transition(border linear 0.2s, box-shadow linear 0.2s);
 }
 
-.cascade-list-inner 
+.adminui-finder-inner
 {
     width: 100%;
     height: 100px;
@@ -24,7 +24,7 @@ $gray-lighter: #eee;
     position: relative;
 }
 
-.cascade-list ul
+.adminui-finder-container ul
 {
     margin: 0;
     padding: 4px 6px;
@@ -37,7 +37,7 @@ $gray-lighter: #eee;
     overflow: auto;
 }
 
-.cascade-list li 
+.adminui-finder-container li 
 {
     background-image: url('../images/cascadelist_arrows.png');
     background-repeat: no-repeat;
@@ -46,34 +46,34 @@ $gray-lighter: #eee;
     padding-right: 1.5em;
     cursor: pointer;
 }
-.cascade-list .form-control{
+.adminui-finder-container .form-control{
     display: inline-block;    
 }
 
 
-.cascade-list li.has-child 
+.adminui-finder-container li.has-child 
 {
     background-position: 98% -21px;
 }
 
-.cascade-list li.selective
+.adminui-finder-container li.selected
 {
     background-color: $gray-lighter;
 }
 
-.cascade-list li.selective.has-child
+.adminui-finder-container li.selected.has-child
 {
     background-color: $gray-lighter;
     background-position: 98% -47px;
 }
 
-.cascade-list ul.selective li.selective
+.adminui-finder-container ul.selected li.selected
 {
     background-color: #049cdb;
     color: #fff;
 }
 
-.cascade-list ul.selective li.selective.has-child
+.adminui-finder-container ul.selected li.selected.has-child
 {
     background-position: 98% -73px;
 }

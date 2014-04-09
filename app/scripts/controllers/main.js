@@ -334,8 +334,8 @@ adminuiApp
   };
 })
 .controller('cascadeListCtrl', function($scope, $q, $timeout){
-  $scope.dpt = {'parentCode':'14'};
-  $scope.dptList = [
+  $scope.dpt = null;
+  var dptList = [
     {'dptCode':'1','dptMasterId':0,'dptName':'\u884c\u653f\u90e8','dptPath':'\/1\/','id':1,'parentCode':'0'},
     {'dptCode':'10','dptMasterId':0,'dptName':'\u4f01\u4e1a\u8054\u76df\u53d1\u5c55\u90e8','dptPath':'\/10\/','id':10,'parentCode':'0'},
     {'dptCode':'85','dptMasterId':0,'dptName':'\u652f\u6301\u90e8','dptPath':'\/10\/85\/','id':85,'parentCode':'10'},
@@ -359,7 +359,7 @@ adminuiApp
     {'dptCode':'95','dptMasterId':0,'dptName':'\u7535\u8bdd\u5ba2\u670d\u90e8','dptPath':'\/5\/82\/95\/','id':95,'parentCode':'82'},
     {'dptCode':'99','dptMasterId':0,'dptName':'\u7535\u8bdd\u5ba2\u670d\u90e8','dptPath':'\/5\/82\/95\/','id':95,'parentCode':'95'},
     {'dptCode':'93','dptMasterId':0,'dptName':'\u5929\u732b\u7ec4','dptPath':'\/5\/93\/','id':93,'parentCode':'5'},
-    {'dptCode':'83','dptMasterId':0,'dptName':'\u5728\u7ebf\u5ba2\u670d\u90e8','dptPath':'\/5\/93\/83\/\/','id':83,'parentCode':'93'},
+    {'dptCode':'83','dptMasterId':0,'dptName':'\u5728\u7ebf\u5ba2\u670d\u90e8','dptPath':'\/5\/93\/83\/','id':83,'parentCode':'93'},
     {'dptCode':'94','dptMasterId':0,'dptName':'\u552e\u540e\u90e8','dptPath':'\/5\/94\/','id':94,'parentCode':'5'},
     {'dptCode':'61','dptMasterId':0,'dptName':'\u6444\u5f71\u5de5\u4f5c\u5ba4','dptPath':'\/61\/','id':61,'parentCode':'0'},
     {'dptCode':'62','dptMasterId':0,'dptName':'\u676d\u5dde\u5206\u516c\u53f8','dptPath':'\/62\/','id':62,'parentCode':'0'},
@@ -372,9 +372,20 @@ adminuiApp
     {'dptCode':'92','dptMasterId':0,'dptName':'\u5ba2\u670d\u90e8','dptPath':'\/67\/92\/','id':92,'parentCode':'67'},
     {'dptCode':'8','dptMasterId':0,'dptName':'\u8d22\u52a1\u90e8','dptPath':'\/8\/','id':8,'parentCode':'0'},
     {'dptCode':'90','dptMasterId':0,'dptName':'\u4ed3\u50a8','dptPath':'\/8\/90\/','id':90,'parentCode':'8'},
-    {'dptCode':'90','dptMasterId':0,'dptName':'\u4ed3\u50a8','dptPath':'\/8\/90\/','id':90,'parentCode':'8'},
     {'dptCode':'9','dptMasterId':0,'dptName':'\u4eba\u529b\u8d44\u6e90\u90e8','dptPath':'\/9\/','id':9,'parentCode':'0'}
   ];
+  var unifyDptList = function(dptList) {
+    var unifyDptList = [];
+    angular.forEach(dptList, function(dpt) {
+      unifyDptList.push({
+        'value': dpt.dptCode,
+        'text': dpt.dptName,
+        'path': dpt.dptPath
+      });
+    });
+    return unifyDptList;
+  };
+  $scope.unifyDptList = unifyDptList(dptList);
 })
 .controller('chosenCtrl', ['$scope', '$http', '$q', chosenCtrl])
 .controller('switcherCtrl', ['$scope', function($scope) {
