@@ -18,7 +18,7 @@
     "footable": "~0.5.0",
     "chosen": "https://github.com/CandySunPlus/chosen0.13.0.git#master",
     "angular-route":"~1.2.4",
-    "angular-ui-bootstrap3":"*"
+    "angular-ui-bootstrap-bower": "*"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.4",
