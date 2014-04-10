@@ -119,9 +119,15 @@
    * show children item for selected
    */
   Finder.prototype.showChildren = function(scope, item, evt) {
-    var childLevel = this.getLevel(item) + 1;
+    var level = this.getLevel(item);
+    var childLevel = level + 1;
     var children = this.getChildren(item);
-    this.selectedItems = this.getAllSelected(item);
+
+    /* remove all selected item deep more then current level */
+    if (!ng.isUndefined(this.selectedItems[level])) {
+      this.selectedItems.splice(level, this.selectedItems.length - level);
+    }
+    this.selectedItems[level] = item;
     scope.ngModel = this.selectedItems.slice(-1).pop().value;
 
     if (ng.isUndefined(evt)) {
@@ -165,6 +171,9 @@
     return children;
   };
 
+  /**
+   * has children
+   */
   Finder.prototype.hasChildren = function(item) {
     return this.getChildren(item) == null ? false : true;
   };
