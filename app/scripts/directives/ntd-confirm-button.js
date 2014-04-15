@@ -17,8 +17,8 @@
         pos = attrs.position || 'top';
         html = '<div id=\"button-' + buttonId + '\">' +
           '<p ng-show="test" class=\"confirmbutton-msg\">' + message + '</p>' +
-          '<button type=\"button\" class=\"confirmbutton-yes btn btn-primary\">' +
-            yep +
+          '<button type=\"button\" class=\"confirmbutton-yes' +
+          ' btn btn-primary\">' + yep +
           '</button>\n' +
           '<button type="button" class=\"confirmbutton-no btn btn-default\">' +
             nope +
@@ -38,13 +38,14 @@
           dontBubble = true;
           e.stopPropagation();
 
-          if(element.hasClass('disabled')) {
+          if (element.hasClass('disabled')) {
             return false;
           } else {
             element.addClass('disabled');
           }
 
-          $('[id^="button-"]').closest('.popover').hide().prev().removeClass('disabled');
+          $('[id^="button-"]').closest('.popover').hide()
+          .prev().removeClass('disabled');
           element.popover('show');
           pop = $('#button-' + buttonId);
           pop.closest('.popover').click(function(e) {
@@ -57,6 +58,10 @@
             dontBubble = false;
             var func = $parse(attrs.confirmButton);
             func(scope);
+            if (scope.$root.$$phase != '$apply' &&
+                scope.$root.$$phase != '$digest') {
+              scope.$apply();
+            }
           });
 
           pop.find('.confirmbutton-no').click(function(e) {
