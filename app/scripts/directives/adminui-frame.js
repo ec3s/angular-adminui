@@ -13,6 +13,8 @@
       link: function(scope, elem, attrs) {
         /* dose default show submenu */
         scope.isSubMenuShow = adminuiFrameProvider.defaultShowSubmenu;
+        /* has side menu in selected nav */
+        scope.hasSideMenu = false;
         /* dose show message box */
         scope.isMessageBoxShow = adminuiFrameProvider.showMessageBox;
         /* bind navigation data */
@@ -21,7 +23,7 @@
         scope.messages = scope.messages ? scope.messages : [];
 
         scope.userInfo = ng.extend({
-          'username': 'N/A',
+          'username': null,
           'avatar': 'images/avatar.jpg',
           'logout': function() { console.log('logout'); },
           'changePwd': function() { console.log('change password'); }

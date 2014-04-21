@@ -40,7 +40,7 @@
         <li data-ng-class="{true: 'active', false: ''}[isSubMenuShow]">
         <a href="javascript:;" data-ng-click="toggleSubMenu($event)"><i class="glyphicon glyphicon-list"></i></a>
         </li>
-        <li class="dropdown">
+        <li data-ng-show="userInfo.username != null" class="dropdown">
         <a class="dropdown-toggle" href="#" data-toggle="dropdown">您好，{{userInfo.username}}<b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li class="user-information">

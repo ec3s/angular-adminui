@@ -9,7 +9,9 @@ var adminuiApp = angular.module('adminuiApp', [
 ]);
 
 adminuiApp.run(['$rootScope', function($rootScope) {
-  $rootScope.userInfo = {};
+  $rootScope.userInfo = {
+    'username': 'N/A'
+  };
 }]);
 
 /* config adminui frame */
