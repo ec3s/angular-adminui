@@ -141,7 +141,8 @@
       },
       link: function(scope, element, attrs) {
         pagination.updateConfig(scope.pageInfo);
-        scope.$watch('pageInfo.page', function(value) {
+        scope.$watch('pageInfo', function(value) {
+          pagination.updateConfig(value);
           pagination.render(scope);
         }, true);
         scope.selectPage = ng.bind(

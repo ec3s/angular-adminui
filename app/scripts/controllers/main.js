@@ -56,15 +56,25 @@ var checkboxGroupCtrl = function($scope) {
 adminuiApp.controller('checkboxGroupCtrl', ['$scope', checkboxGroupCtrl]);
 
 /* for pagination */
-var paginationCtrl = function($scope, $route) {
+var paginationCtrl = function($scope, $route, $location) {
+  $scope.totalCount = angular.isDefined($route.current.params['total'])
+    ? $route.current.params['total'] : 10;
   var page = $route.current.params['page'];
   $scope.pageInfo = {
     'page': page ? page : 1,
-    'total': 10
+    'total': $scope.totalCount
   };
+  $scope.changeTotalPage = angular.bind(this, this.changeTotalPage, $scope, $location);
 };
 
-adminuiApp.controller('paginationCtrl', ['$scope', '$route', paginationCtrl]);
+paginationCtrl.prototype.changeTotalPage = function($scope, $location) {
+  var search  = $location.search();
+  search.total = $scope.totalCount;
+  $scope.pageInfo.total = $scope.totalCount;
+  $location.search(search).replace();
+};
+
+adminuiApp.controller('paginationCtrl', ['$scope', '$route', '$location', paginationCtrl]);
 
 /* for chosen */
 var chosenCtrl = function($scope, $http, $q) {

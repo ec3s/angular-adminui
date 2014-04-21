@@ -31,6 +31,7 @@ $scope.unifyDptList = {{unifyDptList|json}}
   <pre>当前页码: {{pageInfo.page}}</pre>
   <p>使用中需要通过<code>$route.current.params</code>实时获取页码更新到 model 中以选中</p>
   <div data-adminui-pagination data-ng-model="pageInfo"></div>
+  <div class="row" style="margin: 15px -15px"><div class="col-sm-5"><input type="text" class="form-control input-sm" data-ng-model="totalCount" /></div><button data-ng-click="changeTotalPage()" class="btn btn-default btn-sm">改变总页数</button></div>
   <pre class="prettyprint linenums">
   &lt;div data-adminui-pagination data-ng-model=&quot;pageInfo&quot;&gt;&lt;/div&gt;
   </pre>
