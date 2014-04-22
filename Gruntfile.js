@@ -157,7 +157,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/styles',
-          src: ['ntd-admin-ui.scss'],
+          src: ['ntd-admin-ui.scss', 'example.scss', 'prettify.scss'],
           dest: '.tmp/styles',
           ext: '.css'
         }]
