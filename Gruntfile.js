@@ -110,6 +110,7 @@ module.exports = function (grunt) {
           ]
         }]
       },
+      build: '<%= yeoman.dist %>/components',
       server: '.tmp'
     },
     jshint: {
@@ -165,13 +166,13 @@ module.exports = function (grunt) {
       }
     },
     concat: {
-      dist: {
-        // files: {
-        //   '<%= yeoman.dist %>/scripts/scripts.js': [
-        //     '.tmp/scripts/{,*/}*.js',
-        //     '<%= yeoman.app %>/scripts/{,*/}*.js'
-        //   ]
-        // }
+      tpl: {
+        files: {
+          '.tmp/concat/scripts/angular-adminui.js': [
+            '.tmp/**/scripts/angular-adminui.js',
+            '.tmp/**/scripts/angular-adminui-tpl.js'
+          ]
+        }
       }
     },
     useminPrepare: {
@@ -199,15 +200,6 @@ module.exports = function (grunt) {
     },
     cssmin: {
       dist: {
-        files: {
-          // '<%= yeoman.dist %>/styles/main.css': [
-          //   '.tmp/styles/{,*/}*.css',
-          //   '<%= yeoman.app %>/styles/{,*/}*.css'
-          // ],
-          '<%= yeoman.dist %>/styles/angular-adminui.css': [
-            '.tmp/**/styles/ntd-admin-ui.css'
-          ]
-        }
       }
     },
     htmlmin: {
@@ -248,11 +240,6 @@ module.exports = function (grunt) {
     },
     uglify: {
       dist: {
-        // files: {
-        //   '<%= yeoman.dist %>/scripts/scripts.js': [
-        //     '<%= yeoman.dist %>/scripts/*.js'
-        //   ]
-        // }
       }
     },
     rev: {
@@ -288,7 +275,7 @@ module.exports = function (grunt) {
       'ntd.directives': {
         cwd: '<%= yeoman.app%>',
         src: 'templates/**.html',
-        dest: '<%= yeoman.dist%>/scripts/angular-adminui-tpl.js',
+        dest: '.tmp/concat/scripts/angular-adminui-tpl.js',
         options: {
           htmlmin: {
             collapseBooleanAttributes: true,
@@ -334,17 +321,19 @@ module.exports = function (grunt) {
     'compass:dist',
     'useminPrepare',
     'imagemin',
-    //'cssmin',
     'htmlmin',
+    'ngtemplates',
     'concat',
+    'concat:tpl',
+    'cssmin',
     'copy',
     'cdnify',
     'ngmin',
-    //'uglify',
+    'uglify',
     //'rev',
     'jade',
     'usemin',
-    'ngtemplates'
+    'clean:build'
   ]);
 
   grunt.registerTask('default', ['build']);
