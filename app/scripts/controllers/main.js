@@ -6,7 +6,7 @@ adminuiApp
   $scope.sayHello = function(name) {
     $scope.name = name;
     console.log('say hello'+name);
-  }
+  };
   $scope.crmDropdown = [
     {text: 'CRM Another action', href: '#anotherAction'},
     {text: 'CRM Something else here', click: '$alert(\'working ngClick!\')'},
@@ -135,7 +135,7 @@ adminuiApp
       angular.forEach($scope.tabs, function(tab, key) {
         if (tab.active===true) {
           console.log(key);
-        };
+        }
       });
     });
   };
@@ -251,7 +251,7 @@ adminuiApp
 .controller('noticeCtrl', function($rootScope, $scope, flash){
   $scope.sendMsg = function(msg){
     flash.notify(msg);
-  }
+  };
 })
 .controller('loadingButtonCtrl', function($scope, $q, $timeout){
   $scope.isProcessing = false;
