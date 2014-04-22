@@ -36,7 +36,7 @@ module.exports = function (grunt) {
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass']
+        tasks: ['sass']
       },
       livereload: {
         files: [
@@ -148,21 +148,19 @@ module.exports = function (grunt) {
         }]
       }
     },
-    compass: {
-      options: {
-        sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
-        imagesDir: 'images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: '<%= yeoman.app %>/components',
-        relativeAssets: true
-      },
-      dist: {},
-      server: {
+    sass: {
+      dist: {
         options: {
-          debugInfo: true
-        }
+          style: 'expanded',
+          compass: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: ['ntd-admin-ui.scss'],
+          dest: '.tmp/styles',
+          ext: '.css'
+        }]
       }
     },
     concat: {
@@ -318,7 +316,7 @@ module.exports = function (grunt) {
     //'jshint',
     //'test',
     //'coffee',
-    'compass:dist',
+    'sass:dist',
     'useminPrepare',
     'imagemin',
     'htmlmin',
