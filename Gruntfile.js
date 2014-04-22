@@ -34,9 +34,9 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.coffee'],
         tasks: ['coffee:test']
       },
-      compass: {
+      sass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['sass']
+        tasks: ['sass:dist']
       },
       livereload: {
         files: [
@@ -295,7 +295,7 @@ module.exports = function (grunt) {
   grunt.registerTask('server', [
     'clean:server',
     'coffee:dist',
-    'sass',
+    'sass:dist',
     'livereload-start',
     'connect:livereload',
     'open',

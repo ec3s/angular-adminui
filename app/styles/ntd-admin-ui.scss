@@ -39,8 +39,6 @@ $font-size-h6: ceil($font-size-base * 0.85) !default;
 
 @import "../components/bootstrap-sass/lib/bootstrap";
 
-
-
 .navbar {
     font: $font-size-large $font-family-sans-serif;
 }
@@ -139,4 +137,4 @@ $footableDetailBgColor:  #eee;
 @import "ntd-responsive";
 @import "ntd-toggle-switch";
 @import "adminui-checkbox-group";
-// 
+
