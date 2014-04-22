@@ -26,12 +26,12 @@ adminuiApp
   ];
 
   $scope.easyPieChart = [
-    { caption: 'New Visits',     percent: 58,   usage: '58%',   },
-    { caption: 'Bounce Rate',    percent: 43,   usage: '43%',   },
-    { caption: 'Server Load',    percent: 91,   usage: '91%',   },
-    { caption: 'Used RAM',       percent: 82,   usage: '75M',   },
-    { caption: 'Processor Load', percent: 35,   usage: '35%',   },
-    { caption: 'Bandwidth',      percent: 77,   usage: '1.5TB', }
+    { caption: 'New Visits', percent: 58, usage: '58%'},
+    { caption: 'Bounce Rate', percent: 43, usage: '43%'},
+    { caption: 'Server Load', percent: 91, usage: '91%'},
+    { caption: 'Used RAM', percent: 82, usage: '75M'},
+    { caption: 'Processor Load', percent: 35, usage: '35%'},
+    { caption: 'Bandwidth', percent: 77, usage: '1.5TB'}
   ];
   $scope.alert = {};
 }]);
@@ -57,18 +57,20 @@ adminuiApp.controller('checkboxGroupCtrl', ['$scope', checkboxGroupCtrl]);
 
 /* for pagination */
 var paginationCtrl = function($scope, $route, $location) {
-  $scope.totalCount = angular.isDefined($route.current.params['total'])
-    ? $route.current.params['total'] : 10;
+  $scope.totalCount = angular.isDefined($route.current.params['total']) ?
+    $route.current.params['total'] : 10;
   var page = $route.current.params['page'];
   $scope.pageInfo = {
     'page': page ? page : 1,
     'total': $scope.totalCount
   };
-  $scope.changeTotalPage = angular.bind(this, this.changeTotalPage, $scope, $location);
+  $scope.changeTotalPage = angular.bind(
+    this, this.changeTotalPage, $scope, $location
+  );
 };
 
 paginationCtrl.prototype.changeTotalPage = function($scope, $location) {
-  var search  = $location.search();
+  var search = $location.search();
   search.total = $scope.totalCount;
   $scope.pageInfo.total = $scope.totalCount;
   $location.search(search).replace();
@@ -121,16 +123,16 @@ chosenCtrl.prototype.getOptions = function() {
 
 
 adminuiApp
-.controller('TabsDemoCtrl', function($scope){
+.controller('TabsDemoCtrl', function($scope) {
   $scope.tabs = [
-    { title:"Dynamic Title 1", content:"Dynamic content 1" },
-    { title:"Dynamic Title 2", content:"Dynamic content 2" }
+    { title: "Dynamic Title 1", content: "Dynamic content 1" },
+    { title: "Dynamic Title 2", content: "Dynamic content 2" }
   ];
 
   $scope.alertMe = function() {
     setTimeout(function() {
       console.log($scope.tabs);
-      angular.forEach($scope.tabs, function(tab, key){
+      angular.forEach($scope.tabs, function(tab, key) {
         if (tab.active===true) {
           console.log(key);
         };
@@ -208,57 +210,6 @@ adminuiApp
     right: false
   };
 })
-// .controller('DialogDemoCtrl', function ($scope, $modal){
-//     // Inlined template for demo
-//   var t = '<div class="modal-header">'+
-//           '<h1>This is the title</h1>'+
-//           '</div>'+
-//           '<div class="modal-body">'+
-//           '<p>Enter a value to pass to <code>close</code> as the result: <input ng-model="result" /></p>'+
-//           '</div>'+
-//           '<div class="modal-footer">'+
-//           '<button ng-click="close(result)"" class="btn btn-primary" >Close</button>'+
-//           '</div>';
-
-//   $scope.opts = {
-//     backdrop: true,
-//     keyboard: true,
-//     backdropClick: true,
-//     template:  t, // OR: templateUrl: 'path/to/view.html',
-//     // templateUrl: 'views/test.html',
-//     controller: 'TestDialogController'
-//   };
-
-//   $scope.openDialog = function(){
-//     var d = $modal.dialog($scope.opts);
-//     // d.open();
-//     d.open().then(function(result){
-//       if(result)
-//       {
-//         alert('dialog closed with result: ' + result);
-//       }
-//     });
-//   };
-
-//   $scope.openMessageBox = function(){
-//     var title = 'This is a message box';
-//     var msg = 'This is the content of the message box';
-//     var btns = [{result:'cancel', label: 'Cancel'}, {result:'ok', label: 'OK', cssClass: 'btn-primary'}];
-
-//     $modal.messageBox(title, msg, btns)
-//       .open()
-//       .then(function(result){
-//         if(result){
-//           alert('dialog closed with result: ' + result);
-//         }
-//     });
-//   };
-// })
-// .controller('TestDialogController', function ($scope, dialog){
-//   $scope.close = function(result){
-//     dialog.close(result);
-//   };
-// })
 .controller('DropdownCtrl', function ($scope) {
   $scope.items = [
     'The first choice!',
@@ -266,25 +217,6 @@ adminuiApp
     'but wait! A third!'
   ];
 })
-// .controller('ModalDemoCtrl',function ($scope) {
-
-//   $scope.open = function () {
-//     $scope.shouldBeOpen = true;
-//   };
-
-//   $scope.close = function () {
-//     $scope.closeMsg = 'I was closed at: ' + new Date();
-//     $scope.shouldBeOpen = false;
-//   };
-
-//   $scope.items = ['item1', 'item2'];
-
-//   $scope.opts = {
-//     backdropFade: true,
-//     dialogFade:true
-//   };
-
-// })
 .controller('TooltipDemoCtrl', function ($scope) {
   $scope.dynamicTooltip = 'Hello, World!';
   $scope.dynamicTooltipText = 'dynamic';
