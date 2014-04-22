@@ -6,7 +6,7 @@ git -C ../angular-adminui-page pull
 cp ./dist/scripts/angular-adminui.js ../angular-adminui-bower/scripts/
 cp ./dist/styles/angular-adminui.css ../angular-adminui-bower/styles/
 cp ./dist/styles/fonts/* ../angular-adminui-bower/styles/fonts/
-cp -r ./dist ../angular-adminui-page/
+cp -r ./dist/* ../angular-adminui-page/
 git commit -a
 git push
 commit_version=`git show |sed 'q'|awk '{print $2}'`
