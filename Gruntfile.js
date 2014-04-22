@@ -205,7 +205,7 @@ module.exports = function (grunt) {
           //   '<%= yeoman.app %>/styles/{,*/}*.css'
           // ],
           '<%= yeoman.dist %>/styles/angular-adminui.css': [
-            '.tmp/styles/ntd-admin-ui.css',
+            '.tmp/**/styles/ntd-admin-ui.css'
           ]
         }
       }
