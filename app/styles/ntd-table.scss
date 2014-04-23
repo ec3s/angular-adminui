@@ -5,6 +5,9 @@
     thead {
         background-color: $panel-default-heading-bg;
     }
+    th {
+        text-align: center;
+    }
     td, th {
         vertical-align: middle !important;
     }
