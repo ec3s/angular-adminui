@@ -1,14 +1,144 @@
 'use strict';
 
-var adminuiApp = angular.module('adminuiApp',[
-  'ntd.services', 
+var adminuiApp = angular.module('adminuiApp', [
+  'ngRoute',
+  'ntd.services',
   'ntd.directives',
   'ui.bootstrap',
   'bootstrapPrettify'
 ]);
 
+adminuiApp.run(['$rootScope', function($rootScope) {
+  $rootScope.userInfo = {
+    'username': 'N/A'
+  };
+}]);
+
+/* config adminui frame */
+angular.module('ntd.directives').config(
+  ['adminuiFrameProvider', function(adminuiFrameProvider) {
+    adminuiFrameProvider.setConfig({
+      defaultShowSubmenu: true,
+      showMessageBox: true,
+      navigation: [
+        {
+          'name': 'AdminUI',
+          'url': null,
+          'children': [
+            {
+              'name': '用户面板',
+              'url': '#/',
+              'children': [
+                {
+                  'name': '用户面板',
+                  'url': '#/',
+                  'children': null
+                },
+                {
+                  'name': '子菜单',
+                  'url': null,
+                  'children': [
+                    {
+                      'name': '分类一',
+                      'url': '#/sub/test',
+                      'children': null
+                    },
+                    {
+                      'name': '分类二',
+                      'url': '#/sub/test2',
+                      'children': null
+                    },
+                    {
+                      'name': '分类三',
+                      'url': '#/sub/test3',
+                      'children': null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              'name': '组件样式',
+              'url': '#/base-css',
+              'children': [
+                {
+                  'name': '基本样式',
+                  'url': '#/base-css',
+                  'children': null
+                },
+                {
+                  'name': '表格样式',
+                  'url': '#/table',
+                  'children': null
+                },
+                {
+                  'name': '表单样式',
+                  'url': '#/form',
+                  'children': null
+                }
+              ]
+            },
+            {
+              'name': 'UI组件',
+              'url': '#/widget',
+              'children': [
+                {
+                  'name': 'Admin UI组件',
+                  'url': '#/widget',
+                  'children': null
+                },
+                {
+                  'name': 'Bootstrap组件',
+                  'url': '#/bootstrap-ui-widget',
+                  'children': null
+                }
+              ]
+            },
+            {
+              'name': '其他页面',
+              'url': '#/login',
+              'children': [
+                {
+                  'name': '登录页面',
+                  'url': '#/login',
+                  'children': null
+                },
+                {
+                  'name': '404页面',
+                  'url': '#/404',
+                  'children': null
+                }
+              ]
+            },
+            {
+              'name': '升级指南',
+              'url': '#/update-guide',
+              'children': null
+            }
+          ]
+        },
+        {
+          'name': '订单&产品管理系统',
+          'url': 'http://product.staging.ec3s.com',
+          'children': null
+        },
+        {
+          'name': '仓储管理系统',
+          'url': 'http://wms.staging.ec3s.com',
+          'children': null
+        },
+        {
+          'name': ' 财务管理系统',
+          'url': 'http://fms.staging.ec3s.com',
+          'children': null
+        }
+      ]
+    });
+  }]
+);
+
 adminuiApp
-  .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -56,6 +186,10 @@ adminuiApp
       })
       .when('/test', {
         templateUrl: 'views/test.html',
+        controller: 'MainCtrl'
+      })
+      .when('/update-guide', {
+        templateUrl: 'views/update_guide.html',
         controller: 'MainCtrl'
       })
       .otherwise({

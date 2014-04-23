@@ -1,111 +1,84 @@
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 
-body {
-    padding-top: 0;
-}
-#J_subMenu {
-    margin-bottom: 20px;
-    .affix {
-        position: relative;
+    body {
+        padding-top: 90px;
     }
-}
-.help-inline {
-    margin-top: 10px;
-    padding-left: 0;
-}
-.advance-search-filter {
-    .skeleton {
-        .control-group {
-            display: block;
-            margin-bottom: 10px;
-        }
-        input[type="text"], input[type="password"],
-        select, input[type="button"], button {
-            display: block;
+
+    .easy-pie-chart-widget {
+        text-align: center;
+    }
+    .info-box {
+        .stat {
             margin: 10px 0;
-            width: 100%;
-            @include ctb-input-block-level();
-            @include ctb-box-sizing(border-box);
         }
     }
-}
-.easy-pie-chart-widget {
-    text-align: center;
-}
-.info-box {
-    .stat {
-        margin: 10px 0;
-    }
-}
-.page-404 {
-    width: auto;
-}
-.pagination-right, .pagination-center {
-    text-align: left;
-}
-.media {
-    margin-bottom: 10px;
-
-}
-.form-inline {
-    input[type="text"], input[type="password"],
-    select, input[type="button"], button {
-        display: block;
-        margin: 10px 0;
-        width: 100%;
-        @include ctb-input-block-level();
-        @include ctb-box-sizing(border-box);
-    }
-}
-  // Remove the horizontal form styles
-.form-horizontal {
-    .control-label {
-        float: none;
+    .page-404 {
         width: auto;
-        padding-top: 0;
-        text-align: left;
     }
-    // Move over all input controls and content
-    .controls {
-        margin-left: 0;
-    }
-    // Move the options list down to align with labels
-    .control-list {
-        padding-top: 0; // has to be padding because margin collaspes
-    }
-    // Move over buttons in .form-actions to align with .controls
-    .form-actions {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
 
-.table-widget {
-    .pull-right {
-        clear: both;
-        float: none;
+    .table-widget {
+        .pull-right {
+            clear: both;
+            float: none;
+        }
     }
-}
 
-.page-header {
-    .page-action {
-        float: none;
-        margin-top: 0;
+    .page-header {
+        .page-action {
+            float: none;
+            margin-top: 0;
+        }
     }
-}
+
+    .sub-navbar {
+        width: 768px;
+    }
 
 }
 
-@media (max-width: 979px) and (min-width: 768px) {
-
-.navbar-fixed-top,
-.navbar-fixed-bottom {
-    position: fixed;
+@media (max-width: 992px) {
+    .side-nav {
+        &.affix {
+            position: relative;
+        }
+    }
+    .sub-navbar {
+        width: 990px;
+    }
 }
-.help-inline {
-    display: block;
-    margin-top: 10px;
-    padding-left: 0;
-}
 
+@media (max-width: 767px) {
+    .navbar {
+        .main-nav {
+            .active {
+                a {
+                    &:after {
+                        content: none !important;
+                    }
+                }
+            }
+            a {
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
+        }
+        .sub-navbar {
+            position: relative;
+            left: 0;
+            right: 0;
+            padding: 0 15px;
+            width: 100%;
+            margin: 5px 0;
+            li.active {
+                a {
+                    color: #fff;
+                }
+            }
+        }
+
+        .sub-navbar-back {
+            display: none;
+        }
+    }
 }

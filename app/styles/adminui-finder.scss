@@ -1,0 +1,82 @@
+﻿@import 'compass';
+
+$gray-lighter: #eee;
+.adminui-finder-container
+{
+    margin-bottom: 0;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-weight: normal;
+    height: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    @include border-radius(4px);
+    @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075));
+    @include transition(border linear 0.2s, box-shadow linear 0.2s);
+}
+
+.adminui-finder-inner
+{
+    width: 100%;
+    height: 100%;
+    min-width: 500px;
+    min-height: 150px;
+    display: block;
+    position: relative;
+}
+
+.adminui-finder-container ul
+{
+    margin: 0;
+    padding: 4px 6px;
+    width: 30%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    list-style: none;
+    border-right: 1px solid $gray-lighter;
+    overflow: auto;
+}
+
+.adminui-finder-container li 
+{
+    background-image: url('../images/cascadelist_arrows.png');
+    background-repeat: no-repeat;
+    background-position: 98% 24px;
+    overflow: hidden;
+    padding: 3px 1.5em 3px 5px;
+    cursor: pointer;
+}
+.adminui-finder-container .form-control{
+    display: inline-block;    
+}
+
+
+.adminui-finder-container li.has-child 
+{
+    background-position: 98% -17px;
+}
+
+.adminui-finder-container li.selected
+{
+    background-color: $gray-lighter;
+}
+
+.adminui-finder-container li.selected.has-child
+{
+    background-color: $gray-lighter;
+    background-position: 98% -44px;
+}
+
+.adminui-finder-container ul.selected li.selected
+{
+    background-color: #049cdb;
+    color: #fff;
+}
+
+.adminui-finder-container ul.selected li.selected.has-child
+{
+    background-position: 98% -70px;
+}

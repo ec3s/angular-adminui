@@ -4,6 +4,7 @@ var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
+
 module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -33,9 +34,9 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.coffee'],
         tasks: ['coffee:test']
       },
-      compass: {
+      sass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass']
+        tasks: ['sass:dist']
       },
       livereload: {
         files: [
@@ -61,6 +62,9 @@ module.exports = function (grunt) {
           ext: '.html'
         }]
       }
+    },
+    livereload: {
+      port: 35711
     },
     connect: {
       options: {
@@ -106,6 +110,7 @@ module.exports = function (grunt) {
           ]
         }]
       },
+      build: '<%= yeoman.dist %>/components',
       server: '.tmp'
     },
     jshint: {
@@ -143,31 +148,29 @@ module.exports = function (grunt) {
         }]
       }
     },
-    compass: {
-      options: {
-        sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
-        imagesDir: 'images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: '<%= yeoman.app %>/components',
-        relativeAssets: true
-      },
-      dist: {},
-      server: {
+    sass: {
+      dist: {
         options: {
-          debugInfo: true
-        }
+          style: 'expanded',
+          compass: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: ['ntd-admin-ui.scss', 'example.scss', 'prettify.scss'],
+          dest: '.tmp/styles',
+          ext: '.css'
+        }]
       }
     },
     concat: {
-      dist: {
-        // files: {
-        //   '<%= yeoman.dist %>/scripts/scripts.js': [
-        //     '.tmp/scripts/{,*/}*.js',
-        //     '<%= yeoman.app %>/scripts/{,*/}*.js'
-        //   ]
-        // }
+      tpl: {
+        files: {
+          '.tmp/concat/scripts/angular-adminui.js': [
+            '.tmp/**/scripts/angular-adminui.js',
+            '.tmp/**/scripts/angular-adminui-tpl.js'
+          ]
+        }
       }
     },
     useminPrepare: {
@@ -195,15 +198,6 @@ module.exports = function (grunt) {
     },
     cssmin: {
       dist: {
-        files: {
-          // '<%= yeoman.dist %>/styles/main.css': [
-          //   '.tmp/styles/{,*/}*.css',
-          //   '<%= yeoman.app %>/styles/{,*/}*.css'
-          // ],
-          '<%= yeoman.dist %>/styles/angular-adminui.css': [
-            '.tmp/styles/ntd-admin-ui.css',
-          ]
-        }
       }
     },
     htmlmin: {
@@ -244,11 +238,6 @@ module.exports = function (grunt) {
     },
     uglify: {
       dist: {
-        // files: {
-        //   '<%= yeoman.dist %>/scripts/scripts.js': [
-        //     '<%= yeoman.dist %>/scripts/*.js'
-        //   ]
-        // }
       }
     },
     rev: {
@@ -279,6 +268,25 @@ module.exports = function (grunt) {
           ]
         }]
       }
+    },
+    ngtemplates: {
+      'ntd.directives': {
+        cwd: '<%= yeoman.app%>',
+        src: 'templates/**.html',
+        dest: '.tmp/concat/scripts/angular-adminui-tpl.js',
+        options: {
+          htmlmin: {
+            collapseBooleanAttributes: true,
+            collapseWhitespace: true,
+            removeAttributeQuotes: true,
+            removeComments: true,
+            removeEmptyAttributes: true,
+            removeRedundantAttributes: true,
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true
+          }
+        }
+      }
     }
   });
 
@@ -287,7 +295,7 @@ module.exports = function (grunt) {
   grunt.registerTask('server', [
     'clean:server',
     'coffee:dist',
-    'compass:server',
+    'sass:dist',
     'livereload-start',
     'connect:livereload',
     'open',
@@ -298,7 +306,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'coffee',
-    'compass',
+    'sass',
     'connect:test',
     'karma'
   ]);
@@ -308,19 +316,22 @@ module.exports = function (grunt) {
     //'jshint',
     //'test',
     //'coffee',
-    'compass:dist',
+    'sass:dist',
     'useminPrepare',
     'imagemin',
-    //'cssmin',
     'htmlmin',
+    'ngtemplates',
     'concat',
+    'concat:tpl',
+    'cssmin',
     'copy',
     'cdnify',
     'ngmin',
-    //'uglify',
+    'uglify',
     //'rev',
     'jade',
-    'usemin'
+    'usemin',
+    'clean:build'
   ]);
 
   grunt.registerTask('default', ['build']);
