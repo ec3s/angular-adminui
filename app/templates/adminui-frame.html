@@ -37,7 +37,7 @@
           </li>
         </ul>
         </li>
-        <li data-ng-class="{true: 'active', false: ''}[isSubMenuShow]">
+        <li data-ng-hide="noSideMenu" data-ng-class="{true: 'active', false: ''}[isSubMenuShow]">
         <a href="javascript:;" data-ng-click="toggleSubMenu($event)"><i class="glyphicon glyphicon-list"></i></a>
         </li>
         <li data-ng-show="userInfo.username != null" class="dropdown">
@@ -49,7 +49,7 @@
           </li>
           <li class="divider"></li>
           <li><a data-ng-click="changePwd($event)" href="#"><i class="glyphicon glyphicon-lock"></i> 修改密码</a></li>
-          <li><a data-ng-click="logout($event)" href="#"><i class="glyphicon glyphicon-off"></i>  退出</a></li>
+          <li><a data-ng-click="logout($event)" href="#"><i class="glyphicon glyphicon-off"></i> 退出</a></li>
         </ul>
         </li>
       </ul>

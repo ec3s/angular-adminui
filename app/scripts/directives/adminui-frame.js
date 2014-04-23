@@ -15,6 +15,8 @@
         scope.isSubMenuShow = adminuiFrameProvider.defaultShowSubmenu;
         /* has side menu in selected nav */
         scope.hasSideMenu = false;
+        /* 所有菜单都没有侧边菜单子集 */
+        scope.noSideMenu = true;
         /* dose show message box */
         scope.isMessageBoxShow = adminuiFrameProvider.showMessageBox;
         /* bind navigation data */
@@ -110,7 +112,9 @@
       var regexp = new RegExp('^' + endChildren[i].match + '$', ['i']);
       if (regexp.test(path)) {
         scope.select(endChildren[i]);
-        break;
+      }
+      if (endChildren[i].level > 2 && scope.noSideMenu) {
+        scope.noSideMenu = false;
       }
     }
   };
