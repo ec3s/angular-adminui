@@ -711,12 +711,16 @@ form {
 .alert {
     padding: 10px 15px;
 }
-
-form.form-inline {
-  > * {
-    margin-bottom: 15px !important;
-  }
+form {
+    margin-bottom: 15px;
+    &.form-inline {
+        margin-bottom: 0;
+        > * {
+            margin-bottom: 15px !important;
+        }
+    }
 }
+
 .none-info {
   padding: 20px 0 !important;
   color: $gray-light;
