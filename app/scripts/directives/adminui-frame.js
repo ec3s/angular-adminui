@@ -17,6 +17,8 @@
         scope.hasSideMenu = false;
         /* 所有菜单都没有侧边菜单子集 */
         scope.noSideMenu = true;
+        /* has sub navigation bar */
+        scope.hasSubNav = false;
         /* dose show message box */
         scope.isMessageBoxShow = adminuiFrameProvider.showMessageBox;
         /* bind navigation data */
@@ -31,8 +33,15 @@
           'changePwd': function() { console.log('change password'); }
         }, scope.userInfo);
 
+        /* watch if has sub navigation, add body's padding top */
+        scope.$watch('hasSubNav', function(value, oldValue) {
+          if (value == true) {
+            $('body').css('paddingTop', '100px');
+          }
+        });
+
         /* perpare navigation data */
-        init(scope.navigation);
+        init(scope, scope.navigation);
 
         /* when route changed, reselected */
         $rootScope.$on('$routeChangeStart', function() {
@@ -72,14 +81,19 @@
     this.userInfo.changePwd();
   };
 
-  var init = function(navigation) {
-    var parentNav = arguments[1] === undefined ? null : arguments[1];
-    var level = arguments[2] === undefined ? 0 : arguments[2];
-    ng.forEach(navigation, function(nav) {
-      nav.parentNav = parentNav;
+  var init = function(scope, parentNavs) {
+    var navigation = arguments[2] === undefined ? null : arguments[2];
+    var level = arguments[3] === undefined ? 0 : arguments[3];
+    ng.forEach(parentNavs, function(nav) {
+      nav.parentNav = navigation;
       nav.level = level + 1;
+      nav.show = nav.hasOwnProperty('show') ? nav.show : true;
+      /* show sub navigation when has sub menu */
+      if (nav.level == 2 && nav.show == true) {
+        scope.hasSubNav = true;
+      }
       if (nav.children != null) {
-        init(nav.children, nav, nav.level);
+        init(scope, nav.children, nav, nav.level);
       }
     });
   };

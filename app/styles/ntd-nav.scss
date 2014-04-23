@@ -66,6 +66,9 @@ $active-menu-color: #428bcb;
         right: 15px;
         margin-bottom: 0;
         z-index: 500;
+        &.no-parent {
+            margin-top: 50px;
+        }
         li {
             &.active {
                 a {
@@ -111,6 +114,7 @@ $active-menu-color: #428bcb;
         background-color: $panel-default-heading-bg;
         border-bottom-width: 2px;
         padding: 8px 15px;
+        margin-top: 0;
     }
     .side-nav-menu {
         @extend .list-group;
