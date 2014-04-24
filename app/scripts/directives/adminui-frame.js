@@ -53,11 +53,6 @@
           adminuiFrameProvider.navigation, $location.path()
         );
 
-        /* when route changed, reselected */
-        $rootScope.$on('$routeChangeStart', function() {
-          selectPath(scope, $location.path());
-        });
-
         /* bind menu select func */
         scope.select = ng.bind(scope, select, $timeout, elem);
         /* bind submenu toggle */
@@ -112,6 +107,10 @@
       init(scope, scope.navigation);
       /* select from path */
       selectPath(scope, currentPath);
+      /* when route changed, reselected */
+      scope.$root.$on('$routeChangeStart', function() {
+        selectPath(scope, currentPath);
+      });
       fetchCommonMenus($http, scope);
     }, function(res) {
       scope.navigation = [navigation];
@@ -119,6 +118,10 @@
       init(scope, scope.navigation);
       /* select from path */
       selectPath(scope, currentPath);
+      /* when route changed, reselected */
+      scope.$root.$on('$routeChangeStart', function() {
+        selectPath(scope, currentPath);
+      });
       fetchCommonMenus($http, scope);
     });
   };
