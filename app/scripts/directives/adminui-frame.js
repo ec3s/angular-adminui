@@ -30,6 +30,8 @@
         scope.commonMenus = [];
         /* init account system host */
         scope.accountHost = null;
+        /* does navigation inited */
+        scope.isInited = false;
 
         scope.userInfo = ng.extend({
           'username': null,
@@ -46,12 +48,24 @@
           }
         });
 
+        scope.$watch('userInfo', function(value) {
+          if (scope.isInited && value.accessToken !== null) {
+            fetchCommonMenus($http, scope);
+          }
+        }, true);
 
         /* init navigation from systems */
         initNav(
           scope, $http, SYS,
           adminuiFrameProvider.navigation, $location.path()
         );
+
+        /* when route changed, reselected */
+        $rootScope.$on('$routeChangeStart', function() {
+          if (scope.isInited) {
+            selectPath(scope, $location.path());
+          }
+        });
 
         /* bind menu select func */
         scope.select = ng.bind(scope, select, $timeout, elem);
@@ -105,23 +119,19 @@
       scope.navigation = res.data;
       /* perpare navigation data */
       init(scope, scope.navigation);
+      scope.isInited = true;
       /* select from path */
       selectPath(scope, currentPath);
-      /* when route changed, reselected */
-      scope.$root.$on('$routeChangeStart', function() {
-        selectPath(scope, currentPath);
-      });
+      /* fetch common menu */
       fetchCommonMenus($http, scope);
     }, function(res) {
       scope.navigation = [navigation];
       /* perpare navigation data */
       init(scope, scope.navigation);
+      scope.isInited = true;
       /* select from path */
       selectPath(scope, currentPath);
-      /* when route changed, reselected */
-      scope.$root.$on('$routeChangeStart', function() {
-        selectPath(scope, currentPath);
-      });
+      /* fetch common menu */
       fetchCommonMenus($http, scope);
     });
   };
