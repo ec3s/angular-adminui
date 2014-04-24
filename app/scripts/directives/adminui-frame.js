@@ -109,6 +109,9 @@
 
         if (nav.code == 'account') {
           scope.accountHost = nav.url;
+          scope.userInfo.changePwd = function() {
+            location.href = scope.accountHost + '/#/password';
+          };
         }
       });
 
