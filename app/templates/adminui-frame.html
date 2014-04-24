@@ -15,11 +15,11 @@
         <a data-ng-href="{{nav.url}}" data-ng-show="nav.show">{{nav.name}}</a>
         <ul class="sub-navbar" data-ng-if="nav.children != null" data-ng-class="{false: 'no-parent'}[nav.show]">
           <li data-ng-repeat="subnav in nav.children" data-ng-show="subnav.show" data-ng-class="{true: 'active', false: ''}[isSelected(subnav)]">
-            <a data-ng-click="selectNav(subnav)" data-ng-href="{{subnav.url}}">{{subnav.name}}</a>
-            </li>
-          </ul>
+          <a data-ng-click="selectNav(subnav)" data-ng-href="{{subnav.url}}">{{subnav.name}}</a>
+          </li>
+        </ul>
         </li>
-    </ul>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
         <a data-ng-show="isMessageBoxShow" class="dropdown-toggle" href="#" data-toggle="dropdown">
@@ -50,6 +50,16 @@
           <li class="divider"></li>
           <li><a data-ng-click="changePwd($event)" href="#"><i class="glyphicon glyphicon-lock"></i> 修改密码</a></li>
           <li><a data-ng-click="logout($event)" href="#"><i class="glyphicon glyphicon-off"></i> 退出</a></li>
+        </ul>
+        </li>
+        <li class="dropdown" data-ng-show="userInfo.username != null && accountHost != null ">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">常用 <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li data-ng-repeat="menu in commonMenus"><a data-ng-href="{{menu.link}}">{{menu.name}}</a></li>
+          <li data-ng-show="commonMenus.length <= 0" class="none-info">暂无常用菜单</li>
+          <li class="divider"></li>
+          <li><a href="javascript:;" data-ng-click="addCommonMenu()">添加为常用</a></li>
+          <li><a data-ng-href="{{accountHost}}/#/menus">管理常用菜单</a></li>
         </ul>
         </li>
       </ul>

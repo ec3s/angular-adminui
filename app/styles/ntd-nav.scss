@@ -92,6 +92,11 @@ $active-menu-color: #428bcb;
         height: 35px;
     }
 }
+.dropdown-menu > li {
+    &.none-info {
+        padding: 6px 0 0 !important;
+    }
+}
 .message-container {
     z-index: 600;
     position: fixed;

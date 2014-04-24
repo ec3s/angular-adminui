@@ -727,3 +727,12 @@ form {
   text-align: center;
 }
 
+.modal-dialog {
+    .form-horizontal {
+        margin-bottom: 0;
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+

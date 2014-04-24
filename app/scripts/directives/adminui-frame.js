@@ -1,7 +1,8 @@
 (function(ng) {
   'use strict';
   var AdminuiFrame = function(
-    adminuiFrameProvider, $rootScope, $location, $timeout) {
+    adminuiFrameProvider, $rootScope, $location,
+    $timeout, $modal, $http, SYS, flash) {
     return {
       restrict: 'A',
       templateUrl: 'templates/adminui-frame.html',
@@ -25,9 +26,14 @@
         scope.navigation = adminuiFrameProvider.navigation;
         /* init messages */
         scope.messages = scope.messages ? scope.messages : [];
+        /* init common menus */
+        scope.commonMenus = [];
+        /* init account system host */
+        scope.accountHost = null;
 
         scope.userInfo = ng.extend({
           'username': null,
+          'accessToken': null,
           'avatar': 'images/avatar.jpg',
           'logout': function() { console.log('logout'); },
           'changePwd': function() { console.log('change password'); }
@@ -40,8 +46,12 @@
           }
         });
 
-        /* perpare navigation data */
-        init(scope, scope.navigation);
+
+        /* init navigation from systems */
+        initNav(
+          scope, $http, SYS,
+          adminuiFrameProvider.navigation, $location.path()
+        );
 
         /* when route changed, reselected */
         $rootScope.$on('$routeChangeStart', function() {
@@ -64,11 +74,135 @@
         scope.logout = ng.bind(scope, logout);
         /* bind change password func */
         scope.changePwd = ng.bind(scope, changePwd);
+        /* bind add common menu func */
+        scope.addCommonMenu = ng.bind(
+          scope, addCommonMenu, $http, $location, $modal, flash
+        );
 
-        /* select from path */
-        selectPath(scope, $location.path());
       }
     };
+  };
+
+  var initNav = function(scope, $http, SYS, navigation, currentPath) {
+    $http.jsonp(
+      SYS.host + '/api/systems?callback=JSON_CALLBACK'
+    ).then(function(res) {
+      var systemMatched = false;
+      ng.forEach(res.data, function(nav) {
+        if (nav.code == navigation.code) {
+          systemMatched = true;
+          nav.children = ng.copy(navigation.children);
+          nav.show = navigation.hasOwnProperty('show') ?
+            navigation.show : true;
+        } else {
+          nav.children = null;
+        }
+
+        if (nav.code == 'account') {
+          scope.accountHost = nav.url;
+        }
+      });
+
+      if (systemMatched == false) {
+        res.data.push(ng.copy(navigation));
+      }
+
+      scope.navigation = res.data;
+      /* perpare navigation data */
+      init(scope, scope.navigation);
+      /* select from path */
+      selectPath(scope, currentPath);
+      fetchCommonMenus($http, scope);
+    }, function(res) {
+      scope.navigation = [navigation];
+      /* perpare navigation data */
+      init(scope, scope.navigation);
+      /* select from path */
+      selectPath(scope, currentPath);
+      fetchCommonMenus($http, scope);
+    });
+  };
+
+  var hasSameMenu = function($scope, url) {
+    var hasSameMenu = false;
+    ng.forEach($scope.commonMenus, function(menu) {
+      if ($.trim(menu.link) == $.trim(url)) {
+        hasSameMenu = true;
+      }
+    });
+    return hasSameMenu;
+  };
+
+  var addCommonMenu = function($http, $location, $modal, flash) {
+    if (this.commonMenus.length >= 10) {
+      flash.notify({
+        state: 'error',
+        info: '您设置的常用菜单已经达到10个，请点击 <a href="' +
+          this.accountHost + '/#/menus">这里</a> 清除不经常使用的菜单。'
+      });
+      return;
+    }
+
+    if (hasSameMenu(this, $location.absUrl())) {
+      flash.notify({
+        state: 'error',
+        info: '常用菜单中已存在此链接'
+      });
+      return;
+    }
+
+    var dialog = $modal.open({
+      controller: 'CommonMenuDialogCtrl',
+      templateUrl: '/templates/common-menu-dialog.html',
+      resolve: {
+        url: function() {
+          return $location.absUrl();
+        }
+      }
+    });
+
+    dialog.result.then(function(data) {
+      if (this.accountHost === null) {
+        return;
+      }
+      if ($.trim(data.name) == '') {
+        flash.notify({
+          state: 'error',
+          info: '常用菜单名称不能为空'
+        });
+        return;
+      }
+      data.access_token = this.userInfo.accessToken;
+      $http.jsonp(
+        this.accountHost + '/api/menus/create?callback=JSON_CALLBACK',
+        {
+          params: data
+        }
+      ).then(function(res) {
+        this.commonMenus = res.data;
+      }.bind(this), function(res) {
+        flash.notify({
+          state: 'error',
+          info: '常用菜单添加失败，请联系管理员'
+        });
+      });
+    }.bind(this));
+  };
+
+  var fetchCommonMenus = function($http, scope) {
+    if (scope.accountHost === null) {
+      return;
+    }
+    $http.jsonp(
+      scope.accountHost + '/api/menus/jsonp?callback=JSON_CALLBACK',
+      {
+        params: {
+          'access_token': scope.userInfo.accessToken
+        }
+      }
+    ).then(function(res) {
+      scope.commonMenus = res.data;
+    });
   };
 
   var logout = function(evt) {
@@ -217,11 +351,38 @@
     };
   };
 
+
+  var CommonMenuDialogCtrl = function($scope, $modalInstance, url) {
+    $scope.menu = {
+      'link': url,
+      'name': ''
+    };
+    $scope.cancel = ng.bind(this, this.cancel, $modalInstance);
+    $scope.add = ng.bind(this, this.add, $scope, $modalInstance);
+  };
+
+  CommonMenuDialogCtrl.prototype.add = function($scope, $modalInstance, evt) {
+    var eventWithEnter = evt.type == 'keypress' && evt.charCode == 13;
+    if (eventWithEnter || evt.type == 'click') {
+      $modalInstance.close($scope.menu);
+    }
+  };
+
+  CommonMenuDialogCtrl.prototype.cancel = function($modalInstance, evt) {
+    evt.preventDefault();
+    $modalInstance.dismiss('cancel');
+  };
+
   ng.module('ntd.directives').provider(
     'adminuiFrame', [AdminuiFrameProvider]
   );
   ng.module('ntd.directives').directive(
     'adminuiFrame',
-    ['adminuiFrame', '$rootScope', '$location', '$timeout', AdminuiFrame]
+    ['adminuiFrame', '$rootScope', '$location',
+      '$timeout', '$modal', '$http', 'SYS', 'flash', AdminuiFrame]
+  );
+  ng.module('ntd.directives').controller(
+    'CommonMenuDialogCtrl',
+    ['$scope', '$modalInstance', 'url', CommonMenuDialogCtrl]
   );
 })(angular);
