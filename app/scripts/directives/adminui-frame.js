@@ -156,7 +156,7 @@
 
     var dialog = $modal.open({
       controller: 'CommonMenuDialogCtrl',
-      templateUrl: '/templates/common-menu-dialog.html',
+      templateUrl: 'templates/common-menu-dialog.html',
       resolve: {
         url: function() {
           return $location.absUrl();
