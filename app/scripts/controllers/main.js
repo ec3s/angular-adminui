@@ -633,6 +633,9 @@ adminuiApp
   $scope.isDisabled = true;
   $scope.click = function(evt) {
     if (evt.type == 'SWITCHER_CLICK') {
+      evt.switched(function(value, oldValue) {
+        console.log('switcher switch done');
+      });
       console.log(evt);
     }
   };

@@ -82,22 +82,31 @@
         $timeout(function() {
           var switcher = new Switcher(elem, scope.model, scope.disabled);
           elem.bind('click', function(e) {
+            var switchedFunc = null;
+            var clickEvent = null;
             if (!switcher.onAnimate && !scope.disabled) {
               if (e.button !== 0) {
                 return;
               }
-              scope.ngClick({
+              clickEvent = {
                 '$event': {
                   'type': 'SWITCHER_CLICK',
                   'name': 'click',
                   'target': elem,
                   'oldValue': scope.model,
-                  'value': !scope.model
+                  'value': !scope.model,
+                  'switched': function(callback) {
+                    switchedFunc = callback;
+                  }
                 }
-              });
+              };
+              scope.ngClick(clickEvent);
               switcher.switch(scope.model, function(value) {
                 scope.model = value;
                 scope.$apply();
+                if (switchedFunc !== null) {
+                  switchedFunc.call(clickEvent, value, !value);
+                }
               });
             }
           });
