@@ -4,6 +4,15 @@
     @include border-radius($border-radius-base);
     overflow: hidden;
     display: inline-block;
+    &.disabled {
+        background-color: $gray-lighter !important;
+        border-color: $gray-lighter !important;
+        .adminui-switcher-inner {
+            .on-label, .off-label, .divider {
+                cursor: not-allowed;
+            }
+        }
+    }
     &.on {
         background-color: $brand-primary;
         border: 1px solid $brand-primary;

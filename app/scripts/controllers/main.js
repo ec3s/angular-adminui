@@ -629,13 +629,19 @@ adminuiApp
 .controller('chosenCtrl', ['$scope', '$http', '$q', chosenCtrl])
 .controller('switcherCtrl', ['$scope', function($scope) {
   $scope.switch = true;
+  $scope.uswitch = false;
+  $scope.isDisabled = true;
   $scope.click = function(evt) {
     if (evt.type == 'SWITCHER_CLICK') {
       console.log(evt);
     }
   };
   $scope.change = function(evt) {
+    $scope.uswitch = evt.oldValue;
     console.log(evt);
+  };
+  $scope.disabled = function() {
+    $scope.isDisabled = !$scope.isDisabled;
   };
 }])
 .controller('flashMessageCtrl', [

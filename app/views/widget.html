@@ -6,19 +6,26 @@
 
 <h3>Switcher</h3>
 
+<p>为<code>div</code>容器添加<code>adminui-switcher</code>， switcher 同时支持 正常，<code>switcher-lg</code>，<code>switcher-sm</code>，<code>switcher-xs</code>四种大小， 支持 <code>switcher-success</code>，<code>switcher-info</code>，<code>switcher-warning</code>，<code>switcher-danger</code>，正常，五种颜色模式， <code>data-on-label</code>， <code>data-off-label</code> 分别是按钮两种状态的标识文字。
+</p>
+<p>通过<code>data-ng-model</code>进行组件数据绑定，通过<code>data-disabled</code>来禁用该组件。</p>
+<p>
+Switcher 支持 <code>ng-change</code>，<code>ng-click</code>事件，事件函数能够接收<code>$event</code>为事件对象。
+</p>
+<p>在使用<code>ng-click</code>事件时注意判断事件的<code>type</code>来区分angular原本的点击事件。</p>
 <div ng-controller="switcherCtrl">
   <div 
   class="switcher-sm switcher-success"
   data-adminui-switcher
   data-ng-model="switch"
-  data-on-label="on"
-  data-off-label="off"></div>
+  data-on-label="<i class='glyphicon glyphicon-ok'></i>"
+  data-off-label="<i class='glyphicon glyphicon-remove'></i>"></div>
   <div 
   class="switcher-sm"
   data-adminui-switcher
   data-ng-model="switch"
-  data-on-label="on"
-  data-off-label="off"></div>
+  data-on-label="启用"
+  data-off-label="禁用"></div>
   <div 
   class="switcher-sm switcher-info"
   data-adminui-switcher
@@ -36,11 +43,21 @@
   class="switcher-sm switcher-danger"
   data-adminui-switcher
   data-ng-click="click($event)"
+  data-ng-model="uswitch"
+  data-on-label="on"
+  data-off-label="off"></div>
+  <input type="checkbox" data-ng-model="switch" >
+  <br />
+  <br />
+  <div 
+  class="switcher-sm switcher-danger"
+  data-disabled="isDisabled"
+  data-adminui-switcher
+  data-ng-click="click($event)"
   data-ng-model="switch"
   data-on-label="on"
   data-off-label="off"></div>
-
-  <input type="checkbox" data-ng-model="switch" >
+  <button class="btn btn-sm btn-default" data-ng-click="disabled()">切换禁用状态</button>
   <br />
 </div>
 
@@ -126,7 +143,7 @@ $scope.unifyDptList = {{unifyDptList|json}}
 	</p>
 </div>
 <pre class="prettyprint linenums">
-	&lt;button class=&quot;btn btn-default btn-info&quot; ng-click=&quot;sendMsg(&#39;message from pre page.&#39;, '#39;info'#39;, true)&quot;&gt;flash messge when route changed&lt;/button&gt;
+	&lt;button class=&quot;btn btn-default btn-info&quot; ng-click=&quot;sendMsg(&#39;message from pre page.&#39;, 'info', true)&quot;&gt;flash messge when route changed&lt;/button&gt;
 </pre>
 <pre class="well">
   $scope.sendMsg = function(msg, level, showOnNextPage){
