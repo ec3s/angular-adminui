@@ -111,7 +111,7 @@
           });
 
           scope.$watch('model', function(value, oldValue) {
-            if (value !== oldValue && !switcher.onAnimate && !scope.disabled) {
+            if (value !== oldValue && !scope.disabled) {
               scope.ngChange({
                 '$event': {
                   'type': 'SWITCHER_CHANGE',
