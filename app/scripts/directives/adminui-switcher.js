@@ -61,7 +61,9 @@
       left: offset
     }, 200, function() {
       this.onAnimate = false;
-      callback.call(this, newValue);
+      if (callback) {
+        callback.call(this, newValue);
+      }
     }.bind(this));
   };
 
@@ -102,11 +104,12 @@
               };
               scope.ngClick(clickEvent);
               switcher.switch(scope.model, function(value) {
-                scope.model = value;
-                scope.$apply();
-                if (switchedFunc !== null) {
-                  switchedFunc.call(clickEvent, value, !value);
-                }
+                scope.$apply(function() {
+                  scope.model = value;
+                  if (switchedFunc !== null) {
+                    switchedFunc.call(clickEvent, value, !value);
+                  }
+                });
               });
             }
           });
@@ -115,8 +118,9 @@
             if (value != oldValue) {
               switcher.disabled(value);
               switcher.switch(!scope.model, function(newValue) {
-                scope.model = newValue;
-                scope.$apply();
+                scope.$apply(function() {
+                  scope.model = newValue;
+                });
               });
             }
           });
@@ -132,10 +136,7 @@
                   'value': value
                 }
               });
-              switcher.switch(oldValue, function(newValue) {
-                scope.model = newValue;
-                scope.$apply();
-              });
+              switcher.switch(oldValue);
             }
           });
         });
