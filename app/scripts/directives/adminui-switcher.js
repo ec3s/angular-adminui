@@ -57,9 +57,9 @@
     this.innerElem.animate({
       left: offset
     }, function() {
+      this.onAnimate = false;
       callback.call(this, newValue);
       this.setStatus(newValue);
-      this.onAnimate = false;
     }.bind(this));
   };
 
