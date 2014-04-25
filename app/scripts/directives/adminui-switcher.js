@@ -4,18 +4,20 @@
     this.elem = elem;
     this.onAnimate = false;
     this.initialize();
-    this.setStatus(status);
+    this.setStatus(status, true);
     this.disabled(disabled);
   };
 
-  Switcher.prototype.setStatus = function(status) {
+  Switcher.prototype.setStatus = function(status, setOffset) {
     if (status === true) {
       this.elem.addClass('on');
       this.elem.removeClass('off');
     } else {
       this.elem.addClass('off');
       this.elem.removeClass('on');
-      this.innerElem.css('left', - this.onElem.outerWidth());
+      if (setOffset) {
+        this.innerElem.css('left', - this.onElem.outerWidth());
+      }
     }
   };
 
@@ -36,7 +38,7 @@
     var offElemWidth = offElem.outerWidth();
     var dividerElemWidth = elem.find('.divider').outerWidth();
     var elemWidth = Math.max(onElemWidth, offElemWidth);
-    elem.width(elemWidth + dividerElemWidth);
+    elem.width(elemWidth + dividerElemWidth + 2);
     onElem.css('width', elemWidth);
     offElem.css('width', elemWidth);
     innerElem.width(
@@ -54,12 +56,12 @@
       offset = - this.onElem.outerWidth();
     }
     this.onAnimate = true;
+    this.setStatus(newValue);
     this.innerElem.animate({
       left: offset
-    }, function() {
+    }, 200, function() {
       this.onAnimate = false;
       callback.call(this, newValue);
-      this.setStatus(newValue);
     }.bind(this));
   };
 
