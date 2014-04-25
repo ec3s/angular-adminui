@@ -227,8 +227,9 @@ module.exports = function (grunt) {
     },
     uglify: {
       options: {
-        sourceMap: true
-        // sourceMapName: '<%= yeoman.dist %>/scripts'
+        mangle: false,
+        compress: false,
+        beautify: true
       }
     },
     rev: {
