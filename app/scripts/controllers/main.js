@@ -628,15 +628,14 @@ adminuiApp
 }])
 .controller('chosenCtrl', ['$scope', '$http', '$q', chosenCtrl])
 .controller('switcherCtrl', ['$scope', function($scope) {
-  $scope.opened = 'open';
-  $scope.click = function(event) {
-    console.log(event);
+  $scope.switch = true;
+  $scope.click = function(evt) {
+    if (evt.type == "SWITCHER_CLICK") {
+      console.log(evt);
+    }
   };
-  $scope.change = function(event) {
-    console.log(event);
-  };
-  $scope.do = function() {
-    $scope.opened = ($scope.opened == 'open') ? 'close' : 'open';
+  $scope.change = function(evt) {
+    console.log(evt);
   };
 }])
 .controller('flashMessageCtrl', [

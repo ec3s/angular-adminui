@@ -15,6 +15,7 @@ $body-font: 12px/18px $font-family-sans-serif;
 $menu-header-font: 14px/20px $font-family-sans-serif;
 
 @import "compass";
+@import "compass/css3";
 
 $font-size-base: 12px !default;
 $font-size-large: ceil($font-size-base * 1.16) !default; // ~14px
@@ -138,4 +139,5 @@ $footableDetailBgColor:  #eee;
 @import "ntd-toggle-switch";
 @import "adminui-checkbox-group";
 @import "adminui-taginput";
+@import "adminui-switcher";
 

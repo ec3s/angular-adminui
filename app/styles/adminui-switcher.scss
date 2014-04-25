@@ -1,0 +1,124 @@
+.adminui-switcher-container {
+    vertical-align: middle;
+    border: 1px solid $input-border;
+    @include border-radius($border-radius-base);
+    overflow: hidden;
+    display: inline-block;
+    &.on {
+        background-color: $brand-primary;
+        border: 1px solid $brand-primary;
+    }
+    &.off {
+        background-color: $input-border;
+        border: 1px solid $input-border;
+    }
+    .adminui-switcher-inner {
+        position: relative;
+        .on-label, .off-label, .divider {
+            cursor: pointer;
+            @include user-select(none);
+            @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+            float: left;
+            text-align: center;
+        }
+        .on-label, .off-label {
+            padding-left: 17px;
+            padding-right: 17px;
+            color: #fff;
+        }
+        .divider {
+            background-color: #fff;
+            &:after {
+                content: ' ';
+                padding-left: 4px;
+                padding-right: 4px;
+            }
+        }
+        &:after {
+            content: ' ';
+            clear: both;
+            display: table;
+        }
+    }
+}
+
+.switcher-success {
+    &.adminui-switcher-container {
+        &.on {
+            background-color: $brand-success;
+            border: 1px solid $brand-success;
+        }
+    }
+
+}
+.switcher-warning {
+    &.adminui-switcher-container {
+        &.on {
+            background-color: $brand-warning;
+            border: 1px solid $brand-warning;
+        }
+    }
+
+}
+.switcher-info {
+    &.adminui-switcher-container {
+        &.on {
+            background-color: $brand-info;
+            border: 1px solid $brand-info;
+        }
+    }
+
+}
+.switcher-danger {
+    &.adminui-switcher-container {
+        &.on {
+            background-color: $brand-danger;
+            border: 1px solid $brand-danger;
+        }
+    }
+}
+
+.switcher-lg {
+    &.adminui-switcher-container {
+        @include border-radius($border-radius-large);
+        .on-label, .off-label, .divider {
+            @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+        }
+        .on-label, .off-label {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .divider {
+        }
+    }
+}
+
+.switcher-sm, .switcher-xs {
+    &.adminui-switcher-container {
+        @include border-radius($border-radius-small);
+        .on-label, .off-label, .divider {
+            @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+        }
+        .on-label, .off-label {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .divider {
+        }
+    }
+}
+
+.switcher-xs {
+    &.adminui-switcher-container {
+        .on-label, .off-label, .divider {
+            padding: 1px 5px;
+        }
+        .on-label, .off-label {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .divider {
+            padding: 1px 6px;
+        }
+    }
+}
