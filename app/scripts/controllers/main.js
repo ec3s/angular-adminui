@@ -630,7 +630,7 @@ adminuiApp
 .controller('switcherCtrl', ['$scope', function($scope) {
   $scope.switch = true;
   $scope.click = function(evt) {
-    if (evt.type == "SWITCHER_CLICK") {
+    if (evt.type == 'SWITCHER_CLICK') {
       console.log(evt);
     }
   };
