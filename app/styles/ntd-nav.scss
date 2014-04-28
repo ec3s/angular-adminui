@@ -14,10 +14,10 @@ $active-menu-color: #428bcb;
         
         font-family: 'good_timesregular';
         font-size: 20px;
-
         margin-right: 20px;
-
         color: #000;
+        overflow: hidden;
+        height: 50px;
         text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
         @include transition-property(all);
         @include transition-duration(.2s);

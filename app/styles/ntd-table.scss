@@ -11,9 +11,19 @@
     td, th {
         vertical-align: middle !important;
     }
+    &.multiple-line {
+        td {
+            vertical-align: top !important;
+        }
+    }
     .align-center,
+    .short-str,
     .operation {text-align: center;}
-    .align-right, .currency, .number { text-align: right; }
+
+    .align-right,
+    .currency,
+    .number { text-align: right; }
+
     .currency{
         font-family: verdana;
     }
@@ -69,42 +79,4 @@
 i[tooltip-popup-delay]{
  padding-left:5px;
 }
-// 
-// table {
-//     .align-center,
-//     .operation { text-align: center; }
-//     .align-right, .currency, .number { text-align: right; }
-//     .currency{
-//         font-family: verdana;
-//     }
-//     .active {
-//         background: $BaseWidgetHeaderActiveBgColor;
-//     }
-//     .sort-icon {
-//         display: inline-block;
-//         float: right;
-//         margin-left: 5px;
-//         width: 16px; 
-//         height: 16px;
-//         background: url(#{$iconSorting}) no-repeat right 2px;
-//     }
-//     .sort-asc {
-//         .sort-icon {
-//             background-position: right -30px;
-//         }
-//     }
-//     .sort-desc {
-//         .sort-icon {
-//             background-position: right -14px;
-//         }
-//     }
-//     select, textarea, input[type="text"], input[type="password"], 
-//     input[type="datetime"], input[type="datetime-local"], 
-//     input[type="date"], input[type="month"], input[type="time"], 
-//     input[type="week"], input[type="number"], input[type="email"], 
-//     input[type="url"], input[type="search"], input[type="tel"], 
-//     input[type="color"], .uneditable-input {
-//         margin-bottom: 0;
-//     }
-// }
-// 
+
