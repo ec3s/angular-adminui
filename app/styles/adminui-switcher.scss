@@ -1,12 +1,11 @@
 .adminui-switcher-container {
     vertical-align: middle;
-    border: 1px solid $input-border;
     @include border-radius($border-radius-base);
     overflow: hidden;
     display: inline-block;
     &.disabled {
+        @include transition(0.2s linear all);
         background-color: $gray-lighter !important;
-        border-color: $gray-lighter !important;
         .adminui-switcher-inner {
             .on-label, .off-label, .divider {
                 cursor: not-allowed;
@@ -14,17 +13,19 @@
         }
     }
     &.on {
+        @include transition(0.2s linear all);
         background-color: $brand-primary;
-        border: 1px solid $brand-primary;
     }
     &.off {
+        @include transition(0.2s linear all);
         background-color: $input-border;
-        border: 1px solid $input-border;
     }
     .adminui-switcher-inner {
+        padding: 1px;
         position: relative;
         .on-label, .off-label, .divider {
             cursor: pointer;
+            @include opacity(1);
             @include user-select(none);
             @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
             float: left;
@@ -55,7 +56,6 @@
     &.adminui-switcher-container {
         &.on {
             background-color: $brand-success;
-            border: 1px solid $brand-success;
         }
     }
 
@@ -64,7 +64,6 @@
     &.adminui-switcher-container {
         &.on {
             background-color: $brand-warning;
-            border: 1px solid $brand-warning;
         }
     }
 
@@ -73,7 +72,6 @@
     &.adminui-switcher-container {
         &.on {
             background-color: $brand-info;
-            border: 1px solid $brand-info;
         }
     }
 
@@ -82,7 +80,6 @@
     &.adminui-switcher-container {
         &.on {
             background-color: $brand-danger;
-            border: 1px solid $brand-danger;
         }
     }
 }

@@ -4,18 +4,20 @@
     this.elem = elem;
     this.onAnimate = false;
     this.initialize();
-    this.setStatus(status);
+    this.setStatus(status, true);
     this.disabled(disabled);
   };
 
-  Switcher.prototype.setStatus = function(status) {
+  Switcher.prototype.setStatus = function(status, setOffset) {
     if (status === true) {
       this.elem.addClass('on');
       this.elem.removeClass('off');
     } else {
       this.elem.addClass('off');
       this.elem.removeClass('on');
-      this.innerElem.css('left', - this.onElem.outerWidth());
+      if (setOffset) {
+        this.innerElem.css('left', - this.onElem.outerWidth());
+      }
     }
   };
 
@@ -36,7 +38,7 @@
     var offElemWidth = offElem.outerWidth();
     var dividerElemWidth = elem.find('.divider').outerWidth();
     var elemWidth = Math.max(onElemWidth, offElemWidth);
-    elem.width(elemWidth + dividerElemWidth);
+    elem.width(elemWidth + dividerElemWidth + 2);
     onElem.css('width', elemWidth);
     offElem.css('width', elemWidth);
     innerElem.width(
@@ -54,12 +56,14 @@
       offset = - this.onElem.outerWidth();
     }
     this.onAnimate = true;
+    this.setStatus(newValue);
     this.innerElem.animate({
       left: offset
-    }, function() {
+    }, 200, function() {
       this.onAnimate = false;
-      callback.call(this, newValue);
-      this.setStatus(newValue);
+      if (callback) {
+        callback.call(this, newValue);
+      }
     }.bind(this));
   };
 
@@ -78,54 +82,70 @@
       templateUrl: 'templates/adminui-switcher.html',
       link: function(scope, elem, attrs) {
         $timeout(function() {
-          var switcher = new Switcher(elem, scope.model, scope.disabled);
-          elem.bind('click', function(e) {
-            if (!switcher.onAnimate && !scope.disabled) {
-              if (e.button !== 0) {
-                return;
+          scope.onLabel = scope.onLabel ?
+            scope.onLabel : '<i class="glyphicon glyphicon-ok"></i>';
+          scope.offLabel = scope.offLabel ?
+            scope.offLabel : '<i class="glyphicon glyphicon-remove"></i>';
+          $timeout(function() {
+            var switcher = new Switcher(elem, scope.model, scope.disabled);
+            elem.bind('click', function(e) {
+              var switchedFunc = null;
+              var clickEvent = null;
+              if (!switcher.onAnimate && !scope.disabled) {
+                if (e.button !== 0) {
+                  return;
+                }
+                clickEvent = {
+                  '$event': {
+                    'type': 'SWITCHER_CLICK',
+                    'name': 'click',
+                    'target': elem,
+                    'oldValue': scope.model,
+                    'value': !scope.model,
+                    'switched': function(callback) {
+                      switchedFunc = callback;
+                    }
+                  }
+                };
+
+                scope.ngClick(clickEvent);
+                switcher.switch(scope.model, function(value) {
+                  scope.$apply(function() {
+                    scope.model = value;
+                    if (switchedFunc !== null) {
+                      switchedFunc.call(clickEvent, value, !value);
+                    }
+                  });
+                });
               }
-              scope.ngClick({
-                '$event': {
-                  'type': 'SWITCHER_CLICK',
-                  'name': 'click',
-                  'target': elem,
-                  'oldValue': scope.model,
-                  'value': !scope.model
-                }
-              });
-              switcher.switch(scope.model, function(value) {
-                scope.model = value;
-                scope.$apply();
-              });
-            }
-          });
+            });
 
-          scope.$watch('disabled', function(value, oldValue) {
-            if (value != oldValue) {
-              switcher.disabled(value);
-              switcher.switch(!scope.model, function(newValue) {
-                scope.model = newValue;
-                scope.$apply();
-              });
-            }
-          });
+            scope.$watch('disabled', function(value, oldValue) {
+              if (value != oldValue) {
+                switcher.disabled(value);
+                switcher.switch(!scope.model, function(newValue) {
+                  scope.$apply(function() {
+                    scope.model = newValue;
+                  });
+                });
+              }
+            });
 
-          scope.$watch('model', function(value, oldValue) {
-            if (value !== oldValue && !scope.disabled) {
-              scope.ngChange({
-                '$event': {
-                  'type': 'SWITCHER_CHANGE',
-                  'name': 'change',
-                  'target': elem,
-                  'oldValue': oldValue,
-                  'value': value
-                }
-              });
-              switcher.switch(oldValue, function(newValue) {
-                scope.model = newValue;
-                scope.$apply();
-              });
-            }
+            scope.$watch('model', function(value, oldValue) {
+              if (value !== oldValue && !scope.disabled) {
+                scope.ngChange({
+                  '$event': {
+                    'type': 'SWITCHER_CHANGE',
+                    'name': 'change',
+                    'target': elem,
+                    'oldValue': oldValue,
+                    'value': value
+                  }
+                });
+                switcher.switch(oldValue);
+              }
+            });
+
           });
         });
       }
