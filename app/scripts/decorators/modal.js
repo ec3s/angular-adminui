@@ -3,7 +3,7 @@
   var ModalDecorator = function($provide) {
     var modalStackFactory = function($delegate, $transition, $timeout,
       $document, $compile, $rootScope, $$stackedMap) {
-        var modalStack = ng.copy($delegate);
+        var modalStack = $delegate;
         var OPENED_MODAL_CLASS = 'modal-open';
 
         var backdropDomEl, backdropScope;
@@ -101,8 +101,8 @@
 
         modalStack.init = function(modalInstance, modal) {
           openedWindows.add(modalInstance, {
-            deferred: null,
-            modalScope: null,
+            deferred: modal.deferred,
+            modalScope: $rootScope,
             backdrop: modal.backdrop,
             keyboard: modal.keyboard
           });
@@ -121,15 +121,21 @@
           angularDomEl.attr('window-class', modal.windowClass);
           angularDomEl.attr('index', openedWindows.length() - 1);
           angularDomEl.attr('animate', 'animate');
-          console.log(modal.content);
           angularDomEl.html(modal.content);
 
-          console.log(angularDomEl[0]);
-          var modalDomEl = angularDomEl;
-            // $compile(angularDomEl)(modal.scope);
+          var modalDomEl = $compile(angularDomEl)($rootScope);
           openedWindows.top().value.modalDomEl = modalDomEl;
           body.append(modalDomEl);
           body.addClass(OPENED_MODAL_CLASS);
+        };
+
+        modalStack.setContent = function(modalInstance, scope, content) {
+          var opened = openedWindows.get(modalInstance);
+          var contentDomEl = $compile(content)(scope);
+          opened.value.modalScope = scope;
+          $timeout(function() {
+            opened.value.modalDomEl.find('.modal-content').html(contentDomEl);
+          });
         };
 
         modalStack.open = function(modalInstance, modal) {
@@ -191,7 +197,6 @@
           return openedWindows.top();
         };
 
-
         return modalStack;
 
       };
@@ -226,7 +231,8 @@
 
           modalProvider.options = {
             backdrop: true, //can be also false or 'static'
-            keyboard: true
+            keyboard: true,
+            loader: true
           };
 
           modalProvider.open = function(modalOptions) {
@@ -264,20 +270,19 @@
                   .concat(getResolvePromises(modalOptions.resolve)));
 
 
-            var templatePromise = getTemplatePromise(modalOptions);
-            templatePromise.then(function(tplAndVars) {
+            if (modalOptions.loader) {
               $modalStack.init(modalInstance, {
                 backdrop: modalOptions.backdrop,
                 keyboard: modalOptions.keyboard,
-                content: tplAndVars,
-                windowClass: modalOptions.windowClass
+                deferred: modalResultDeferred,
+                content: ng.element('<div class="modal-loading">' +
+                  '<img class="loading" src="images/w-ajax-loader.gif"' +
+                  ' alt="加载中" /></div>'),
+                  windowClass: modalOptions.windowClass
               });
-            }, function() {
-              console.log('error');
-            });
+            }
 
             templateAndResolvePromise.then(function resolveSuccess(tplAndVars) {
-
               var modalScope = (modalOptions.scope || $rootScope).$new();
               modalScope.$close = modalInstance.close;
               modalScope.$dismiss = modalInstance.dismiss;
@@ -296,14 +301,20 @@
                 ctrlInstance = $controller(modalOptions.controller, ctrlLocals);
               }
 
-              // $modalStack.open(modalInstance, {
-              //   scope: modalScope,
-              //   deferred: modalResultDeferred,
-              //   content: tplAndVars[0],
-              //   backdrop: modalOptions.backdrop,
-              //   keyboard: modalOptions.keyboard,
-              //   windowClass: modalOptions.windowClass
-              // });
+              if (modalOptions.loader) {
+                $modalStack.setContent(
+                    modalInstance, modalScope, tplAndVars[0]
+                    );
+              } else {
+                $modalStack.open(modalInstance, {
+                  scope: modalScope,
+                  deferred: modalResultDeferred,
+                  content: tplAndVars[0],
+                  backdrop: modalOptions.backdrop,
+                  keyboard: modalOptions.keyboard,
+                  windowClass: modalOptions.windowClass
+                });
+              }
 
             }, function resolveError(reason) {
               modalResultDeferred.reject(reason);

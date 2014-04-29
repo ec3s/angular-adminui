@@ -734,5 +734,13 @@ form {
             margin-bottom: 0;
         }
     }
+    .modal-loading {
+        text-align: center;
+        margin: 100px 0;
+    }
 }
-
+img {
+    &.loading {
+        width: 32px;
+    }
+}
