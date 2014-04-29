@@ -18,12 +18,23 @@
     }
     .align-center,
     .short-str,
+    .checkbox,
     .operation {text-align: center;}
 
     .align-right,
     .date,
     .currency,
     .number { text-align: right; }
+    
+    .checkbox {
+        display: table-cell;
+        width: 50px;
+        margin: 0;
+        input[type="checkbox"] {
+            float: none;
+            margin: 0;
+        }
+    }
 
     .currency{
         font-family: verdana;
@@ -33,20 +44,19 @@
     }
     .sort-icon {
         display: inline-block;
-        float: right;
         margin-left: 5px;
         width: 16px; 
-        height: 16px;
-        background: url(#{$iconSorting}) no-repeat right 2px;
+        height: 13px;
+        background: url(#{$iconSorting}) no-repeat right 0;
     }
     .sort-asc {
         .sort-icon {
-            background-position: right -30px;
+            background-position: right -32px;
         }
     }
     .sort-desc {
         .sort-icon {
-            background-position: right -14px;
+            background-position: right -15px;
         }
     }
 }
