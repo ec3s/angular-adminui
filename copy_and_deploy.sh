@@ -4,7 +4,7 @@ git -C ../angular-adminui-bower pull
 git -C ../angular-adminui-page pull
 
 cp ./dist/scripts/angular-adminui.js ../angular-adminui-bower/scripts/
-cp ./dist/scripts/angular-adminui.map ../angular-adminui-bower/scripts/
+cp ./dist/images/* ../angular-adminui-bower/images/
 cp ./dist/styles/angular-adminui.css ../angular-adminui-bower/styles/
 cp ./dist/styles/fonts/* ../angular-adminui-bower/styles/fonts/
 cp -r ./dist/* ../angular-adminui-page/

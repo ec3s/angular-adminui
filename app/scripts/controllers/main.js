@@ -678,6 +678,26 @@ var ModalDemoCtrl = function($scope, $modal, $log) {
     'Cancel' + '</button>' +
     '</div>';
   $scope.items = ['item1', 'item2', 'item3'];
+  $scope.open2 = function() {
+
+    var modalInstance = $modal.open({
+      // templateUrl: 'myModalContent.html',
+      template: t,
+      controller: 'ModalInstanceCtrl',
+      loader: false,
+      resolve: {
+        items: function() {
+          return $scope.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function(selectedItem) {
+      $scope.selected = selectedItem;
+    }, function() {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
   $scope.open = function() {
 
     var modalInstance = $modal.open({
@@ -685,9 +705,14 @@ var ModalDemoCtrl = function($scope, $modal, $log) {
       template: t,
       controller: 'ModalInstanceCtrl',
       resolve: {
-        items: function() {
-          return $scope.items;
-        }
+        items: ['$q', function($q) {
+          var deferred = $q.defer();
+          /* mock remote data with delay */
+          setTimeout(function() {
+            deferred.resolve($scope.items);
+          }, 3000);
+          return deferred.promise;
+        }]
       }
     });
 
@@ -719,7 +744,7 @@ var ModalInstanceCtrl = function($scope, $modalInstance, items) {
 };
 
 adminuiApp.controller('ModalInstanceCtrl', [
-  '$scope', '$modalInstance', 'items'
+  '$scope', '$modalInstance', 'items', ModalInstanceCtrl
 ]);
 var DatepickerDemoCtrl = function($scope, $timeout) {
   $scope.today = function() {
