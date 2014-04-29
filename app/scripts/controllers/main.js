@@ -685,9 +685,14 @@ var ModalDemoCtrl = function($scope, $modal, $log) {
       template: t,
       controller: 'ModalInstanceCtrl',
       resolve: {
-        items: function() {
-          return $scope.items;
-        }
+        items: ['$q', function($q) {
+          var deferred = $q.defer();
+          /* mock remote data with delay */
+          setTimeout(function() {
+            deferred.resolve($scope.items);
+          }, 1000);
+          return deferred.promise;
+        }]
       }
     });
 
@@ -719,7 +724,7 @@ var ModalInstanceCtrl = function($scope, $modalInstance, items) {
 };
 
 adminuiApp.controller('ModalInstanceCtrl', [
-  '$scope', '$modalInstance', 'items'
+  '$scope', '$modalInstance', 'items', ModalInstanceCtrl
 ]);
 var DatepickerDemoCtrl = function($scope, $timeout) {
   $scope.today = function() {
