@@ -171,6 +171,13 @@
       controller: 'CommonMenuDialogCtrl',
       templateUrl: 'templates/common-menu-dialog.html',
       resolve: {
+        name: function() {
+          var titleEl = ng.element('body').find('.page-header>h1');
+          if (titleEl.length > 0) {
+            return titleEl.text();
+          }
+          return '';
+        },
         url: function() {
           return $location.absUrl();
         }
@@ -195,6 +202,10 @@
           params: data
         }
       ).then(function(res) {
+        flash.notify({
+          state: 'success',
+          info: '常用菜单 ' + data.name + ' 添加成功'
+        });
         this.commonMenus = res.data;
       }.bind(this), function(res) {
         flash.notify({
@@ -206,7 +217,7 @@
   };
 
   var fetchCommonMenus = function($http, scope) {
-    if (scope.accountHost === null) {
+    if (scope.accountHost === null || scope.userInfo.accessToken === null) {
       return;
     }
     $http.jsonp(
@@ -368,10 +379,10 @@
   };
 
 
-  var CommonMenuDialogCtrl = function($scope, $modalInstance, url) {
+  var CommonMenuDialogCtrl = function($scope, $modalInstance, url, name) {
     $scope.menu = {
       'link': url,
-      'name': ''
+      'name': name
     };
     $scope.cancel = ng.bind(this, this.cancel, $modalInstance);
     $scope.add = ng.bind(this, this.add, $scope, $modalInstance);
@@ -399,6 +410,6 @@
   );
   ng.module('ntd.directives').controller(
     'CommonMenuDialogCtrl',
-    ['$scope', '$modalInstance', 'url', CommonMenuDialogCtrl]
+    ['$scope', '$modalInstance', 'url', 'name', CommonMenuDialogCtrl]
   );
 })(angular);
