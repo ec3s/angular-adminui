@@ -14,53 +14,9 @@ Switcher 支持 <code>ng-change</code>，<code>ng-click</code>事件，事件函
 </p>
 <p>在使用<code>ng-click</code>事件时注意判断事件的<code>type</code>来区分angular原本的点击事件。</p>
 <p>在使用<code>ng-click</code>事件时，<code>data-ng-model</code>并没有即刻变化，需要使用 <code>$event</code> 中的 <code>switched</code> 回调函数去判断 Switcher 是否已经切换完毕。</p>
-<div class="switch" ng-controller="switcherCtrl">
-  <div 
-  class="switcher-sm switcher-success"
-  data-adminui-switcher
-  data-ng-model="switch">
-  </div>
-  <div 
-  class="switcher-sm"
-  data-adminui-switcher
-  data-ng-model="switch"
-  data-on-label="启用"
-  data-off-label="禁用"></div>
-  <div 
-  class="switcher-sm switcher-info"
-  data-adminui-switcher
-  data-ng-model="switch"
-  data-on-label="on"
-  data-off-label="off"></div>
-  <div 
-  class="switcher-sm switcher-warning"
-  data-adminui-switcher
-  data-ng-change="change($event)"
-  data-ng-model="switch"
-  data-on-label="on"
-  data-off-label="off"></div>
-  <div 
-  class="switcher-sm switcher-danger"
-  data-adminui-switcher
-  data-ng-click="click($event)"
-  data-ng-model="uswitch"
-  data-on-label="on"
-  data-off-label="off"></div>
-  <input type="checkbox" data-ng-model="switch" >
-  <br />
-  <br />
-  <div 
-  class="switcher-sm switcher-danger"
-  data-disabled="isDisabled"
-  data-adminui-switcher
-  data-ng-click="click($event)"
-  data-ng-model="switch"
-  data-on-label="on"
-  data-off-label="off"></div>
-  <button class="btn btn-sm btn-default" data-ng-click="disabled()">切换禁用状态</button>
-  <br />
-</div>
-
+<a class="jsbin-embed" href="http://blog.sfmblog.cn/cup/5/embed?output">DemoApp</a><script src="http://blog.sfmblog.cn/js/embed.js"></script>
+<p data-height="268" data-theme-id="0" data-slug-hash="mCfid" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/CandySunPlus/pen/mCfid/'>Animating `perspective`</a> by CandySunPlus (<a href='http://codepen.io/CandySunPlus'>@CandySunPlus</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
 <h3>Finder</h3>
 <p>为<code>div</code>容器添加<code>adminui-finder</code></p>
 <div ng-controller="cascadeListCtrl" style="margin-bottom:15px;">
