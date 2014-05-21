@@ -38,6 +38,9 @@ adminuiApp
 }]);
 
 var ListCtrl = function($scope) {
+  $scope.change = function() {
+    console.log('changed');
+  };
   $scope.list = [
     {'text': 'item one', 'id': 1},
     {'text': 'item two', 'id': 2},
@@ -46,12 +49,30 @@ var ListCtrl = function($scope) {
     {'text': 'item five', 'id': 5},
     {'text': 'item six', 'id': 6}
   ];
-  $scope.obj = {
+  var obj = {
     'im1': {'name': 'item one'},
     'im2': {'name': 'item two'},
     'im3': {'name': 'item three'},
     'im4': {'name': 'item four'},
     'im5': {'name': 'item five'}
+  };
+  var obj1 = {
+    'it1': {'name': 'other item one'},
+    'it2': {'name': 'other item two'},
+    'it3': {'name': 'other item three'},
+    'it4': {'name': 'other item four'},
+    'it5': {'name': 'other item five'}
+  };
+  $scope.obj = obj;
+  var status = 'obj';
+  $scope.changeSource = function() {
+    if (status == 'obj') {
+      $scope.obj = obj1;
+      status = 'obj1';
+    } else {
+      $scope.obj = obj;
+      status = 'obj';
+    }
   };
 };
 

@@ -1,0 +1,26 @@
+@import 'compass';
+.adminui-list-container
+{
+  margin-bottom: 0;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 4px 6px;
+  font-weight: normal;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  list-style-type: none;
+
+  @include border-radius(4px);
+  @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075));
+  @include transition(border linear 0.2s, box-shadow linear 0.2s);
+  li {
+    padding: 3px 1.5em 3px 5px;
+    cursor: pointer;
+    &.selected {
+      background-color: #049cdb;
+      color: #fff;
+    }
+  }
+}

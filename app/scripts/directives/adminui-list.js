@@ -1,97 +1,87 @@
 (function(ng, app) {
   'use strict';
 
-  var List = function($timeout, optionsInfo, selectBox) {
+  var List = function($timeout, selectBox, elem, scope) {
     this.items = [];
     this.options = [];
-    this.optionsInfo = optionsInfo;
-    console.log(optionsInfo);
+    this.$timeout = $timeout;
     this.selectBox = selectBox;
+    this.selectBox.bind('change', {'scope': scope}, this.change.bind(this));
     $timeout(function() {
-      ng.forEach(selectBox.children('option'), function(option) {
-        var option = ng.element(option);
-        this.options.push(option);
-        if (option.text() !== '') {
+      ng.forEach(selectBox.children('option'), function(option, index) {
+        var optionEl = ng.element(option);
+        if ($.trim(optionEl.text()) != '') {
+          this.options.push(optionEl);
           this.items.push({
-            'text': option.text(),
-            'index': option.attr('value')
+            'text': optionEl.text(),
+            'value': optionEl.attr('value'),
+            'selected': false,
+            'index': index
           });
         }
       }, this);
+      $timeout(function() {
+        elem.find('li').bind('click', function(e) {
+          var index = elem.find('li').index(e.target);
+          ng.forEach(this.options, function(option, optionIndex) {
+            if (optionIndex == index) {
+              option.get(0).selected = true;
+              option.change();
+            }
+          });
+        }.bind(this));
+      }.bind(this));
     }.bind(this));
   };
 
-  List.prototype.selectItem = function($compile, scope, index) {
-    ng.forEach(this.options, function(option, optionIndex) {
-      if (option.attr('value') == index) {
-        if (this.optionsInfo['select'] === undefined) {
-        } else {
-        }
-        // option.attr('selected', true);
-        // $compile(this.selectBox)(scope.$parent);
-      }
+  List.prototype.change = function(e) {
+    var selectedIndex = [];
+    ng.forEach(this.selectBox.find('option:selected'), function(option) {
+      selectedIndex.push(this.selectBox.find('option').index(option));
+    }, this);
+    ng.forEach(this.items, function(item) {
+      e.data.scope.$apply(function() {
+        item.selected = selectedIndex.indexOf(item.index) !== -1;
+      });
     }, this);
   };
 
   var ListDirective = function($compile, $timeout) {
     return {
-      'restrict': 'AC',
+      'restrict': 'A',
       'scope': {
         'selected': '=ngModel',
-        'multiple': '='
+        'multiple': '=',
+        'ngChange': '@'
       },
       'replace': true,
       'templateUrl': 'templates/adminui-list.html',
       'link': function(scope, elem, attrs) {
-        var OPTIONS_REGEXP = new RegExp(
-          '^\\s*([\\s\\S]+?)(?:\\s+as\\s+([\\s\\S]+?))?(?:\\s+group' +
-          '\\s+by\\s+([\\s\\S]+?))?\\s+for\\s+(?:([\\$\\w][\\$\\w]*)|' +
-          '(?:\\(\\s*([\\$\\w][\\$\\w]*)\\s*,\\s*([\\$\\w][\\$\\w]*)\\s*\\)))' +
-          '\\s+in\\s+([\\s\\S]+?)(?:\\s+track\\s+by\\s+([\\s\\S]+?))?$'
-        );
+        var list = null;
         var options = attrs['ngOptions'];
-        var optionsMatches = options.match(OPTIONS_REGEXP);
-        var optionsInfo = {};
-        scope.optionsModel = (scope.$parent)[optionsMatches[7]];
-        if (ng.isArray(scope.optionsModel)) {
-          optionsInfo = {
-            'label': optionsMatches[2] ?
-              optionsMatches[2] : optionsMatches[1] ,
-            'select': optionsMatches[2] ?
-              optionsMatches[1] : optionsMatches[2] ,
-            'group': optionsMatches[3],
-            'value': optionsMatches[4],
-            'key': undefined,
-            'tracks': optionsMatches[8]
-          };
-        } else if (ng.isObject(scope.optionsModel)) {
-          optionsInfo = {
-            'label': optionsMatches[2] ?
-              optionsMatches[2] : optionsMatches[1] ,
-            'select': optionsMatches[2] ?
-              optionsMatches[1] : optionsMatches[2] ,
-            'group': optionsMatches[3],
-            'key': optionsMatches[5],
-            'value': optionsMatches[6],
-            'tracks': optionsMatches[8]
-          };
-        } else {
-          throw Error('ngOption only can be used in array or object.');
-        }
-
+        var NG_OPTIONS_REGEXP = new RegExp(
+          '^\\s*([\\s\\S]+?)(?:\\s+as\\s+([\\s\\S]+?))' +
+          '?(?:\\s+group\\s+by\\s+([\\s\\S]+?))?\\s+for\\s+' +
+          '(?:([\\$\\w][\\$\\w]*)|(?:\\(\\s*([\\$\\w][\\$\\w]*)\\s*,\\s*' +
+          '([\\$\\w][\\$\\w]*)\\s*\\)))\\s+in\\s+' +
+          '([\\s\\S]+?)(?:\\s+track\\s+by\\s+([\\s\\S]+?))?$'
+        );
+        var optionsMatch = options.match(NG_OPTIONS_REGEXP);
+        var optionModelName = optionsMatch[7];
         var selectBox = ng.element('<select>')
-        .attr('ng-options', options)
-        .attr('ng-model', 'selected');
+          .attr('ng-options', options)
+          .attr('ng-change', 'change()')
+          .attr('ng-model', 'selected')
+          .append(ng.element('<option>'));
         if (scope.multiple === true) {
           selectBox.attr('multiple', true);
         }
-        elem.append(selectBox);
-        var list = new List(
-          $timeout, optionsInfo, $compile(selectBox)(scope.$parent)
-        );
-        /* data binding */
-        scope.listItems = list.items;
-        scope.selectItem = ng.bind(list, list.selectItem, $compile, scope);
+        selectBox = $compile(selectBox)(scope.$parent);
+
+        scope.$parent.$watch(optionModelName, function(value, oldValue) {
+          list = new List($timeout, selectBox, elem, scope);
+          scope.listItems = list.items;
+        }, true);
       }
     };
   };
