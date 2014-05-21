@@ -36,6 +36,27 @@ adminuiApp
   ];
   $scope.alert = {};
 }]);
+
+var ListCtrl = function($scope) {
+  $scope.list = [
+    {'text': 'item one', 'id': 1},
+    {'text': 'item two', 'id': 2},
+    {'text': 'item three', 'id': 3},
+    {'text': 'item four', 'id': 4},
+    {'text': 'item five', 'id': 5},
+    {'text': 'item six', 'id': 6}
+  ];
+  $scope.obj = {
+    'im1': {'name': 'item one'},
+    'im2': {'name': 'item two'},
+    'im3': {'name': 'item three'},
+    'im4': {'name': 'item four'},
+    'im5': {'name': 'item five'}
+  };
+};
+
+adminuiApp.controller('ListCtrl', ['$scope', ListCtrl]);
+
 /* for checkbox group */
 var checkboxGroupCtrl = function($scope) {
   $scope.checkboxGroupData = {
