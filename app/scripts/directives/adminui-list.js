@@ -15,7 +15,7 @@
           this.items.push({
             'text': optionEl.text(),
             'value': optionEl.attr('value'),
-            'selected': false,
+            'selected': option.selected,
             'index': index
           });
         }
@@ -40,9 +40,13 @@
       selectedIndex.push(this.selectBox.find('option').index(option));
     }, this);
     ng.forEach(this.items, function(item) {
-      e.data.scope.$apply(function() {
+      if (e) {
+        e.data.scope.$apply(function() {
+          item.selected = selectedIndex.indexOf(item.index) !== -1;
+        });
+      } else {
         item.selected = selectedIndex.indexOf(item.index) !== -1;
-      });
+      }
     }, this);
   };
 
@@ -77,10 +81,8 @@
         scope.$watch(attrs['ngModel'], function(value, oldValue) {
           if (value !== oldValue) {
             scope.$parent[attrs['ngModel']] = value;
+            list.change();
           }
-        }, true);
-        scope.$parent.$watch(attrs['ngModel'], function(value, oldValue) {
-          scope[attrs['ngModel']] = value;
         }, true);
         scope.$watch(optionModelName, function(value, oldValue) {
           list = new List($timeout, selectBox, elem, scope);
