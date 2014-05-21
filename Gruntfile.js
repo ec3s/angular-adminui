@@ -1,17 +1,16 @@
 'use strict';
-var mountFolder = function (connect, dir) {
+var mountFolder = function(connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
-
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // configurable paths`
   var yeomanConfig = {
     app: 'app',
-    dist: 'dist', 
+    dist: 'dist',
     livereload: 35728
   };
 
@@ -210,11 +209,6 @@ module.exports = function (grunt) {
         }]
       }
     },
-    cdnify: {
-      dist: {
-        html: ['<%= yeoman.dist %>/*.html']
-      }
-    },
     ngmin: {
       dist: {
         files: [{
@@ -296,8 +290,7 @@ module.exports = function (grunt) {
     'clean:server',
     'coffee',
     'sass',
-    'connect:test',
-    'karma'
+    'connect:test'
   ]);
 
   grunt.registerTask('build', [
@@ -314,7 +307,7 @@ module.exports = function (grunt) {
     'concat:tpl',
     'cssmin',
     'copy',
-    'cdnify',
+    //'cdnify',
     'ngmin',
     'uglify',
     //'rev',
