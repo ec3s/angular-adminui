@@ -46,19 +46,16 @@
     }, this);
   };
 
-  var ListDirective = function($compile, $timeout) {
+  var ListDirective = function($compile, $timeout, $parse) {
     return {
       'restrict': 'A',
-      'scope': {
-        'selected': '=ngModel',
-        'multiple': '=',
-        'ngChange': '@'
-      },
+      'scope': true,
       'replace': true,
       'templateUrl': 'templates/adminui-list.html',
       'link': function(scope, elem, attrs) {
         var list = null;
         var options = attrs['ngOptions'];
+        var multiple = $parse(attrs['multiple'])(scope);
         var NG_OPTIONS_REGEXP = new RegExp(
           '^\\s*([\\s\\S]+?)(?:\\s+as\\s+([\\s\\S]+?))' +
           '?(?:\\s+group\\s+by\\s+([\\s\\S]+?))?\\s+for\\s+' +
@@ -70,15 +67,22 @@
         var optionModelName = optionsMatch[7];
         var selectBox = ng.element('<select>')
           .attr('ng-options', options)
-          .attr('ng-change', 'change()')
-          .attr('ng-model', 'selected')
+          .attr('ng-change', attrs['ngChange'])
+          .attr('ng-model', attrs['ngModel'])
           .append(ng.element('<option>'));
-        if (scope.multiple === true) {
+        if (multiple === true) {
           selectBox.attr('multiple', true);
         }
-        selectBox = $compile(selectBox)(scope.$parent);
-
-        scope.$parent.$watch(optionModelName, function(value, oldValue) {
+        selectBox = $compile(selectBox)(scope);
+        scope.$watch(attrs['ngModel'], function(value, oldValue) {
+          if (value !== oldValue) {
+            scope.$parent[attrs['ngModel']] = value;
+          }
+        }, true);
+        scope.$parent.$watch(attrs['ngModel'], function(value, oldValue) {
+          scope[attrs['ngModel']] = value;
+        }, true);
+        scope.$watch(optionModelName, function(value, oldValue) {
           list = new List($timeout, selectBox, elem, scope);
           scope.listItems = list.items;
         }, true);
@@ -86,5 +90,7 @@
     };
   };
 
-  app.directive('adminuiList', ['$compile', '$timeout', ListDirective]);
+  app.directive('adminuiList',
+    ['$compile', '$timeout', '$parse', ListDirective]
+  );
 })(angular, angular.module('ntd.directives'));

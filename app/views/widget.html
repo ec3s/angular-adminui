@@ -9,11 +9,20 @@
 
 <div data-ng-controller="ListCtrl">
   {{selected}}
-  <div data-adminui-list data-ng-model="selected" data-ng-change="change()" data-ng-options="item.text for item in list"></div>
-  <div data-adminui-list data-ng-model="selected2" data-ng-options="key as value.name for (key, value) in obj"></div>
-  <div data-adminui-list data-ng-model="selected3" data-multiple="true" data-ng-options="value.name for (key, value) in obj"></div>
-  <br/>
-  <button data-ng-click="changeSource()" class="btn btn-default"> 改变源</button>
+  <div class="form-group">
+    <div data-adminui-list data-ng-model="selected" data-ng-change="change()" data-ng-options="item.text for item in list"></div>
+  </div>
+  {{selected2}}
+  <div class="form-group">
+    <div data-adminui-list data-ng-model="selected2" data-ng-options="key as value.name for (key, value) in obj"></div>
+  </div>
+  {{selected3}}
+  <div class="form-group">
+    <div data-adminui-list data-ng-model="selected3" data-multiple="true" data-ng-options="value.name for (key, value) in obj"></div>
+  </div>
+  <div class="form-group">
+    <button data-ng-click="changeSource()" class="btn btn-default"> 改变源</button>
+  </div>
 </div>
 
 <h3>Switcher</h3>

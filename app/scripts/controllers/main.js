@@ -63,6 +63,7 @@ var ListCtrl = function($scope) {
     'it4': {'name': 'other item four'},
     'it5': {'name': 'other item five'}
   };
+  $scope.selected2 = 'im3';
   $scope.obj = obj;
   var status = 'obj';
   $scope.changeSource = function() {
