@@ -58,6 +58,12 @@
     }, this);
   };
 
+  List.prototype.clearSelected = function() {
+    ng.forEach(this.items, function(item) {
+      item.selected = false;
+    });
+  };
+
   var ListDirective = function($compile, $timeout, $parse) {
     return {
       'restrict': 'A',
@@ -104,6 +110,10 @@
         scope.$watch(optionModelName, function(value, oldValue) {
           list = new List($timeout, selectBox, elem, scope);
           scope.listItems = list.items;
+          if (value !== oldValue) {
+            list.clearSelected();
+            scope[attrs['ngModel']] = null;
+          }
         }, true);
       }
     };
