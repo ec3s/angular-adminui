@@ -238,7 +238,7 @@
           chosen.search_field.bind('keyup', function(e) {
             if (chosen && chosen.results_showing) {
               searchTxt.$search = chosen.get_search_text();
-              $timeout(function(){
+              $timeout(function() {
                   if (oldSearch != searchTxt.$search) {
                     oldSearch = searchTxt.$search;
                     chosenEl.trigger('liszt:load_data', {
@@ -246,7 +246,7 @@
                       optionsModelName: optionsModelName
                     });
                   }
-              },500);            
+              },500);
             }
           });
         }
@@ -287,7 +287,7 @@
           }
           initOptions();
           changeSelect();
-        });
+        }, true);
 
         var initOptions = function() {
           baseLevels = [];

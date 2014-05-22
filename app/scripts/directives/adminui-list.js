@@ -20,12 +20,17 @@
           });
         }
       }, this);
+
       $timeout(function() {
         elem.find('li').bind('click', function(e) {
           var index = elem.find('li').index(e.target);
           ng.forEach(this.options, function(option, optionIndex) {
             if (optionIndex == index) {
-              option.get(0).selected = true;
+              if (scope.multiple === true) {
+                option.get(0).selected = !option.get(0).selected;
+              } else {
+                option.get(0).selected = true;
+              }
               option.change();
             }
           });
@@ -59,7 +64,6 @@
       'link': function(scope, elem, attrs) {
         var list = null;
         var options = attrs['ngOptions'];
-        var multiple = $parse(attrs['multiple'])(scope);
         var NG_OPTIONS_REGEXP = new RegExp(
           '^\\s*([\\s\\S]+?)(?:\\s+as\\s+([\\s\\S]+?))' +
           '?(?:\\s+group\\s+by\\s+([\\s\\S]+?))?\\s+for\\s+' +
@@ -74,7 +78,8 @@
           .attr('ng-change', attrs['ngChange'])
           .attr('ng-model', attrs['ngModel'])
           .append(ng.element('<option>'));
-        if (multiple === true) {
+        scope.multiple = $parse(attrs['multiple'])(scope);
+        if (scope.multiple === true) {
           selectBox.attr('multiple', true);
         }
         selectBox = $compile(selectBox)(scope);
