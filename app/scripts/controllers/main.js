@@ -36,6 +36,49 @@ adminuiApp
   ];
   $scope.alert = {};
 }]);
+
+var ListCtrl = function($scope) {
+  $scope.change = function() {
+    console.log('changed');
+  };
+  $scope.list = [
+    {'text': 'item one', 'id': 1},
+    {'text': 'item two', 'id': 2},
+    {'text': 'item three', 'id': 3},
+    {'text': 'item four', 'id': 4},
+    {'text': 'item five', 'id': 5},
+    {'text': 'item six', 'id': 6}
+  ];
+  var obj = {
+    'im1': {'name': 'item one'},
+    'im2': {'name': 'item two'},
+    'im3': {'name': 'item three'},
+    'im4': {'name': 'item four'},
+    'im5': {'name': 'item five'}
+  };
+  var obj1 = {
+    'it1': {'name': 'other item one'},
+    'it2': {'name': 'other item two'},
+    'it3': {'name': 'other item three'},
+    'it4': {'name': 'other item four'},
+    'it5': {'name': 'other item five'}
+  };
+  $scope.selected2 = 'im3';
+  $scope.obj = obj;
+  var status = 'obj';
+  $scope.changeSource = function() {
+    if (status == 'obj') {
+      $scope.obj = obj1;
+      status = 'obj1';
+    } else {
+      $scope.obj = obj;
+      status = 'obj';
+    }
+  };
+};
+
+adminuiApp.controller('ListCtrl', ['$scope', ListCtrl]);
+
 /* for checkbox group */
 var checkboxGroupCtrl = function($scope) {
   $scope.checkboxGroupData = {

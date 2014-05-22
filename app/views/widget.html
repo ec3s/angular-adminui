@@ -5,10 +5,22 @@
 </div>
 
 <h3>List</h3>
-<p>使用方式和 Select 一样，使用 <code>data-ng-options</code>进行项目的设定，使用<code>data-multiple="true"</code> 来设定是否支持多选，默认是单选的。通过<code>data-disabled="true"</code>来禁用列表，列表禁用后<code>ngModel</code>为之前选中的值。</p>
+<p>为<code>div</code>容器添加属性 <code>adminui-list</code>， 使用方式和 Select 一样，使用 <code>data-ng-options</code>进行项目的设定，使用<code>data-multiple="true"</code> 来设定是否支持多选，默认是单选的。通过<code>data-disabled="true"</code>来禁用列表，列表禁用后<code>ngModel</code>为之前选中的值。</p>
 
 <div data-ng-controller="ListCtrl">
-  <div data-adminui-list data-ng-options="item "></div>
+
+  <pre>已选择：{{selected}}</pre>
+  <div class="form-group">
+    <div data-adminui-list data-ng-model="selected" data-ng-change="change()" data-ng-options="item.text for item in list"></div>
+  </div>
+  <pre>多选已选择：{{selected3}}</pre>
+  <div class="form-group">
+    <div data-adminui-list data-ng-model="selected3" data-multiple="true" data-ng-options="value.name for (key, value) in obj"></div>
+  </div>
+  <div class="form-group">
+    <button data-ng-click="selected2='im4'" class="btn btn-default"> 改变选择</button>
+    <button data-ng-click="changeSource()" class="btn btn-default"> 改变源</button>
+  </div>
 </div>
 
 <h3>Switcher</h3>
@@ -445,7 +457,7 @@ $scope.unifyDptList = {{unifyDptList|json}}
                 <input type="text" class=" form-control input-sm " placeholder="文字区域">            
         </div>
         <div class="form-group">
-            <label for="inputPassword">选项区域</label>         
+            <label>选项区域</label>
             <select class=" form-control input-sm ">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -539,7 +551,7 @@ $scope.unifyDptList = {{unifyDptList|json}}
 <div class="row" ng-controller="PieCtrl">
     <div class="col-md-12 clearfix">
         <div >
-            <div id="sample-pie" ntd-pie data="ageData" pie-height="300" pie-width="800"></div>
+            <div id="sample-pie" ntd-pie data="ageData" pie-height="300" pie-width="700"></div>
         </div>
     </div>
 </div>
