@@ -9,9 +9,9 @@
 
 <div data-ng-controller="ListCtrl">
 
-  <pre>已选择：{{selected}}</pre>
+  <pre>禁用: {{disabled}} 已选择：{{selected}}</pre>
   <div class="form-group">
-    <div data-adminui-list data-ng-model="selected" data-ng-change="change()" data-ng-options="item.text for item in list"></div>
+    <div data-adminui-list data-ng-model="selected" data-disabled="disabled" data-ng-change="change()" data-ng-options="item.text for item in list"></div>
   </div>
   <pre>多选已选择：{{selected3}}</pre>
   <div class="form-group">
@@ -20,6 +20,7 @@
   <div class="form-group">
     <button data-ng-click="selected2='im4'" class="btn btn-default"> 改变选择</button>
     <button data-ng-click="changeSource()" class="btn btn-default"> 改变源</button>
+    <button data-ng-click="disable()" class="btn btn-default"> 禁用/启用</button>
   </div>
 </div>
 

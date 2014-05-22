@@ -23,6 +23,9 @@
 
       $timeout(function() {
         elem.find('li').bind('click', function(e) {
+          if (scope.disabled === true) {
+            return;
+          }
           var index = elem.find('li').index(e.target);
           ng.forEach(this.options, function(option, optionIndex) {
             if (optionIndex == index) {
@@ -78,17 +81,26 @@
           .attr('ng-change', attrs['ngChange'])
           .attr('ng-model', attrs['ngModel'])
           .append(ng.element('<option>'));
+
+        scope.disabled = $parse(attrs['disabled'])(scope);
         scope.multiple = $parse(attrs['multiple'])(scope);
+
         if (scope.multiple === true) {
           selectBox.attr('multiple', true);
         }
         selectBox = $compile(selectBox)(scope);
+
+        scope.$parent.$watch(attrs['disabled'], function(value) {
+          scope.disabled = value;
+        }, true);
+
         scope.$watch(attrs['ngModel'], function(value, oldValue) {
           if (value !== oldValue) {
             scope.$parent[attrs['ngModel']] = value;
             list.change();
           }
         }, true);
+
         scope.$watch(optionModelName, function(value, oldValue) {
           list = new List($timeout, selectBox, elem, scope);
           scope.listItems = list.items;
