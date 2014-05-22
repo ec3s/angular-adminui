@@ -69,6 +69,10 @@ var ListCtrl = function($scope) {
   $scope.selected = $scope.list[2];
   $scope.obj = obj;
   var status = 'obj';
+  $scope.changeSelected = function()
+  {
+    $scope.selected = $scope.list[1];
+  };
   $scope.changeSource = function() {
     if (status == 'obj') {
       $scope.obj = obj1;

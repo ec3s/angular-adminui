@@ -107,6 +107,13 @@
           }
         }, true);
 
+        scope.$parent.$watch(attrs['ngModel'], function(value, oldValue) {
+          if (value !== oldValue) {
+            scope[attrs['ngModel']] = value;
+            list.change();
+          }
+        }, true);
+
         scope.$watch(optionModelName, function(value, oldValue) {
           list = new List($timeout, selectBox, elem, scope);
           scope.listItems = list.items;
