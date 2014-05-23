@@ -30,7 +30,7 @@
         var initOptions;
         var disableSearchThreshold = attrs.disableSearchThreshold || 0;
         var allowSingleDeselect = attrs.allowSingleDeselect || false;
-        allowSingleDeselect = allowSingleDeselect == 'true' ? true : false;
+        allowSingleDeselect = allowSingleDeselect == 'true';
 
         // init chosen
         var options = {
@@ -38,8 +38,13 @@
         };
         var chosenEl = elem.chosen(options);
         var chosen = chosenEl.data('chosen');
-        // fix for responsive
-        chosen.container.css('max-width', chosenEl.css('width'));
+        $timeout(function() {
+          // fix for responsive
+          chosen.container.css({
+            'max-width': chosenEl.css('width'),
+            'width': chosenEl.css('width')
+          });
+        });
         var selected_options = {};
         var searchTxt = scope.$new(false);
 
