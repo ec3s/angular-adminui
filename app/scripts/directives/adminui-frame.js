@@ -2,7 +2,7 @@
   'use strict';
   var AdminuiFrame = function(
     adminuiFrameProvider, $rootScope, $location,
-    $timeout, $modal, $http, SYS, flash) {
+    $timeout, $modal, $http, $route, SYS, flash) {
     return {
       restrict: 'A',
       templateUrl: 'templates/adminui-frame.html',
@@ -56,7 +56,7 @@
 
         /* init navigation from systems */
         initNav(
-          scope, $http, SYS,
+          scope, $http, $route, SYS,
           adminuiFrameProvider.navigation, $location.path()
         );
 
@@ -64,6 +64,12 @@
         $rootScope.$on('$routeChangeStart', function() {
           if (scope.isInited) {
             selectPath(scope, $location.path());
+          }
+        });
+
+        $rootScope.$on('$routeChangeSuccess', function() {
+          if (scope.isInited) {
+            parseNavUrl(scope.navigation, $route);
           }
         });
 
@@ -92,7 +98,7 @@
     };
   };
 
-  var initNav = function(scope, $http, SYS, navigation, currentPath) {
+  var initNav = function(scope, $http, $route, SYS, navigation, currentPath) {
     $http.jsonp(
       SYS.host + '/api/systems?callback=JSON_CALLBACK'
     ).then(function(res) {
@@ -121,7 +127,7 @@
 
       scope.navigation = res.data;
       /* perpare navigation data */
-      init(scope, scope.navigation);
+      init(scope, scope.navigation, $route);
       scope.isInited = true;
       /* select from path */
       selectPath(scope, currentPath);
@@ -130,7 +136,7 @@
     }, function(res) {
       scope.navigation = [navigation];
       /* perpare navigation data */
-      init(scope, scope.navigation);
+      init(scope, scope.navigation, $route);
       scope.isInited = true;
       /* select from path */
       selectPath(scope, currentPath);
@@ -242,10 +248,47 @@
     this.userInfo.changePwd();
   };
 
-  var init = function(scope, parentNavs) {
-    var navigation = arguments[2] === undefined ? null : arguments[2];
-    var level = arguments[3] === undefined ? 0 : arguments[3];
+  var parseParams = function(url, params, route) {
+    var searchInfo = {};
+    var parsedUrl = '';
+    var queryInfo = [];
+    ng.forEach(params, function(value, key) {
+      var paramKey = value.replace('@', '');
+      if (route.hasOwnProperty(paramKey)) {
+        searchInfo[key] = route[paramKey];
+      }
+    });
+    if (ng.isString(url)) {
+      var result = [];
+      ng.forEach(url.split(':'), function(segment, i) {
+        if (i === 0) {
+          result.push(segment);
+        } else {
+          var segmentMatch = segment.match(/(\w+)(.*)/);
+          var key = segmentMatch[1];
+          if (searchInfo.hasOwnProperty(key)) {
+            result.push(segment.replace(key, searchInfo[key]));
+            delete searchInfo[key];
+          }
+        }
+      });
+      parsedUrl = result.join('');
+    }
+    ng.forEach(searchInfo, function(value, key) {
+      queryInfo.push(key + '=' + decodeURIComponent(value));
+    });
+    if (queryInfo.length > 0) {
+      parsedUrl += '?' + queryInfo.join('&');
+    }
+    return parsedUrl;
+  };
+
+  var init = function(scope, parentNavs, $route) {
+    var navigation = arguments[3] === undefined ? null : arguments[3];
+    var level = arguments[4] === undefined ? 0 : arguments[4];
     ng.forEach(parentNavs, function(nav) {
+      nav.urlTemplate = nav.url;
+      nav.url = parseParams(nav.url, nav.params, $route.current.params);
       nav.parentNav = navigation;
       nav.level = level + 1;
       nav.show = nav.hasOwnProperty('show') ? nav.show : true;
@@ -254,7 +297,7 @@
         scope.hasSubNav = true;
       }
       if (nav.children != null) {
-        init(scope, nav.children, nav, nav.level);
+        init(scope, nav.children, $route, nav, nav.level);
       }
     });
   };
@@ -339,6 +382,15 @@
     }
   };
 
+  var parseNavUrl = function(navigation, $route) {
+    ng.forEach(navigation, function(nav) {
+      nav.url = parseParams(nav.urlTemplate, nav.params, $route.current.params);
+      if (nav.children !== null) {
+        parseNavUrl(nav.children, $route);
+      }
+    });
+  };
+
   var selectNav = function(nav) {
     clearSelected(this.navigation);
     if (nav.url != null) {
@@ -406,7 +458,7 @@
   ng.module('ntd.directives').directive(
     'adminuiFrame',
     ['adminuiFrame', '$rootScope', '$location',
-      '$timeout', '$modal', '$http', 'SYS', 'flash', AdminuiFrame]
+      '$timeout', '$modal', '$http', '$route', 'SYS', 'flash', AdminuiFrame]
   );
   ng.module('ntd.directives').controller(
     'CommonMenuDialogCtrl',

@@ -86,7 +86,12 @@ angular.module('ntd.directives').config(
           'children': [
             {
             'name': 'Admin UI组件',
+            'params': {
+              'id': '@id',
+              'aid': '@aaa'
+            },
             'url': '#/widget',
+            'match': '/widget*',
             'children': null
           },
           {
