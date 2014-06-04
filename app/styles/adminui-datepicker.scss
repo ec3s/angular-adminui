@@ -99,8 +99,8 @@
 .datepicker table tr td,
 .datepicker table tr th {
   text-align: center;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 20px;
   border-radius: 4px;
   border: none;
 }
@@ -786,5 +786,5 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .datepicker.dropdown-menu th,
 .datepicker.dropdown-menu td {
-  padding: 4px 5px;
+  padding: 5px;
 }
