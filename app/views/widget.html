@@ -6,6 +6,10 @@
 
 <h3>Date picker</h3>
 <div data-ng-controller="DatePickerCtrl">
+  <p>为 <code>input</code>增加 <code>data-adminui-date-picker</code>属性</p>
+  <p>通过 <code>format</code> 来定义日期格式 (默认: yyyy-mm-dd)</p>
+  <p>通过 <code>min-date</code> <code>max-date</code> 来设置可选择范围(如日期: 2014-6-29)</p>
+  <p>通过 <code>min-view-mode</code> 来设置最小日期单位(2: 年, 1: 月, 0: 天)</p>
   <input data-adminui-date-picker class="form-control" ng-model="myDate">
 </div>
 
