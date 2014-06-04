@@ -606,65 +606,6 @@ $scope.unifyDptList = {{unifyDptList|json}}
     $scope.ageData = {{ ageData  | json }}
 </div>
 
-<h3>时间日期</h3>
-<!-- <div class="form-group input-group">
-    <input type="text" class="input-sm form-control" ng-model="datepicker.date" placeholder="时间" data-date-format="yyyy/mm/dd" date-picker>
-    <button type="button" class="btn btn-default" data-toggle="datepicker"><i class="glyphicon glyphicon-calendar"></i></button>
-</div> -->
-
-
-<div class="form-group">
-    <div ng-controller="DatepickerDemoCtrl">
-    <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
-
-    <div ng-model="dt" style="width: 280px">
-        <datepicker min="minDate" show-weeks="showWeeks"></datepicker>
-    </div>
-
-    <hr>
-
-    <div class="input-group">
-        <input class="form-control" type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" />
-        <span class="input-group-btn">
-            <button class="btn btn-info" ng-click="open()"> <span class="glyphicon glyphicon-calendar"></span> </button>
-        </span>
-    </div>
-
-    <hr />
-    <button class="btn btn-sm btn-info" ng-click="today()">Today</button>
-    <button class="btn btn-sm btn-info" ng-click="dt = '2009-08-24'">2009-08-24</button>
-    <button class="btn btn-sm btn-success" ng-click="toggleWeeks()" tooltip="For inline datepicker">Toggle Weeks</button>
-    <button class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
-    <button class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today restriction">Min date</button>
-    </div>
-</div>
-
-<p>日期选择器用 <code>date-picker</code> 属性绑定到 input 元素上.</p>
-<pre class="prettyprint linenums">
-    &lt;div ng-controller="DatepickerDemoCtrl"&gt;
-    &lt;pre&gt;Selected date is: &lt;em&gt;{{dt | date:'fullDate' }}&lt;/em&gt;&lt;/pre&gt;
-
-    &lt;div ng-model="dt" style="width: 280px"&gt;
-        &lt;datepicker min="minDate" show-weeks="showWeeks"&gt;&lt;/datepicker&gt;
-    &lt;/div&gt;
-
-    &lt;hr&gt;
-
-    &lt;div class="input-group"&gt;
-        &lt;input class="form-control" type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" /&gt;
-        &lt;span class="input-group-btn"&gt;
-            &lt;button class="btn btn-info" ng-click="open()"&gt; &lt;span class="glyphicon glyphicon-calendar"&gt;&lt;/span&gt; &lt;/button&gt;
-        &lt;/span&gt;
-    &lt;/div&gt;
-
-    &lt;hr /&gt;
-    &lt;button class="btn btn-sm btn-info" ng-click="today()"&gt;Today&lt;/button&gt;
-    &lt;button class="btn btn-sm btn-info" ng-click="dt = '2009-08-24'"&gt;2009-08-24&lt;/button&gt;
-    &lt;button class="btn btn-sm btn-success" ng-click="toggleWeeks()" tooltip="For inline datepicker"&gt;Toggle Weeks&lt;/button&gt;
-    &lt;button class="btn btn-sm btn-danger" ng-click="clear()"&gt;Clear&lt;/button&gt;
-    &lt;button class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today restriction"&gt;Min date&lt;/button&gt;
-    &lt;/div&gt;
-</pre>
 <hr>
 <div class="form-group">
 <div ng-controller="TimepickerDemoCtrl">
