@@ -37,6 +37,11 @@ adminuiApp
   $scope.alert = {};
 }]);
 
+var DatePickerCtrl = function($scope) {
+
+};
+adminuiApp.controller('DatePickerCtrl', ['$scope', DatePickerCtrl]);
+
 var DateRangePickerCtrl = function($scope) {
   $scope.myDateRange = {
     startDate: moment('2014-04-20'),
@@ -55,10 +60,7 @@ var DateRangePickerCtrl = function($scope) {
     fromLabel: '从',
     toLabel: '到',
     weekLabel: '周',
-    customRangeLabel: '预定义区间',
-    daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
-    monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一', '十二'],
-    firstDay: 1
+    customRangeLabel: '预定义区间'
   };
 };
 adminuiApp.controller('DateRangePickerCtrl', ['$scope', DateRangePickerCtrl]);

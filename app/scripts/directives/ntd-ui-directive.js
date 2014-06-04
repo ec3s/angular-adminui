@@ -1,3 +1,3 @@
 'use strict';
 angular.module('ntd.config', []).value('$ntdConfig', {});
-angular.module('ntd.directives', ['ntd.config', 'ngSanitize', 'ngBootstrap.dateRangePicker']);
+angular.module('ntd.directives', ['ntd.config', 'ngSanitize']);
