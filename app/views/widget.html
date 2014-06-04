@@ -4,6 +4,44 @@
     </h1>
 </div>
 
+<h3>Date range picker</h3>
+
+<div data-ng-controller="DateRangePickerCtrl">
+  <p>为 <code>input</code>增加 <code>data-ng-datarange</code>来使用日期区间选择</p>
+  <input data-ng-daterange type="daterange" class="form-control" ng-model="myDateRange">
+  <br/>
+  <p>你可以使用 <code>format</code>和 <code>separator</code> 来定义日期格式和分隔符</p>
+  <input ng-daterange ng-model="myDateRange" class="form-control"  format="MMM DD" separator="/">
+  <br/>
+  <p>也可以通过 <code>max-date</code> <code>min-date</code> <code>limit</code> 来设置限定的时间区域</p>
+  <input ng-daterange ng-model="myDateRange" class="form-control"  separator="/" min-date="2013-09-10" max-date="2013-09-20" limit="1 day">
+  <br/>
+  <p>你还可以通过 <code>range</code> 来自定义预选日期</p>
+  <input ng-daterange type="daterange" ng-model="myDateRange" class="form-control" ranges="ranges">
+  <br/>
+  <pre>$scope.ranges = {
+    'Today': [moment(), moment()],
+    'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+    'Last 7 days': [moment().subtract('days', 7), moment()],
+    'Last 30 days': [moment().subtract('days', 30), moment()],
+    'This month': [moment().startOf('month'), moment().endOf('month')]
+  };</pre>
+  <p>你也可以通过 <code>locale</code> 来本地化</p>
+  <input ng-daterange type="daterange" ng-model="myDateRange" class="form-control" locale="locale" >
+  <br/>
+  <pre>$scope.locale = {
+		applyLabel: '应用',
+		cancelLabel: '取消',
+		fromLabel: '起始',
+		toLabel: '结束',
+		weekLabel: '周',
+		customRangeLabel: '预定义区间',
+		daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+		monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+		firstDay: 1
+	};</pre>
+</div>
+
 <h3>List</h3>
 <p>为<code>div</code>容器添加属性 <code>adminui-list</code>， 使用方式和 Select 一样，使用 <code>data-ng-options</code>进行项目的设定，使用<code>data-multiple="true"</code> 来设定是否支持多选，默认是单选的。通过<code>data-disabled="true"</code>来禁用列表，列表禁用后<code>ngModel</code>为之前选中的值。</p>
 

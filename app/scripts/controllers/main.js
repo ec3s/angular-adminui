@@ -37,6 +37,33 @@ adminuiApp
   $scope.alert = {};
 }]);
 
+var DateRangePickerCtrl = function($scope) {
+  $scope.myDateRange = {
+    startDate: moment('2014-04-20'),
+    endDate: moment('2014-05-25')
+  };
+  $scope.ranges = {
+    'Today': [moment(), moment()],
+    'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+    'Last 7 days': [moment().subtract('days', 7), moment()],
+    'Last 30 days': [moment().subtract('days', 30), moment()],
+    'This month': [moment().startOf('month'), moment().endOf('month')]
+  };
+  $scope.locale = {
+    applyLabel: '应用',
+    cancelLabel: '取消',
+    fromLabel: '从',
+    toLabel: '到',
+    weekLabel: '周',
+    customRangeLabel: '预定义区间',
+    daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+    monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一', '十二'],
+    firstDay: 1
+  };
+};
+adminuiApp.controller('DateRangePickerCtrl', ['$scope', DateRangePickerCtrl]);
+
+
 var ListCtrl = function($scope) {
   $scope.change = function() {
     console.log('changed');

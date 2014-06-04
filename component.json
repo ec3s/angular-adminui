@@ -18,6 +18,7 @@
     "footable": "~0.5.0",
     "chosen": "https://github.com/CandySunPlus/chosen0.13.0.git#master",
     "angular-route":"~1.2.4",
+    "ng-bs-daterangepicker-plus": "~0.1.0",
     "angular-ui-bootstrap-bower": "*"
   },
   "devDependencies": {
