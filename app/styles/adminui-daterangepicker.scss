@@ -3,23 +3,21 @@
   z-index: 3000;
 }
 
-.daterangepicker.opensleft .ranges, .daterangepicker.opensleft .calendar {
+.daterangepicker.opensleft .calendar {
   float: left;
   margin: 4px;
 }
 
-.daterangepicker.opensright .ranges, .daterangepicker.opensright .calendar {
+.daterangepicker.opensright .calendar {
   float: right;
   margin: 4px;
 }
 
 .daterangepicker .ranges {
-  width: 160px;
   text-align: left;
 }
 
 .daterangepicker .ranges .range_inputs>div {
-  float: left;
 }
 
 .daterangepicker .ranges .range_inputs>div:nth-child(2) {
@@ -44,6 +42,22 @@
   white-space: nowrap;
   text-align: center;
   min-width: 32px;
+}
+.daterangepicker {
+  .ranges {
+    clear: both;
+  }
+  .daterangepicker_start_input, .daterangepicker_end_input {
+    display: none;
+  }
+  .range_inputs {
+    @extend .pull-right;
+    button {
+      @extend .btn-sm;
+      float: left;
+      margin: 2px;
+    }
+  }
 }
 
 .daterangepicker .daterangepicker_start_input label,

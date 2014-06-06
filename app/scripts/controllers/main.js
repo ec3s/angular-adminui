@@ -47,6 +47,9 @@ var DateRangePickerCtrl = function($scope) {
     startDate: moment('2014-04-20'),
     endDate: moment('2014-05-25')
   };
+  $scope.clear = function() {
+    $scope.myDateRange1 = null;
+  };
   $scope.ranges = {
     'Today': [moment(), moment()],
     'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],

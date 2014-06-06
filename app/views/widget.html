@@ -24,6 +24,7 @@
   <p>也可以通过 <code>max-date</code> <code>min-date</code> <code>limit</code> 来设置限定的时间区域</p>
   <input data-adminui-daterange-picker ng-model="myDateRange" class="form-control"  separator="/" min-date="2013-09-10" max-date="2013-09-20" limit="1 day">
   <br/>
+  <p>通过设置 <code>opens</code> 为 <code>left</code> 或者 <code>right</code> 来设置弹出位置。</p>
   <p>你还可以通过 <code>range</code> 来自定义预选日期</p>
   <input data-adminui-daterange-picker type="daterange" ng-model="myDateRange" class="form-control" ranges="ranges">
   <br/>
@@ -34,17 +35,12 @@
     'Last 30 days': [moment().subtract('days', 30), moment()],
     'This month': [moment().startOf('month'), moment().endOf('month')]
   };</pre>
-  <p>你也可以通过 <code>locale</code> 来本地化</p>
-  <input data-adminui-daterange-picker type="daterange" ng-model="myDateRange" class="form-control" locale="locale" >
+
+  <input data-adminui-daterange-picker type="daterange" ng-model="myDateRange1" class="form-control" locale="locale" >
   <br/>
-  <pre>$scope.locale = {
-		applyLabel: '应用',
-		cancelLabel: '取消',
-		fromLabel: '起始',
-		toLabel: '结束',
-		weekLabel: '周',
-		customRangeLabel: '预定义区间'
-	};</pre>
+  <button data-ng-click="clear()" class="btn btn-default">清空</button>
+  <br/>
+  <br/>
 </div>
 
 <h3>List</h3>

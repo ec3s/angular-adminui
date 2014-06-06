@@ -1,6 +1,6 @@
 (function(ng) {
   'use strict';
-  var AdminuiDaterange = function($compile, $parse) {
+  var AdminuiDaterange = function($compile, $parse, $timeout) {
     return {
       restrict: 'A',
       require: 'ngModel',
@@ -20,9 +20,24 @@
           );
         options.ranges = $attributes.ranges &&
           $parse($attributes.ranges)($scope);
-        options.locale = $attributes.locale &&
-          $parse($attributes.locale)($scope);
+        options.locale = {
+          'applyLabel': '应用',
+          'cancelLabel': '取消',
+          'customRangeLabel': '自定义'
+        };
         options.opens = $attributes.opens || 'right';
+
+        $timeout(function() {
+          var resetBtn = ng.element('<button>清空</button>')
+            .addClass('btn btn-default').bind('click', function() {
+              $scope.$apply(function() {
+                $scope[$attributes.ngModel] = null;
+              });
+              $element.data('daterangepicker').container.hide();
+            });
+          $element.data('daterangepicker')
+            .container.find('.applyBtn').after(resetBtn);
+        });
 
         function format(date) {
           return date.format(options.format);
@@ -44,10 +59,6 @@
 
         $scope.$watch($attributes.ngModel, function(modelValue) {
           if (!modelValue || (!modelValue.startDate)) {
-            ngModel.$setViewValue({
-              startDate: moment().startOf('day').toDate(),
-              endDate: moment().startOf('day').toDate()
-            });
             return;
           }
           $element.data('daterangepicker').startDate =
@@ -71,6 +82,6 @@
   };
   ng.module('ntd.directives')
     .directive('adminuiDaterangePicker',
-      ['$compile', '$parse', AdminuiDaterange]
+      ['$compile', '$parse', '$timeout', AdminuiDaterange]
     );
 })(angular);
