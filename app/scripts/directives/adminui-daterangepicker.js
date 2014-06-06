@@ -36,6 +36,15 @@
               $element.data('daterangepicker').container.hide();
             });
           $element.data('daterangepicker')
+            .container.find('.applyBtn').bind('click', function() {
+            $scope.$apply(function() {
+              ngModel.$setViewValue({
+                startDate: $element.data('daterangepicker').startDate.toDate(),
+                endDate: $element.data('daterangepicker').endDate.toDate()
+              });
+            });
+          });
+          $element.data('daterangepicker')
             .container.find('.applyBtn').after(resetBtn);
         });
 
