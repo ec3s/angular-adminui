@@ -16,15 +16,15 @@
 <h3>Date range picker</h3>
 <div data-ng-controller="DateRangePickerCtrl">
   <p>为 <code>input</code>增加 <code>data-adminui-daterange-picker</code>,<code>type</code> 为 <code>daterange</code> 来使用日期区间选择</p>
-  <input data-adminui-daterange-picker type="daterange" class="form-control" ng-model="myDateRange">
+  <input data-adminui-daterange-picker type="daterange" class="form-control" opens="right" ng-model="myDateRange">
   <br/>
   <p>你可以使用 <code>format</code>和 <code>separator</code> 来定义日期格式和分隔符</p>
-  <input data-adminui-daterange-picker ng-model="myDateRange" class="form-control"  format="MMM DD" separator="/">
+  <input data-adminui-daterange-picker ng-model="myDateRange" class="form-control" opens="left"  format="MMM DD" separator="/">
   <br/>
   <p>也可以通过 <code>max-date</code> <code>min-date</code> <code>limit</code> 来设置限定的时间区域</p>
-  <input data-adminui-daterange-picker ng-model="myDateRange" class="form-control"  separator="/" min-date="2013-09-10" max-date="2013-09-20" limit="1 day">
+  <input data-adminui-daterange-picker ng-model="myDateRange" class="form-control" separator="/" min-date="2013-09-10" max-date="2013-09-20" limit="1 day">
   <br/>
-  <p>通过设置 <code>opens</code> 为 <code>left</code> 或者 <code>right</code> 来设置弹出位置。</p>
+  <p>通过设置 <code>opens</code> 为 <code>left</code> 或者 <code>right</code> 来设置弹出位置，默认是 <code>auto</code>。</p>
   <p>你还可以通过 <code>range</code> 来自定义预选日期</p>
   <input data-adminui-daterange-picker type="daterange" ng-model="myDateRange" class="form-control" ranges="ranges">
   <br/>

@@ -25,9 +25,59 @@
           'cancelLabel': '取消',
           'customRangeLabel': '自定义'
         };
-        options.opens = $attributes.opens || 'right';
+
+        options.opens = $attributes.opens || 'auto';
+
 
         $timeout(function() {
+          var dateRangePicker = $element.data('daterangepicker');
+          var oldMove = ng.copy(dateRangePicker.move);
+          dateRangePicker.move = function() {
+            var parentOffset = { top: 0, left: 0 };
+            if (!this.parentEl.is('body')) {
+              parentOffset = {
+                top: this.parentEl.offset().top - this.parentEl.scrollTop(),
+                left: this.parentEl.offset().left - this.parentEl.scrollLeft()
+              };
+            }
+            if (options.opens == 'auto') {
+              this.container.css({
+                top: this.element.offset().top + this.element.outerHeight() - parentOffset.top,
+                left: this.element.offset().left - parentOffset.left,
+                right: 'auto'
+              }).addClass('opensright');
+              if (this.container.offset().left + this.container.outerWidth() > $(window).width()) {
+                this.container.css({
+                  top: this.element.offset().top + this.element.outerHeight() - parentOffset.top,
+                  right: $(window).width() - this.element.offset().left - this.element.outerWidth() - parentOffset.left,
+                  left: 'auto'
+                }).addClass('opensleft').removeClass('opensright');
+                if (this.container.offset().left < 0) {
+                  this.container.css({
+                    top: this.element.offset().top + this.element.outerHeight() - parentOffset.top,
+                    left: this.element.offset().left - parentOffset.left,
+                    right: 'auto'
+                  }).addClass('opensright').removeClass('opensleft');
+                }
+              }
+
+            } else {
+              if (this.opens == 'left') {
+                this.container.css({
+                  top: this.element.offset().top + this.element.outerHeight() - parentOffset.top,
+                  right: $(window).width() - this.element.offset().left - this.element.outerWidth() - parentOffset.left,
+                  left: 'auto'
+                });
+              } else {
+                this.container.css({
+                  top: this.element.offset().top + this.element.outerHeight() - parentOffset.top,
+                  left: this.element.offset().left - parentOffset.left,
+                  right: 'auto'
+                });
+              }
+            }
+          };
+
           var resetBtn = ng.element('<button>清空</button>')
             .addClass('btn btn-default').bind('click', function() {
               $scope.$apply(function() {
