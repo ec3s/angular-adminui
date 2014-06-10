@@ -72,6 +72,7 @@
 Switcher 支持 <code>ng-change</code>，<code>ng-click</code>事件，事件函数能够接收<code>$event</code>为事件对象。
 </p>
 <p>在使用<code>ng-click</code>事件时注意判断事件的<code>type</code>来区分angular原本的点击事件。</p>
+<p>在 <code>ng-click</code>中，可以使用 <code>$event</code> 中的 <code>stopSwitch()</code> 来停止切换动作</p>
 <p>在使用<code>ng-click</code>事件时，<code>data-ng-model</code>并没有即刻变化，需要使用 <code>$event</code> 中的 <code>switched</code> 回调函数去判断 Switcher 是否已经切换完毕。</p>
 <a class="jsbin-embed" href="http://jsbin.ec3s.com/pur/2/embed?output">DemoApp</a><script src="http://jsbin.ec3s.com/js/embed.js"></script>
 <h3>Finder</h3>
