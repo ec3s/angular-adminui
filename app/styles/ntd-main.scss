@@ -660,10 +660,12 @@ form {
 // fix for chosen responsive
 [class*="col-md-"] {
     .chzn-container {
-        width: 100% !important;
+      padding-left: inherit;
+      padding-right: inherit;
+      float: none;
     }
 }
-//
+
 .form-horizontal {
     .form-group {
         .help-inline-wrapper{

@@ -36,22 +36,14 @@
         var options = {
           disable_search_threshold: disableSearchThreshold
         };
+        var originStyleClass = elem.attr('class').split(' ')
+          .filter(function(item) {
+            return (item != 'ntd-chosen' && item.match(/^ng\-.*$/) === null);
+          });
         var chosenEl = elem.chosen(options);
         var chosen = chosenEl.data('chosen');
-        chosen.container.hide();
-        $timeout(function() {
-          var cloneEl = chosenEl.clone().css({
-            'display': 'block',
-            'visibility': 'hidden',
-            'position': 'absolute'
-          });
-          ng.element('body').append(cloneEl);
-          chosen.container.css({
-            'max-width': cloneEl.innerWidth(),
-            'width': cloneEl.innerWidth()
-          }).show();
-          cloneEl.remove();
-        }, 100);
+        chosen.container.css('width', '');
+        chosen.container.addClass(originStyleClass.join());
         var selected_options = {};
         var searchTxt = scope.$new(false);
 
