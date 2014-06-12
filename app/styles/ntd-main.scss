@@ -316,7 +316,7 @@ form {
 .chzn-container .chzn-results li {
     display: none;
     line-height: 20px;
-    list-style: none;
+    list-style: inherit;
     margin: 0;
     padding: 5px 6px;
 }
@@ -372,8 +372,8 @@ form {
 }
 .chzn-container-single .chzn-single {
     display: block;
-    /*@include ctb-ie7-inline-block();*/
-    padding: 5px 12px; 
+    overflow: inherit;
+    padding: 5px 12px;
     margin-bottom: 0; // For input.btn
     font: $body-font;
     line-height: $line-height-base;
