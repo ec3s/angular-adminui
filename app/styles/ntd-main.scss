@@ -665,7 +665,8 @@ form {
   &.form-control {
     border: none;
     padding: 0;
-    border-radius: none;
+    height: inherit;
+    border-radius: 0;
     box-shadow: none;
   }
 }
