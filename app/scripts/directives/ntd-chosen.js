@@ -13,7 +13,7 @@
  *
  * multiple 模式下 autocomplete 完成 beta
  *
- * @author Fengming Sun<sunfengming@ec3s.com>
+ * @author sunfengming@ec3s.com (Fengming Sun)
  */
 (function(app, ng) {
   'use strict';
@@ -40,12 +40,17 @@
         var chosen = chosenEl.data('chosen');
         chosen.container.hide();
         $timeout(function() {
-          chosenEl.css('display', 'inline');
+          var cloneEl = chosenEl.clone().css({
+            'display': 'block',
+            'visibility': 'hidden',
+            'position': 'absolute'
+          });
+          ng.element('body').append(cloneEl);
           chosen.container.css({
-            'max-width': chosenEl.innerWidth(),
-            'width': chosenEl.innerWidth()
+            'max-width': cloneEl.innerWidth(),
+            'width': cloneEl.innerWidth()
           }).show();
-          chosenEl.css('display', 'none');
+          cloneEl.remove();
         }, 100);
         var selected_options = {};
         var searchTxt = scope.$new(false);

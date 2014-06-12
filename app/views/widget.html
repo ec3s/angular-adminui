@@ -210,8 +210,10 @@ $scope.unifyDptList = {{unifyDptList|json}}
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
         &lt;/select&gt;
     </pre>
-    <p>
-        <select data-ng-model="lang" 
+
+    <p ng-show="isShow">
+        <select data-ng-model="lang"
+            id="xxx"
             data-ntd-chosen
             class="col-sm-3"
             data-disable-search-threshold="10"
@@ -219,6 +221,8 @@ $scope.unifyDptList = {{unifyDptList|json}}
         </select>
         single的chosen, 大于10条时显示搜索
     </p>
+    <button ng-click="show()" class="btn btn-default btn-sm">toggle Hidden</button>
+  <br/><br/>
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
             class=&quot;col-sm-3&quot;

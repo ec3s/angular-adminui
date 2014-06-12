@@ -165,21 +165,26 @@ adminuiApp.controller('paginationCtrl', [
 
 /* for chosen */
 var chosenCtrl = function($scope, $http, $q) {
+  $scope.isShow = false;
   $scope.options = this.getOptions();
   $scope.optionPromise = angular.bind(this, this.getOptionPromise, $http, $q);
   $scope.tags = [
     {'name': 'tag0', 'id': 1, 'editable': true, 'deletable': false},
     'tag1', 'tag2',
     {'name': 'tag3', 'id': 1, 'editable': true, 'deletable': false}];
-    $scope.linkages = [{
-      id: 1,
-      name: 'bb',
-      children: [
-        {id: 2, name: 'aa', children: [
+  $scope.linkages = [{
+    id: 1,
+    name: 'bb',
+    children: [
+      {id: 2, name: 'aa', children: [
         {id: 3, name: 'vv'}
       ]}
-      ]
-    }];
+    ]
+  }];
+
+  $scope.show = function() {
+    $scope.isShow = !$scope.isShow;
+  }
 };
 
 chosenCtrl.prototype.getOptionPromise = function($http, $q, search) {
