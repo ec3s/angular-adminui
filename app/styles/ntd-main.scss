@@ -662,6 +662,12 @@ form {
       padding-left: 0;
       padding-right: 0;
       float: none;
+  &.form-control {
+    border: none;
+    padding: 0;
+    border-radius: none;
+    box-shadow: none;
+  }
 }
 
 .form-horizontal {

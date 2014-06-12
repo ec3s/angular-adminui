@@ -195,14 +195,19 @@ $scope.unifyDptList = {{unifyDptList|json}}
 <div ng-controller="chosenCtrl">
     <h4>Single</h4>
     <p>已选中：{{lang}}</p>
-    <p>
-        <select data-ng-model="lang" 
-            class="ntd-chosen col-sm-3"
+
+  <form class="form-horizontal" action="">
+  <div class="form-group">
+    <div class="col-sm-3">
+        <select data-ng-model="lang"
+            class="ntd-chosen form-control "
             data-placeholder="请选择"
             data-ng-options="option.id as option.name for option in options">
         </select>
         single的chosen
-    </p>
+    </div>
+  </div>
+  </form>
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
             class=&quot;ntd-chosen col-sm-3&quot;

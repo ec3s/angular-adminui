@@ -47,6 +47,12 @@
     }
 }
 
+@media (max-width: $screen-sm-max) {
+  .chzn-container {
+    display: block;
+  }
+}
+
 @media (max-width: 767px) {
     .navbar {
         .main-nav {
