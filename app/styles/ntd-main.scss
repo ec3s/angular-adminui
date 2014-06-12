@@ -658,12 +658,10 @@ form {
     padding: 4px 5px 4px 20px;
 }
 // fix for chosen responsive
-[class*="col-md-"] {
-    .chzn-container {
-      padding-left: inherit;
-      padding-right: inherit;
+.chzn-container {
+      padding-left: 0;
+      padding-right: 0;
       float: none;
-    }
 }
 
 .form-horizontal {

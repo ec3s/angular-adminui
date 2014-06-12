@@ -38,7 +38,10 @@
         };
         var originStyleClass = elem.attr('class').split(' ')
           .filter(function(item) {
-            return (item != 'ntd-chosen' && item.match(/^ng\-.*$/) === null);
+            item = $.trim(item);
+            return (item != 'ntd-chosen' &&
+              item != 'form-control' &&
+              item.match(/^ng\-.*$/) === null);
           });
         var chosenEl = elem.chosen(options);
         var chosen = chosenEl.data('chosen');
