@@ -126,7 +126,7 @@
       }
 
       scope.navigation = res.data;
-      /* perpare navigation data */
+      /* prepare navigation data */
       init(scope, scope.navigation, $route);
       scope.isInited = true;
       /* select from path */
@@ -135,7 +135,7 @@
       fetchCommonMenus($http, scope);
     }, function(res) {
       scope.navigation = [navigation];
-      /* perpare navigation data */
+      /* prepare navigation data */
       init(scope, scope.navigation, $route);
       scope.isInited = true;
       /* select from path */
@@ -258,7 +258,12 @@
         searchInfo[key] = route[paramKey];
       }
     });
+    var schema = '';
     if (ng.isString(url)) {
+      if (url.match(/^\w*:\/\//) !== null) {
+        schema = url.match(/^\w*:\/\//)[0];
+        url = url.replace(schema, '');
+      }
       var result = [];
       ng.forEach(url.split(':'), function(segment, i) {
         if (i === 0) {
@@ -280,7 +285,7 @@
     if (queryInfo.length > 0) {
       parsedUrl += '?' + queryInfo.join('&');
     }
-    return parsedUrl;
+    return schema + parsedUrl;
   };
 
   var init = function(scope, parentNavs, $route) {
