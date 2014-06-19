@@ -396,7 +396,10 @@
     });
   };
 
-  var selectNav = function(nav) {
+  var selectNav = function(nav, evt) {
+    if (evt.metaKey || evt.ctrlKey || evt.button) {
+      return false;
+    }
     clearSelected(this.navigation);
     if (nav.url != null) {
       selectPath(this, nav.url.replace('#', ''));
@@ -408,6 +411,9 @@
 
 
   var selectMenu = function(menu, evt) {
+    if (evt.metaKey || evt.ctrlKey || evt.button) {
+      return false;
+    }
     if (menu.children != null) {
       ng.element(evt.target).parent('li').find('ul').toggle();
     } else {
