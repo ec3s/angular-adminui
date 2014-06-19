@@ -39,11 +39,6 @@
 @media (max-width: 992px) {
     .side-nav-container {
         max-height: 350px;
-        .side-nav {
-          .side-nav-menu {
-            padding-bottom: 20px;
-          }
-        }
         &.affix {
             position: relative;
         }

@@ -111,9 +111,11 @@ $active-menu-color: #428bcb;
     }
 }
 .side-nav-container {
-  height: 100%;
+//  height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  top: 100px;
+  bottom: 0;
   // Submenu nav
   .side-nav {
     h4 {
@@ -125,7 +127,6 @@ $active-menu-color: #428bcb;
       margin-top: 0;
     }
     .side-nav-menu {
-      padding-bottom: 100px;
       @extend .list-group;
       font: $body-font;
       li {
