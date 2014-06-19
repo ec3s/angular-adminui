@@ -15,7 +15,7 @@
         <a data-ng-href="{{nav.url}}" data-ng-show="nav.show">{{nav.name}}</a>
         <ul class="sub-navbar" data-ng-if="nav.children != null" data-ng-class="{false: 'no-parent'}[nav.show]">
           <li data-ng-repeat="subnav in nav.children" data-ng-show="subnav.show" data-ng-class="{true: 'active', false: ''}[isSelected(subnav)]">
-          <a data-ng-click="selectNav(subnav)" data-ng-href="{{subnav.url}}">{{subnav.name}}</a>
+          <a data-ng-click="selectNav(subnav, $event)" data-ng-href="{{subnav.url}}">{{subnav.name}}</a>
           </li>
         </ul>
         </li>
