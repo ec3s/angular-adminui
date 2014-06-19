@@ -415,7 +415,7 @@
       return false;
     }
     if (menu.children != null) {
-      ng.element(evt.target).parent('li').find('ul').toggle();
+      ng.element(evt.currentTarget).parent('li').find('ul').toggle();
     } else {
       clearSelected(this.menu);
       if (menu.url != null) {
