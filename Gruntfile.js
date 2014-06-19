@@ -281,7 +281,7 @@ module.exports = function(grunt) {
     'coffee:dist',
     'sass:dist',
     'connect:livereload',
-    'open',
+//    'open',
     'jade',
     'watch'
   ]);
