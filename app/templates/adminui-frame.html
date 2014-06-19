@@ -68,10 +68,9 @@
   <nav class="sub-navbar-back" data-ng-show="hasSubNav"></nav>
 </nav>
 <div class="container-fluid">
-  <div class="row fix-row">
-    <div class="col-md-2 container-fluid" data-ng-show="hasSideMenu">
-      <div data-ng-show="isSubMenuShow" class="row">
-        <div class="col-md-2 affix side-nav">
+    <div class="col-md-2 affix side-nav-container" data-ng-show="hasSideMenu">
+      <div data-ng-show="isSubMenuShow" class="">
+        <div class="side-nav">
           <h4>{{sideMenuName}}</h4>
           <ul class="side-nav-menu">
             <li data-ng-repeat="sidemenu in menu" data-ng-class="{true: 'active', false: ''}[isSelected(sidemenu)]">
@@ -88,9 +87,10 @@
         </div>
       </div>
     </div>
+  <div class="row fix-row">
     <div data-ng-class="{true: 'col-md-offset-2', false: ''}[isSubMenuShow && hasSideMenu]" class="message-container flash-alert"></div>
     <div data-ng-class="{true: 'col-md-offset-2', false: ''}[isSubMenuShow && hasSideMenu]" class="message-container notice"></div>
-    <div data-ng-class="{true: 'col-md-10', false: 'col-md-12'}[isSubMenuShow && hasSideMenu]" data-ng-transclude></div>
+    <div data-ng-class="{true: 'col-md-10 col-md-offset-2', false: 'col-md-12'}[isSubMenuShow && hasSideMenu]" data-ng-transclude></div>
     <div data-adminui-load-backdrop class="load-backdrop" style="display:none;">
       <div class="splash">
         <img class="loading" src="images/ajax-loader.gif" alt="加载中" />

@@ -110,119 +110,124 @@ $active-menu-color: #428bcb;
         line-height: .8;
     }
 }
-// Submenu nav
-.side-nav {
-    // position: fixed;
+.side-nav-container {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  // Submenu nav
+  .side-nav {
     h4 {
-        @extend .list-group-item;
-        font: bold $menu-header-font;
-        background-color: $panel-default-heading-bg;
-        border-bottom-width: 2px;
-        padding: 8px 15px;
-        margin-top: 0;
+      @extend .list-group-item;
+      font: bold $menu-header-font;
+      background-color: $panel-default-heading-bg;
+      border-bottom-width: 2px;
+      padding: 8px 15px;
+      margin-top: 0;
     }
     .side-nav-menu {
-        @extend .list-group;
-        font: $body-font;
-        li {
-            @extend .list-group-item;
-            padding: 0;
-            cursor: pointer;
-            a {
-                padding: 10px 15px;
-                display: block;
+      padding-bottom: 100px;
+      @extend .list-group;
+      font: $body-font;
+      li {
+        @extend .list-group-item;
+        padding: 0;
+        cursor: pointer;
+        a {
+          padding: 10px 15px;
+          display: block;
+          color: $list-group-link-color;
+          .glyphicon-chevron-down {
+            top: 3px;
+            opacity: .25;
+          }
+          &:hover {
+            background-color: $list-group-hover-bg;
+            text-decoration: none;
+            .glyphicon-chevron-down {
+              opacity: .5;
+            }
+          }
+        }
+        &.active {
+          border-color: $list-group-active-border;
+          a {
+            color: $list-group-active-color;
+            background-color: $list-group-active-bg;
+            @include border-top-radius(0 !important);
+          }
+          ul {
+            li {
+              &:hover {
+                border-color: $list-group-border;
+              }
+              a {
+                background-color: #fff;
                 color: $list-group-link-color;
-                .glyphicon-chevron-down {
-                    top: 3px;
-                    opacity: .25;
-                }
                 &:hover {
-                    background-color: $list-group-hover-bg;
-                    text-decoration: none;
-                    .glyphicon-chevron-down {
-                        opacity: .5;
-                    }
+                  text-decoration: none;
                 }
+              }
             }
-            &.active {
-                border-color: $list-group-active-border;
-                a {
-                    color: $list-group-active-color;
-                    background-color: $list-group-active-bg;
-                    @include border-top-radius(0 !important);
+          }
+        }
+        &:first-child {
+          @include border-top-radius(0);
+        }
+        &:last-child {
+          a {
+            @include border-bottom-radius(0);
+          }
+          ul {
+            &:last-child {
+              li {
+                &:last-child {
+                  @include border-bottom-radius($list-group-border-radius);
+                  a {
+                    @include border-bottom-radius($list-group-border-radius);
+                  }
                 }
-                ul {
-                    li {
-                        &:hover {
-                            border-color: $list-group-border;
-                        }
-                        a {
-                            background-color: #fff;
-                            color: $list-group-link-color;
-                            &:hover {
-                                text-decoration: none;
-                            }
-                        }
-                    }
-                }
+              }
             }
+          }
+        }
+        a.has-sub-menu {
+          @include border-bottom-radius(0 !important);
+        }
+        ul {
+          @extend .list-unstyled;
+          display: none;
+          margin: -1px;
+          font-size: $font-size-small;
+          li {
             &:first-child {
-                @include border-top-radius(0);
+              @include border-top-radius(0);
             }
             &:last-child {
-                a {
-                    @include border-bottom-radius(0);
-                }
-                ul {
-                    &:last-child {
-                        li {
-                            &:last-child {
-                                @include border-bottom-radius($list-group-border-radius);
-                                a {
-                                    @include border-bottom-radius($list-group-border-radius);
-                                }
-                            }
-                        }
-                    }
-                }
+              @include border-bottom-radius(0);
             }
-            a.has-sub-menu {
-                @include border-bottom-radius(0 !important);
+            a {
+              @include border-bottom-radius(0);
+              padding-left: 25px;
+              &:hover {
+                border-color: $list-group-border !important;
+                background: $list-group-hover-bg url($submenuSprites) no-repeat 15px 14px;
+              }
             }
-            ul {
-                @extend .list-unstyled;
-                display: none;
-                margin: -1px;
-                font-size: $font-size-small;
-                li {
-                    &:first-child {
-                        @include border-top-radius(0);
-                    }
-                    &:last-child {
-                        @include border-bottom-radius(0);
-                    }
-                    a {
-                        @include border-bottom-radius(0);
-                        padding-left: 25px;
-                        &:hover {
-                            border-color: $list-group-border !important;
-                            background: $list-group-hover-bg url($submenuSprites) no-repeat 15px 14px;
-                        }
-                    }
-                    &.active{
-                        border-color: $list-group-border;
-                        a {
-                            color: $active-menu-color;
-                            background: $list-group-bg url($submenuSprites) no-repeat 15px -22px;
-                            &:hover {
-                                border-color: $list-group-border !important;
-                                background: $list-group-hover-bg url($submenuSprites) no-repeat 15px -22px;
-                            }
-                        }
-                    }
+            &.active{
+              border-color: $list-group-border;
+              a {
+                color: $active-menu-color;
+                background: $list-group-bg url($submenuSprites) no-repeat 15px -22px;
+                &:hover {
+                  border-color: $list-group-border !important;
+                  background: $list-group-hover-bg url($submenuSprites) no-repeat 15px -22px;
                 }
+              }
             }
+          }
         }
+      }
     }
+  }
 }
 

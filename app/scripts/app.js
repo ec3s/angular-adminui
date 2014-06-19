@@ -64,20 +64,20 @@ angular.module('ntd.directives').config(
           'url': '#/base-css',
           'children': [
             {
-            'name': '基本样式',
-            'url': '#/base-css',
-            'children': null
-          },
-          {
-            'name': '表格样式',
-            'url': '#/table',
-            'children': null
-          },
-          {
-            'name': '表单样式',
-            'url': '#/form',
-            'children': null
-          }
+              'name': '基本样式',
+              'url': '#/base-css',
+              'children': null
+            },
+            {
+              'name': '表格样式',
+              'url': '#/table',
+              'children': null
+            },
+            {
+              'name': '表单样式',
+              'url': '#/form',
+              'children': null
+            }
           ]
         },
         {
