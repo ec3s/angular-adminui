@@ -1,6 +1,6 @@
 (function(ng) {
   'use strict';
-  var loadBackdrop = function($location) {
+  var loadBackdrop = function($location, $timeout) {
     return {
       restrict: 'A',
       link: function(scope, elem, attr) {
@@ -15,12 +15,14 @@
           });
         });
         scope.$on('$routeChangeSuccess', function() {
-          elem.finish();
-          elem.fadeOut('normal');
+          $timeout(function() {
+            elem.finish();
+            elem.fadeOut('normal');
+          });
         });
       }
     };
   };
   ng.module('ntd.directives')
-  .directive('adminuiLoadBackdrop', ['$location', loadBackdrop]);
+  .directive('adminuiLoadBackdrop', ['$location', '$timeout', loadBackdrop]);
 })(angular);
