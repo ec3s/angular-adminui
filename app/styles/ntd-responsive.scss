@@ -1,8 +1,5 @@
 @media (max-width: 768px) {
 
-    body {
-        padding-top: 90px;
-    }
 
     .easy-pie-chart-widget {
         text-align: center;
@@ -38,9 +35,11 @@
 
 @media (max-width: 992px) {
     .side-nav-container {
-        max-height: 350px;
+        max-height: 250px;
         &.affix {
             position: relative;
+            top: inherit;
+            bottom: inherit;
         }
     }
     .sub-navbar {
@@ -55,37 +54,43 @@
 }
 
 @media (max-width: 767px) {
-    .navbar {
-        .main-nav {
-            .active {
-                a {
-                    &:after {
-                        content: none !important;
-                    }
-                }
-            }
-            a {
-                &:hover {
-                    background-color: transparent !important;
-                }
-            }
-        }
-        .sub-navbar {
-            position: relative;
-            left: 0;
-            right: 0;
-            padding: 0 15px;
-            width: 100%;
-            margin: 5px 0;
-            li.active {
-                a {
-                    color: #fff;
-                }
-            }
-        }
-
-        .sub-navbar-back {
-            display: none;
-        }
+  body {
+    &.padding-submenu {
+      padding-top: 65px;
     }
+    padding-top: 65px;
+  }
+  .navbar {
+    .main-nav {
+      .active {
+        a {
+          &:after {
+            content: none !important;
+          }
+        }
+      }
+      a {
+        &:hover {
+          background-color: transparent !important;
+        }
+      }
+    }
+    .sub-navbar {
+      position: relative;
+      left: 0;
+      right: 0;
+      padding: 0 15px;
+      width: 100%;
+      margin: 5px 0;
+      li.active {
+        a {
+          color: #fff;
+        }
+      }
+    }
+
+    .sub-navbar-back {
+      display: none;
+    }
+  }
 }
