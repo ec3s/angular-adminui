@@ -98,6 +98,11 @@ angular.module('ntd.directives').config(
             'name': 'Bootstrap组件',
             'url': '#/bootstrap-ui-widget',
             'children': null
+          },
+          {
+            'name': 'timeLine组件',
+            'url': '#/time-line',
+            'children': null
           }
           ]
         },
@@ -181,6 +186,10 @@ adminuiApp
       })
       .when('/update-guide', {
         templateUrl: 'views/update_guide.html',
+        controller: 'MainCtrl'
+      })
+      .when('/time-line', {
+        templateUrl: 'views/time-line.html',
         controller: 'MainCtrl'
       })
       .otherwise({

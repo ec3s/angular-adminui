@@ -927,3 +927,62 @@ var TimepickerDemoCtrl = function($scope) {
   };
 };
 adminuiApp.controller('TimepickerDemoCtrl', ['$scope', TimepickerDemoCtrl]);
+var TimeLineDemoCtrl = function($scope, $filter) {
+  /**
+   * timeLine的数据准备开始
+   * @type {{user: {name: string, avator: string}, time: string, title: string, content: string, template: string}}
+   */
+  var initData = {
+    user: {
+      name: '',
+      avator: ''
+    },
+    time: '',
+    title: '',
+    content: '',
+    templateUrl: 'a.html'
+  };
+  $scope.timeLineDemoData = [];
+  var tempTimeLineData = [];
+  for (var i = 0; i < 5; i++) {
+    var currentInitData = angular.copy(initData);
+    currentInitData.user.name = 'john' + i;
+    currentInitData.user.avator = '';
+    var t = new Date();
+    currentInitData.time = new Date(t.setDate(t.getDate() - i));
+    currentInitData.title = 'title' + i;
+    currentInitData.content =
+      'Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,' +
+        'weebly ning heekya handango imeem plugg dopplr jibjab, ' +
+        'movityjajah plickers sifteo edmodo ifttt zimbra. ' +
+        'movityjajah plickers sifteo edmodo ifttt zimbra. ' +
+        'Babblely odeo kaboodle quora plaxo ideeli hulu weebly balihoo...' + i;
+    currentInitData.template = 'template' + i;
+    var currentInitDataCopy = angular.copy(currentInitData);
+    tempTimeLineData.push(angular.copy(currentInitData));
+    tempTimeLineData.push(angular.copy(currentInitDataCopy));
+  }
+  /*timeline的数据准备结束*/
+  /**
+   * timeline的数据封装开始
+   * @type {*}
+   */
+  tempTimeLineData = $filter('orderBy')(
+    tempTimeLineData, ['-time']);
+  var currentObj = {};
+  tempTimeLineData.forEach(
+    function(value, index) {
+      var currentTime = $filter('date')(value.time, 'yyyy-MM-dd');
+      if (!currentObj || currentObj.currentTime !== currentTime) {
+        currentObj = {currentObj: []};
+        currentObj.currentTime = angular.copy(currentTime);
+        currentObj.currentObj.push(angular.copy(value));
+        $scope.timeLineDemoData.push(currentObj);
+      }else {
+        currentObj.currentObj.push(angular.copy(value));
+      }
+    }
+  );
+  /*timeline的数据封装结束*/
+};
+adminuiApp.controller('TimepickerDemoCtrl', ['$scope', TimeLineDemoCtrl]);
