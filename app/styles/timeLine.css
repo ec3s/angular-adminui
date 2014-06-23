@@ -1,0 +1,150 @@
+
+/*! 
+ *   AdminLTE v1.2
+ *   Author: AlmsaeedStudio.com
+ *   License: Open source - MIT
+ *           Please visit http://opensource.org/licenses/MIT for more information
+!*/
+/*
+    Core: General style
+----------------------------
+*/
+/* Content */
+.content {
+  padding: 20px 15px;
+  background: #f9f9f9;
+}
+/*
+Component: timeline
+--------------------
+*/
+.timeline {
+  margin: 0 0 30px 0;
+  padding: 0;
+  list-style: none;
+}
+.timeline:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  bottom: 0;
+  width: 5px;
+  background: #ddd;
+  left: 45px;
+  border: 1px solid #eee;
+  margin: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.timeline > li {
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.timeline > li > span {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.timeline > li > ul {
+  position: relative;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+.timeline > li:before,
+.timeline > li:after {
+  display: table;
+  content: " ";
+}
+.timeline > li:after {
+  clear: both;
+}
+.timeline > li > ul > .timeline-item {
+  margin-top: 0px;
+  border: 0px solid #dfdfdf;
+  background: #fff;
+  color: #555;
+  margin-left: 40px;
+  margin-right: 15px;
+  padding: 5px;
+  position: relative;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.timeline > li > ul > .timeline-item > .time {
+  color: #999;
+  float: right;
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  word-spacing: 4px;
+}
+.timeline > li > ul > .timeline-item > .timeline-header {
+  margin: 0;
+  color: #555;
+  border-bottom: 1px solid #f4f4f4;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1.1;
+}
+.timeline > li > ul > .timeline-item > .timeline-header > a {
+  font-weight: 600;
+}
+.timeline > li > ul > .timeline-item > .timeline-body,
+.timeline > li > ul > .timeline-item > .timeline-footer {
+  padding: 10px;
+}
+.timeline > li.time-label > span {
+  font-weight: 600;
+  padding: 5px;
+  display: inline-block;
+  background-color: #fff;
+  /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);*/
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.timeline > li > ul > .fa,
+.timeline > li > .glyphicon,
+.timeline > li > .ion {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    line-height: 30px;
+    position: absolute;
+    color: #666;
+    background: #eee;
+    border-radius: 50%;
+    text-align: center;
+    left: 18px;
+    top: 0;
+}
+.timeline > li > .fa,
+.timeline > li > .glyphicon,
+.timeline > li > .ion {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  line-height: 30px;
+  position: absolute;
+  color: #666;
+  background: #eee;
+  border-radius: 50%;
+  text-align: center;
+  left: 18px;
+  top: 0;
+}
+.timeline .time-label .feed_arrow {
+    width: 10px;
+    height: 20px;
+    position: absolute;
+    z-index: 5;
+    left: 70px;
+    top: 6px;
+}
+.timeline .time-label .feed_arrow > .arrow_i {
+    border-color: transparent #e2e2e2 transparent transparent;
+    border-width: 10px 10px 10px 0;
+    border-style: dashed solid dashed dashed;
+    border-right-color: white;
+}
