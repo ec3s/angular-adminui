@@ -19,10 +19,10 @@
                             <div class="timeline-item">
                                 <span class="time"><i class="fa fa-clock-o"></i>{{timeLine.time | date:'yyyy-MM-dd HH:mm:ss'}}</span>
                                 <h3 class="timeline-header">{{timeLine.user.name}}</h3>
-                                <div data-ng-if = "timeLine.templateUrl">
-                                    <div data-adminui-time-line data-ng-model="timeLine"></div>
+                                <div data-ng-if = "timeLine.template">
+                                    <div data-adminui-time-line="timeLine"></div>
                                 </div>
-                                <div data-ng-if = "!timeLine.templateUrl">
+                                <div data-ng-if = "!timeLine.template">
                                     <div class="timeline-body">
                                         {{timeLine.content}}
                                     </div>

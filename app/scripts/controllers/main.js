@@ -940,7 +940,7 @@ var TimeLineDemoCtrl = function($scope, $filter) {
     time: '',
     title: '',
     content: '',
-    templateUrl: 'a.html'
+    template: "<div data-ng-bind = 'adminuiTimeLine.content'></div>"
   };
   $scope.timeLineDemoData = [];
   var tempTimeLineData = [];
@@ -957,7 +957,6 @@ var TimeLineDemoCtrl = function($scope, $filter) {
         'movityjajah plickers sifteo edmodo ifttt zimbra. ' +
         'movityjajah plickers sifteo edmodo ifttt zimbra. ' +
         'Babblely odeo kaboodle quora plaxo ideeli hulu weebly balihoo...' + i;
-    currentInitData.template = 'template' + i;
     var currentInitDataCopy = angular.copy(currentInitData);
     tempTimeLineData.push(angular.copy(currentInitData));
     tempTimeLineData.push(angular.copy(currentInitDataCopy));

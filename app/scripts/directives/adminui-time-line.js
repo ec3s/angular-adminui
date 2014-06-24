@@ -1,22 +1,23 @@
 (function(ng) {
   'use strict';
-  var AdminuiTimeLine = function($compile, $parse, $timeout) {
+  var AdminuiTimeLine =
+    function($compile) {
     return {
       'restrict': 'EA',
       replace: true,
       'scope': {
-        'ngModel': '=ngModel'
+        'adminuiTimeLine': '=adminuiTimeLine'
       },
-      templateUrl: ngModel.template,
+      transclude: true,
       link: function(scope, elem, attrs) {
-        console.info(ngModel.template);
-        console.info(ngModel);
+        var currentHtml = $compile(scope.adminuiTimeLine.template)(scope);
+        elem.append(currentHtml);
       }
     };
   };
 
   ng.module('ntd.directives')
     .directive('adminuiTimeLine',
-      ['$compile', '$parse', '$timeout', AdminuiTimeLine]
+      ['$compile', AdminuiTimeLine]
     );
 })(angular);
