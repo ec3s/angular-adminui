@@ -9,7 +9,9 @@
                         <span class="bg-red">{{timeLineData.currentTime}}</span>
                         <!-- timeline item -->
                         <ul data-ng-repeat="timeLine in timeLineData.currentObj">
-                            <i class="fa fa-envelope bg-blue">{{timeLine.user.avator}}</i>
+                            <i class="fa fa-comments bg-blue">
+                                <img data-ng-src="images/avatar.jpg" alt="user_avatar" src="{{timeLine.user.avator}}">
+                            </i>
                             <div class="feed_arrow">
                                 <div class="arrow_i"></div>
                                 <div class="arrow_bg"></div>
@@ -19,10 +21,10 @@
                             <div class="timeline-item">
                                 <span class="time"><i class="fa fa-clock-o"></i>{{timeLine.time | date:'yyyy-MM-dd HH:mm:ss'}}</span>
                                 <h3 class="timeline-header">{{timeLine.user.name}}</h3>
-                                <div data-ng-if = "timeLine.template">
+                                <div data-ng-if = "timeLine.template" class="timeline-template">
                                     <div data-adminui-time-line="timeLine"></div>
                                 </div>
-                                <div data-ng-if = "!timeLine.template">
+                                <div data-ng-if = "!timeLine.template" class="timeline-template">
                                     <div class="timeline-body">
                                         {{timeLine.content}}
                                     </div>
@@ -32,7 +34,7 @@
                         <!-- END timeline item -->
                     </li>
                     <li>
-                        <i class="fa fa-clock-o"></i>
+                        <i class="glyphicon glyphicon-time"></i>
                     </li>
                 </ul>
             </div><!-- /.col -->

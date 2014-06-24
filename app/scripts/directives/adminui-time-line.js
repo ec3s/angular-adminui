@@ -10,7 +10,13 @@
       },
       transclude: true,
       link: function(scope, elem, attrs) {
-        var currentHtml = $compile(scope.adminuiTimeLine.template)(scope);
+        var currentHtml = null;
+        if (scope.adminuiTimeLine.hasOwnProperty('content') &&
+          ng.isObject(scope.adminuiTimeLine.content)) {
+          var contentScope = scope.$new(true);
+          ng.extend(contentScope, scope.adminuiTimeLine.content);
+          currentHtml = $compile(scope.adminuiTimeLine.template)(contentScope);
+        }
         elem.append(currentHtml);
       }
     };

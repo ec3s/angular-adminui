@@ -930,17 +930,19 @@ adminuiApp.controller('TimepickerDemoCtrl', ['$scope', TimepickerDemoCtrl]);
 var TimeLineDemoCtrl = function($scope, $filter) {
   /**
    * timeLine的数据准备开始
-   * @type {{user: {name: string, avator: string}, time: string, title: string, content: string, template: string}}
+   * @type {{user: {name: string, avator: string}, time: string, title: string, content: {list: number[]}, template: string}}
    */
   var initData = {
     user: {
       name: '',
-      avator: ''
+      avator: 'images/avatar.jpg'
     },
     time: '',
     title: '',
-    content: '',
-    template: "<div data-ng-bind = 'adminuiTimeLine.content'></div>"
+    content: {list: [1, 2, 3, 4, 5]},
+    template:
+     "<div><ul><li data-ng-repeat=\'item in list\'>{{item}}" +
+       "<a href=\'http://www.baidu.com\'>点击我</a></li></ul></div>"
   };
   $scope.timeLineDemoData = [];
   var tempTimeLineData = [];
@@ -951,12 +953,6 @@ var TimeLineDemoCtrl = function($scope, $filter) {
     var t = new Date();
     currentInitData.time = new Date(t.setDate(t.getDate() - i));
     currentInitData.title = 'title' + i;
-    currentInitData.content =
-      'Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,' +
-        'weebly ning heekya handango imeem plugg dopplr jibjab, ' +
-        'movityjajah plickers sifteo edmodo ifttt zimbra. ' +
-        'movityjajah plickers sifteo edmodo ifttt zimbra. ' +
-        'Babblely odeo kaboodle quora plaxo ideeli hulu weebly balihoo...' + i;
     var currentInitDataCopy = angular.copy(currentInitData);
     tempTimeLineData.push(angular.copy(currentInitData));
     tempTimeLineData.push(angular.copy(currentInitDataCopy));
@@ -984,4 +980,5 @@ var TimeLineDemoCtrl = function($scope, $filter) {
   );
   /*timeline的数据封装结束*/
 };
-adminuiApp.controller('TimepickerDemoCtrl', ['$scope', '$filter', TimeLineDemoCtrl]);
+adminuiApp.controller(
+  'TimepickerDemoCtrl', ['$scope', '$filter', TimeLineDemoCtrl]);
