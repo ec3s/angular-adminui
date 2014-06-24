@@ -984,4 +984,4 @@ var TimeLineDemoCtrl = function($scope, $filter) {
   );
   /*timeline的数据封装结束*/
 };
-adminuiApp.controller('TimepickerDemoCtrl', ['$scope', TimeLineDemoCtrl]);
+adminuiApp.controller('TimepickerDemoCtrl', ['$scope', '$filter', TimeLineDemoCtrl]);
