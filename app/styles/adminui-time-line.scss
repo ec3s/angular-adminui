@@ -38,6 +38,9 @@ Component: timeline
       padding: 5px;
       display: inline-block;
       background-color: #fff;
+      border: 1px solid #ddd;
+      margin-right: 10px;
+      margin-bottom: 15px;
     }
     & > ul {
       position: relative;
