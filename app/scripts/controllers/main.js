@@ -949,7 +949,6 @@ var TimeLineDemoCtrl = function($scope, $filter) {
   for (var i = 0; i < 5; i++) {
     var currentInitData = angular.copy(initData);
     currentInitData.user.name = 'john' + i;
-    currentInitData.user.avator = '';
     var t = new Date();
     currentInitData.time = new Date(t.setDate(t.getDate() - i));
     currentInitData.title = 'title' + i;
