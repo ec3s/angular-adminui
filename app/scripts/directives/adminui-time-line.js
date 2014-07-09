@@ -5,7 +5,7 @@
       'restrict': 'EA',
       replace: true,
       require: '^ngModel',
-      templateUrl:'../templates/adminui-time-line.html'
+      templateUrl:'templates/adminui-time-line.html'
     };
   };
   var AdminuiTimeLine =
