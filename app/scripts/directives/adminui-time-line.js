@@ -1,10 +1,18 @@
 (function(ng) {
   'use strict';
+  var TimeLine = function(){
+    return{
+      'restrict': 'EA',
+      replace: true,
+      require: '^ngModel',
+      templateUrl:'../templates/adminui-time-line.html'
+    };
+  };
   var AdminuiTimeLine =
     function($compile) {
     return {
       'restrict': 'EA',
-      replace: true,
+      replace: false,
       'scope': {
         'adminuiTimeLine': '=adminuiTimeLine'
       },
@@ -22,6 +30,10 @@
     };
   };
 
+  ng.module('ntd.directives')
+    .directive('timeLine',
+      [TimeLine]
+    );
   ng.module('ntd.directives')
     .directive('adminuiTimeLine',
       ['$compile', AdminuiTimeLine]

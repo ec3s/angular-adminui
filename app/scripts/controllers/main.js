@@ -1,7 +1,7 @@
 'use strict';
 adminuiApp
 .controller('MainCtrl', [
-  '$scope', '$window', '$location', function($scope, $window, $location) {
+  '$scope', '$window', '$location', '$filter', function($scope, $window, $location, $filter) {
   $scope.$location = $location;
   $scope.name = 'Nobody';
   $scope.sayHello = function(name) {
@@ -35,6 +35,61 @@ adminuiApp
     { caption: 'Bandwidth', percent: 77, usage: '1.5TB'}
   ];
   $scope.alert = {};
+  /**
+   * timeLine的数据准备开始
+   * @type {{user: {name: string, avator: string}, time: string, title: string, content: {list: number[]}, template: string}}
+   */
+  var initData = {
+    user: {
+      name: '',
+      avator: 'images/avatar.jpg'
+    },
+    time: '',
+    title: '',
+    content: {list: [1, 2, 3, 4, 5]},
+    template:
+      "<div><ul><li data-ng-repeat=\'item in list\'>{{item}}" +
+        "<a href=\'http://www.baidu.com\'>点击我</a></li></ul></div>"
+  };
+  $scope.timeLineDemoData = [];
+  $scope.timeLineDemoData2 = [];
+  var tempTimeLineData = [];
+  for (var i = 0; i < 5; i++) {
+    var currentInitData = angular.copy(initData);
+    currentInitData.user.name = 'john' + i;
+    if(i%2){
+      currentInitData.user.avator = null;
+    }
+    var t = new Date();
+    currentInitData.time = new Date(t.setDate(t.getDate() - i));
+    currentInitData.title = 'title' + i;
+    var currentInitDataCopy = angular.copy(currentInitData);
+    tempTimeLineData.push(angular.copy(currentInitData));
+    tempTimeLineData.push(angular.copy(currentInitDataCopy));
+  }
+  /*timeline的数据准备结束*/
+  /**
+   * timeline的数据封装开始
+   * @type {*}
+   */
+  tempTimeLineData = $filter('orderBy')(
+    tempTimeLineData, ['-time']);
+  var currentObj = {};
+  tempTimeLineData.forEach(
+    function(value, index) {
+      var currentTime = $filter('date')(value.time, 'yyyy-MM-dd');
+      if (!currentObj || currentObj.currentTime !== currentTime) {
+        currentObj = {currentObj: []};
+        currentObj.currentTime = angular.copy(currentTime);
+        currentObj.currentObj.push(angular.copy(value));
+        $scope.timeLineDemoData.push(currentObj);
+      }else {
+        currentObj.currentObj.push(angular.copy(value));
+      }
+    }
+  );
+  $scope.timeLineDemoData2 = angular.copy($scope.timeLineDemoData);
+  /*timeline的数据封装结束*/
 }]);
 
 var DatePickerCtrl = function($scope) {
@@ -926,58 +981,3 @@ var TimepickerDemoCtrl = function($scope) {
     $scope.mytime = null;
   };
 };
-adminuiApp.controller('TimepickerDemoCtrl', ['$scope', TimepickerDemoCtrl]);
-var TimeLineDemoCtrl = function($scope, $filter) {
-  /**
-   * timeLine的数据准备开始
-   * @type {{user: {name: string, avator: string}, time: string, title: string, content: {list: number[]}, template: string}}
-   */
-  var initData = {
-    user: {
-      name: '',
-      avator: 'images/avatar.jpg'
-    },
-    time: '',
-    title: '',
-    content: {list: [1, 2, 3, 4, 5]},
-    template:
-     "<div><ul><li data-ng-repeat=\'item in list\'>{{item}}" +
-       "<a href=\'http://www.baidu.com\'>点击我</a></li></ul></div>"
-  };
-  $scope.timeLineDemoData = [];
-  var tempTimeLineData = [];
-  for (var i = 0; i < 5; i++) {
-    var currentInitData = angular.copy(initData);
-    currentInitData.user.name = 'john' + i;
-    var t = new Date();
-    currentInitData.time = new Date(t.setDate(t.getDate() - i));
-    currentInitData.title = 'title' + i;
-    var currentInitDataCopy = angular.copy(currentInitData);
-    tempTimeLineData.push(angular.copy(currentInitData));
-    tempTimeLineData.push(angular.copy(currentInitDataCopy));
-  }
-  /*timeline的数据准备结束*/
-  /**
-   * timeline的数据封装开始
-   * @type {*}
-   */
-  tempTimeLineData = $filter('orderBy')(
-    tempTimeLineData, ['-time']);
-  var currentObj = {};
-  tempTimeLineData.forEach(
-    function(value, index) {
-      var currentTime = $filter('date')(value.time, 'yyyy-MM-dd');
-      if (!currentObj || currentObj.currentTime !== currentTime) {
-        currentObj = {currentObj: []};
-        currentObj.currentTime = angular.copy(currentTime);
-        currentObj.currentObj.push(angular.copy(value));
-        $scope.timeLineDemoData.push(currentObj);
-      }else {
-        currentObj.currentObj.push(angular.copy(value));
-      }
-    }
-  );
-  /*timeline的数据封装结束*/
-};
-adminuiApp.controller(
-  'TimepickerDemoCtrl', ['$scope', '$filter', TimeLineDemoCtrl]);
