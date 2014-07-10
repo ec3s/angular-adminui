@@ -28,11 +28,6 @@ Component: timeline
     position: relative;
     margin-right: 10px;
     margin-bottom: 15px;
-    & :after{
-      display: table;
-      content: " ";
-      clear: both;
-    };
     & > span {
       font-weight: 600;
       padding: 5px;

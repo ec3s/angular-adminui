@@ -2,14 +2,14 @@
   'use strict';
   var TimeLine = function() {
     return {
-      restrict: "E",
+      restrict: "EA",
       replace: true,
-      require:'^ngModel',
+      require: "^ngModel",
       templateUrl: "templates/adminui-time-line.html",
-      transclude: true,
-      link: function(scope, elem, attrs, ctrl) {
-        scope.timeLineDemoData = angular.copy(scope[attrs.ngModel]);
-      }
+      scope: {
+        timeLineDemoData: "=ngModel"
+      },
+      transclude: true
     };
   };
   var AdminuiTimeLine =
