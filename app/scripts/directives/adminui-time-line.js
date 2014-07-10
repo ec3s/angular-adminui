@@ -6,32 +6,29 @@
       replace: true,
       require: "^ngModel",
       templateUrl: "templates/adminui-time-line.html",
-      scope: {
-        timeLineDemoData: "=ngModel"
-      },
-      transclude: true
+      scope: true,
+      link: function(scope, elem, attrs) {
+        scope.timeLineDemoData = scope[attrs.ngModel];
+      }
     };
   };
   var AdminuiTimeLine =
     function($compile) {
-    return {
-      'restrict': 'EA',
-      replace: false,
-      'scope': {
-        'adminuiTimeLine': '=adminuiTimeLine'
-      },
-      transclude: true,
-      link: function(scope, elem, attrs) {
-        var currentHtml = null;
-        if (scope.adminuiTimeLine.hasOwnProperty('content') &&
-          ng.isObject(scope.adminuiTimeLine.content)) {
-          var contentScope = scope.$new(true);
-          ng.extend(contentScope, scope.adminuiTimeLine.content);
-          currentHtml = $compile(scope.adminuiTimeLine.template)(contentScope);
+      return {
+        restrict: "EA",
+        replace: true,
+        require: "^ngModel",
+        link: function(scope, elem, attrs) {
+          scope.adminuiTimeLine = scope[attrs.ngModel];
+          var currentHtml = null;
+          if (scope.adminuiTimeLine.hasOwnProperty("content") && ng.isObject(scope.adminuiTimeLine.content)) {
+            var contentScope = scope.$new(false);
+            ng.extend(contentScope, scope.adminuiTimeLine.content);
+            currentHtml = $compile(scope.adminuiTimeLine.template)(contentScope);
+          }
+          elem.append(currentHtml);
         }
-        elem.append(currentHtml);
-      }
-    };
+      };
   };
 
   ng.module('ntd.directives')
