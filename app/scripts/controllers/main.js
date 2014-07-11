@@ -51,8 +51,8 @@ adminuiApp
       "<div><ul><li data-ng-repeat=\'item in list\'>{{item}}" +
         "<a href=\'http://www.baidu.com\'>点击我</a></li></ul></div>"
   };
-  $scope.timeLineDemoData = [];
-  $scope.timeLineDemoData2 = [];
+  $scope.data = [];
+  $scope.data2 = [];
   var tempTimeLineData = [];
   for (var i = 0; i < 5; i++) {
     var currentInitData = angular.copy(initData);
@@ -67,28 +67,9 @@ adminuiApp
     tempTimeLineData.push(angular.copy(currentInitData));
     tempTimeLineData.push(angular.copy(currentInitDataCopy));
   }
+  $scope.data = angular.copy(tempTimeLineData);
   /*timeline的数据准备结束*/
-  /**
-   * timeline的数据封装开始
-   * @type {*}
-   */
-  tempTimeLineData = $filter('orderBy')(
-    tempTimeLineData, ['-time']);
-  var currentObj = {};
-  tempTimeLineData.forEach(
-    function(value, index) {
-      var currentTime = $filter('date')(value.time, 'yyyy-MM-dd');
-      if (!currentObj || currentObj.currentTime !== currentTime) {
-        currentObj = {currentObj: []};
-        currentObj.currentTime = angular.copy(currentTime);
-        currentObj.currentObj.push(angular.copy(value));
-        $scope.timeLineDemoData.push(currentObj);
-      }else {
-        currentObj.currentObj.push(angular.copy(value));
-      }
-    }
-  );
-  $scope.timeLineDemoData2 = angular.copy($scope.timeLineDemoData);
+  $scope.data2 = angular.copy($scope.data);
   /*timeline的数据封装结束*/
 }]);
 
