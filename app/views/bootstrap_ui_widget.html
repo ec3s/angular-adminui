@@ -468,3 +468,14 @@
         &lt;pagination total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" class="pagination-small" boundary-links="true" rotate="false" num-pages="numPages"&gt;&lt;/pagination&gt;
     &lt;/div&gt;
 </pre>
+
+<h3>jQuery-maskMoney examples</h3>
+
+
+<p>jQuery plugin to mask data entry in the input text in the form of money (currency). <a href="https://github.com/plentz/jquery-maskmoney">Project home @ github</a></p>
+<input type="text" id="demo1" ng-model="test"/>{{ test }}
+<script type="text/javascript">$("#demo1").maskMoney({prefix:'￥',allowZero:true});</script>
+<pre class="brush: js">$("#demo1").maskMoney({prefix:'￥',allowZero:true});</pre>
+
+<h3>angular-money-directive</h3>
+<input type="text" ng-model="model.price" money>{{ model.price }}

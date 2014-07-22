@@ -5,6 +5,7 @@ var adminuiApp = angular.module('adminuiApp', [
   'ntd.services',
   'ntd.directives',
   'ui.bootstrap',
+  'fiestah.money',
   'bootstrapPrettify'
 ]);
 
@@ -103,6 +104,11 @@ angular.module('ntd.directives').config(
             'name': 'timeLine组件',
             'url': '#/time-line',
             'children': null
+          },
+          {
+            'name': 'editor组件',
+            'url': '#/editor',
+            'children': null
           }
           ]
         },
@@ -192,9 +198,17 @@ adminuiApp
         templateUrl: 'views/time-line.html',
         controller: 'MainCtrl'
       })
+      .when('/editor', {
+        templateUrl: 'editr/test/index.html',
+        controller: 'MainCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
 
       //$locationProvider.html5Mode(true);
   }]);
+
+$('.editr').each(function() {
+  new Editr({ el: this });
+});
