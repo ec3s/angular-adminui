@@ -5,6 +5,8 @@
       restrict: 'A',
       require: 'ngModel',
       link: function($scope, $element, $attributes, ngModel) {
+        $element.attr('readonly', true);
+        $element.css('background-color', 'white');
         var options = {};
         options.format = $attributes.format || 'YYYY-MM-DD';
         options.separator = $attributes.separator || ' - ';
@@ -88,11 +90,10 @@
           };
 
           var resetBtn = ng.element('<button>清空</button>')
-            .addClass('btn btn-default').bind('click', function() {
+            .addClass('cancelBtn btn btn-default').bind('click', function() {
               $scope.$apply(function() {
                 ($parse($attributes.ngModel).assign)($scope, null);
               });
-              $element.data('daterangepicker').container.hide();
             });
           $element.data('daterangepicker')
             .container.find('.applyBtn').bind('click', function() {
