@@ -103,6 +103,11 @@ angular.module('ntd.directives').config(
             'name': 'timeLine组件',
             'url': '#/time-line',
             'children': null
+          },
+          {
+            'name': 'editor组件',
+            'url': '#/editor',
+            'children': null
           }
           ]
         },
