@@ -3,7 +3,7 @@
   var adminuiEditor = function($compile) {
     return {
       restrict: "EA",
-      templateUrl: "editr/test/index.html",
+      templateUrl: "templates/adminui-editor.html",
       scope: true,
       link: function(scope, elem, attrs) {
         $('.editr').each(function() {
