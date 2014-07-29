@@ -1,7 +1,7 @@
 'use strict';
 adminuiApp
 .controller('MainCtrl', [
-  '$scope', '$window', '$location', '$filter', function($scope, $window, $location, $filter) {
+  '$scope', '$window', '$location', '$filter', '$compile', function($scope, $window, $location, $filter, $compile) {
   $scope.$location = $location;
   $scope.name = 'Nobody';
   $scope.sayHello = function(name) {

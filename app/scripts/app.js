@@ -199,7 +199,7 @@ adminuiApp
         controller: 'MainCtrl'
       })
       .when('/editor', {
-        templateUrl: 'editr/test/index.html',
+        templateUrl: 'views/editor.html',
         controller: 'MainCtrl'
       })
       .otherwise({
@@ -208,7 +208,3 @@ adminuiApp
 
       //$locationProvider.html5Mode(true);
   }]);
-
-$('.editr').each(function() {
-  new Editr({ el: this });
-});
