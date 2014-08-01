@@ -20,7 +20,7 @@
     "chosen": "https://github.com/CandySunPlus/chosen0.13.0.git#master",
     "angular-route":"~1.2.4",
     "ng-bs-daterangepicker-plus": "~0.1.0",
-    "jquery-maskmoney": "git@github.com:plentz/jquery-maskmoney.git#master",
+    "angular-money-directive": "git@github.com:fiestah/angular-money-directive.git#master",
     "ace": "git@github.com:ajaxorg/ace-builds.git#master",
     "editr": "git://github.com/Idered/Editr.js.git#master",
     "angular-ui-bootstrap-bower": "0.10.0"
