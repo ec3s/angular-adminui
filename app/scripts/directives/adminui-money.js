@@ -1,18 +1,28 @@
 (function(ng){
   'use strict';
-  var money = function(flash) {
+  var money = function() {
     return function (scope, elem, attrs) {
-      var oldValue,newValue;
+      scope.flag = false;
+
+      var oldValue, newValue;
       var min = parseFloat(attrs.min || 0);
       var max = parseFloat(attrs.max || 0);
-      var precision = parseFloat(attrs.precision || 2);
+      var popEl = elem.popover({
+        "placement": "bottom",
+        "delay": 0,
+        "trigger": "input_err",
+        "content": "金钱不得大于最大值且小数点后最多只能有两位"
+      });
       var numberInput = function () {
         newValue = elem.val();
         var caretPos = getCaretPosition(elem[0]) || 0;
         if(newValue > max ||
           (newValue.split('\.')[1] && newValue.split('\.')[1].length > 2)) {
-          var infoMessage = newValue > max ? '金钱不得大于最大值' : '小数点后最多只能有两位';
-          flash.notify({state: 'error', info: infoMessage});
+          console.info(newValue);
+          console.info(max);
+          console.log(elem);
+          popEl.trigger("input_err");
+          scope.flag = true;
           setCaretPosition(this, caretPos-1);
           newValue = oldValue;
           elem.val(newValue);
@@ -20,7 +30,13 @@
         oldValue = newValue;
       };
 
+      var blurEventListener = function() {
+        //popEl.popover('destroy');
+        //popEl = null;
+      };
+
       elem.bind('input', numberInput);
+      elem.bind('blur', blurEventListener);
 
       var maxInitialize = function(value) {
         max = parseFloat(value || 0);
@@ -62,5 +78,5 @@
   };
   ng.module('money', ['fiestah.money'])
     .directive('money',
-      ['flash', money]);
+      [money]);
 })(angular);
