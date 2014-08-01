@@ -43,10 +43,11 @@
   <br/>
 </div>
 
-<h3>jQuery-maskMoney examples</h3>
-<p>jQuery plugin to mask data entry in the input text in the form of money (currency). <code><a href="https://github.com/plentz/jquery-maskmoney">Project home @ github</a></code></p>
-<p>为 <code>input</code>增加 <code>data-adminui-money</code>属性</p>
-<input type="text"ng-model="test" data-adminui-money />
+<h3>Money</h3>
+<p>为 <code>input</code>增加 <code>data-money</code>属性</p>
+<p>可以为其传入参数设置其最大值<code>data-max ="{{ test1 }}"</code></p>
+最大值设置:<input type="text" class="form-control"  data-ng-model="test1" />
+money组件:<input type="text" class="form-control"  data-ng-model="test2" data-money data-max="{{ test1 }}" />{{test2}}
 
 <h3>List</h3>
 <p>为<code>div</code>容器添加属性 <code>adminui-list</code>， 使用方式和 Select 一样，使用 <code>data-ng-options</code>进行项目的设定，使用<code>data-multiple="true"</code> 来设定是否支持多选，默认是单选的。通过<code>data-disabled="true"</code>来禁用列表，列表禁用后<code>ngModel</code>为之前选中的值。</p>
