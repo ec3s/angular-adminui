@@ -1,51 +1,60 @@
-(function(ng){
+(function(ng) {
   'use strict';
   var money = function() {
-    return function (scope, elem, attrs) {
-      scope.flag = false;
-
-      var oldValue, newValue;
-      var min = parseFloat(attrs.min || 0);
-      var max = parseFloat(attrs.max || 0);
+    return function(scope, elem, attrs) {
+      var oldValue, newValue, errorMsg;
+      var max = null;
+      if (attrs.max !== null) {
+        max = parseFloat(attrs.max);
+      }
+      var formatInvalidate = function(value) {
+        return value.split('.')[1] &&
+        value.split('.')[1].length > 2;
+      };
       var popEl = elem.popover({
-        "placement": "bottom",
-        "delay": 0,
-        "trigger": "input_err",
-        "content": "金钱不得大于最大值且小数点后最多只能有两位"
+        'placement': 'bottom',
+        'delay': 0,
+        'trigger': 'focus',
+        'content': function() {
+          return errorMsg;
+        }
       });
-      var numberInput = function () {
-        newValue = elem.val();
+      var numberInput = function() {
+        var val = elem.val();
+        newValue = parseFloat(val);
         var caretPos = getCaretPosition(elem[0]) || 0;
-        if(newValue > max ||
-          (newValue.split('\.')[1] && newValue.split('\.')[1].length > 2)) {
-          console.info(newValue);
-          console.info(max);
-          console.log(elem);
-          popEl.trigger("input_err");
-          scope.flag = true;
-          setCaretPosition(this, caretPos-1);
+        if ((max !== null && newValue > max) || formatInvalidate(val)) {
+          if (formatInvalidate(val)) {
+            errorMsg = '小数点后最多保留两位小数';
+          } else if (newValue > max) {
+            errorMsg = '金额不能大于最大值';
+          }
+          popEl.popover('show');
+          setCaretPosition(this, caretPos - 1);
           newValue = oldValue;
           elem.val(newValue);
+        } else {
+          popEl.popover('hide');
         }
         oldValue = newValue;
       };
 
-      var blurEventListener = function() {
-        //popEl.popover('destroy');
-        //popEl = null;
-      };
-
       elem.bind('input', numberInput);
-      elem.bind('blur', blurEventListener);
+
+      elem.bind('focus', function() {
+        if (popEl) {
+          popEl.popover('hide');
+        }
+      });
 
       var maxInitialize = function(value) {
-        max = parseFloat(value || 0);
+        max = value || null;
       };
 
       attrs.$observe('max', maxInitialize);
 
       function getCaretPosition(input) {
-        if (input.selectionStart !== undefined) {
+        if (!ng.isUndefined(input.selectionStart)) {
           return input.selectionStart;
         } else if (document.selection) {
           // Curse you IE
