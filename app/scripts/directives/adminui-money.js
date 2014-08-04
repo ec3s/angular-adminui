@@ -21,7 +21,7 @@
       });
       var numberInput = function() {
         var val = elem.val();
-        newValue = parseFloat(val);
+        newValue = parseFloat(val) || undefined;
         var caretPos = getCaretPosition(elem[0]) || 0;
         if ((max !== null && newValue > max) || formatInvalidate(val)) {
           if (formatInvalidate(val)) {
