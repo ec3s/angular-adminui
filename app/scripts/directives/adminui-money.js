@@ -85,7 +85,18 @@
       }
     }
   };
-  ng.module('money', ['fiestah.money'])
+  ng.module('ntd.directives')
     .directive('money',
       [money]);
+
+  var adminuiMoney = function() {
+    return{
+      restrict: "A",
+      templateUrl: "templates/replace-template.html",
+      replace: "true"
+    };
+  };
+  ng.module('ntd.directives')
+    .directive('adminuiMoney',
+      [adminuiMoney]);
 })(angular);
