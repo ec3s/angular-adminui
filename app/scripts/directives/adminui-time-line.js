@@ -1,6 +1,6 @@
 (function(ng) {
   'use strict';
-  var TimeLine = function($filter) {
+  var AdminuiTimeLine = function($filter) {
     return {
       restrict: "EA",
       replace: true,
@@ -28,7 +28,7 @@
       }
     };
   };
-  var AdminuiTimeLine =
+  var TimeLineTemplate =
     function($compile) {
       return {
         restrict: "EA",
@@ -48,11 +48,11 @@
   };
 
   ng.module('ntd.directives')
-    .directive('timeLine',
-      ['$filter', TimeLine]
+    .directive('adminuiTimeLine',
+      ['$filter', AdminuiTimeLine]
     );
   ng.module('ntd.directives')
-    .directive('adminuiTimeLine',
-      ['$compile', AdminuiTimeLine]
+    .directive('timeLineTemplate',
+      ['$compile', TimeLineTemplate]
     );
 })(angular);

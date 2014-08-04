@@ -5,8 +5,6 @@ var adminuiApp = angular.module('adminuiApp', [
   'ntd.services',
   'ntd.directives',
   'ui.bootstrap',
-  'fiestah.money',
-  'money',
   'bootstrapPrettify'
 ]);
 
