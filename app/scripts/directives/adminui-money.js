@@ -1,18 +1,15 @@
 (function(ng) {
   'use strict';
-  var money = function() {
-    return function(scope, elem, attrs) {
-      scope[attrs.ngModel] = scope[attrs.ngModel] || 0;
-      var oldValue, newValue, errorMsg;
-      var max = null;
-      if (attrs.max !== null) {
-        max = parseFloat(attrs.max);
-      }
-      var formatInvalidate = function(value) {
-        return value.split('.')[1] &&
-        value.split('.')[1].length > 2;
-      };
-      var popEl = elem.popover({
+  var adminuiMoney = function($parse) {
+    var NUMBER_REGEXP = /^\s*(\-|\+)?(\d+|(\d*(\.\d*)))\s*$/;
+
+    function link(scope, el, attrs, ngModelCtrl) {
+      var getter = $parse(attrs.ngModel);
+      (getter.assign)(scope, getter(scope) || 0);
+      var max,errorMsg,newValue,oldValue,lastValidValue;
+      var precision = parseFloat(attrs.precision || 2);
+      var min = parseFloat(attrs.min || 0);
+      var popEl = el.popover({
         'placement': 'bottom',
         'delay': 0,
         'trigger': 'focus',
@@ -20,10 +17,55 @@
           return errorMsg;
         }
       });
+
+      function formatPrecision(value) {
+        return parseFloat(value).toFixed(precision);
+      }
+
+      function formatViewValue(value) {
+        return ngModelCtrl.$isEmpty(value) ? 0 : 0 + value;
+      }
+
+      var formatInvalidate = function(value) {
+        return value.split('.')[1] &&
+          value.split('.')[1].length > 2;
+      };
+
+      ngModelCtrl.$parsers.push(function (value) {
+        // Handle leading decimal point, like ".5"
+        if (value.indexOf('.') === 0) {
+          value = '0' + value;
+        }
+
+        // Allow "-" inputs only when min < 0
+        if (value.indexOf('-') === 0) {
+          if (min >= 0) {
+            value = null;
+            ngModelCtrl.$setViewValue('');
+            ngModelCtrl.$render();
+          } else if (value === '-') {
+            value = '';
+          }
+        }
+
+        var empty = ngModelCtrl.$isEmpty(value);
+        if (empty || NUMBER_REGEXP.test(value)) {
+          lastValidValue = (value === '')
+            ? null
+            : (empty ? value : parseFloat(value));
+        } else {
+          // Render the last valid input in the field
+          ngModelCtrl.$setViewValue(formatViewValue(lastValidValue));
+          ngModelCtrl.$render();
+        }
+
+        ngModelCtrl.$setValidity('number', true);
+        return lastValidValue;
+      });
+
       var numberInput = function() {
-        var val = elem.val();
+        var val = el.val();
         newValue = parseFloat(val) || 0;
-        var caretPos = getCaretPosition(elem[0]) || 0;
         if ((max !== null && newValue > max) || formatInvalidate(val)) {
           if (formatInvalidate(val)) {
             errorMsg = '小数点后最多保留两位小数';
@@ -31,76 +73,60 @@
             errorMsg = '金额不能大于最大值';
           }
           popEl.popover('show');
-          setCaretPosition(this, caretPos - 1);
           newValue = oldValue;
-          elem.val(newValue);
+          el.val(newValue || 0);
         } else {
           var transformValue = newValue === 0 ?
             0 : val.substr(val.search(/[1-9]/));
-          elem.val(transformValue);
+          el.val(transformValue);
           popEl.popover('hide');
         }
         oldValue = newValue;
       };
 
-      elem.bind('input', numberInput);
+      var maxValidator = function(value) {
+        if (max !== null && value > max) {
+          ngModelCtrl.$setValidity('max', false);
+          return oldValue || 0;
+        } else {
+          ngModelCtrl.$setValidity('max', true);
+          return value || 0;
+        }
+      };
+      el.bind('input', numberInput);
+      var maxInitialize = function(value) {
+        max = parseFloat(value) ? value : null;
+        if(parseFloat(value) === 0 ){
+          max = value;
+        }
+      };
+      if (ng.isDefined(attrs.max)){
+        attrs.$observe('max', maxInitialize);
+        ngModelCtrl.$parsers.push(maxValidator);
+      }
 
-      elem.bind('focus', function() {
+      el.bind('focus', function() {
         if (popEl) {
           popEl.popover('hide');
         }
       });
-
-      var maxInitialize = function(value) {
-        max = value || null;
-      };
-
-      attrs.$observe('max', maxInitialize);
-
-      function getCaretPosition(input) {
-        if (!ng.isUndefined(input.selectionStart)) {
-          return input.selectionStart;
-        } else if (document.selection) {
-          // Curse you IE
-          input.focus();
-          var selection = document.selection.createRange();
-          selection.moveStart('character', -input.value.length);
-          return selection.text.length;
+      el.bind('blur', function () {
+        var value = ngModelCtrl.$modelValue;
+        if (value) {
+          ngModelCtrl.$viewValue = formatPrecision(value);
+          ngModelCtrl.$render();
         }
-        return 0;
-      }
+      });
 
-      function setCaretPosition(input, pos) {
-        if (input.offsetWidth === 0 || input.offsetHeight === 0) {
-          return; // Input's hidden
-        }
-        if (input.setSelectionRange) {
-          input.focus();
-          input.setSelectionRange(pos, pos);
-        }
-        else if (input.createTextRange) {
-          // Curse you IE
-          var range = input.createTextRange();
-          range.collapse(true);
-          range.moveEnd('character', pos);
-          range.moveStart('character', pos);
-          range.select();
-        }
-      }
     }
-  };
-  ng.module('ntd.directives')
-    .directive('money',
-      [money]);
 
-  var adminuiMoney = function() {
-    return{
-      restrict: "A",
-      templateUrl: "templates/replace-template.html",
-      replace: "true"
+    return {
+      restrict: 'A',
+      require: 'ngModel',
+      link: link
     };
   };
   ng.module('ntd.directives')
     .directive('adminuiMoney',
-      [adminuiMoney]);
+      ["$parse", adminuiMoney]);
 })(angular);
