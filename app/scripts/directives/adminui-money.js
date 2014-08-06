@@ -87,7 +87,7 @@
       var maxValidator = function(value) {
         if (max !== null && value > max) {
           ngModelCtrl.$setValidity('max', false);
-          return oldValue || 0;
+          return ngModelCtrl.$modelValue || 0;
         } else {
           ngModelCtrl.$setValidity('max', true);
           return value || 0;
