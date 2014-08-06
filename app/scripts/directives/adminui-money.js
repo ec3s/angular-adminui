@@ -6,7 +6,7 @@
     function link(scope, el, attrs, ngModelCtrl) {
       var getter = $parse(attrs.ngModel);
       (getter.assign)(scope, getter(scope) || 0);
-      var max,errorMsg,newValue,oldValue,lastValidValue;
+      var max,errorMsg,newValue,lastValidValue;
       var precision = parseFloat(attrs.precision || 2);
       var min = parseFloat(attrs.min || 0);
       var popEl = el.popover({
@@ -17,6 +17,11 @@
           return errorMsg;
         }
       });
+
+      function floor(num) {
+        var d = Math.pow(10, precision);
+        return Math.floor(num * d) / d;
+      }
 
       function formatPrecision(value) {
         return parseFloat(value).toFixed(precision);
@@ -73,15 +78,13 @@
             errorMsg = '金额不能大于最大值';
           }
           popEl.popover('show');
-          newValue = oldValue;
-          el.val(newValue || 0);
+          el.val(ngModelCtrl.$modelValue || 0);
         } else {
           var transformValue = newValue === 0 ?
             0 : val.substr(val.search(/[1-9]/));
           el.val(transformValue);
           popEl.popover('hide');
         }
-        oldValue = newValue;
       };
 
       var maxValidator = function(value) {
@@ -110,6 +113,17 @@
           popEl.popover('hide');
         }
       });
+
+      // floor off
+      if (precision > -1) {
+        ngModelCtrl.$parsers.push(function (value) {
+          return value ? floor(value) : value;
+        });
+        ngModelCtrl.$formatters.push(function (value) {
+          return value ? formatPrecision(value) : value;
+        });
+      }
+
       el.bind('blur', function () {
         var value = ngModelCtrl.$modelValue;
         if (value) {
