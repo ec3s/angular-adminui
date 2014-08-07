@@ -29,20 +29,29 @@
     };
   };
   var TimeLineTemplate =
-    function($compile) {
+    function($http, $q, $compile, $templateCache) {
       return {
         restrict: "EA",
         replace: true,
         require: "^ngModel",
         link: function(scope, elem, attrs) {
           scope.adminuiTimeLine = scope[attrs.ngModel];
+          var getTemplatePromise = function(options) {
+            return options.template ? $q.when(options.template) : $http.get(options.templateUrl, {
+              cache: $templateCache
+            }).then(function(result) {
+              return result.data;
+            });
+          };
           var currentHtml = null;
           if (scope.adminuiTimeLine.hasOwnProperty("content") && ng.isObject(scope.adminuiTimeLine.content)) {
             var contentScope = scope.$new(false);
             ng.extend(contentScope, scope.adminuiTimeLine.content);
-            currentHtml = $compile(scope.adminuiTimeLine.template)(contentScope);
+            getTemplatePromise(scope.adminuiTimeLine).then(function(value) {
+              currentHtml = $compile(value)(contentScope);
+              elem.append(currentHtml);
+            });
           }
-          elem.append(currentHtml);
         }
       };
   };
@@ -53,6 +62,6 @@
     );
   ng.module('ntd.directives')
     .directive('timeLineTemplate',
-      ['$compile', TimeLineTemplate]
+      ['$http', '$q', '$compile', '$templateCache', TimeLineTemplate]
     );
 })(angular);
