@@ -28,7 +28,7 @@
       }
 
       function formatViewValue(value) {
-        return ngModelCtrl.$isEmpty(value) ? 0 : 0 + value;
+        return ngModelCtrl.$isEmpty(value) ? "" : "" + value;
       }
 
       var formatInvalidate = function(value) {
