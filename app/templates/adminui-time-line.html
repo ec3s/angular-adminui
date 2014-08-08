@@ -25,7 +25,7 @@
                                 <div data-ng-if = "timeLine.template || timeLine.templateUrl" class="timeline-body">
                                     <div data-time-line-template data-ng-model="timeLine"></div>
                                 </div>
-                                <div data-ng-if = "!timeLine.template && timeLine.templateUrl" class="timeline-body">
+                                <div data-ng-if = "!timeLine.template && !timeLine.templateUrl" class="timeline-body">
                                       {{timeLine.content}}
                                 </div>
                             </div>
