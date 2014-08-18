@@ -73,8 +73,12 @@
           }
         });
 
-        $rootScope.$on('flushNavStatus', function() {
+        $rootScope.$on('$routeChangeError', function() {
           selectPath(scope, '/_default_');
+        });
+
+        $rootScope.$on('selectPath', function(path) {
+          selectPath(scope, path);
         });
 
         /* bind menu select func */
