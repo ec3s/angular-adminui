@@ -1,14 +1,15 @@
 @media (max-width: 768px) {
 
-
     .easy-pie-chart-widget {
         text-align: center;
     }
+
     .info-box {
         .stat {
             margin: 10px 0;
         }
     }
+
     .page-404 {
         width: auto;
     }
@@ -86,6 +87,10 @@
         a {
           color: #fff;
         }
+      }
+      li.nav-plugin {
+          float: none;
+          margin: 5px 0 0; 
       }
     }
 

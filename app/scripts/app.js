@@ -12,6 +12,9 @@ adminuiApp.run(['$rootScope', function($rootScope) {
   $rootScope.userInfo = {
     'username': 'N/A'
   };
+  $rootScope.pluginInfo = {
+    'template': '<div><input placeholder="插件演示" style="margin: 2px 0" class="form-control input-sm" type="text"/></div>'
+  };
 }]);
 angular.module('ntd.directives').constant('SYS', {
   'host': 'http://sys.systems.dev.me'
