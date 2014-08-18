@@ -12,8 +12,7 @@
         var tempTimeLineData = scope[attrs.ngModel];
         tempTimeLineData = $filter('orderBy')(tempTimeLineData, ['-time']);
         var currentObj = {};
-        tempTimeLineData.forEach(
-          function(value, index) {
+        ng.forEach(tempTimeLineData, function(value, index) {
             var currentTime = $filter('date')(value.time, 'yyyy-MM-dd');
             if (!currentObj || currentObj.currentTime !== currentTime) {
               currentObj = {currentObj: []};
