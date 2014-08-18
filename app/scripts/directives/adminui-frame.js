@@ -73,6 +73,10 @@
           }
         });
 
+        $rootScope.$on('flushNavStatus', function() {
+          selectPath(scope, '/_default_');
+        });
+
         /* bind menu select func */
         scope.select = ng.bind(scope, select, $timeout, elem);
         /* bind submenu toggle */
@@ -99,6 +103,12 @@
   };
 
   var initNav = function(scope, $http, $route, SYS, navigation, currentPath) {
+    navigation.children.push({
+      'name': 'default',
+      'show': false,
+      'url': '/_default_',
+      'children': null
+    });
     $http.jsonp(
       SYS.host + '/api/systems?callback=JSON_CALLBACK'
     ).then(function(res) {
