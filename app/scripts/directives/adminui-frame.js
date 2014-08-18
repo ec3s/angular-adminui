@@ -82,7 +82,7 @@
           selectPath(scope, '/_default_');
         });
 
-        $rootScope.$on('selectPath', function(path) {
+        $rootScope.$on('selectPath', function(evt, path) {
           selectPath(scope, path);
         });
 
