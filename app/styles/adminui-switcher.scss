@@ -86,13 +86,13 @@
 
 .switcher-lg {
     &.adminui-switcher-container {
-        @include border-radius($border-radius-large);
+        @include border-radius(20px);
         .on-label, .off-label, .divider {
-            @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+            @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, 19px);
         }
         .on-label, .off-label {
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: 15px;
+            padding-right: 15px;
         }
         .divider {
         }
@@ -101,13 +101,13 @@
 
 .switcher-sm, .switcher-xs {
     &.adminui-switcher-container {
-        @include border-radius($border-radius-small);
+        @include border-radius(14px);
         .on-label, .off-label, .divider {
-            @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+            @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, 13px) 
         }
         .on-label, .off-label {
-            padding-left: 15px;
-            padding-right: 15px;
+            padding-left: 10px;
+            padding-right: 10px;
         }
         .divider {
         }
@@ -120,8 +120,8 @@
             padding: 1px 5px;
         }
         .on-label, .off-label {
-            padding-left: 10px;
-            padding-right: 10px;
+            padding-left: 7px;
+            padding-right: 7px;
         }
         .divider {
             padding: 1px 6px;

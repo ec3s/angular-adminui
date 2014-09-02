@@ -85,6 +85,15 @@ body.padding-submenu {
                     content: none !important; 
                 }
             }
+            &.nav-plugin {
+                margin: 0;
+                padding: 0;
+                float: right;
+                display: block;
+                height: 34px;
+                line-height: 34px;
+                overflow: hidden;
+            }
         }
     }
     .sub-navbar-back {

@@ -2,7 +2,7 @@
   'use strict';
   var AdminuiFrame = function(
     adminuiFrameProvider, $rootScope, $location,
-    $timeout, $modal, $http, $route, SYS, flash) {
+    $timeout, $modal, $http, $route, $parse, $sce, SYS, flash) {
     return {
       restrict: 'A',
       templateUrl: 'templates/adminui-frame.html',
@@ -26,6 +26,11 @@
         scope.navigation = adminuiFrameProvider.navigation;
         /* init messages */
         scope.messages = scope.messages ? scope.messages : [];
+
+        scope.plugin = attrs['plugin'] ?
+          $parse(attrs['plugin'])(scope.$root) : {};
+
+        scope.pluginEl = null;
         /* init common menus */
         scope.commonMenus = [];
         /* init account system host */
@@ -56,7 +61,7 @@
 
         /* init navigation from systems */
         initNav(
-          scope, $http, $route, SYS,
+          scope, $http, $route, $sce, SYS,
           adminuiFrameProvider.navigation, $location.path()
         );
 
@@ -71,6 +76,14 @@
           if (scope.isInited) {
             parseNavUrl(scope.navigation, $route);
           }
+        });
+
+        $rootScope.$on('$routeChangeError', function() {
+          selectPath(scope, '/_default_');
+        });
+
+        $rootScope.$on('selectPath', function(evt, path) {
+          selectPath(scope, path);
         });
 
         /* bind menu select func */
@@ -98,7 +111,18 @@
     };
   };
 
-  var initNav = function(scope, $http, $route, SYS, navigation, currentPath) {
+  var initNav = function(scope, $http, $route, $sce,
+                         SYS, navigation, currentPath) {
+
+    navigation.children.push({
+      'name': 'default',
+      'show': false,
+      'url': '/_default_',
+      'children': null
+    });
+
+    scope.pluginEl = initPlugin($sce, scope);
+
     $http.jsonp(
       SYS.host + '/api/systems?callback=JSON_CALLBACK'
     ).then(function(res) {
@@ -143,6 +167,13 @@
       /* fetch common menu */
       fetchCommonMenus($http, scope);
     });
+  };
+
+  var initPlugin = function($sce, scope) {
+    var plugin = scope.plugin;
+    if (plugin.hasOwnProperty('template')) {
+      return $sce.trustAsHtml(plugin.template);
+    }
   };
 
   var hasSameMenu = function($scope, url) {
@@ -469,7 +500,8 @@
   ng.module('ntd.directives').directive(
     'adminuiFrame',
     ['adminuiFrame', '$rootScope', '$location',
-      '$timeout', '$modal', '$http', '$route', 'SYS', 'flash', AdminuiFrame]
+      '$timeout', '$modal', '$http', '$route', '$parse',
+      '$sce', 'SYS', 'flash', AdminuiFrame]
   );
   ng.module('ntd.directives').controller(
     'CommonMenuDialogCtrl',
