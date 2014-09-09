@@ -739,3 +739,10 @@ img {
         width: 32px;
     }
 }
+input {
+  &.number,
+  &.money{
+    @extend .text-right;
+  }
+}
+
