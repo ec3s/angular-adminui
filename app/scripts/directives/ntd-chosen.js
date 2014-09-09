@@ -28,7 +28,7 @@
         var multiple = attrs.multiple || null;
         var oldSearch = '';
         var initOptions;
-        var disableSearchThreshold = attrs.disableSearchThreshold || 0;
+        var disableSearchThreshold = attrs.disableSearchThreshold || 10;
         var allowSingleDeselect = attrs.allowSingleDeselect || false;
         allowSingleDeselect = allowSingleDeselect == 'true';
 
