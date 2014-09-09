@@ -1,0 +1,130 @@
+.adminui-switcher-container {
+    vertical-align: middle;
+    @include border-radius($border-radius-base);
+    overflow: hidden;
+    display: inline-block;
+    &.disabled {
+        @include transition(0.2s linear all);
+        background-color: $gray-lighter !important;
+        .adminui-switcher-inner {
+            .on-label, .off-label, .divider {
+                cursor: not-allowed;
+            }
+        }
+    }
+    &.on {
+        @include transition(0.2s linear all);
+        background-color: $brand-primary;
+    }
+    &.off {
+        @include transition(0.2s linear all);
+        background-color: $input-border;
+    }
+    .adminui-switcher-inner {
+        padding: 1px;
+        position: relative;
+        .on-label, .off-label, .divider {
+            cursor: pointer;
+            @include opacity(1);
+            @include user-select(none);
+            @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+            float: left;
+            text-align: center;
+        }
+        .on-label, .off-label {
+            padding-left: 17px;
+            padding-right: 17px;
+            color: #fff;
+        }
+        .divider {
+            background-color: #fff;
+            &:after {
+                content: ' ';
+                padding-left: 4px;
+                padding-right: 4px;
+            }
+        }
+        &:after {
+            content: ' ';
+            clear: both;
+            display: table;
+        }
+    }
+}
+
+.switcher-success {
+    &.adminui-switcher-container {
+        &.on {
+            background-color: $brand-success;
+        }
+    }
+
+}
+.switcher-warning {
+    &.adminui-switcher-container {
+        &.on {
+            background-color: $brand-warning;
+        }
+    }
+
+}
+.switcher-info {
+    &.adminui-switcher-container {
+        &.on {
+            background-color: $brand-info;
+        }
+    }
+
+}
+.switcher-danger {
+    &.adminui-switcher-container {
+        &.on {
+            background-color: $brand-danger;
+        }
+    }
+}
+
+.switcher-lg {
+    &.adminui-switcher-container {
+        @include border-radius(20px);
+        .on-label, .off-label, .divider {
+            @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, 19px);
+        }
+        .on-label, .off-label {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .divider {
+        }
+    }
+}
+
+.switcher-sm, .switcher-xs {
+    &.adminui-switcher-container {
+        @include border-radius(14px);
+        .on-label, .off-label, .divider {
+            @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, 13px) 
+        }
+        .on-label, .off-label {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .divider {
+        }
+    }
+}
+
+.switcher-xs {
+    &.adminui-switcher-container {
+        .on-label, .off-label, .divider {
+            padding: 1px 5px;
+        }
+        .on-label, .off-label {
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+        .divider {
+            padding: 1px 6px;
+        }
+    }
+}

@@ -12,7 +12,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
     <!-- build:css styles/components.css -->
-    <link rel="stylesheet" href="components/bootstrap-datepicker/css/datepicker.css" />
     <link rel="stylesheet" href="components/bootstrap-timepicker/css/bootstrap-timepicker.css" />
     <link rel="stylesheet" href="components/jquery.easy-pie-chart/jquery.easy-pie-chart.css" />
     <link rel="stylesheet" href="components/chosen/chosen.css" />
@@ -25,7 +24,6 @@
     <!-- build:css({.tmp, app}) styles/docs.css -->
     <link rel="stylesheet" href="styles/example.css">
     <link rel="stylesheet" href="styles/prettify.css" />
-    <!-- <link href="components/bootstrap-sass/assets/css/docs.css" rel="stylesheet"> -->
     <!-- endbuild -->
 
   </head>
@@ -42,7 +40,7 @@
     <!-- endbuild -->
 
     <!-- Add your site or application content here -->
-    <div data-adminui-frame messages="{}" user-info="userInfo">
+    <div data-adminui-frame messages="{}" plugin="pluginInfo" user-info="userInfo">
       <div data-ng-view></div>
     </div>
 
@@ -53,7 +51,6 @@
     <script src="components/angular-resource/angular-resource.js"></script>
     <script src="components/angular-cookies/angular-cookies.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="components/angular-ui-bootstrap-bower/ui-bootstrap.js"></script>
     <script src="components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
     <script src="components/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
     <script src="components/footable/js/footable.js"></script>
@@ -66,8 +63,14 @@
 
 
     <!-- build:js scripts/angular-adminui.js -->
+    <script src="components/momentjs/moment.js"></script>
+    <script src="components/momentjs/lang/zh-cn.js"></script>
+    <script src="components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="components/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js"></script>
+    <script src="components/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="scripts/services/services.js"></script>
     <script src="scripts/directives/ntd-ui-directive.js"></script>
+    <script src="scripts/decorators/modal.js"></script>
     <script src="scripts/directives/adminui-frame.js"></script>
     <script src="scripts/directives/adminui-load-backdrop.js"></script>
     <script src="scripts/directives/ntd-advance-filter.js"></script>
@@ -88,10 +91,15 @@
     <script src="scripts/directives/ntd-field-error.js"></script>
     <script src="scripts/directives/ntd-notice.js"></script>
     <script src="scripts/directives/ntd-flash-message.js"></script>
-    <script src="scripts/directives/ntd-switcher.js"></script>
     <script src="scripts/directives/adminui-checkbox-group.js"></script>
     <script src="scripts/directives/adminui-pagination.js"></script>
     <script src="scripts/directives/adminui-finder.js"></script>
+    <script src="scripts/directives/adminui-switcher.js"></script>
+    <script src="scripts/directives/adminui-list.js"></script>
+    <script src="scripts/directives/adminui-daterangepicker.js"></script>
+    <script src="scripts/directives/adminui-datepicker.js"></script>
+    <script src="scripts/directives/adminui-time-line.js"></script>
+    <script src="scripts/directives/adminui-money.js"></script>
     <!-- endbuild -->
 
     <!-- build:js scripts/angular-adminui-main.js -->

@@ -13,7 +13,7 @@
  *
  * multiple 模式下 autocomplete 完成 beta
  *
- * @author Fengming Sun<sunfengming@ec3s.com>
+ * @author sunfengming@ec3s.com (Fengming Sun)
  */
 (function(app, ng) {
   'use strict';
@@ -28,18 +28,24 @@
         var multiple = attrs.multiple || null;
         var oldSearch = '';
         var initOptions;
-        var disableSearchThreshold = attrs.disableSearchThreshold || 0;
+        var disableSearchThreshold = attrs.disableSearchThreshold || 10;
         var allowSingleDeselect = attrs.allowSingleDeselect || false;
-        allowSingleDeselect = allowSingleDeselect == 'true' ? true : false;
+        allowSingleDeselect = allowSingleDeselect == 'true';
 
         // init chosen
         var options = {
           disable_search_threshold: disableSearchThreshold
         };
+        var originStyleClass = elem.attr('class').split(' ')
+          .filter(function(item) {
+            item = $.trim(item);
+            return (item != 'ntd-chosen' &&
+              item.match(/^ng\-.*$/) === null);
+          });
         var chosenEl = elem.chosen(options);
         var chosen = chosenEl.data('chosen');
-        // fix for responsive
-        chosen.container.css('max-width', chosenEl.css('width'));
+        chosen.container.css('width', '');
+        chosen.container.addClass(originStyleClass.join(' '));
         var selected_options = {};
         var searchTxt = scope.$new(false);
 
@@ -127,8 +133,10 @@
         chosenEl.bind('liszt:hiding_dropdown', function(e) {
           if (!chosen.active_field && ng.isArray(initOptions)) {
             optionsModelSetter(scope, initOptions);
-            searchTxt.$search = '';
-            searchTxt.$apply();
+            searchTxt.$apply(function() {
+              searchTxt.$search = '';
+              oldSearch = '';
+            });
             $timeout(function() {
               chosenEl.trigger('liszt:updated');
               chosen.search_field.val(searchTxt.$search);
@@ -238,7 +246,7 @@
           chosen.search_field.bind('keyup', function(e) {
             if (chosen && chosen.results_showing) {
               searchTxt.$search = chosen.get_search_text();
-              $timeout(function(){
+              $timeout(function() {
                   if (oldSearch != searchTxt.$search) {
                     oldSearch = searchTxt.$search;
                     chosenEl.trigger('liszt:load_data', {
@@ -246,7 +254,7 @@
                       optionsModelName: optionsModelName
                     });
                   }
-              },500);            
+              },500);
             }
           });
         }
@@ -287,7 +295,7 @@
           }
           initOptions();
           changeSelect();
-        });
+        }, true);
 
         var initOptions = function() {
           baseLevels = [];

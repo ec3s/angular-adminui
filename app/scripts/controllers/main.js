@@ -1,7 +1,7 @@
 'use strict';
 adminuiApp
 .controller('MainCtrl', [
-  '$scope', '$window', '$location', function($scope, $window, $location) {
+  '$scope', '$window', '$location', '$filter', function($scope, $window, $location, $filter) {
   $scope.$location = $location;
   $scope.name = 'Nobody';
   $scope.sayHello = function(name) {
@@ -35,7 +35,125 @@ adminuiApp
     { caption: 'Bandwidth', percent: 77, usage: '1.5TB'}
   ];
   $scope.alert = {};
+  /**
+   * timeLine的数据准备开始
+   * @type {{user: {name: string, avator: string}, time: string, title: string, content: {list: number[]}, template: string}}
+   */
+  var initData = {
+    user: {
+      name: '',
+      avator: 'images/avatar.jpg'
+    },
+    time: '',
+    title: '',
+    content: {list: [1, 2, 3, 4, 5]},
+    template:
+      "<div><ul><li data-ng-repeat=\'item in list\'>{{item}}" +
+        "<a href=\'http://www.baidu.com\'>点击我</a></li></ul></div>"
+  };
+  $scope.data = [];
+  $scope.data2 = [];
+  var tempTimeLineData = [];
+  for (var i = 0; i < 5; i++) {
+    var currentInitData = angular.copy(initData);
+    currentInitData.user.name = 'john' + i;
+    if(i%2){
+      currentInitData.user.avator = null;
+    }
+    var t = new Date();
+    currentInitData.time = new Date(t.setDate(t.getDate() - i));
+    currentInitData.title = 'title' + i;
+    var currentInitDataCopy = angular.copy(currentInitData);
+    tempTimeLineData.push(angular.copy(currentInitData));
+    tempTimeLineData.push(angular.copy(currentInitDataCopy));
+  }
+  $scope.data = angular.copy(tempTimeLineData);
+  /*timeline的数据准备结束*/
+  $scope.data2 = angular.copy($scope.data);
+  /*timeline的数据封装结束*/
 }]);
+
+var DatePickerCtrl = function($scope) {
+
+};
+adminuiApp.controller('DatePickerCtrl', ['$scope', DatePickerCtrl]);
+
+var DateRangePickerCtrl = function($scope) {
+  $scope.myDateRange = {
+    startDate: moment('2014-04-20'),
+    endDate: moment('2014-05-25')
+  };
+  $scope.clear = function() {
+    $scope.myDateRange1 = null;
+  };
+  $scope.ranges = {
+    'Today': [moment(), moment()],
+    'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+    'Last 7 days': [moment().subtract('days', 7), moment()],
+    'Last 30 days': [moment().subtract('days', 30), moment()],
+    'This month': [moment().startOf('month'), moment().endOf('month')]
+  };
+  $scope.locale = {
+    applyLabel: '应用',
+    cancelLabel: '取消',
+    fromLabel: '从',
+    toLabel: '到',
+    weekLabel: '周',
+    customRangeLabel: '预定义区间'
+  };
+};
+adminuiApp.controller('DateRangePickerCtrl', ['$scope', DateRangePickerCtrl]);
+
+
+var ListCtrl = function($scope) {
+  $scope.change = function() {
+    console.log('changed');
+  };
+  $scope.disable = function() {
+    $scope.disabled = !$scope.disabled;
+  };
+  $scope.list = [
+    {'text': 'item one', 'id': 1},
+    {'text': 'item two', 'id': 2},
+    {'text': 'item three', 'id': 3},
+    {'text': 'item four', 'id': 4},
+    {'text': 'item five', 'id': 5},
+    {'text': 'item six', 'id': 6}
+  ];
+  var obj = {
+    'im1': {'name': 'item one'},
+    'im2': {'name': 'item two'},
+    'im3': {'name': 'item three'},
+    'im4': {'name': 'item four'},
+    'im5': {'name': 'item five'}
+  };
+  var obj1 = {
+    'it1': {'name': 'other item one'},
+    'it2': {'name': 'other item two'},
+    'it3': {'name': 'other item three'},
+    'it4': {'name': 'other item four'},
+    'it5': {'name': 'other item five'}
+  };
+  $scope.selected = $scope.list[2];
+  $scope.obj = obj;
+  var status = 'obj';
+  $scope.changeSelected = function()
+  {
+    $scope.selected = $scope.list[1];
+  };
+  $scope.changeSource = function() {
+    if (status == 'obj') {
+      $scope.obj = obj1;
+      status = 'obj1';
+    } else {
+      $scope.obj = obj;
+      status = 'obj';
+    }
+  };
+};
+
+adminuiApp.controller('ListCtrl', ['$scope', ListCtrl]);
+
 /* for checkbox group */
 var checkboxGroupCtrl = function($scope) {
   $scope.checkboxGroupData = {
@@ -83,25 +201,30 @@ adminuiApp.controller('paginationCtrl', [
 
 /* for chosen */
 var chosenCtrl = function($scope, $http, $q) {
+  $scope.isShow = false;
   $scope.options = this.getOptions();
   $scope.optionPromise = angular.bind(this, this.getOptionPromise, $http, $q);
   $scope.tags = [
     {'name': 'tag0', 'id': 1, 'editable': true, 'deletable': false},
     'tag1', 'tag2',
     {'name': 'tag3', 'id': 1, 'editable': true, 'deletable': false}];
-    $scope.linkages = [{
-      id: 1,
-      name: 'bb',
-      children: [
-        {id: 2, name: 'aa', children: [
+  $scope.linkages = [{
+    id: 1,
+    name: 'bb',
+    children: [
+      {id: 2, name: 'aa', children: [
         {id: 3, name: 'vv'}
       ]}
-      ]
-    }];
+    ]
+  }];
+
+  $scope.show = function() {
+    $scope.isShow = !$scope.isShow;
+  }
 };
 
 chosenCtrl.prototype.getOptionPromise = function($http, $q, search) {
-  var deferred = $q.defer();
+/*  var deferred = $q.defer();
   $http.jsonp(
     'http://api.rottentomatoes.com/api/public/v1.0/movies.json?q=' +
     search + '&apikey=ju6z9mjyajq2djue3gbvv26t&page_limit=10&page=1' +
@@ -112,6 +235,25 @@ chosenCtrl.prototype.getOptionPromise = function($http, $q, search) {
     deferred.reject(error);
   });
 
+  return deferred.promise;*/
+  var deferred = $q.defer();
+  var data = {
+    movies: [
+      {title: '1', name: 'CN', id: 'a'},
+      {title: '11', name: 'CNaa', id: 'b'},
+      {title: '111', name: 'CNaas', id: 'c'},
+      {title: '2', name: 'JP', id: 'd'},
+      {title: '3', name: 'EN', id: 'e'},
+      {title: '4', name: 'AU', id: 'f'},
+      {title: '5', name: 'DE', id: 'g'}
+    ]};
+  var currentArray = [];
+  angular.forEach(data.movies, function(value) {
+    if (value.title.match(search) && search !== '') {
+      currentArray.push(value);
+    }
+  });
+  deferred.resolve(currentArray);
   return deferred.promise;
 };
 
@@ -628,15 +770,24 @@ adminuiApp
 }])
 .controller('chosenCtrl', ['$scope', '$http', '$q', chosenCtrl])
 .controller('switcherCtrl', ['$scope', function($scope) {
-  $scope.opened = 'open';
-  $scope.click = function(event) {
-    console.log(event);
+  $scope.switch = true;
+  $scope.uswitch = false;
+  $scope.isDisabled = true;
+  $scope.click = function(evt) {
+    if (evt.type == 'SWITCHER_CLICK') {
+      evt.switched(function(value, oldValue) {
+        console.log('switcher switch done');
+        $scope.switch = oldValue;
+      });
+      console.log(evt);
+    }
   };
-  $scope.change = function(event) {
-    console.log(event);
+  $scope.change = function(evt) {
+    $scope.uswitch = evt.oldValue;
+    console.log(evt);
   };
-  $scope.do = function() {
-    $scope.opened = ($scope.opened == 'open') ? 'close' : 'open';
+  $scope.disabled = function() {
+    $scope.isDisabled = !$scope.isDisabled;
   };
 }])
 .controller('flashMessageCtrl', [
@@ -669,6 +820,26 @@ var ModalDemoCtrl = function($scope, $modal, $log) {
     'Cancel' + '</button>' +
     '</div>';
   $scope.items = ['item1', 'item2', 'item3'];
+  $scope.open2 = function() {
+
+    var modalInstance = $modal.open({
+      // templateUrl: 'myModalContent.html',
+      template: t,
+      controller: 'ModalInstanceCtrl',
+      loader: false,
+      resolve: {
+        items: function() {
+          return $scope.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function(selectedItem) {
+      $scope.selected = selectedItem;
+    }, function() {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
   $scope.open = function() {
 
     var modalInstance = $modal.open({
@@ -676,9 +847,14 @@ var ModalDemoCtrl = function($scope, $modal, $log) {
       template: t,
       controller: 'ModalInstanceCtrl',
       resolve: {
-        items: function() {
-          return $scope.items;
-        }
+        items: ['$q', function($q) {
+          var deferred = $q.defer();
+          /* mock remote data with delay */
+          setTimeout(function() {
+            deferred.resolve($scope.items);
+          }, 3000);
+          return deferred.promise;
+        }]
       }
     });
 
@@ -710,7 +886,7 @@ var ModalInstanceCtrl = function($scope, $modalInstance, items) {
 };
 
 adminuiApp.controller('ModalInstanceCtrl', [
-  '$scope', '$modalInstance', 'items'
+  '$scope', '$modalInstance', 'items', ModalInstanceCtrl
 ]);
 var DatepickerDemoCtrl = function($scope, $timeout) {
   $scope.today = function() {
@@ -786,4 +962,3 @@ var TimepickerDemoCtrl = function($scope) {
     $scope.mytime = null;
   };
 };
-adminuiApp.controller('TimepickerDemoCtrl', ['$scope', TimepickerDemoCtrl]);

@@ -9,7 +9,7 @@ $gray-lighter: #eee;
     border: 1px solid #ccc;
     font-weight: normal;
     height: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
 
     @include border-radius(4px);

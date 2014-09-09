@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h3>将当前地址加入常用菜单</h3>
+</div>
+<div class="modal-body" data-ng-keypress="add($event)" >
+  <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="">地址</label>
+        <div class="col-sm-9"><input class="form-control input-sm" type="text" data-ng-model="menu.link" readonly></div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="">名称</label>
+        <div class="col-sm-9"><input class="form-control input-sm" type="text" data-ng-model="menu.name"></div>
+      </div>
+  </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" data-ng-click="add($event)">添加</button>
+    <button class="btn btn-default" data-ng-click="cancel($event)">取消</button>
+</div>

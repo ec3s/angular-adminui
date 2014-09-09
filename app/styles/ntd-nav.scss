@@ -1,4 +1,7 @@
 $active-menu-color: #428bcb;
+body.padding-submenu {
+  padding-top: 100px;
+}
 .nav li.dropdown.open .caret, .nav li.dropdown.open.active .caret, .nav li.dropdown.open a:hover .caret {
     opacity: 0.4;
 }
@@ -14,10 +17,10 @@ $active-menu-color: #428bcb;
         
         font-family: 'good_timesregular';
         font-size: 20px;
-
         margin-right: 20px;
-
         color: #000;
+        overflow: hidden;
+        height: 50px;
         text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
         @include transition-property(all);
         @include transition-duration(.2s);
@@ -66,6 +69,9 @@ $active-menu-color: #428bcb;
         right: 15px;
         margin-bottom: 0;
         z-index: 500;
+        &.no-parent {
+            margin-top: 50px;
+        }
         li {
             &.active {
                 a {
@@ -79,6 +85,15 @@ $active-menu-color: #428bcb;
                     content: none !important; 
                 }
             }
+            &.nav-plugin {
+                margin: 0;
+                padding: 0;
+                float: right;
+                display: block;
+                height: 34px;
+                line-height: 34px;
+                overflow: hidden;
+            }
         }
     }
     .sub-navbar-back {
@@ -87,6 +102,11 @@ $active-menu-color: #428bcb;
         @extend .navbar-default;
         border-bottom: 1px solid #ddd;
         height: 35px;
+    }
+}
+.dropdown-menu > li {
+    &.none-info {
+        padding: 6px 0 0 !important;
     }
 }
 .message-container {
@@ -102,118 +122,125 @@ $active-menu-color: #428bcb;
         line-height: .8;
     }
 }
-// Submenu nav
-.side-nav {
-    // position: fixed;
+.side-nav-container {
+//  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  top: 100px;
+  bottom: 0;
+  // Submenu nav
+  .side-nav {
     h4 {
-        @extend .list-group-item;
-        font: bold $menu-header-font;
-        background-color: $panel-default-heading-bg;
-        border-bottom-width: 2px;
-        padding: 8px 15px;
+      @extend .list-group-item;
+      font: bold $menu-header-font;
+      background-color: $panel-default-heading-bg;
+      border-bottom-width: 2px;
+      padding: 8px 15px;
+      margin-top: 0;
     }
     .side-nav-menu {
-        @extend .list-group;
-        font: $body-font;
-        li {
-            @extend .list-group-item;
-            padding: 0;
-            cursor: pointer;
-            a {
-                padding: 10px 15px;
-                display: block;
+      @extend .list-group;
+      font: $body-font;
+      li {
+        @extend .list-group-item;
+        padding: 0;
+        cursor: pointer;
+        a {
+          padding: 10px 15px;
+          display: block;
+          color: $list-group-link-color;
+          .glyphicon-chevron-down {
+            top: 3px;
+            opacity: .25;
+          }
+          &:hover {
+            background-color: $list-group-hover-bg;
+            text-decoration: none;
+            .glyphicon-chevron-down {
+              opacity: .5;
+            }
+          }
+        }
+        &.active {
+          border-color: $list-group-active-border;
+          a {
+            color: $list-group-active-color;
+            background-color: $list-group-active-bg;
+            @include border-top-radius(0 !important);
+          }
+          ul {
+            li {
+              &:hover {
+                border-color: $list-group-border;
+              }
+              a {
+                background-color: #fff;
                 color: $list-group-link-color;
-                .glyphicon-chevron-down {
-                    top: 3px;
-                    opacity: .25;
-                }
                 &:hover {
-                    background-color: $list-group-hover-bg;
-                    text-decoration: none;
-                    .glyphicon-chevron-down {
-                        opacity: .5;
-                    }
+                  text-decoration: none;
                 }
+              }
             }
-            &.active {
-                border-color: $list-group-active-border;
-                a {
-                    color: $list-group-active-color;
-                    background-color: $list-group-active-bg;
-                    @include border-top-radius(0 !important);
+          }
+        }
+        &:first-child {
+          @include border-top-radius(0);
+        }
+        &:last-child {
+          a {
+            @include border-bottom-radius(0);
+          }
+          ul {
+            &:last-child {
+              li {
+                &:last-child {
+                  @include border-bottom-radius($list-group-border-radius);
+                  a {
+                    @include border-bottom-radius($list-group-border-radius);
+                  }
                 }
-                ul {
-                    li {
-                        &:hover {
-                            border-color: $list-group-border;
-                        }
-                        a {
-                            background-color: #fff;
-                            color: $list-group-link-color;
-                            &:hover {
-                                text-decoration: none;
-                            }
-                        }
-                    }
-                }
+              }
             }
+          }
+        }
+        a.has-sub-menu {
+          @include border-bottom-radius(0 !important);
+        }
+        ul {
+          @extend .list-unstyled;
+          display: none;
+          margin: -1px;
+          font-size: $font-size-small;
+          li {
             &:first-child {
-                @include border-top-radius(0);
+              @include border-top-radius(0);
             }
             &:last-child {
-                a {
-                    @include border-bottom-radius(0);
-                }
-                ul {
-                    &:last-child {
-                        li {
-                            &:last-child {
-                                @include border-bottom-radius($list-group-border-radius);
-                                a {
-                                    @include border-bottom-radius($list-group-border-radius);
-                                }
-                            }
-                        }
-                    }
-                }
+              @include border-bottom-radius(0);
             }
-            a.has-sub-menu {
-                @include border-bottom-radius(0 !important);
+            a {
+              @include border-bottom-radius(0);
+              padding-left: 25px;
+              &:hover {
+                border-color: $list-group-border !important;
+                background: $list-group-hover-bg url($submenuSprites) no-repeat 15px 14px;
+              }
             }
-            ul {
-                @extend .list-unstyled;
-                display: none;
-                margin: -1px;
-                font-size: $font-size-small;
-                li {
-                    &:first-child {
-                        @include border-top-radius(0);
-                    }
-                    &:last-child {
-                        @include border-bottom-radius(0);
-                    }
-                    a {
-                        @include border-bottom-radius(0);
-                        padding-left: 25px;
-                        &:hover {
-                            border-color: $list-group-border !important;
-                            background: $list-group-hover-bg url($submenuSprites) no-repeat 15px 14px;
-                        }
-                    }
-                    &.active{
-                        border-color: $list-group-border;
-                        a {
-                            color: $active-menu-color;
-                            background: $list-group-bg url($submenuSprites) no-repeat 15px -22px;
-                            &:hover {
-                                border-color: $list-group-border !important;
-                                background: $list-group-hover-bg url($submenuSprites) no-repeat 15px -22px;
-                            }
-                        }
-                    }
+            &.active{
+              border-color: $list-group-border;
+              a {
+                color: $active-menu-color;
+                background: $list-group-bg url($submenuSprites) no-repeat 15px -22px;
+                &:hover {
+                  border-color: $list-group-border !important;
+                  background: $list-group-hover-bg url($submenuSprites) no-repeat 15px -22px;
                 }
+              }
             }
+          }
         }
+      }
     }
+  }
 }
 

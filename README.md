@@ -1,4 +1,2 @@
 ## admin ui 
-
-http://ec3s.github.io/adminui-3.0/#/
-
+http://ec3s.github.io/adminui-3.0/

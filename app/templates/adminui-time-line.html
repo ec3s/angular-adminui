@@ -1,0 +1,43 @@
+<div>
+    <section class="content">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- The time line -->
+                <ul class="timeline">
+                    <li class="time-label" data-ng-repeat="timeLineData in timeLineDemoData">
+                        <span class="bg-red">{{timeLineData.currentTime}}</span>
+                        <!-- timeline item -->
+                        <ul data-ng-repeat="timeLine in timeLineData.currentObj">
+                            <i class="fa" data-ng-show="timeLine.user.avator">
+                                <img data-ng-src="{{timeLine.user.avator}}" alt="user_avatar">
+                            </i>
+                            <i class="small-fa" data-ng-show="!timeLine.user.avator"></i>
+                            <div class="feed_arrow">
+                                <div class="arrow_i"></div>
+                                <div class="arrow_bg"></div>
+                                <span class="arrow_dot"></span>
+                                <span class="transition_l arrow_line"></span>
+                            </div>
+                            <div class="timeline-item">
+                                <span class="time">{{timeLine.time | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                                <h3 class="timeline-header">{{timeLine.user.name}}</h3>
+                                <div data-ng-if = "timeLine.template || timeLine.templateUrl" class="timeline-body">
+                                    <div data-time-line-template data-ng-model="timeLine"></div>
+                                </div>
+                                <div data-ng-if = "!timeLine.template && !timeLine.templateUrl" class="timeline-body">
+                                      {{timeLine.content}}
+                                </div>
+                            </div>
+                        </ul>
+                        <!-- END timeline item -->
+                    </li>
+                    <li class="time-label">
+                        <i class="glyphicon glyphicon-time"></i>
+                    </li>
+                </ul>
+            </div><!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+</div>

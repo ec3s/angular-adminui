@@ -1,18 +1,17 @@
 'use strict';
-var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
-var mountFolder = function (connect, dir) {
+var mountFolder = function(connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
-
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // configurable paths`
   var yeomanConfig = {
     app: 'app',
-    dist: 'dist'
+    dist: 'dist',
+    livereload: 35728
   };
 
   try {
@@ -22,6 +21,9 @@ module.exports = function (grunt) {
   grunt.initConfig({
     yeoman: yeomanConfig,
     watch: {
+      options: {
+        livereload: yeomanConfig.livereload
+      },
       jade: {
         files: ['<%= yeoman.app %>/views/{,*/}*.jade'],
         tasks: ['jade']
@@ -41,12 +43,10 @@ module.exports = function (grunt) {
       livereload: {
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
-          //'{.tmp,<%= yeoman.app %>}/views/{,*/}*.jade',
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ],
-        tasks: ['livereload']
+        ]
       }
     },
     jade: {
@@ -63,20 +63,19 @@ module.exports = function (grunt) {
         }]
       }
     },
-    livereload: {
-      port: 35711
-    },
     connect: {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost'
+        hostname: '0.0.0.0'
       },
       livereload: {
         options: {
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
-              lrSnippet,
+              require('connect-livereload')({
+                port: yeomanConfig.livereload
+              }),
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
             ];
@@ -85,7 +84,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               mountFolder(connect, '.tmp'),
               mountFolder(connect, 'test')
@@ -202,28 +201,12 @@ module.exports = function (grunt) {
     },
     htmlmin: {
       dist: {
-        options: {
-          /*removeCommentsFromCDATA: true,
-          // https://github.com/yeoman/grunt-usemin/issues/44
-          //collapseWhitespace: true,
-          collapseBooleanAttributes: true,
-          removeAttributeQuotes: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true,
-          removeEmptyAttributes: true,
-          removeOptionalTags: true*/
-        },
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>',
           src: ['*.html', 'views/*.html'],
           dest: '<%= yeoman.dist %>'
         }]
-      }
-    },
-    cdnify: {
-      dist: {
-        html: ['<%= yeoman.dist %>/*.html']
       }
     },
     ngmin: {
@@ -237,7 +220,10 @@ module.exports = function (grunt) {
       }
     },
     uglify: {
-      dist: {
+      options: {
+        mangle: false,
+        compress: false,
+        beautify: true
       }
     },
     rev: {
@@ -290,15 +276,12 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.renameTask('regarde', 'watch');
-
   grunt.registerTask('server', [
     'clean:server',
     'coffee:dist',
     'sass:dist',
-    'livereload-start',
     'connect:livereload',
-    'open',
+//    'open',
     'jade',
     'watch'
   ]);
@@ -307,8 +290,7 @@ module.exports = function (grunt) {
     'clean:server',
     'coffee',
     'sass',
-    'connect:test',
-    'karma'
+    'connect:test'
   ]);
 
   grunt.registerTask('build', [
@@ -325,7 +307,7 @@ module.exports = function (grunt) {
     'concat:tpl',
     'cssmin',
     'copy',
-    'cdnify',
+    //'cdnify',
     'ngmin',
     'uglify',
     //'rev',

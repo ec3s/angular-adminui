@@ -1,0 +1,55 @@
+// Tag input
+.tag-input-container ul {
+  @include border-radius(3px);
+  list-style: none;
+  margin: 0;
+  padding: 2px 0 0;
+  background-color: white;
+  border: 1px solid #cccccc;
+  &:after {
+      content: ' ';
+      clear: both;
+      display: table;
+  }
+}
+.tag-input-container ul.focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+}
+.tag-input-container ul .tag {
+  padding: 0 2px;
+  margin: 0 0 2px 2px;
+  display: block;
+  border: 1px solid #aaaaaa;
+  background-color: #fff;
+  @include border-radius(2px);
+  float: left;
+}
+.tag-input-container ul .tag span {
+  padding: 3px 2px 2px;
+  float: left;
+}
+.tag-input-container ul .tag i {
+  cursor: pointer;
+  margin: 3px 3px 0;
+  float: left;
+}
+.tag-input-container ul .input-li {
+  float: left;
+}
+.tag-input-container ul .input-li input {
+  padding: 3px 5px;
+  border: none;
+  height: 26px;
+  width: 100%;
+  min-width: 80px;
+  margin: 0 3px;
+  background: transparent !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.tag-input-container ul .input-li input:focus {
+  outline: none;
+}

@@ -23,7 +23,7 @@
 
 body {
     position: relative;
-    padding-top: 90px;
+    padding-top: 65px;
 }
 
 .container-full {
@@ -129,9 +129,12 @@ form {
     }
 }
 .page-header {
-    margin-top: 15px;
+    margin-top: 10px;
     .page-action {
         float: right;
+    }
+    h1 {
+        margin-top: 10px;
     }
 }
 .user-information {
@@ -242,54 +245,6 @@ form {
     }
 }
 
-// Tag input
-.tag-input-container ul {
-  @include border-radius(3px);
-  list-style: none;
-  margin: 0;
-  padding:0;
-  background-color: white;
-  border: 1px solid #cccccc;
-}
-.tag-input-container ul.focus {
-  border-color: rgba(82, 168, 236, 0.8);
-  outline: 0;
-  outline: thin dotted \9;
-  /* IE6-9 */
-  // -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-  // -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-  // box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-}
-.tag-input-container ul .tag {
-  padding: 0 2px;
-  margin: 2px 0 0 2px;
-  display: block;
-  border: 1px solid #aaaaaa;
-  background-color: #fff;
-  @include border-radius(2px);
-  float: left;
-}
-.tag-input-container ul .tag span {
-  padding: 3px 2px 2px;
-  float: left;
-}
-.tag-input-container ul .tag i {
-  cursor: pointer;
-  margin: 3px 3px 0;
-  float: left;
-}
-.tag-input-container ul .input-li input {
-  border: none;
-  width: 80px;
-  margin: 0 3px;
-  background: transparent !important;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.tag-input-container ul .input-li input:focus {
-  outline: none;
-}
 
 // chosen
 
@@ -361,7 +316,7 @@ form {
 .chzn-container .chzn-results li {
     display: none;
     line-height: 20px;
-    list-style: none;
+    list-style: inherit;
     margin: 0;
     padding: 5px 6px;
 }
@@ -417,22 +372,20 @@ form {
 }
 .chzn-container-single .chzn-single {
     display: block;
-    /*@include ctb-ie7-inline-block();*/
-    padding: 5px 12px; 
+    overflow: inherit;
+    padding: 5px 12px;
     margin-bottom: 0; // For input.btn
     font: $body-font;
     line-height: $line-height-base;
     vertical-align: middle;
     cursor: pointer;
     background: $btn-default-bg;
-    -webkit-border-radius: $border-radius-base;
-    -moz-border-radius: $border-radius-base;
-    border-radius: $border-radius-base;
+  @include border-radius($border-radius-base);
     border: 1px solid $btn-default-border;
     *border: 0; // Remove the border to prevent IE7's black border on input:focus
     border-bottom-color: darken($btn-default-border, 10%);
      //@include ctb-ie7-restore-left-whitespace(); Give IE7 some love
-    @include box-shadow(#{inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)});
+  @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075));
     // height: 30px;
     height: auto;
     position: relative;
@@ -452,7 +405,7 @@ form {
     white-space: nowrap;
 }
 .chzn-container-single .chzn-single abbr {
-    background: url("../images/chosen-sprite.png") right top no-repeat;
+    background: url("../images/chosen-sprite.png") right top no-repeat !important;
     display: block;
     font-size: 1px;
     height: 10px;
@@ -476,7 +429,7 @@ form {
     width: 18px;
 }
 .chzn-container-single .chzn-single div b {
-    background: url("../images/chosen-sprite.png") no-repeat 0 5px;
+    background: url("../images/chosen-sprite.png") no-repeat 0 5px !important;
     display: block;
     height: 100%;
     width: 100%;
@@ -493,7 +446,7 @@ form {
 }
 .chzn-container-single .chzn-search input {
     height: 30px;
-    background: url("../images/chosen-sprite.png") no-repeat 100% -20px, #ffffff;
+    background: url("../images/chosen-sprite.png") no-repeat 100% -20px, #ffffff !important;
     border: 1px solid #cccccc;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -556,7 +509,7 @@ form {
     border: 0 !important;
     @include box-shadow(none);
     color: #555555;
-    height: 26px;
+    height: 28px;
     margin: 0;
     padding: 4px;
     outline: 0;
@@ -564,15 +517,15 @@ form {
 .chzn-container-multi .chzn-choices .search-field .default {
     color: #999;
 }
-.chzn-container-multi .chzn-choices .search-choice {
+.chzn-container-multi .chzn-choices li.search-choice {
     border: 1px solid #cccccc;
     @include border-radius(4px);
     background-color: #fff;
     color: #333333;
     cursor: default;
-    line-height: 13px;
+    line-height: 14px;
     margin: 3px 0 3px 5px;
-    padding: 3px 20px 3px 5px;
+    padding: 4px 20px 2px 5px;
     position: relative;
 }
 .chzn-container-multi .chzn-choices li.search-choice .search-choice-close {
@@ -583,7 +536,7 @@ form {
     width: 11px;
     position: absolute;
     right: 4px;
-    top: 5px;
+    top: 6px;
 }
 .chzn-container-multi .chzn-choices .search-choice .search-choice-close:hover {
     background-position: right -11px;
@@ -603,13 +556,9 @@ form {
 }
 .chzn-container-active .chzn-single {
     border: 1px solid rgba(82, 168, 236, 0.8);
-    @include box-shadow(0 1px 1px rgba(0, 0, 0, .075) inset, 0 0 8px rgba(82, 168, 236, .6));
-    @include transition(border linear .2s, box-shadow linear .2s);
 }
 .chzn-container-active.chzn-with-drop .chzn-single {
     border: 1px solid rgba(82, 168, 236, 0.8);
-    @include box-shadow(0 1px 1px rgba(0, 0, 0, .075) inset, 0 0 8px rgba(82, 168, 236, .6));
-    @include transition(border linear .2s, box-shadow linear .2s);
 }
 .chzn-container-active.chzn-with-drop .chzn-single div {
     background: transparent;
@@ -620,17 +569,11 @@ form {
 }
 .chzn-container-active .chzn-choices {
     background-color: $input-bg;
-    border: 1px solid $input-border;
-    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
-    @include transition(#{border linear .2s, box-shadow linear .2s});
-    
-    // Focus state
-    &:focus {
-      border-color: rgba(82,168,236,.8);
-      outline: 0;
-      outline: thin dotted \9; /* IE6-9 */
-      @include box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)});
-    }
+  border: 1px solid rgba(82, 168, 236, 0.8);
+}
+
+.chzn-container-active.chzn-with-drop .chzn-choices {
+  @include border-radius(4px 4px 0 0);
 }
 .chzn-container-active .chzn-choices .search-field input {
     color: #111 !important;
@@ -703,12 +646,19 @@ form {
     padding: 4px 5px 4px 20px;
 }
 // fix for chosen responsive
-[class*="col-md-"] {
-    .chzn-container {
-        width: 100% !important;
-    }
+.chzn-container {
+      padding-left: 0;
+      padding-right: 0;
+      float: none;
+  &.form-control {
+    border: none;
+    padding: 0;
+    height: inherit;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
-//
+
 .form-horizontal {
     .form-group {
         .help-inline-wrapper{
@@ -756,15 +706,36 @@ form {
 .alert {
     padding: 10px 15px;
 }
-
-form.form-inline {
-  > * {
-    margin-bottom: 15px !important;
-  }
+form {
+    margin-bottom: 15px;
+    &.form-inline {
+        margin-bottom: 0;
+        > * {
+            margin-bottom: 15px !important;
+        }
+    }
 }
+
 .none-info {
   padding: 20px 0 !important;
   color: $gray-light;
   text-align: center;
 }
 
+.modal-dialog {
+    .form-horizontal {
+        margin-bottom: 0;
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .modal-loading {
+        text-align: center;
+        margin: 100px 0;
+    }
+}
+img {
+    &.loading {
+        width: 32px;
+    }
+}

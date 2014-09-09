@@ -5,7 +5,9 @@ dist
 .tmp
 .sass-cache
 .DS_Store
+.idea
 
 #sublime text
 angular-admin.sublime-project
 angular-admin.sublime-workspace
+tags

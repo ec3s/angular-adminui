@@ -70,20 +70,22 @@
 <h3>表格基础样式</h3>
 <p>
     在 <code>table</code> 添加 <code>.table-normal </code>，
-    金钱在对应的 <code>th</code> 和 <code>td</code> 上增加 <code>.currency</code>，
-    数字在对应的 <code>th</code> 和 <code>td</code> 上增加 <code>.number</code>，
-    日期在对应的 <code>th</code> 和 <code>td</code> 上增加 <code>.date</code>，
-    操作在对应的 <code>th</code> 和 <code>td</code> 上增加 <code>.operation</code>
+    金钱在对应的 <code>td</code> 上增加 <code>.currency</code>，
+    数字在对应的 <code>td</code> 上增加 <code>.number</code>，
+    日期在对应的 <code>td</code> 上增加 <code>.date</code>，
+    操作在对应的 <code>td</code> 上增加 <code>.operation</code>
+    短字符在对应的 <code>td</code> 上增加 <code>.short-str</code>
+    可能预期折行的表格，在 <code>table</code>上增加 <code>.multiple-line</code>
 </p>
 <div class="table-responsive">
   <table class="table-normal">
     <thead>
       <tr>
         <th>文字</th>
-        <th class="currency">钱</th>
-        <th class="number">数字</th>
-        <th class="date">日期</th>
-        <th class="operation">操作</th>
+        <th>钱</th>
+        <th>数字</th>
+        <th>日期</th>
+        <th>操作</th>
       </tr>
     </thead>
     <tbody>
@@ -151,38 +153,86 @@
   </table>
 </div>
 <pre class="prettyprint linenums">
-&lt;table class=&quot;table-normal&quot;&gt;
+  &lt;table class=&quot;table-normal&quot;&gt;
     &lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th&gt;&#25991;&#23383;&lt;/th&gt;
-            &lt;th class=&quot;currency&quot;&gt;&#38065;&lt;/th&gt;
-            &lt;th class=&quot;number&quot;&gt;&#25968;&#23383;&lt;/th&gt;
-            &lt;th class=&quot;date&quot;&gt;&#26085;&#26399;&lt;/th&gt;
-            &lt;th class=&quot;operation&quot;&gt;&#25805;&#20316;&lt;/th&gt;
-        &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;文字&lt;/th&gt;
+        &lt;th&gt;钱&lt;/th&gt;
+        &lt;th&gt;数字&lt;/th&gt;
+        &lt;th&gt;日期&lt;/th&gt;
+        &lt;th&gt;操作&lt;/th&gt;
+      &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td&gt;&#25991;&#23383;&lt;/td&gt;
-            &lt;td class=&quot;currency&quot;&gt;&#65509;200.00&lt;/td&gt;
-            &lt;td class=&quot;number&quot;&gt;234234&lt;/td&gt;
-            &lt;td class=&quot;date&quot;&gt;2013/07/07&lt;/td&gt;
-            &lt;td class=&quot;operation&quot;&gt;
-                &lt;a class=&quot;btn btn-sm&quot;&gt;&#32534;&#36753;&lt;/a&gt;
-                &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk('Hello, WegnerDesign!');&quot;&gt;
-                    &#21024;&#38500;
-                &lt;/a&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        ... ...
+    &lt;tr&gt;
+      &lt;td&gt;文字&lt;/td&gt;
+      &lt;td class=&quot;currency&quot;&gt;￥200.00&lt;/td&gt;
+      &lt;td class=&quot;number&quot;&gt;234234&lt;/td&gt;
+      &lt;td class=&quot;date&quot;&gt;2013/07/07&lt;/td&gt;
+      &lt;td class=&quot;operation&quot;&gt;
+        &lt;a class=&quot;btn btn-default btn-sm&quot;&gt;编辑&lt;/a&gt;
+        &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk(&#39;Hello, WegnerDesign!&#39;);&quot;&gt;
+          删除
+        &lt;/a&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;文字&lt;/td&gt;
+      &lt;td class=&quot;currency&quot;&gt;￥200.00&lt;/td&gt;
+      &lt;td class=&quot;number&quot;&gt;234234&lt;/td&gt;
+      &lt;td class=&quot;date&quot;&gt;2013/07/07&lt;/td&gt;
+      &lt;td class=&quot;operation&quot;&gt;
+        &lt;a class=&quot;btn btn-default btn-sm&quot;&gt;编辑&lt;/a&gt;
+        &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk(&#39;Hello, WegnerDesign!&#39;);&quot;&gt;
+          删除
+        &lt;/a&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;文字&lt;/td&gt;
+      &lt;td class=&quot;currency&quot;&gt;￥200.00&lt;/td&gt;
+      &lt;td class=&quot;number&quot;&gt;234234&lt;/td&gt;
+      &lt;td class=&quot;date&quot;&gt;2013/07/07&lt;/td&gt;
+      &lt;td class=&quot;operation&quot;&gt;
+        &lt;a class=&quot;btn btn-default btn-sm&quot;&gt;编辑&lt;/a&gt;
+        &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk(&#39;Hello, WegnerDesign!&#39;);&quot;&gt;
+          删除
+        &lt;/a&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;文字&lt;/td&gt;
+      &lt;td class=&quot;currency&quot;&gt;￥200.00&lt;/td&gt;
+      &lt;td class=&quot;number&quot;&gt;234234&lt;/td&gt;
+      &lt;td class=&quot;date&quot;&gt;2013/07/07&lt;/td&gt;
+      &lt;td class=&quot;operation&quot;&gt;
+        &lt;a class=&quot;btn btn-default btn-sm&quot;&gt;编辑&lt;/a&gt;
+        &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk(&#39;Hello, WegnerDesign!&#39;);&quot;&gt;
+          删除
+        &lt;/a&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;文字&lt;/td&gt;
+      &lt;td class=&quot;currency&quot;&gt;￥200.00&lt;/td&gt;
+      &lt;td class=&quot;number&quot;&gt;234234&lt;/td&gt;
+      &lt;td class=&quot;date&quot;&gt;2013/07/07&lt;/td&gt;
+      &lt;td class=&quot;operation&quot;&gt;
+        &lt;a class=&quot;btn btn-default btn-sm&quot;&gt;编辑&lt;/a&gt;
+        &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk(&#39;Hello, WegnerDesign!&#39;);&quot;&gt;
+          删除
+        &lt;/a&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
     &lt;/tbody&gt;
-&lt;/table&gt;
+  &lt;/table&gt;
 </pre>
 
 <h3>Table wiget 的使用</h3>
 <p>
     table 外层需要嵌套一层 <code>div.table-widget</code>，
     表头被选中 <code>th</code> 的 <code>class="active"</code>，
+    具有复选框的 <code>td</code> 和 <code>th</code> 上要有 <code>class="checkbox"</code>
     可排序的列需要在<code>th</code> 中加<code>&lt;span class=&quot;sort-icon&quot;&gt;&lt;/span&gt;</code>,
     <code>th</code> 的降序 <code>active sort-desc</code>，
     <code>th</code> 的升序 <code>active sort-asc</code>，
@@ -194,16 +244,16 @@
                 <th>
                     <input type="checkbox">
                 </th>
-                <th data-class="expand" class="number active sort-desc">
+                <th data-class="expand" class="active sort-desc">
                     等级
                     <span class="sort-icon"></span>
                 </th>
                 <th data-hide="phone,tablet">文字</th>
-                <th data-hide="phone,tablet" class="number active sort-asc">
+                <th data-hide="phone,tablet" class="active sort-asc">
                     数字
                     <span class="sort-icon"></span>
                 </th>
-                <th data-hide="phone,tablet" class="date">
+                <th data-hide="phone,tablet" >
                     日期
                     <span class="sort-icon"></span>
                 </th>
@@ -212,7 +262,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>
+                <td class="checkbox">
                     <input type="checkbox">
                 </td>
                 <td class="number">1</td>
@@ -227,7 +277,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="checkbox">
                     <input type="checkbox">
                 </td>
                 <td class="number">1</td>
@@ -242,7 +292,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="checkbox">
                     <input type="checkbox">
                 </td>
                 <td class="number">1</td>
@@ -257,7 +307,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="checkbox">
                     <input type="checkbox">
                 </td>
                 <td class="number">1</td>
@@ -272,7 +322,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="checkbox">
                     <input type="checkbox">
                 </td>
                 <td class="number">1</td>
@@ -315,70 +365,105 @@
 </div>
 
 <pre class="prettyprint linenums">
-&lt;div class=&quot;table-widget&quot;&gt;
-    &lt;table class=&quot;table-normal&quot; &gt;
+    &lt;table class=&quot;table-normal&quot; foo-table ng-controller=&quot;confirmButtonCtrl&quot;&gt;
         &lt;thead&gt;
             &lt;tr&gt;
                 &lt;th&gt;
                     &lt;input type=&quot;checkbox&quot;&gt;
                 &lt;/th&gt;
-                &lt;th data-class=&quot;expand&quot; class=&quot;number active sort-desc&quot;&gt;
-                    &#31561;&#32423;
+                &lt;th data-class=&quot;expand&quot; class=&quot;active sort-desc&quot;&gt;
+                    等级
                     &lt;span class=&quot;sort-icon&quot;&gt;&lt;/span&gt;
                 &lt;/th&gt;
-                &lt;th data-hide=&quot;phone,tablet&quot;&gt;&#25991;&#23383;&lt;/th&gt;
-                &lt;th data-hide=&quot;phone,tablet&quot; class=&quot;number active sort-asc&quot;&gt;
-                    &#25968;&#23383;
+                &lt;th data-hide=&quot;phone,tablet&quot;&gt;文字&lt;/th&gt;
+                &lt;th data-hide=&quot;phone,tablet&quot; class=&quot;active sort-asc&quot;&gt;
+                    数字
                     &lt;span class=&quot;sort-icon&quot;&gt;&lt;/span&gt;
                 &lt;/th&gt;
-                &lt;th data-hide=&quot;phone,tablet&quot; class=&quot;date&quot;&gt;&#26085;&#26399;&lt;/th&gt;
-                &lt;th class=&quot;operation&quot;&gt;&#25805;&#20316;&lt;/th&gt;
+                &lt;th data-hide=&quot;phone,tablet&quot; &gt;
+                    日期
+                    &lt;span class=&quot;sort-icon&quot;&gt;&lt;/span&gt;
+                &lt;/th&gt;
+                &lt;th class=&quot;operation&quot;&gt;操作&lt;/th&gt;
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
             &lt;tr&gt;
-                &lt;td&gt;
+                &lt;td class=&quot;checkbox&quot;&gt;
                     &lt;input type=&quot;checkbox&quot;&gt;
                 &lt;/td&gt;
                 &lt;td class=&quot;number&quot;&gt;1&lt;/td&gt;
-                &lt;td&gt;&#36825;&#37324;&#26159;&#25991;&#23383;&lt;/td&gt;
+                &lt;td&gt;这里是文字&lt;/td&gt;
                 &lt;td class=&quot;number&quot;&gt;123&lt;/td&gt;
                 &lt;td class=&quot;date&quot;&gt;2013/06/01&lt;/td&gt;
                 &lt;td class=&quot;operation&quot;&gt;
-                    &lt;a class=&quot;btn btn-sm&quot;&gt;&#32534;&#36753;&lt;/a&gt;
-                    &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk('Hello, WegnerDesign!');&quot;&gt;
-                        &#21024;&#38500;
+                    &lt;a class=&quot;btn btn-default btn-sm&quot;&gt;编辑&lt;/a&gt;
+                    &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk(&#39;Hello, WegnerDesign!&#39;);&quot;&gt;
+                        删除
                     &lt;/a&gt;
                 &lt;/td&gt;
             &lt;/tr&gt;
-            ... ...
+            &lt;tr&gt;
+                &lt;td class=&quot;checkbox&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot;&gt;
+                &lt;/td&gt;
+                &lt;td class=&quot;number&quot;&gt;1&lt;/td&gt;
+                &lt;td&gt;这里是文字&lt;/td&gt;
+                &lt;td class=&quot;number&quot;&gt;123&lt;/td&gt;
+                &lt;td class=&quot;date&quot;&gt;2013/06/01&lt;/td&gt;
+                &lt;td class=&quot;operation&quot;&gt;
+                    &lt;a class=&quot;btn btn-default btn-sm&quot;&gt;编辑&lt;/a&gt;
+                    &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk(&#39;Hello, WegnerDesign!&#39;);&quot;&gt;
+                        删除
+                    &lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td class=&quot;checkbox&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot;&gt;
+                &lt;/td&gt;
+                &lt;td class=&quot;number&quot;&gt;1&lt;/td&gt;
+                &lt;td&gt;这里是文字&lt;/td&gt;
+                &lt;td class=&quot;number&quot;&gt;123&lt;/td&gt;
+                &lt;td class=&quot;date&quot;&gt;2013/06/01&lt;/td&gt;
+                &lt;td class=&quot;operation&quot;&gt;
+                    &lt;a class=&quot;btn btn-default btn-sm&quot;&gt;编辑&lt;/a&gt;
+                    &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk(&#39;Hello, WegnerDesign!&#39;);&quot;&gt;
+                        删除
+                    &lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td class=&quot;checkbox&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot;&gt;
+                &lt;/td&gt;
+                &lt;td class=&quot;number&quot;&gt;1&lt;/td&gt;
+                &lt;td&gt;这里是文字&lt;/td&gt;
+                &lt;td class=&quot;number&quot;&gt;123&lt;/td&gt;
+                &lt;td class=&quot;date&quot;&gt;2013/06/01&lt;/td&gt;
+                &lt;td class=&quot;operation&quot;&gt;
+                    &lt;a class=&quot;btn btn-default btn-sm&quot;&gt;编辑&lt;/a&gt;
+                    &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk(&#39;Hello, WegnerDesign!&#39;);&quot;&gt;
+                        删除
+                    &lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td class=&quot;checkbox&quot;&gt;
+                    &lt;input type=&quot;checkbox&quot;&gt;
+                &lt;/td&gt;
+                &lt;td class=&quot;number&quot;&gt;1&lt;/td&gt;
+                &lt;td&gt;这里是文字&lt;/td&gt;
+                &lt;td class=&quot;number&quot;&gt;123&lt;/td&gt;
+                &lt;td class=&quot;date&quot;&gt;2013/06/01&lt;/td&gt;
+                &lt;td class=&quot;operation&quot;&gt;
+                    &lt;a class=&quot;btn btn-default btn-sm&quot;&gt;编辑&lt;/a&gt;
+                    &lt;a class=&quot;btn btn-sm btn-danger&quot; confirm-button=&quot;talk(&#39;Hello, WegnerDesign!&#39;);&quot;&gt;
+                        删除
+                    &lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
         &lt;/tbody&gt;
     &lt;/table&gt;
 
-    &lt;div class=&quot;table-widget-footer row-fluid&quot;&gt;
-        &lt;div class=&quot;pull-left&quot;&gt;
-            &lt;div class=&quot;operation&quot;&gt;
-                &lt;button class=&quot;btn btn-danger&quot;&gt;&#21024;&#38500;&lt;/button&gt;
-                &lt;div class=&quot;btn-group&quot;&gt;
-                    &lt;button class=&quot;btn btn-default&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-                    &lt;button class=&quot;btn btn-default&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-                    &lt;button class=&quot;btn btn-default&quot;&gt;&#25805;&#20316;&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;pull-right&quot;&gt;
-            &lt;div class=&quot;pagination&quot;&gt;
-                &lt;ul&gt;
-                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;?&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;5&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;?&lt;/a&gt;&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
 </pre>

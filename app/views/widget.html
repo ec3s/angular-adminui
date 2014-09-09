@@ -4,6 +4,90 @@
     </h1>
 </div>
 
+<h3>Date picker</h3>
+<div data-ng-controller="DatePickerCtrl">
+  <p>为 <code>input</code>增加 <code>data-adminui-date-picker</code>属性</p>
+  <p>通过 <code>format</code> 来定义日期格式 (默认: yyyy-mm-dd)</p>
+  <p>通过 <code>min-date</code> <code>max-date</code> 来设置可选择范围(如日期: 2014-6-29)</p>
+  <p>通过 <code>min-view-mode</code> 来设置最小日期单位(2: 年, 1: 月, 0: 天)</p>
+  <input data-adminui-date-picker class="form-control" ng-model="myDate">
+</div>
+
+<h3>Date range picker</h3>
+<div data-ng-controller="DateRangePickerCtrl">
+  <p>为 <code>input</code>增加 <code>data-adminui-daterange-picker</code>,<code>type</code> 为 <code>daterange</code> 来使用日期区间选择</p>
+  <input data-adminui-daterange-picker type="daterange" class="form-control" opens="right" ng-model="myDateRange">
+  <br/>
+  <p>你可以使用 <code>format</code>和 <code>separator</code> 来定义日期格式和分隔符</p>
+  <input data-adminui-daterange-picker ng-model="myDateRange" class="form-control" opens="left"  format="MMM DD" separator="/">
+  <br/>
+  <p>也可以通过 <code>max-date</code> <code>min-date</code> <code>limit</code> 来设置限定的时间区域</p>
+  <input data-adminui-daterange-picker ng-model="myDateRange" class="form-control" separator="/" min-date="2013-09-10" max-date="2015-09-20" limit="10 day">
+  <br/>
+  <p>通过设置 <code>opens</code> 为 <code>left</code> 或者 <code>right</code> 来设置弹出位置，默认是 <code>auto</code>。</p>
+  <p>你还可以通过 <code>range</code> 来自定义预选日期</p>
+  <input data-adminui-daterange-picker type="daterange" ng-model="myDateRange" class="form-control" ranges="ranges">
+  <br/>
+  <pre>$scope.ranges = {
+    'Today': [moment(), moment()],
+    'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
+    'Last 7 days': [moment().subtract('days', 7), moment()],
+    'Last 30 days': [moment().subtract('days', 30), moment()],
+    'This month': [moment().startOf('month'), moment().endOf('month')]
+  };</pre>
+
+  <input data-adminui-daterange-picker type="daterange" ng-model="myDateRange1" class="form-control" locale="locale" >
+  <br/>
+  <button data-ng-click="clear()" class="btn btn-default">清空</button>
+  <br/>
+  <br/>
+</div>
+
+<h3>Money</h3>
+<p>为 <code>input</code>增加 <code>data-money</code>属性</p>
+<p>可以为其传入参数设置其最大值<code>data-max ="{{ maxModel }}"</code></p>
+<pre>输入的金额: {{test2}}</pre>
+  <div class="row">
+    <div class="col-sm-2">
+      <input type="text" placeholder="金额最大值" class="form-control"  data-ng-model="max" />
+    </div>
+    <div class="col-sm-4">
+      <input type="text" class="form-control"  data-ng-model="test2" data-adminui-money data-max="{{ max }}"/>
+    </div>
+  </div>
+
+<h3>List</h3>
+<p>为<code>div</code>容器添加属性 <code>adminui-list</code>， 使用方式和 Select 一样，使用 <code>data-ng-options</code>进行项目的设定，使用<code>data-multiple="true"</code> 来设定是否支持多选，默认是单选的。通过<code>data-disabled="true"</code>来禁用列表，列表禁用后<code>ngModel</code>为之前选中的值。</p>
+
+<div data-ng-controller="ListCtrl">
+
+  <pre>禁用: {{disabled}} 已选择：{{selected}}</pre>
+  <div class="form-group">
+    <div data-adminui-list data-ng-model="selected" data-disabled="disabled" data-ng-change="change()" data-ng-options="item.text for item in list"></div>
+  </div>
+  <pre>多选已选择：{{selected3}}</pre>
+  <div class="form-group">
+    <div data-adminui-list data-ng-model="selected3" data-multiple="true" data-ng-options="value.name for (key, value) in obj"></div>
+  </div>
+  <div class="form-group">
+    <button data-ng-click="changeSelected()" class="btn btn-default"> 改变选择</button>
+    <button data-ng-click="changeSource()" class="btn btn-default"> 改变源</button>
+    <button data-ng-click="disable()" class="btn btn-default"> 禁用/启用</button>
+  </div>
+</div>
+
+<h3>Switcher</h3>
+
+<p>为<code>div</code>容器添加<code>adminui-switcher</code>， switcher 同时支持 <code>正常</code>，<code>switcher-lg</code>，<code>switcher-sm</code>，<code>switcher-xs</code>四种大小， 支持 <code>switcher-success</code>，<code>switcher-info</code>，<code>switcher-warning</code>，<code>switcher-danger</code>，<code> 正常</code>，五种颜色模式， <code>data-on-label</code>， <code>data-off-label</code> 分别是按钮两种状态的标识文字。
+</p>
+<p>通过<code>data-ng-model</code>进行组件数据绑定，通过<code>data-disabled</code>来禁用该组件。</p>
+<p>
+Switcher 支持 <code>ng-change</code>，<code>ng-click</code>事件，事件函数能够接收<code>$event</code>为事件对象。
+</p>
+<p>在使用<code>ng-click</code>事件时注意判断事件的<code>type</code>来区分angular原本的点击事件。</p>
+<p>在 <code>ng-click</code>中，可以使用 <code>$event</code> 中的 <code>stopSwitch()</code> 来停止切换动作</p>
+<p>在使用<code>ng-click</code>事件时，<code>data-ng-model</code>并没有即刻变化，需要使用 <code>$event</code> 中的 <code>switched</code> 回调函数去判断 Switcher 是否已经切换完毕。</p>
+<a class="jsbin-embed" href="http://jsbin.ec3s.com/fifunebi/3/embed?output">DemoApp</a><script src="http://jsbin.ec3s.com/js/embed.js"></script>
 <h3>Finder</h3>
 <p>为<code>div</code>容器添加<code>adminui-finder</code></p>
 <div ng-controller="cascadeListCtrl" style="margin-bottom:15px;">
@@ -73,77 +157,6 @@ $scope.unifyDptList = {{unifyDptList|json}}
   </pre>
 </div>
 
-<h3>Toggle swithers</h3>
-<p>开关组件， 添加<code>toggle-switcher</code>属性</p>
-<p>
-    <code>id</code>, 
-    <code>name</code>, 
-    <code>ng-true-title</code>, 
-    <code>ng-false-title</code>, 
-    <code>ng-true-value</code>, 
-    <code>ng-false-value</code>, 
-    <code>ng-model</code>, 
-    <code>data-click</code>, 
-    <code>ng-change</code>, 
-    <code>ng-disabled</code>, 
-    <code>class</code>
-    为可配置属性
-</p>
-<p ng-controller="switcherCtrl">
-    <span 
-        toggle-switcher
-        id="checkboxid"
-        name="checkboxname"
-        ng-true-title="开启状态"
-        ng-false-title="关闭状态"
-        ng-true-value="open"
-        ng-false-value="close"
-        ng-model="opened"
-        data-click="click($event)"
-        ng-change="change($event)">
-    </span>
-    <input type="button" class="btn btn-sm btn-default" ng-click="do()" value="switcher" >
-    <span>{{opened}}</span>
-</p>
-<pre class="prettyprint linenums">
-&lt;span toggle-switcher
-    id=&quot;checkboxid&quot;
-    name=&quot;checkboxname&quot;
-    ng-true-title=&quot;开启状态&quot;
-    ng-false-title=&quot;关闭状态&quot;
-    ng-true-value=&quot;open&quot;
-    ng-false-value=&quot;close&quot;
-    ng-model=&quot;selected&quot;
-    data-click=&quot;click($event)&quot;
-    ng-change=&quot;change($event)&quot;&gt;
-&lt;/span&gt;
-</pre>
-<p ng-controller="switcherCtrl">
-    <span 
-        toggle-switcher
-        id="checkboxid"
-        name="checkboxname"
-        ng-true-title="On"
-        ng-false-title="Off"
-        ng-model="selected"
-        ng-disabled="switchDisabled"
-        class="small">
-    </span>
-    <button class="btn btn-default btn-sm" ng-click="switchDisabled = true" type="button">禁用</button>
-    <button class="btn btn-default btn-sm" ng-click="switchDisabled = false" type="button">启用</button>
-    <span>{{selected}}</span>
-</p>
-<pre class="prettyprint linenums">
-&lt;span toggle-switcher
-    id=&quot;checkboxid&quot;
-    name=&quot;checkboxname&quot;
-    ng-true-title=&quot;On&quot;
-    ng-false-title=&quot;Off&quot;
-    ng-model=&quot;selected&quot;
-    ng-disabled=&quot;switchDisabled&quot;
-    class=&quot;small&quot;&gt;
-&lt;/span&gt;
-</pre>
 <h3>Flash alert</h3>
 <div ng-controller="flashMessageCtrl">
 	<p>
@@ -157,7 +170,7 @@ $scope.unifyDptList = {{unifyDptList|json}}
 	</p>
 </div>
 <pre class="prettyprint linenums">
-	&lt;button class=&quot;btn btn-default btn-info&quot; ng-click=&quot;sendMsg(&#39;message from pre page.&#39;, '#39;info'#39;, true)&quot;&gt;flash messge when route changed&lt;/button&gt;
+	&lt;button class=&quot;btn btn-default btn-info&quot; ng-click=&quot;sendMsg(&#39;message from pre page.&#39;, 'info', true)&quot;&gt;flash messge when route changed&lt;/button&gt;
 </pre>
 <pre class="well">
   $scope.sendMsg = function(msg, level, showOnNextPage){
@@ -195,14 +208,19 @@ $scope.unifyDptList = {{unifyDptList|json}}
 <div ng-controller="chosenCtrl">
     <h4>Single</h4>
     <p>已选中：{{lang}}</p>
-    <p>
-        <select data-ng-model="lang" 
-            class="ntd-chosen col-sm-3"
+
+  <form class="form-horizontal" action="">
+  <div class="form-group">
+    <div class="col-sm-3">
+        <select data-ng-model="lang"
+            class="ntd-chosen form-control "
             data-placeholder="请选择"
             data-ng-options="option.id as option.name for option in options">
         </select>
         single的chosen
-    </p>
+    </div>
+  </div>
+  </form>
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
             class=&quot;ntd-chosen col-sm-3&quot;
@@ -210,8 +228,10 @@ $scope.unifyDptList = {{unifyDptList|json}}
             data-ng-options=&quot;option.id as option.name for option in options&quot;&gt;
         &lt;/select&gt;
     </pre>
-    <p>
-        <select data-ng-model="lang" 
+
+    <p ng-show="isShow">
+        <select data-ng-model="lang"
+            id="xxx"
             data-ntd-chosen
             class="col-sm-3"
             data-disable-search-threshold="10"
@@ -219,6 +239,8 @@ $scope.unifyDptList = {{unifyDptList|json}}
         </select>
         single的chosen, 大于10条时显示搜索
     </p>
+    <button ng-click="show()" class="btn btn-default btn-sm">toggle Hidden</button>
+  <br/><br/>
     <pre class="prettyprint linenums">
         &lt;select data-ng-model=&quot;lang&quot; 
             class=&quot;col-sm-3&quot;
@@ -306,8 +328,10 @@ $scope.unifyDptList = {{unifyDptList|json}}
         <li><p><code>data-unique bool</code>, 标签是否唯一,默认为是</p></li>
     </ul>
     <p>Tags: {{tags}}</p>
-    <div data-ng-model="tags" data-tag-input
+    <div class="row">
+      <div class="col-sm-5" data-ng-model="tags" data-tag-input
         data-placeholder="添加标签">
+      </div>
     </div>
 </div>
 
@@ -496,7 +520,7 @@ $scope.unifyDptList = {{unifyDptList|json}}
                 <input type="text" class=" form-control input-sm " placeholder="文字区域">            
         </div>
         <div class="form-group">
-            <label for="inputPassword">选项区域</label>         
+            <label>选项区域</label>
             <select class=" form-control input-sm ">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -590,7 +614,7 @@ $scope.unifyDptList = {{unifyDptList|json}}
 <div class="row" ng-controller="PieCtrl">
     <div class="col-md-12 clearfix">
         <div >
-            <div id="sample-pie" ntd-pie data="ageData" pie-height="300" pie-width="800"></div>
+            <div id="sample-pie" ntd-pie data="ageData" pie-height="300" pie-width="700"></div>
         </div>
     </div>
 </div>
@@ -601,65 +625,6 @@ $scope.unifyDptList = {{unifyDptList|json}}
     $scope.ageData = {{ ageData  | json }}
 </div>
 
-<h3>时间日期</h3>
-<!-- <div class="form-group input-group">
-    <input type="text" class="input-sm form-control" ng-model="datepicker.date" placeholder="时间" data-date-format="yyyy/mm/dd" date-picker>
-    <button type="button" class="btn btn-default" data-toggle="datepicker"><i class="glyphicon glyphicon-calendar"></i></button>
-</div> -->
-
-
-<div class="form-group">
-    <div ng-controller="DatepickerDemoCtrl">
-    <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
-
-    <div ng-model="dt" style="width: 280px">
-        <datepicker min="minDate" show-weeks="showWeeks"></datepicker>
-    </div>
-
-    <hr>
-
-    <div class="input-group">
-        <input class="form-control" type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" />
-        <span class="input-group-btn">
-            <button class="btn btn-info" ng-click="open()"> <span class="glyphicon glyphicon-calendar"></span> </button>
-        </span>
-    </div>
-
-    <hr />
-    <button class="btn btn-sm btn-info" ng-click="today()">Today</button>
-    <button class="btn btn-sm btn-info" ng-click="dt = '2009-08-24'">2009-08-24</button>
-    <button class="btn btn-sm btn-success" ng-click="toggleWeeks()" tooltip="For inline datepicker">Toggle Weeks</button>
-    <button class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
-    <button class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today restriction">Min date</button>
-    </div>
-</div>
-
-<p>日期选择器用 <code>date-picker</code> 属性绑定到 input 元素上.</p>
-<pre class="prettyprint linenums">
-    &lt;div ng-controller="DatepickerDemoCtrl"&gt;
-    &lt;pre&gt;Selected date is: &lt;em&gt;{{dt | date:'fullDate' }}&lt;/em&gt;&lt;/pre&gt;
-
-    &lt;div ng-model="dt" style="width: 280px"&gt;
-        &lt;datepicker min="minDate" show-weeks="showWeeks"&gt;&lt;/datepicker&gt;
-    &lt;/div&gt;
-
-    &lt;hr&gt;
-
-    &lt;div class="input-group"&gt;
-        &lt;input class="form-control" type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" /&gt;
-        &lt;span class="input-group-btn"&gt;
-            &lt;button class="btn btn-info" ng-click="open()"&gt; &lt;span class="glyphicon glyphicon-calendar"&gt;&lt;/span&gt; &lt;/button&gt;
-        &lt;/span&gt;
-    &lt;/div&gt;
-
-    &lt;hr /&gt;
-    &lt;button class="btn btn-sm btn-info" ng-click="today()"&gt;Today&lt;/button&gt;
-    &lt;button class="btn btn-sm btn-info" ng-click="dt = '2009-08-24'"&gt;2009-08-24&lt;/button&gt;
-    &lt;button class="btn btn-sm btn-success" ng-click="toggleWeeks()" tooltip="For inline datepicker"&gt;Toggle Weeks&lt;/button&gt;
-    &lt;button class="btn btn-sm btn-danger" ng-click="clear()"&gt;Clear&lt;/button&gt;
-    &lt;button class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today restriction"&gt;Min date&lt;/button&gt;
-    &lt;/div&gt;
-</pre>
 <hr>
 <div class="form-group">
 <div ng-controller="TimepickerDemoCtrl">

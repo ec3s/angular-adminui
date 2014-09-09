@@ -8,14 +8,13 @@
     'warning': 'alert-warning'
   };
 
-  function buildHtml(message) {
-    var noticeHtml = '<div class="alert ' +
+  var alertModel = function(message) {
+    return '<div class="alert ' +
       msgObj[message.state] + '">' +
       '<strong>' + message.info + '</strong>' +
       '<button type="button" class="close">×</button>' +
-    '</div>';
-    return noticeHtml;
-  }
+      '</div>';
+  };
 
   function noticeDirective($rootScope, $location, $timeout) {
     return {
@@ -23,31 +22,59 @@
       replace: false,
       transclude: false,
       link: function(scope, element, attr) {
-        $rootScope.$on('event:notification', function(event, message) {
-          element.html(buildHtml(message));
-          element
-            .show()
-            .find('button').on('click', function() {
-              element.fadeOut();
+        var html_fragement = '';
+        var flag = false;
+        var buildHtml = function(msg) {
+          if (angular.isArray(msg)) {
+            angular.forEach(msg, function(item) {
+              html_fragement += alertModel(item);
             });
+          } else {
+            html_fragement += alertModel(msg);
+          }
+        };
+        var appendAndAddCloseListener = function() {
+          element.append(html_fragement);
+          element.next().css('padding-top', element.height());
+          $('.close', element).bind('click', function() {
+            $(this).parent('.alert').fadeOut(function() {
+              $(this).remove();
+              element.next().css('padding-top', element.height());
+            });
+          });
+          html_fragement = '';
+        };
 
-            if(message.redirect_url) {
-              $timeout(function() {
-                $location.path(message.redirect_url);
-              }, 1500);
-            }
+        $rootScope.$on('event:notification', function(event, message) {
+          flag = true;
+          buildHtml(message);
+          appendAndAddCloseListener();
+
+          if (message.redirect_url) {
+            $timeout(function() {
+              $location.path(message.redirect_url);
+            }, 1500);
+          }
         });
-        
-        scope.$watch(function() {
-          return $location.url();
-        }, function() {
-            element.fadeOut();
+        $rootScope.$on('event:flashMessageEvent', function(event, msg) {
+          flag = false;
+          buildHtml(msg);
+        });
+
+        $rootScope.$on('$routeChangeSuccess', function() {
+          if (flag) {
+            element.empty();
+            element.next().css('padding-top', 0);
+          } else {
+            element.empty();
+            appendAndAddCloseListener();
+          }
         });
       }
     };
   }
   angular.module('ntd.directives').directive('notice', [
-    '$rootScope', '$location', '$timeout', 
+    '$rootScope', '$location', '$timeout',
     noticeDirective
   ]);
 }());
