@@ -46,10 +46,11 @@
 <h3>Money</h3>
 <p>为 <code>input</code>增加 <code>data-money</code>属性</p>
 <p>可以为其传入参数设置其最大值<code>data-max ="{{ maxModel }}"</code></p>
-<pre>输入的金额: {{test2}}</pre>
+<p>可以为其设置是否为空<code>data-is-null</code></p>
+<pre>输入的最大值金额: {{max|json}},输入的金额: {{test2|json}}</pre>
   <div class="row">
     <div class="col-sm-2">
-      <input type="text" placeholder="金额最大值" class="form-control"  data-ng-model="max" />
+      <input type="text" placeholder="金额最大值" class="form-control" data-is-null data-ng-model="max" data-adminui-money />
     </div>
     <div class="col-sm-4">
       <input type="text" class="form-control"  data-ng-model="test2" data-adminui-money data-max="{{ max }}"/>

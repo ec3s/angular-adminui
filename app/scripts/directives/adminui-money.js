@@ -4,19 +4,15 @@
     var NUMBER_REGEXP = /^\s*(\-|\+)?(\d+|(\d*(\.\d*)))\s*$/;
 
     function link(scope, el, attrs, ngModelCtrl) {
+      //是否能够为null
+      var isNull = ng.isDefined(attrs.isNull) || false;
       var getter = $parse(attrs.ngModel);
-      (getter.assign)(scope, getter(scope) || 0);
+      (getter.assign)(scope, getter(scope) || (isNull ? null: 0));
+
+      //money默认设置
       var max,errorMsg,newValue,lastValidValue;
       var precision = parseFloat(attrs.precision || 2);
       var min = parseFloat(attrs.min || 0);
-      var popEl = el.popover({
-        'placement': 'bottom',
-        'delay': 0,
-        'trigger': 'focus',
-        'content': function() {
-          return errorMsg;
-        }
-      });
 
       function floor(num) {
         var d = Math.pow(10, precision);
@@ -30,11 +26,6 @@
       function formatViewValue(value) {
         return ngModelCtrl.$isEmpty(value) ? "" : "" + value;
       }
-
-      var formatInvalidate = function(value) {
-        return value.split('.')[1] &&
-          value.split('.')[1].length > 2;
-      };
 
       ngModelCtrl.$parsers.push(function (value) {
         // Handle leading decimal point, like ".5"
@@ -65,8 +56,41 @@
         }
 
         ngModelCtrl.$setValidity('number', true);
-        return lastValidValue;
+        return lastValidValue === 0 ? lastValidValue : lastValidValue || (isNull ? null : 0);
       });
+
+      // floor off
+      if (precision > -1) {
+        ngModelCtrl.$parsers.push(function (value) {
+          return value ? floor(value) : value;
+        });
+        ngModelCtrl.$formatters.push(function (value) {
+          return value ? formatPrecision(value) : value;
+        });
+      }
+
+      el.bind('blur', function () {
+        var value = ngModelCtrl.$modelValue;
+        if (value) {
+          ngModelCtrl.$viewValue = formatPrecision(value);
+          ngModelCtrl.$render();
+        }
+      });
+
+      //添加最大值设置
+      var popEl = el.popover({
+        'placement': 'bottom',
+        'delay': 0,
+        'trigger': 'focus',
+        'content': function() {
+          return errorMsg;
+        }
+      });
+
+      var formatInvalidate = function(value) {
+        return value.split('.')[1] &&
+          value.split('.')[1].length > 2;
+      };
 
       var numberInput = function() {
         var val = el.val();
@@ -78,10 +102,9 @@
             errorMsg = '金额不能大于最大值';
           }
           popEl.popover('show');
-          el.val(ngModelCtrl.$modelValue || 0);
+          el.val(ngModelCtrl.$modelValue || (isNull ? null : 0));
         } else {
-          var transformValue = newValue === 0 ?
-            0 : val.substr(val.search(/[1-9]/));
+          var transformValue = (val.substr(val.search(/[1-9]/)) || (isNull ? null : 0));
           el.val(transformValue);
           popEl.popover('hide');
         }
@@ -90,10 +113,10 @@
       var maxValidator = function(value) {
         if (max !== null && value > max) {
           ngModelCtrl.$setValidity('max', false);
-          return ngModelCtrl.$modelValue || 0;
+          return ngModelCtrl.$modelValue;
         } else {
           ngModelCtrl.$setValidity('max', true);
-          return value || 0;
+          return value;
         }
       };
       el.bind('input', numberInput);
@@ -114,23 +137,44 @@
         }
       });
 
-      // floor off
-      if (precision > -1) {
-        ngModelCtrl.$parsers.push(function (value) {
-          return value ? floor(value) : value;
-        });
-        ngModelCtrl.$formatters.push(function (value) {
-          return value ? formatPrecision(value) : value;
-        });
-      }
-
-      el.bind('blur', function () {
-        var value = ngModelCtrl.$modelValue;
-        if (value) {
-          ngModelCtrl.$viewValue = formatPrecision(value);
-          ngModelCtrl.$render();
+      //禁止光标在第一个位置
+      el.bind('keyup', function() {
+        var care = getCaretPosition(el[0]);
+        if (care == 0) {
+          setCaretPosition(el[0],1);
         }
       });
+
+      function getCaretPosition(input) {
+        if (ng.isDefined(input.selectionStart)) {
+          return input.selectionStart;
+        } else if (document.selection) {
+          // Curse you IE
+          input.focus();
+          var selection = document.selection.createRange();
+          selection.moveStart('character', -input.value.length);
+          return selection.text.length;
+        }
+        return 0;
+      }
+
+      function setCaretPosition(input, pos) {
+        if (input.offsetWidth === 0 || input.offsetHeight === 0) {
+          return; // Input's hidden
+        }
+        if (input.setSelectionRange) {
+          input.focus();
+          input.setSelectionRange(pos, pos);
+        }
+        else if (input.createTextRange) {
+          // Curse you IE
+          var range = input.createTextRange();
+          range.collapse(true);
+          range.moveEnd('character', pos);
+          range.moveStart('character', pos);
+          range.select();
+        }
+      }
 
     }
 
