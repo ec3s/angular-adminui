@@ -7,7 +7,8 @@
       //是否能够为null
       var isNull = ng.isDefined(attrs.canBeNull) || false;
       var getter = $parse(attrs.ngModel);
-      (getter.assign)(scope, getter(scope) || (isNull ? null: 0));
+      (getter.assign)(scope,
+        getter(scope) === 0 ? 0 : (getter(scope) || (isNull ? null: 0)));
 
       //money默认设置
       var max,errorMsg,newValue,lastValidValue;
