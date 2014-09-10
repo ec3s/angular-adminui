@@ -5,7 +5,7 @@
 
     function link(scope, el, attrs, ngModelCtrl) {
       //是否能够为null
-      var isNull = ng.isDefined(attrs.isNull) || false;
+      var isNull = ng.isDefined(attrs.canBeNull) || false;
       var getter = $parse(attrs.ngModel);
       (getter.assign)(scope, getter(scope) || (isNull ? null: 0));
 
