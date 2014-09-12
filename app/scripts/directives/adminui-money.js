@@ -79,8 +79,9 @@
       });
 
       //添加最大值设置
+      var placement = attrs.placement || 'bottom';
       var popEl = el.popover({
-        'placement': 'bottom',
+        'placement': placement,
         'delay': 0,
         'trigger': 'focus',
         'content': function() {
@@ -94,13 +95,16 @@
       };
 
       var numberInput = function() {
+        if (popEl) {
+          popEl.popover('hide');
+        }
         var val = el.val();
         newValue = parseFloat(val) || 0;
         if ((max !== null && newValue > max) || formatInvalidate(val)) {
           if (formatInvalidate(val)) {
             errorMsg = '小数点后最多保留两位小数';
           } else if (newValue > max) {
-            errorMsg = '金额不能大于最大值';
+            errorMsg = attrs.placementContent || '金额不能大于最大值';
           }
           popEl.popover('show');
           el.val(ngModelCtrl.$modelValue || (isNull ? null : 0));
@@ -139,10 +143,12 @@
       });
 
       //禁止光标在第一个位置
-      el.bind('keyup', function() {
-        var care = getCaretPosition(el[0]);
-        if (care == 0) {
-          setCaretPosition(el[0],1);
+      el.bind('keyup click focus', function() {
+        if (ngModelCtrl.$modelValue === 0) {
+          var care = getCaretPosition(el[0]);
+          if (care == 0) {
+            setCaretPosition(el[0],1);
+          }
         }
       });
 
