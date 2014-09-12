@@ -104,7 +104,7 @@
           if (formatInvalidate(val)) {
             errorMsg = '小数点后最多保留两位小数';
           } else if (newValue > max) {
-            errorMsg = attrs.placementContent || '金额不能大于最大值';
+            errorMsg = '金额不能大于最大值';
           }
           popEl.popover('show');
           el.val(ngModelCtrl.$modelValue || (isNull ? null : 0));
