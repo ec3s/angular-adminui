@@ -1,4 +1,4 @@
-// Icon images path 
+// Icon images path
 $iconSpritePath:          "../images/glyphicons-halflings.png" !default;
 $iconWhiteSpritePath:     "../images/glyphicons-halflings-white.png" !default;
 $icon-font-path: "fonts/" !default;
@@ -8,10 +8,10 @@ $text-color:       #666;
 $navbarInverseBackgroundHighlight: #3d3d3d;
 $navbarInverseBackground: #2d2d2d;
 $navbarInverseBorder: #353535;
-     
+
 $font-family-sans-serif:  "Helvetica Neue", Helvetica, "microsoft yahei", Arial, sans-serif !default;
 $header-font: 24px/30px $font-family-sans-serif;
-$body-font: 12px/18px $font-family-sans-serif; 
+$body-font: 12px/18px $font-family-sans-serif;
 $menu-header-font: 14px/20px $font-family-sans-serif;
 
 @import "compass";
@@ -32,11 +32,11 @@ $padding-small-horizontal: 10px !default;
 
 $input-height-small: ($line-height-computed + ($padding-small-vertical * 2) + 2) !default;
 $font-size-h1: floor($font-size-base * 2) !default; // ~24px
-$font-size-h2: floor($font-size-base * 1.7) !default; 
-$font-size-h3: ceil($font-size-base * 1.5) !default; 
-$font-size-h4: ceil($font-size-base * 1.25) !default; 
+$font-size-h2: floor($font-size-base * 1.7) !default;
+$font-size-h3: ceil($font-size-base * 1.5) !default;
+$font-size-h4: ceil($font-size-base * 1.25) !default;
 $font-size-h5: $font-size-base !default;
-$font-size-h6: ceil($font-size-base * 0.85) !default; 
+$font-size-h6: ceil($font-size-base * 0.85) !default;
 
 
 @import "../components/bootstrap-sass/lib/bootstrap";
@@ -68,15 +68,15 @@ $advanceSearchFilterArrowHoverBgColor: #e3e3e3;
 // Footable
 $footableDetailFontSize: 12px;
 $footableDetailBgColor:  #eee;
-// 
+//
 // // Box widget
 // $boxWidgetBorder: #ddd;
-// 
+//
 // Mixin
 @mixin base-widget-header-gradient {
     @include text-shadow(0 1px 0 #fff);
     @include box-shadow(0 1px 0 0 #fff inset);
-    // @include background-image(linear-gradient($BaseWidgetHeaderGradientStart, $BaseWidgetHeaderGradientEnd)); 
+    // @include background-image(linear-gradient($BaseWidgetHeaderGradientStart, $BaseWidgetHeaderGradientEnd));
 }
 
 
@@ -88,7 +88,7 @@ $footableDetailBgColor:  #eee;
 
 @mixin keyframes($name) {
   @-webkit-keyframes #{$name} {
-    @content; 
+    @content;
   }
   @-moz-keyframes #{$name} {
     @content;
@@ -98,7 +98,7 @@ $footableDetailBgColor:  #eee;
   }
   @keyframes #{$name} {
     @content;
-  } 
+  }
 }
 
 @include keyframes(rotate) {
@@ -119,10 +119,6 @@ $footableDetailBgColor:  #eee;
   }
   .nav.pull-right{
     float:none!important;
-  }
-  // fix select margin
-  .chzn-container{
-    margin-bottom:15px;
   }
 }
 //field error
