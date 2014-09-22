@@ -34,7 +34,7 @@
 
         // init chosen
         var options = {
-          disable_search_threshold: disableSearchThreshold
+          disable_search_threshold: onSearch ? 0 : disableSearchThreshold
         };
         var originStyleClass = elem.attr('class').split(' ')
           .filter(function(item) {
