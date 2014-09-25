@@ -90,7 +90,7 @@
     this.selectedItems = this.getAllSelected(selectedItem);
     /* not selected anything */
     if (this.selectedItems.length <= 0) {
-      this.expandList.push(this.dataSource[0]['/']);
+      this.dataSource[0] && this.expandList.push(this.dataSource[0]['/']);
     }
     return this.expandList;
   };
