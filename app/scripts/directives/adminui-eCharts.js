@@ -255,13 +255,13 @@
           link: getLinkFunction($http, util, 'donut')
         };
       }])
-    .directive('easyPieCharts',
+    .directive('easyPieChart',
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
           template: '<div></div>',
           scope: {
-            data: '=easyPieCharts'
+            data: '=easyPieChart'
           },
           link: getLinkFunction($http, util, 'easyPie')
         };
