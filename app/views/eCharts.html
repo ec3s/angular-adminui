@@ -18,6 +18,27 @@
         <div class="col-md-offset-1 col-md-9" ng-controller="PieChartController">
             <pie-chart config="config" data="data"></pie-chart>
             <donut-chart config="config" data="data"></donut-chart>
+            <h3>Easy Pie Chart</h3>
+            <div class="row form-group">
+                <div class="col-sm-3">
+                    <input type="text" class="input-sm form-control" ng-model="easyPieChart[0].percent">
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="input-sm form-control" ng-model="easyPieChart[0].usage">
+                </div>
+            </div>
+            <p><code>easy-pie-chart="item"</code> 属性来调用easy pie chart</p>
+            <div class="row clearfix">
+                <div class="col-md-2" ng-repeat="item in easyPieChart">
+                    <div easy-pie-chart="item"></div>
+                </div>
+            </div>
+            <p><code>easy-pie-chart="item"</code> 属性来调用easy pie chart</p>
+            <div class="row clearfix">
+                <div class="col-md-2" ng-repeat="item in easyPieChart">
+                    <div easy-pie-charts="item"></div>
+                </div>
+            </div>
         </div>
     </div>
     <!--<div class="row">
