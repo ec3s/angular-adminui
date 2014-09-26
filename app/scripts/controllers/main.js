@@ -966,7 +966,7 @@ var TimepickerDemoCtrl = function($scope) {
 
 var pageload = {
   name: 'page.load',
-  datapoints: [
+  dataPoints: [
     { x: 2001, y: 12 },
     { x: 2002, y: 23 },
     { x: 2003, y: 45 },
@@ -982,7 +982,7 @@ var pageload = {
 
 var firstPaint = {
   name: 'page.firstPaint',
-  datapoints: [
+  dataPoints: [
     { x: 2001, y: 22 },
     { x: 2002, y: 13 },
     { x: 2003, y: 35 },
@@ -1003,28 +1003,8 @@ app.controller('LineChartController', function($scope) {
   $scope.config = {
     title: 'Line Chart',
     subtitle: 'Line Chart Subtitle',
-    showXAxis: true,
-    showYAxis: true,
-    showLegend: true,
-    stack: false,
     width: 800,
-    height: 400,
-    calculable: true,
-    legend: {
-      orient: 'horizontal', // 'vertical'
-      x: 'center', // 'center' | 'left' | {number},
-      y: 'top' // 'center' | 'bottom' | {number}
-    },
-    toolbox: {
-      show: true,
-      feature: {
-        mark: {show: true},
-        dataView: {show: true, readOnly: false},
-        magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-        restore: {show: true},
-        saveAsImage: {show: true}
-      }
-    }
+    height: 400
   };
 
   $scope.data = [pageload];
@@ -1039,26 +1019,7 @@ app.controller('BarChartController', function($scope) {
     subtitle: 'Bar Chart Subtitle',
     stack: true,
     width: 800,
-    height: 400,
-    calculable: true,
-    yAxis: {
-
-    },
-    legend: {
-      orient: 'horizontal', // 'vertical'
-      x: 'center', // 'center' | 'left' | {number},
-      y: 'top' // 'center' | 'bottom' | {number}
-    },
-    toolbox: {
-      show: true,
-      feature: {
-        mark: {show: true},
-        dataView: {show: true, readOnly: false},
-        magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-        restore: {show: true},
-        saveAsImage: {show: true}
-      }
-    }
+    height: 400
   };
 
   $scope.data = [pageload];
@@ -1071,15 +1032,8 @@ app.controller('AreaChartController', function($scope) {
   $scope.config = {
     title: 'Area Chart',
     subtitle: 'Area Chart Subtitle',
-    stack: true,
     width: 800,
-    height: 400,
-    calculable: true,
-    legend: {
-      orient: 'horizontal', // 'vertical'
-      x: 'center', // 'center' | 'left' | {number},
-      y: 'top' // 'center' | 'bottom' | {number}
-    }
+    height: 400
   };
 
   $scope.data = [pageload];
@@ -1093,17 +1047,7 @@ app.controller('PieChartController', function($scope) {
     title: 'Pie Chart',
     subtitle: 'Pie Chart Subtitle',
     width: 800,
-    height: 400,
-    calculable: true,
-    toolbox: {
-      show: true,
-      feature: {
-        mark: {show: true},
-        dataView: {show: true, readOnly: false},
-        restore: {show: true},
-        saveAsImage: {show: true}
-      }
-    }
+    height: 400
   };
 
   $scope.data = [firstPaint];
@@ -1113,8 +1057,7 @@ app.controller('GaugeChartController', function($scope) {
 
   $scope.config = {
     width: 800,
-    height: 400,
-    calculable: true
+    height: 400
   };
 
   $scope.data = [pageload];
@@ -1123,8 +1066,7 @@ app.controller('GaugeChartController', function($scope) {
 app.controller('AjaxChartController', function($scope, $interval) {
   $scope.config = {
     width: 800,
-    height: 400,
-    calculable: true
+    height: 400
   };
 
   $scope.data = [pageload];
@@ -1156,58 +1098,17 @@ app.controller('bubbleChartController', function($scope) {
   $scope.config = {
     width: 800,
     height: 400,
-    calculable: true,
-    tooltip: {
-      trigger: 'axis',
-      showDelay: 0,
-      axisPointer: {
-        type: 'cross',
-        lineStyle: {
-          type: 'dashed',
-          width: 1
-        }
-      }
+    title: {
+      text: '标准气泡图',
+      subtext: 'toolBox的dataZoom支持'
     },
-    legend: {
-      data: ['scatter1', 'scatter2']
-    },
-    toolbox: {
-      show: true,
-      feature: {
-        dataZoom: {show: true}
-      }
-    },
-    xAxis: [
-      {
-        type: 'value',
-        power: 1,
-        splitNumber: 4,
-        scale: true
-      }
-    ],
-    yAxis: [
-      {
-        type: 'value',
-        power: 1,
-        splitNumber: 4,
-        scale: true
-      }
-    ],
     series: [
       {
         name: 'scatter1',
-        type: 'scatter',
-        symbolSize: function(value) {
-          return Math.round(value[2] / 5);
-        },
         data: randomDataArray()
       },
       {
         name: 'scatter2',
-        type: 'scatter',
-        symbolSize: function(value) {
-          return Math.round(value[2] / 5);
-        },
         data: randomDataArray()
       }
     ]
@@ -1220,75 +1121,13 @@ app.controller('scatterChartController', function($scope) {
   $scope.config = {
     width: 800,
     height: 400,
-    debug: true,
-    calculable: true,
     title: {
       text: '类目坐标散点图',
       subtext: 'dataZoom支持'
     },
-    tooltip: {
-      trigger: 'item',
-      formatter: function(value) {
-        return value[0] + '（' + '类目' + value[2][0] + '）<br/>' +
-           value[2][1] + ',' +
-           value[2][2];
-      }
-    },
-    dataZoom: {
-      show: true,
-      start: 30,
-      end: 70
-    },
-    toolbox: {
-      show: true,
-      feature: {
-        saveAsImage: {show: true}
-      }
-    },
-    legend: {
-      data: ['series1', 'series2']
-    },
-    dataRange: {
-      min: 0,
-      max: 100,
-      orient: 'horizontal',
-      y: 30,
-      x: 'center',
-      //text:['高','低'],           // 文本，默认为数值文本
-      color: ['lightgreen', 'orange'],
-      splitNumber: 5
-    },
-    xAxis: [
-      {
-        type: 'category',
-        axisLabel: {
-          formatter: function(v) {
-            return '类目' + v;
-          }
-        },
-        data: (function() {
-          var list = [];
-          var len = 0;
-          while (len++ < 500) {
-            list.push(len);
-          }
-          return list;
-        })()
-      }
-    ],
-    yAxis: [
-      {
-        type: 'value'
-      }
-    ],
-    animation: false,
     series: [
       {
         name: 'series1',
-        type: 'scatter',
-        symbolSize: function(value) {
-          return Math.round(value[2] / 10);
-        },
         data: (function() {
           var d = [];
           var len = 0;
@@ -1305,10 +1144,6 @@ app.controller('scatterChartController', function($scope) {
       },
       {
         name: 'series2',
-        type: 'scatter',
-        symbolSize: function(value) {
-          return Math.round(value[2] / 10);
-        },
         data: (function() {
           var d = [];
           var len = 0;
@@ -1334,58 +1169,34 @@ app.controller('radarChartController', function($scope) {
   $scope.config = {
     width: 800,
     height: 400,
+    debug: true,
     title: {
       text: '预算 vs 开销（Budget vs spending）',
       subtext: '纯属虚构'
-    },
-    tooltip: {
-      trigger: 'axis'
-    },
-    legend: {
-      orient: 'vertical',
-      x: 'right',
-      y: 'bottom',
-      data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
-    },
-    toolbox: {
-      show: false,
-      feature: {
-        mark: {show: true},
-        dataView: {show: true, readOnly: false},
-        restore: {show: true},
-        saveAsImage: {show: true}
-      }
-    },
-    polar: [
-      {
-        indicator: [
-          { text: '销售（sales）', max: 6000},
-          { text: '管理（Administration）', max: 16000},
-          { text: '信息技术（Information Techology）', max: 30000},
-          { text: '客服（Customer Support）', max: 38000},
-          { text: '研发（Development）', max: 52000},
-          { text: '市场（Marketing）', max: 25000}
-        ]
-      }
-    ],
-    calculable: true,
-    series: [
-      {
-        name: '预算 vs 开销（Budget vs spending）',
-        type: 'radar',
-        data: [
-          {
-            value: [4300, 10000, 28000, 35000, 50000, 19000],
-            name: '预算分配（Allocated Budget）'
-          },
-          {
-            value: [5000, 14000, 28000, 31000, 42000, 21000],
-            name: '实际开销（Actual Spending）'
-          }
-        ]
-      }
-    ]
+    }
   };
-  $scope.data = $scope.config.series;
+  $scope.data = [
+    {
+      name: '预算 vs 开销（Budget vs spending）',
+      data: [
+        {
+          value: [4300, 10000, 28000, 35000, 50000, 19000],
+          name: '预算分配（Allocated Budget）'
+        },
+        {
+          value: [5000, 14000, 28000, 31000, 42000, 21000],
+          name: '实际开销（Actual Spending）'
+        }
+      ],
+      indicator: [
+        { text: '销售（sales）', max: 6000},
+        { text: '管理（Administration）', max: 16000},
+        { text: '信息技术（Information Techology）', max: 30000},
+        { text: '客服（Customer Support）', max: 38000},
+        { text: '研发（Development）', max: 52000},
+        { text: '市场（Marketing）', max: 25000}
+      ]
+    }
+  ];
 
 });

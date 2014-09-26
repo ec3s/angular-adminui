@@ -6,11 +6,15 @@
   var util = function() {
 
     var isPieChart = function(type) {
-      return ['pie', 'donut', 'easyPie'].indexOf(type) > -1;
+      return ['pie', 'donut', 'easyPie', 'ntdPie'].indexOf(type) > -1;
     };
 
     var isAxisChart = function(type) {
       return ['line', 'bar', 'area'].indexOf(type) > -1;
+    };
+
+    var isScatterChart = function(type) {
+      return ['bubble', 'scatter'].indexOf(type) > -1;
     };
 
     /**
@@ -18,11 +22,13 @@
      */
     var getAxisTicks = function(data, config, type) {
       var ticks = [];
-      type !== 'easyPie' && ng.forEach(data[0].datapoints, function(datapoint) {
-        ticks.push(datapoint.x);
-      });
+      if (type !== 'easyPie' && type !== 'ntdPie') {
+        ng.forEach(data[0].dataPoints, function(datapoint) {
+          ticks.push(datapoint.x);
+        });
+      }
 
-      return {
+      return (isScatterChart(type) || type === 'radar') ? {} :{
         type: 'category',
         boundaryGap: type === 'bar',
         data: ticks
@@ -36,134 +42,138 @@
      * @param {Object} config options
      * @param {String} type chart type
      * @param {Object} scope chart type
+     * @param {String} ntdPieRadius ntdPie chart radius
      */
-    var getSeries = function(data, config, type, scope) {
+    var getSeries = function(data, config, type, scope, ntdPieRadius) {
       var series = [];
-      type !== 'easyPie' && ng.forEach(data, function(serie) {
-        // datapoints for line, area, bar chart
-        var datapoints = [];
-        ng.forEach(serie.datapoints, function(datapoint) {
-          datapoints.push(datapoint.y);
-        });
-
-        var conf = {
-          type: type || 'line',
-          name: serie.name,
-          data: datapoints
-        };
-
-        // area chart is actually line chart with special itemStyle
-        if (type === 'area') {
-          conf.type = 'line';
-          conf.itemStyle = {
-            normal: { areaStyle: { type: 'default'}}
-          };
-        }
-
-        // gauge chart need many special config
-        if (type === 'gauge') {
-          conf = ng.extend(conf, {
-            splitNumber: 10,       // 分割段数，默认为5
-            axisLine: {            // 坐标轴线
-              lineStyle: {       // 属性lineStyle控制线条样式
-                color: [
-                  [0.2, '#228b22'],
-                  [0.8, '#48b'],
-                  [1, '#ff4500']
-                ],
-                width: 8
-              }
-            },
-            axisTick: {            // 坐标轴小标记
-              splitNumber: 10,   // 每份split细分多少段
-              length: 12,        // 属性length控制线长
-              lineStyle: {       // 属性lineStyle控制线条样式
-                color: 'auto'
-              }
-            },
-            axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
-              textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                color: 'auto'
-              }
-            },
-            splitLine: {           // 分隔线
-              show: true,        // 默认显示，属性show控制显示与否
-              length: 30,         // 属性length控制线长
-              lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
-                color: 'auto'
-              }
-            },
-            pointer: {
-              width: 5
-            },
-            title: {
-              show: true,
-              offsetCenter: [0, '-40%'],       // x, y，单位px
-              textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                fontWeight: 'bolder'
-              }
-            },
-            detail: {
-              formatter: '{value}%',
-              textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
-                color: 'auto',
-                fontWeight: 'bolder'
-              }
-            }
-          }, config.gauge || {});
-        }
-
-        // datapoints for pie chart and gauges are different
-        if (!isAxisChart(type)) {
-          conf.data = [];
-          ng.forEach(serie.datapoints, function(datapoint) {
-            conf.data.push({value: datapoint.y, name: datapoint.x });
+      if (isAxisChart(type) || type === 'pie' ||
+        type == 'donut' || type === 'gauge') {
+        ng.forEach(data, function(serie) {
+          // dataPoints for line, area, bar chart
+          var dataPoints = [];
+          ng.forEach(serie.dataPoints, function(datapoint) {
+            dataPoints.push(datapoint.y);
           });
-        }
 
-        if (isPieChart(type)) {
-          // donut charts are actually pie charts
-          conf.type = 'pie';
+          var conf = {
+            type: type || 'line',
+            name: serie.name,
+            data: dataPoints
+          };
 
-          // pie chart need special radius, center config
-          conf.center = config.center || ['40%', '50%'];
-          conf.radius = config.radius || '60%';
+          // area chart is actually line chart with special itemStyle
+          if (type === 'area') {
+            conf.type = 'line';
+            conf.itemStyle = {
+              normal: { areaStyle: { type: 'default'}}
+            };
+          }
 
-          // donut chart require special itemStyle
-          if (type === 'donut') {
-            conf.radius = config.radius || ['50%', '70%'];
+          // gauge chart need many special config
+          if (type === 'gauge') {
             conf = ng.extend(conf, {
-              itemStyle: {
-                normal: {
-                  label: {
-                    show: false
+              splitNumber: 10,       // 分割段数，默认为5
+              axisLine: {            // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                  color: [
+                    [0.2, '#228b22'],
+                    [0.8, '#48b'],
+                    [1, '#ff4500']
+                  ],
+                  width: 8
+                }
+              },
+              axisTick: {            // 坐标轴小标记
+                splitNumber: 10,   // 每份split细分多少段
+                length: 12,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                  color: 'auto'
+                }
+              },
+              axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                  color: 'auto'
+                }
+              },
+              splitLine: {           // 分隔线
+                show: true,        // 默认显示，属性show控制显示与否
+                length: 30,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                  color: 'auto'
+                }
+              },
+              pointer: {
+                width: 5
+              },
+              title: {
+                show: true,
+                offsetCenter: [0, '-40%'],       // x, y，单位px
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                  fontWeight: 'bolder'
+                }
+              },
+              detail: {
+                formatter: '{value}%',
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                  color: 'auto',
+                  fontWeight: 'bolder'
+                }
+              }
+            }, config.gauge || {});
+          }
+
+          // dataPoints for pie chart and gauges are different
+          if (!isAxisChart(type)) {
+            conf.data = [];
+            ng.forEach(serie.dataPoints, function(datapoint) {
+              conf.data.push({value: datapoint.y, name: datapoint.x });
+            });
+          }
+
+          if (isPieChart(type)) {
+            // donut charts are actually pie charts
+            conf.type = 'pie';
+
+            // pie chart need special radius, center config
+            conf.center = config.center || ['40%', '50%'];
+            conf.radius = config.radius || '60%';
+
+            // donut chart require special itemStyle
+            if (type === 'donut') {
+              conf.radius = config.radius || ['50%', '70%'];
+              conf = ng.extend(conf, {
+                itemStyle: {
+                  normal: {
+                    label: {
+                      show: false
+                    },
+                    labelLine: {
+                      show: false
+                    }
                   },
-                  labelLine: {
-                    show: false
-                  }
-                },
-                emphasis: {
-                  label: {
-                    show: true,
-                    position: 'center',
-                    textStyle: {
-                      fontSize: '50',
-                      fontWeight: 'bold'
+                  emphasis: {
+                    label: {
+                      show: true,
+                      position: 'center',
+                      textStyle: {
+                        fontSize: '50',
+                        fontWeight: 'bold'
+                      }
                     }
                   }
                 }
-              }
-            }, config.donut || {});
+              }, config.donut || {});
+            }
           }
-        }
 
-        // if stack set to true
-        if (config.stack) {
-          conf.stack = 'total';
-        }
+          // if stack set to true
+          if (config.stack) {
+            conf.stack = 'total';
+          }
 
-        series.push(conf);
-      });
+          series.push(conf);
+        });
+      }
 
       if (type == 'easyPie') {
         var colorRange = [
@@ -214,14 +224,85 @@
         };
         var conf = {
           type: 'pie',
-          center: ['50%', '50%'],
-          radius: [40, 55],
+          center: config.center || ['40%', '50%'],
+          radius: config.radius || [40, 55],
           data: [
             {name: data.caption, value: data.percent, itemStyle: labelTop},
             {name: 'other', value: (100 - data.percent),
               itemStyle: labelBottom}]
         };
         series.push(conf);
+      }
+
+      if (type == 'ntdPie') {
+        var bgColor = ['#fdc79b', '#ee6962', '#5d96b1', '#b8d97e',
+          '#24CBE5', '#64E572', '#FF9655', '#FFF263'];
+        var ntdPieLabel = function(index) {
+          return {
+            normal: {
+              color: bgColor[index % 8] || '#08c',
+              label: {
+                show: true,
+                position: 'inner'
+              },
+              labelLine: {
+                show: false
+              }
+            },
+            emphasis: {
+              label: {
+                show: true
+              }
+            }
+          };
+        };
+        var ntdPieData = [];
+        var index = 0;
+        ng.forEach(data.analysis, function(item) {
+          var data = {
+            name: item.name,
+            value: item.value,
+            itemStyle: ntdPieLabel(index)
+          };
+          index++;
+          ntdPieData.push(data);
+        });
+        var ntdPieConf = {
+          type: 'pie',
+          center: config.center || ['50%', '50%'],
+          radius: ntdPieRadius || '60%',
+          data: ntdPieData
+        };
+        series.push(ntdPieConf);
+      }
+
+      if (isScatterChart(type)) {
+        var scatterConf = {};
+        ng.forEach(data, function(item) {
+          scatterConf = {
+            name: item.name,
+            type: 'scatter',
+            symbolSize: function(value) {
+              return Math.round(value[2] /
+                (type === 'bubble' ? 5 : 10));
+            },
+            data: item.data
+          };
+          series.push(scatterConf);
+        });
+      }
+
+      if (type === 'radar') {
+        var radarConf = {};
+        ng.forEach(data, function(item, index) {
+          radarConf = {
+            name: item.name,
+            type: 'radar',
+            data: item.data,
+            polarIndex: index
+          };
+          series.push(radarConf);
+        });
       }
 
       return series;
@@ -233,24 +314,46 @@
     var getLegend = function(data, config, type) {
       var legend = { data: []};
       if (isPieChart(type)) {
-        type !== 'easyPie' &&
-        ng.forEach(data[0].datapoints, function(datapoint) {
-          legend.data.push(datapoint.x);
-        });
-        legend.orient = 'verticle';
-        legend.x = 'right';
-        legend.y = 'center';
-        if (type === 'easyPie') {
+        if (type !== 'easyPie') {
+          if (type !== 'ntdPie') {
+            ng.forEach(data[0].dataPoints, function(datapoint) {
+              legend.data.push(datapoint.x);
+            });
+          } else {
+            ng.forEach(data.analysis, function(datapoint) {
+              legend.data.push(datapoint.name);
+            });
+          }
+
+          legend.orient = 'verticle';
+          legend.x = 'right';
+          legend.y = 'center';
+        } else {
           legend = {};
         }
 
       } else {
-        ng.forEach(data, function(serie) {
-          legend.data.push(serie.name);
+        ng.forEach(data, function(series) {
+          legend.data.push(series.name);
         });
-        legend.orient = 'verticle';
-        legend.x = 52;
-        legend.y = config.subtitle ? 54 : 30;
+        if (!isScatterChart(type)) {
+          legend.orient = 'horizontal';
+          legend.x = 'center';
+          legend.y = 'top';
+        }
+        if (type === 'radar') {
+          legend = {
+            orient: 'vertical',
+            x: 'right',
+            y: 'bottom'
+          };
+          legend.data = [];
+          ng.forEach(data, function(series) {
+            ng.forEach(series.data, function(value) {
+              legend.data.push(value.name);
+            });
+          });
+        }
       }
 
       return ng.extend(legend, config.legend || {});
@@ -262,20 +365,51 @@
     var getTooltip = function(data, config, type) {
       var tooltip = {};
 
-      if (type === 'pie') {
+      if (isPieChart(type)) {
         tooltip.formatter = '{a} <br/>{b}: {c} ({d}%)';
+      }
+
+      if (type === 'bubble') {
+        tooltip = {
+          trigger: 'axis',
+          showDelay: 0,
+          axisPointer: {
+            type: 'cross',
+            lineStyle: {
+              type: 'dashed',
+              width: 1
+            }
+          }
+        };
+      }
+
+      if (type === 'scatter') {
+        tooltip = {
+          trigger: 'item',
+            formatter: function(value) {
+            return value[0] + '（' + '类目' + value[2][0] + '）<br/>' +
+              value[2][1] + ',' +
+              value[2][2];
+          }
+        };
+      }
+
+      if (type === 'radar') {
+        tooltip = {
+          trigger: 'axis'
+        };
       }
 
       return ng.extend(tooltip,
         ng.isObject(config.tooltip) ? config.tooltip : {});
     };
 
-    var getTitle = function(data, config, type) {
+    var getTitle = function(data, config) {
       if (ng.isObject(config.title)) {
         return config.title;
       }
 
-      return isPieChart(type) ? null : {
+      return {
         text: config.title,
         subtext: config.subtitle || '',
         x: 50
@@ -610,6 +744,7 @@
     return {
       isPieChart: isPieChart,
       isAxisChart: isAxisChart,
+      isScatterChart: isScatterChart,
       getAxisTicks: getAxisTicks,
       getSeries: getSeries,
       getLegend: getLegend,

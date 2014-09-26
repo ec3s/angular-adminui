@@ -20,8 +20,7 @@
     "angular-route":"~1.2.4",
     "ng-bs-daterangepicker-plus": "~0.1.0",
     "angular-ui-bootstrap-bower": "0.10.0",
-    "ECharts": "git@github.com:ecomfe/echarts.git",
-    "angular-echarts": "git://github.com/wangshijun/angular-echarts.git"
+    "ECharts": "git@github.com:ecomfe/echarts.git"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.4",

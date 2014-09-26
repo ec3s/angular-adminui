@@ -13,7 +13,9 @@
         <div class="col-md-offset-1 col-md-9" ng-controller="AreaChartController">
             <area-chart config="config" data="data"></area-chart>
             <area-chart config="config" data="multiple"></area-chart>
+            <pre>$scope.data = {{ data | json }}</pre>
         </div>
+
 
         <div class="col-md-offset-1 col-md-9" ng-controller="PieChartController">
             <pie-chart config="config" data="data"></pie-chart>
@@ -33,16 +35,28 @@
                     <div easy-pie-chart="item"></div>
                 </div>
             </div>
+            <pre>$scope.easyPieChart = {{ easyPieChart | json }}</pre>
+            <h3>Pie chart</h3>
+            <p>通过属性 <code>ntd-pie</code> 来调用, 注：必须指定 ID</p>
+            <div class="row" ng-controller="PieCtrl">
+                <div class="col-md-12 clearfix">
+                    <div >
+                        <div id="sample-pie" ntd-pie data="ageData" pie-height="300" pie-width="700"></div>
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+            <div class="row" ng-controller="PieCtrl">
+                <pre>$scope.easyPieChart = {{ easyPieChart | json }}</pre>
+            </div>
         </div>
     </div>
-    <!--<div class="row">
+    <div class="row">
         <div class="col-md-offset-1 col-md-9" ng-controller="GaugeChartController">
             <gauge-chart config="config" data="data"></gauge-chart>
         </div>
-        <div class="col-md-offset-1 col-md-9" ng-controller="AjaxChartController">
-            <gauge-chart config="config" data="data"></gauge-chart>
-        </div>
-    </div>-->
+    </div>
     <div class="row">
         <div class="col-md-offset-1 col-md-9" ng-controller="bubbleChartController">
             <bubble-chart config="config" data="data"></bubble-chart>

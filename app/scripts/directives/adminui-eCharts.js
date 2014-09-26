@@ -14,7 +14,7 @@
       scope.config = scope.config || {};
 
       var dom = element.find('div')[0],
-        width, height, chart;
+        width, height, chart, radius;
 
       function getSizes(config) {
         width = config.width || attrs.width || 320;
@@ -23,6 +23,12 @@
         if (type === 'easyPie') {
           width = config.width || attrs.width || 150;
           height = config.height || attrs.height || 150;
+        }
+
+        if (type === 'ntdPie') {
+            width = config.width || attrs.pieWidth || 800;
+            height = config.height || attrs.pieHeight || 300;
+            radius = Math.min(width, height) / 2;
         }
 
         dom.style.width = width + 'px';
@@ -36,8 +42,6 @@
           showYAxis: true,
           showLegend: true
         }, config);
-
-        var grid = ng.isObject(config.grid) ? config.grid : {};
 
         var xAxis = ng.extend({
           orient: 'top',
@@ -58,21 +62,59 @@
           }
         }, ng.isObject(config.yAxis) ? config.yAxis : {});
 
+        var toolbox = {show: false};
+
+        if (type === 'bubble') {
+          var bubbleXAxis = {
+            type: 'value',
+            power: 1,
+            splitNumber: 4,
+            scale: true
+          };
+          xAxis = ng.extend(bubbleXAxis, xAxis);
+          yAxis = ng.extend(bubbleXAxis, yAxis);
+          toolbox = {
+            show: true,
+            feature: {
+              dataZoom: {show: true},
+              restore: {show: true}
+            }
+          };
+        }
+        if (type === 'scatter') {
+          var scatterXAxis = {
+            type: 'category',
+            axisLabel: {
+              formatter: function(v) {
+                return '类目' + v;
+              }
+            },
+            data: (function() {
+              var list = [];
+              var len = 0;
+              while (len++ < data[0].data.length) {
+                list.push(len);
+              }
+              return list;
+            })()
+          };
+          xAxis = ng.extend(scatterXAxis, xAxis);
+        }
+
         // basic config
         var options = {
-          title: util.getTitle(data, config, type),
+          title: util.getTitle(data, config),
           tooltip: util.getTooltip(data, config, type),
           legend: util.getLegend(data, config, type),
           toolbox:
-            ng.extend({ show: false },
+            ng.extend(toolbox,
               ng.isObject(config.toolbox) ? config.toolbox : {}),
-          xAxis:
+          xAxis: ng.isArray(config.xAxis) ? config.xAxis :
             [ng.extend(xAxis, util.getAxisTicks(data, config, type))],
-          yAxis: [yAxis],
-          series: util.getSeries(data, config, type, scope),
+          yAxis: ng.isArray(config.yAxis) ? config.yAxis : [yAxis],
+          series: util.getSeries(data, config, type, scope, radius),
           calculable: config.calculable
         };
-
 
         if (!config.showXAxis) {
           ng.forEach(options.xAxis, function(axis) {
@@ -94,20 +136,53 @@
           delete options.legend;
         }
 
-        if (!util.isAxisChart(type)) {
+
+        if (ng.isObject(config.grid)) {
+          options.grid = config.grid;
+        }
+        if (util.isPieChart(type) || type === 'gauge' || type === 'radar') {
           delete options.xAxis;
           delete options.yAxis;
+          delete options.grid;
         }
 
-        options.grid = grid;
-        if (util.isPieChart(type)) {
+        if (util.isScatterChart(type)) {
           delete options.grid;
         }
 
         if (type === 'easyPie') {
           delete options.tooltip;
         }
-
+        if (type === 'scatter') {
+          options.dataZoom = ng.extend({
+            show: true,
+            start: 30,
+            end: 70
+          }, options.dataZoom);
+          options.dataRange = ng.extend({
+            min: 0,
+            max: 100,
+            orient: 'horizontal',
+            y: 30,
+            x: 'center',
+            color: ['lightgreen', 'orange'],
+            splitNumber: 5
+          }, options.dataRange);
+          options.animation = options.animation || false;
+        }
+        if (type === 'radar') {
+          options.polar = [];
+          ng.forEach(data, function(value, index) {
+            var conf = {
+              indicator: value.indicator
+            };
+            if (data.length > 1) {
+              conf.radius = data.radius || 80;
+              conf.center = data.center || [((index + 1) * 25) + '%', 200];
+            }
+            options.polar.push(conf);
+          });
+        }
         return options;
       }
 
@@ -155,10 +230,9 @@
           // if data is avaliable, render immediately
         } else {
           options = getOptions(scope.data, scope.config, type);
-          if (type === 'scatter' || type === 'radar') {
-            options = {};
+/*          if (type === 'radar') {
             options = scope.config;
-          }
+          }*/
           if (scope.config.debug) {
             console.log(options);
           }
@@ -266,6 +340,17 @@
           link: getLinkFunction($http, util, 'easyPie')
         };
       }])
+    .directive('ntdPie',
+      ['$http', 'util', function($http, util) {
+        return {
+          restrict: 'EA',
+          template: '<div></div>',
+          scope: {
+            data: '=data'
+          },
+          link: getLinkFunction($http, util, 'ntdPie')
+        };
+      }])
     .directive('gaugeChart',
       ['$http', 'util', function($http, util) {
         return {
@@ -287,7 +372,7 @@
             config: '=config',
             data: '=data'
           },
-          link: getLinkFunction($http, util, 'scatter')
+          link: getLinkFunction($http, util, 'bubble')
         };
       }])
     .directive('scatterChart',
