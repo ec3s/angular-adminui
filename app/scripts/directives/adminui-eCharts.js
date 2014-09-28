@@ -230,9 +230,6 @@
           // if data is avaliable, render immediately
         } else {
           options = getOptions(scope.data, scope.config, type);
-/*          if (type === 'radar') {
-            options = scope.config;
-          }*/
           if (scope.config.debug) {
             console.log(options);
           }
