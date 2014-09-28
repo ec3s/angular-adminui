@@ -1169,7 +1169,6 @@ app.controller('radarChartController', function($scope) {
   $scope.config = {
     width: 800,
     height: 400,
-    debug: true,
     title: {
       text: '预算 vs 开销（Budget vs spending）',
       subtext: '纯属虚构'
