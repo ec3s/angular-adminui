@@ -1047,7 +1047,8 @@ app.controller('PieChartController', function($scope) {
     title: 'Pie Chart',
     subtitle: 'Pie Chart Subtitle',
     width: 800,
-    height: 400
+    height: 400,
+    calculable: true
   };
 
   $scope.data = [firstPaint];
