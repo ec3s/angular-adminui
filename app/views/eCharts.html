@@ -13,7 +13,9 @@
         <div class="col-md-offset-1 col-md-9" ng-controller="AreaChartController">
             <area-chart config="config" data="data"></area-chart>
             <area-chart config="config" data="multiple"></area-chart>
-            <pre>$scope.data = {{ data | json }}</pre>
+            <div class="well">
+                $scope.data = {{ data | json }}
+            </div>
         </div>
 
 
@@ -35,7 +37,9 @@
                     <div easy-pie-chart="item"></div>
                 </div>
             </div>
-            <pre>$scope.easyPieChart = {{ easyPieChart | json }}</pre>
+            <div class="well">
+                $scope.easyPieChart = {{ easyPieChart | json }}
+            </div>
             <h3>Pie chart</h3>
             <p>通过属性 <code>ntd-pie</code> 来调用, 注：必须指定 ID</p>
             <div class="row" ng-controller="PieCtrl">
@@ -47,8 +51,8 @@
                 <div>
                 </div>
             </div>
-            <div class="row" ng-controller="PieCtrl">
-                <pre>$scope.easyPieChart = {{ easyPieChart | json }}</pre>
+            <div class="well" ng-controller="PieCtrl">
+                $scope.easyPieChart = {{ easyPieChart | json }}
             </div>
         </div>
     </div>
