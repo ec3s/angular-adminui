@@ -1004,7 +1004,9 @@ app.controller('LineChartController', function($scope) {
     title: 'Line Chart',
     subtitle: 'Line Chart Subtitle',
     width: 800,
-    height: 400
+    height: 400,
+    autoResize: true,
+    className: 'col-md-offset-1 col-md-9'
   };
 
   $scope.data = [pageload];

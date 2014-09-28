@@ -30,8 +30,12 @@
             height = config.height || attrs.pieHeight || 300;
             radius = Math.min(width, height) / 2;
         }
-
-        dom.style.width = width + 'px';
+        //需要自适应的时候不能给其赋宽度
+        if (!scope.config.autoResize) {
+          dom.style.width = width + 'px';
+        } else {
+          element.parent()[0].className = scope.config.className;
+        }
         dom.style.height = height + 'px';
       }
 
@@ -238,8 +242,8 @@
           if (scope.config.forceClear) {
             chart.clear();
           }
+          window.onresize = chart.resize;
           chart.setOption(options, true);
-          chart.resize();
         }
       }
 
