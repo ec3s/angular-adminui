@@ -71,8 +71,10 @@
             splitNumber: 4,
             scale: true
           };
-          xAxis = ng.extend(bubbleXAxis, xAxis);
-          yAxis = ng.extend(bubbleXAxis, yAxis);
+          xAxis = ng.extend(bubbleXAxis,
+            ng.isObject(config.yAxis) ? config.yAxis : {});
+          yAxis = ng.extend(bubbleXAxis,
+            ng.isObject(config.yAxis) ? config.yAxis : {});
           toolbox = {
             show: true,
             feature: {
