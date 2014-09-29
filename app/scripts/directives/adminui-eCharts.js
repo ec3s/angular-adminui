@@ -13,8 +13,16 @@
     return function(scope, element, attrs) {
       scope.config = scope.config || {};
 
-      var dom = element.find('div')[0],
-        width, height, chart, radius;
+      var dom = element.find('div')[0] || element[0],
+        width, height, chart, radius, resizeTicket;
+
+      var resize = function() {
+        clearTimeout(resizeTicket);
+        resizeTicket = setTimeout(function() {
+            chart.resize();
+        },0);
+      };
+      $('div[data-ng-view]').bind('resize', resize);
 
       function getSizes(config) {
         width = config.width || attrs.width || 320;
@@ -33,8 +41,6 @@
         //需要自适应的时候不能给其赋宽度
         if (!scope.config.autoResize) {
           dom.style.width = width + 'px';
-        } else {
-          element.parent()[0].className = scope.config.className;
         }
         dom.style.height = height + 'px';
       }
@@ -222,7 +228,6 @@
                 chart.clear();
               }
               chart.setOption(options);
-              chart.resize();
             } else {
               throw new Error(
                 'angular-echarts: no data loaded from ' + scope.data);
@@ -242,7 +247,6 @@
           if (scope.config.forceClear) {
             chart.clear();
           }
-          window.onresize = chart.resize;
           chart.setOption(options, true);
         }
       }
@@ -277,6 +281,7 @@
         return {
           restrict: 'EA',
           template: '<div></div>',
+          replace: true,
           scope: {
             config: '=config',
             data: '=data'
@@ -288,7 +293,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',
+          template: '<div></div>',           replace: true,
           scope: {
             config: '=config',
             data: '=data'
@@ -300,7 +305,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',
+          template: '<div></div>',           replace: true,
           scope: {
             config: '=config',
             data: '=data'
@@ -312,7 +317,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',
+          template: '<div></div>',           replace: true,
           scope: {
             config: '=config',
             data: '=data'
@@ -324,7 +329,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',
+          template: '<div></div>',           replace: true,
           scope: {
             config: '=config',
             data: '=data'
@@ -336,7 +341,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',
+          template: '<div></div>',           replace: true,
           scope: {
             data: '=easyPieChart'
           },
@@ -347,7 +352,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',
+          template: '<div></div>',           replace: true,
           scope: {
             data: '=data'
           },
@@ -358,7 +363,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',
+          template: '<div></div>',           replace: true,
           scope: {
             config: '=config',
             data: '=data'
@@ -370,7 +375,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',
+          template: '<div id = "bubble"></div>',
           scope: {
             config: '=config',
             data: '=data'
@@ -382,7 +387,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',
+          template: '<div></div>',           replace: true,
           scope: {
             config: '=config',
             data: '=data'
@@ -394,7 +399,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',
+          template: '<div></div>',           replace: true,
           scope: {
             config: '=config',
             data: '=data'

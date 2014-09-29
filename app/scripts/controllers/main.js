@@ -1005,8 +1005,7 @@ app.controller('LineChartController', function($scope) {
     subtitle: 'Line Chart Subtitle',
     width: 800,
     height: 400,
-    autoResize: true,
-    className: 'col-md-offset-1 col-md-9'
+    autoResize: true
   };
 
   $scope.data = [pageload];
@@ -1021,7 +1020,8 @@ app.controller('BarChartController', function($scope) {
     subtitle: 'Bar Chart Subtitle',
     stack: true,
     width: 800,
-    height: 400
+    height: 400,
+    autoResize: true
   };
 
   $scope.data = [pageload];
@@ -1035,7 +1035,8 @@ app.controller('AreaChartController', function($scope) {
     title: 'Area Chart',
     subtitle: 'Area Chart Subtitle',
     width: 800,
-    height: 400
+    height: 400,
+    autoResize: true
   };
 
   $scope.data = [pageload];
@@ -1050,7 +1051,8 @@ app.controller('PieChartController', function($scope) {
     subtitle: 'Pie Chart Subtitle',
     width: 800,
     height: 400,
-    calculable: true
+    calculable: true,
+    autoResize: true
   };
 
   $scope.data = [firstPaint];
@@ -1060,7 +1062,8 @@ app.controller('GaugeChartController', function($scope) {
 
   $scope.config = {
     width: 800,
-    height: 400
+    height: 400,
+    autoResize: true
   };
 
   $scope.data = [pageload];
@@ -1101,6 +1104,7 @@ app.controller('bubbleChartController', function($scope) {
   $scope.config = {
     width: 800,
     height: 400,
+    autoResize: true,
     title: {
       text: '标准气泡图',
       subtext: 'toolBox的dataZoom支持'
@@ -1128,6 +1132,7 @@ app.controller('scatterChartController', function($scope) {
       text: '类目坐标散点图',
       subtext: 'dataZoom支持'
     },
+    autoResize: true,
     series: [
       {
         name: 'series1',
@@ -1172,6 +1177,7 @@ app.controller('radarChartController', function($scope) {
   $scope.config = {
     width: 800,
     height: 400,
+    autoResize: true,
     title: {
       text: '预算 vs 开销（Budget vs spending）',
       subtext: '纯属虚构'
