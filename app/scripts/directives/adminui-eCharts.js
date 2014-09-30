@@ -13,7 +13,7 @@
     return function(scope, element, attrs) {
       scope.config = scope.config || {};
 
-      var dom = element.find('div')[0] || element[0],
+      var dom = element.find('div')[0],
         width, height, chart, radius, resizeTicket;
 
       var resize = function() {
@@ -281,7 +281,6 @@
         return {
           restrict: 'EA',
           template: '<div></div>',
-          replace: true,
           scope: {
             config: '=config',
             data: '=data'
@@ -293,7 +292,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',           replace: true,
+          template: '<div></div>',
           scope: {
             config: '=config',
             data: '=data'
@@ -305,7 +304,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',           replace: true,
+          template: '<div></div>',
           scope: {
             config: '=config',
             data: '=data'
@@ -317,7 +316,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',           replace: true,
+          template: '<div></div>',
           scope: {
             config: '=config',
             data: '=data'
@@ -329,7 +328,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',           replace: true,
+          template: '<div></div>',
           scope: {
             config: '=config',
             data: '=data'
@@ -341,7 +340,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',           replace: true,
+          template: '<div></div>',
           scope: {
             data: '=easyPieChart'
           },
@@ -352,7 +351,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',           replace: true,
+          template: '<div></div>',
           scope: {
             data: '=data'
           },
@@ -363,7 +362,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',           replace: true,
+          template: '<div></div>',
           scope: {
             config: '=config',
             data: '=data'
@@ -375,7 +374,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div id = "bubble"></div>',
+          template: '<div></div>',
           scope: {
             config: '=config',
             data: '=data'
@@ -387,7 +386,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',           replace: true,
+          template: '<div></div>',
           scope: {
             config: '=config',
             data: '=data'
@@ -399,7 +398,7 @@
       ['$http', 'util', function($http, util) {
         return {
           restrict: 'EA',
-          template: '<div></div>',           replace: true,
+          template: '<div></div>',
           scope: {
             config: '=config',
             data: '=data'
@@ -407,9 +406,6 @@
           link: getLinkFunction($http, util, 'radar')
         };
       }]);
-
-
-
 
 })(angular);
 
