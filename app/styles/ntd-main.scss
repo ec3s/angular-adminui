@@ -745,4 +745,11 @@ input {
     @extend .text-right;
   }
 }
+.has-error .chzn-container .chzn-single,
+.has-error .chzn-container .chzn-choices,
+.has-error .adminui-finder-container {
+  border-color: #b94a48;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
 
