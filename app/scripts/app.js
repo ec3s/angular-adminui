@@ -106,6 +106,11 @@ angular.module('ntd.directives').config(
             'name': 'timeLine组件',
             'url': '#/time-line',
             'children': null
+          },
+          {
+            'name': 'ECharts组件',
+            'url': '#/eCharts',
+            'children': null
           }
           ]
         },
@@ -193,6 +198,10 @@ adminuiApp
       })
       .when('/time-line', {
         templateUrl: 'views/time-line.html',
+        controller: 'MainCtrl'
+      })
+      .when('/eCharts', {
+        templateUrl: 'views/eCharts.html',
         controller: 'MainCtrl'
       })
       .otherwise({
