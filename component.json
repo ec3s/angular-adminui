@@ -10,17 +10,18 @@
     "es5-shim": "~2.0.11",
     "json3": "~3.2.4",
     "jquery": "2.0.2",
-    "jquery.easy-pie-chart": "~1.2.5",
     "bootstrap-timepicker": "0.2.6",
     "bootstrap-daterangepicker": "1.3.13",
     "bootstrap-datepicker": "1.3.0",
     "jquery.slimscroll": "1.3.3",
-    "d3": "~3.1.5",
     "footable": "~0.5.0",
     "chosen": "https://github.com/CandySunPlus/chosen0.13.0.git#master",
     "angular-route":"~1.2.4",
     "ng-bs-daterangepicker-plus": "~0.1.0",
-    "angular-ui-bootstrap-bower": "0.10.0"
+    "angular-ui-bootstrap-bower": "0.10.0",
+    "ECharts": "git@github.com:ecomfe/echarts.git",
+    "jquery-resize": "git://github.com/cowboy/jquery-resize.git",
+    "angular-shims-placeholder": "0.2.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.4",

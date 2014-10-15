@@ -76,7 +76,6 @@ $footableDetailBgColor:  #eee;
 @mixin base-widget-header-gradient {
     @include text-shadow(0 1px 0 #fff);
     @include box-shadow(0 1px 0 0 #fff inset);
-    // @include background-image(linear-gradient($BaseWidgetHeaderGradientStart, $BaseWidgetHeaderGradientEnd));
 }
 
 
@@ -121,6 +120,13 @@ $footableDetailBgColor:  #eee;
     float:none!important;
   }
 }
+
+// for ie
+input[placeholder],
+textarea[placeholder] {
+  color: #aaa;
+}
+
 //field error
 // Custom styles
 @import "ntd-main";
@@ -130,8 +136,6 @@ $footableDetailBgColor:  #eee;
 @import "adminui-finder";
 @import "adminui-list";
 @import "ntd-login";
-@import "ntd-easy-pie-chart";
-@import "ntd-foo-table";
 @import "ntd-404";
 @import "ntd-responsive";
 @import "adminui-checkbox-group";

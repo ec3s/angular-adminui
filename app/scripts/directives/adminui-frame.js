@@ -2,7 +2,7 @@
   'use strict';
   var AdminuiFrame = function(
     adminuiFrameProvider, $rootScope, $location,
-    $timeout, $modal, $http, $route, $parse, $sce, SYS, flash) {
+    $timeout, $modal, $http, $route, $parse, $compile, SYS, flash) {
     return {
       restrict: 'A',
       templateUrl: 'templates/adminui-frame.html',
@@ -11,108 +11,125 @@
         userInfo: '=',
         messages: '='
       },
-      link: function(scope, elem, attrs) {
-        /* dose default show submenu */
-        scope.isSubMenuShow = adminuiFrameProvider.defaultShowSubmenu;
-        /* has side menu in selected nav */
-        scope.hasSideMenu = false;
-        /* 所有菜单都没有侧边菜单子集 */
-        scope.noSideMenu = true;
-        /* has sub navigation bar */
-        scope.hasSubNav = false;
-        /* dose show message box */
-        scope.isMessageBoxShow = adminuiFrameProvider.showMessageBox;
-        /* bind navigation data */
-        scope.navigation = adminuiFrameProvider.navigation;
-        /* init messages */
-        scope.messages = scope.messages ? scope.messages : [];
-
-        scope.plugin = attrs['plugin'] ?
-          $parse(attrs['plugin'])(scope.$root) : {};
-
-        scope.pluginEl = null;
-        /* init common menus */
-        scope.commonMenus = [];
-        /* init account system host */
-        scope.accountHost = null;
-        /* does navigation inited */
-        scope.isInited = false;
-
-        scope.userInfo = ng.extend({
-          'username': null,
-          'accessToken': null,
-          'avatar': 'images/avatar.jpg',
-          'logout': function() { console.log('logout'); },
-          'changePwd': function() { console.log('change password'); }
-        }, scope.userInfo);
-
-        /* watch if has sub navigation, add body's padding top */
-        scope.$watch('hasSubNav', function(value, oldValue) {
-          if (value == true) {
-            $('body').addClass('padding-submenu');
+      compile: function(element, attributes) {
+        var plugin = attributes['plugin'] ?
+          $parse(attributes['plugin'])($rootScope) : {};
+        var pluginContainer = $('<li>').addClass('nav-plugin');
+        if (plugin.hasOwnProperty('template')) {
+          var pluginEl = $(plugin.template);
+          if (pluginEl.length != 0) {
+            pluginContainer.append(pluginEl);
+            element.find('.nav ul.sub-navbar').append(
+              $compile(pluginContainer)($rootScope)
+            );
           }
-        });
-
-        scope.$watch('userInfo', function(value) {
-          if (scope.isInited && value.accessToken !== null) {
-            fetchCommonMenus($http, scope);
-          }
-        }, true);
-
-        /* init navigation from systems */
-        initNav(
-          scope, $http, $route, $sce, SYS,
-          adminuiFrameProvider.navigation, $location.path()
-        );
-
-        /* when route changed, reselected */
-        $rootScope.$on('$routeChangeStart', function() {
-          if (scope.isInited) {
-            selectPath(scope, $location.path());
-          }
-        });
-
-        $rootScope.$on('$routeChangeSuccess', function() {
-          if (scope.isInited) {
-            parseNavUrl(scope.navigation, $route);
-          }
-        });
-
-        $rootScope.$on('$routeChangeError', function() {
-          selectPath(scope, '/_default_');
-        });
-
-        $rootScope.$on('selectPath', function(evt, path) {
-          selectPath(scope, path);
-        });
-
-        /* bind menu select func */
-        scope.select = ng.bind(scope, select, $timeout, elem);
-        /* bind submenu toggle */
-        scope.toggleSubMenu = ng.bind(scope, toggleSubMenu);
-        /* bind select nav */
-        scope.selectNav = ng.bind(scope, selectNav);
-        /* bind select menu*/
-        scope.selectMenu = ng.bind(scope, selectMenu);
-        /* bind is current selected */
-        scope.isSelected = ng.bind(scope, isSelected);
-        /* bind set side menu */
-        scope.setSideMenu = ng.bind(scope, setSideMenu, elem);
-        /* bind logout func */
-        scope.logout = ng.bind(scope, logout);
-        /* bind change password func */
-        scope.changePwd = ng.bind(scope, changePwd);
-        /* bind add common menu func */
-        scope.addCommonMenu = ng.bind(
-          scope, addCommonMenu, $http, $location, $modal, flash
-        );
-
+        }
+        return (linkFn(adminuiFrameProvider, $rootScope, $location,
+        $timeout, $modal, $http, $route, $parse, SYS, flash));
       }
     };
   };
 
-  var initNav = function(scope, $http, $route, $sce,
-                         SYS, navigation, currentPath) {
+  var linkFn = function(
+    adminuiFrameProvider, $rootScope, $location,
+    $timeout, $modal, $http, $route, $parse,
+    SYS, flash) {
+    return function(scope, elem, attrs) {
+      /* dose default show submenu */
+      scope.isSubMenuShow = adminuiFrameProvider.defaultShowSubmenu;
+      /* has side menu in selected nav */
+      scope.hasSideMenu = false;
+      /* 所有菜单都没有侧边菜单子集 */
+      scope.noSideMenu = true;
+      /* has sub navigation bar */
+      scope.hasSubNav = false;
+      /* dose show message box */
+      scope.isMessageBoxShow = adminuiFrameProvider.showMessageBox;
+      /* bind navigation data */
+      scope.navigation = adminuiFrameProvider.navigation;
+      /* init messages */
+      scope.messages = scope.messages ? scope.messages : [];
+
+      /* init common menus */
+      scope.commonMenus = [];
+      /* init account system host */
+      scope.accountHost = null;
+      /* does navigation inited */
+      scope.isInited = false;
+
+      scope.userInfo = ng.extend({
+        'username': null,
+        'accessToken': null,
+        'avatar': 'images/avatar.jpg',
+        'logout': function() { console.log('logout'); },
+        'changePwd': function() { console.log('change password'); }
+      }, scope.userInfo);
+
+      /* watch if has sub navigation, add body's padding top */
+      scope.$watch('hasSubNav', function(value, oldValue) {
+        if (value == true) {
+          $('body').addClass('padding-submenu');
+        }
+      });
+
+      scope.$watch('userInfo', function(value) {
+        if (scope.isInited && value.accessToken !== null) {
+          fetchCommonMenus($http, scope);
+        }
+      }, true);
+
+      /* init navigation from systems */
+      initNav(
+        scope, $http, $route, SYS,
+        adminuiFrameProvider.navigation, $location.path()
+      );
+
+      /* when route changed, reselected */
+      $rootScope.$on('$routeChangeStart', function() {
+        if (scope.isInited) {
+          selectPath(scope, $location.path());
+        }
+      });
+
+      $rootScope.$on('$routeChangeSuccess', function() {
+        if (scope.isInited) {
+          parseNavUrl(scope.navigation, $route);
+        }
+      });
+
+      $rootScope.$on('$routeChangeError', function() {
+        selectPath(scope, '/_default_');
+      });
+
+      $rootScope.$on('selectPath', function(evt, path) {
+        selectPath(scope, path);
+      });
+
+      /* bind menu select func */
+      scope.select = ng.bind(scope, select, $timeout, elem);
+      /* bind submenu toggle */
+      scope.toggleSubMenu = ng.bind(scope, toggleSubMenu);
+      /* bind select nav */
+      scope.selectNav = ng.bind(scope, selectNav);
+      /* bind select menu*/
+      scope.selectMenu = ng.bind(scope, selectMenu);
+      /* bind is current selected */
+      scope.isSelected = ng.bind(scope, isSelected);
+      /* bind set side menu */
+      scope.setSideMenu = ng.bind(scope, setSideMenu, elem);
+      /* bind logout func */
+      scope.logout = ng.bind(scope, logout);
+      /* bind change password func */
+      scope.changePwd = ng.bind(scope, changePwd);
+      /* bind add common menu func */
+      scope.addCommonMenu = ng.bind(
+        scope, addCommonMenu, $http, $location, $modal, flash
+      );
+
+    };
+  };
+
+  var initNav = function(scope, $http, $route, SYS, navigation, currentPath) {
 
     navigation.children.push({
       'name': 'default',
@@ -120,8 +137,6 @@
       'url': '/_default_',
       'children': null
     });
-
-    scope.pluginEl = initPlugin($sce, scope);
 
     $http.jsonp(
       SYS.host + '/api/systems?callback=JSON_CALLBACK'
@@ -167,14 +182,9 @@
       /* fetch common menu */
       fetchCommonMenus($http, scope);
     });
+
   };
 
-  var initPlugin = function($sce, scope) {
-    var plugin = scope.plugin;
-    if (plugin.hasOwnProperty('template')) {
-      return $sce.trustAsHtml(plugin.template);
-    }
-  };
 
   var hasSameMenu = function($scope, url) {
     var hasSameMenu = false;
@@ -500,8 +510,8 @@
   ng.module('ntd.directives').directive(
     'adminuiFrame',
     ['adminuiFrame', '$rootScope', '$location',
-      '$timeout', '$modal', '$http', '$route', '$parse',
-      '$sce', 'SYS', 'flash', AdminuiFrame]
+      '$timeout', '$modal', '$http', '$route', '$parse', '$compile',
+      'SYS', 'flash', AdminuiFrame]
   );
   ng.module('ntd.directives').controller(
     'CommonMenuDialogCtrl',
