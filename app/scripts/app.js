@@ -210,7 +210,3 @@ adminuiApp
 
       //$locationProvider.html5Mode(true);
   }]);
-
-$('.editr').each(function() {
-  new Editr({ el: this });
-});
