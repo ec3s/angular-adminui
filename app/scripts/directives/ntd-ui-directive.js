@@ -1,5 +1,5 @@
 'use strict';
 angular.module('ntd.config', []).value('$ntdConfig', {});
 angular.module('ntd.directives',
-  ['ntd.config', 'ngSanitize', 'angular-echarts'
+  ['ntd.config', 'ngSanitize', 'angular-echarts', 'ng.shims.placeholder'
   ]);

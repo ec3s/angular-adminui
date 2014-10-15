@@ -120,6 +120,13 @@ $footableDetailBgColor:  #eee;
     float:none!important;
   }
 }
+
+// for ie
+input[placeholder],
+textarea[placeholder] {
+  color: #aaa;
+}
+
 //field error
 // Custom styles
 @import "ntd-main";
