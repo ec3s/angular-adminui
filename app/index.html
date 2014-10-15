@@ -13,7 +13,6 @@
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
     <!-- build:css styles/components.css -->
     <link rel="stylesheet" href="components/bootstrap-timepicker/css/bootstrap-timepicker.css" />
-    <link rel="stylesheet" href="components/jquery.easy-pie-chart/jquery.easy-pie-chart.css" />
     <link rel="stylesheet" href="components/chosen/chosen.css" />
     <!-- endbuild -->
 
@@ -52,9 +51,7 @@
     <script src="components/angular-cookies/angular-cookies.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
     <script src="components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
-    <script src="components/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
     <script src="components/footable/js/footable.js"></script>
-    <script src="components/d3/d3.js"></script>
     <script src="components/jquery.slimscroll/jquery.slimscroll.js"></script>
     <script src="components/bootstrap-sass/dist/js/bootstrap.js"></script>
     <script src="components/chosen/chosen.jquery.js"></script>
@@ -64,6 +61,7 @@
 
     <!-- build:js scripts/angular-adminui.js -->
     <script src="components/moment/moment.js"></script>
+    <script src="components/jquery-resize/jquery.ba-resize.min.js"></script>
     <script src="components/moment/locale/zh-cn.js"></script>
     <script src="components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script src="components/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js"></script>
@@ -75,14 +73,12 @@
     <script src="scripts/directives/adminui-load-backdrop.js"></script>
     <script src="scripts/directives/ntd-advance-filter.js"></script>
     <script src="scripts/directives/ntd-confirm-button.js"></script>
-    <script src="scripts/directives/ntd-easy-pie-chart.js"></script>
     <script src="scripts/directives/ntd-foo-table.js"></script>
     <script src="scripts/directives/ntd-nano-scroll-bar.js"></script>
     <script src="scripts/directives/ntd-label-state.js"></script>
     <script src="scripts/directives/ntd-nav-bar.js"></script>
     <script src="scripts/directives/ntd-toggle-submenu.js"></script>
     <script src="scripts/directives/ntd-subtree-menu.js"></script>
-    <script src="scripts/directives/ntd-pie.js"></script>
     <script src="scripts/directives/ntd-loading-button.js"></script>
     <script src="scripts/directives/ntd-slim-scroll.js"></script>
     <script src="scripts/directives/ntd-cascade-list.js"></script>
@@ -100,6 +96,9 @@
     <script src="scripts/directives/adminui-datepicker.js"></script>
     <script src="scripts/directives/adminui-time-line.js"></script>
     <script src="scripts/directives/adminui-money.js"></script>
+    <script src="components/ECharts/build/echarts-plain.js"></script>
+    <script src="scripts/directives/adminui-eCharts.js"></script>
+    <script src="scripts/services/adminui-echarts.util.js"></script>
     <!-- endbuild -->
 
     <!-- build:js scripts/angular-adminui-main.js -->
