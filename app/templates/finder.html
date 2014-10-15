@@ -1,7 +1,7 @@
 <div class="adminui-finder-container">
   <div class="adminui-finder-inner">
     {{selectedItems}}
-    <ul data-ng-repeat="list in finderList" style="margin-left: {{30 * $index}}%;" data-ng-class="{true: 'selected'}[isLevelSelected($index)]">
+    <ul data-ng-repeat="list in finderList" data-ng-style="getListStyle($index)" data-ng-class="{true: 'selected'}[isLevelSelected($index)]">
       <li data-ng-click="showChildren(item, $event)" data-ng-class="[{true: 'selected'}[isItemSelected(item, $parent.$index)], {true: 'has-child'}[hasChildren(item)]]" data-ng-repeat="item in list">{{item.text}}</li>
     </ul>
   </div>
