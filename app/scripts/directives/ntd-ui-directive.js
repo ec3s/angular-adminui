@@ -1,24 +1,33 @@
 'use strict';
-window.adminConfigApp = angular.module('ntd.config', []).value('$ntdConfig', {});
-angular.module('ntd.directives',
+angular.module('ntd.config', []).value('$ntdConfig', {});
+var directiveApp = angular.module('ntd.directives',
   ['ntd.config', 'ngSanitize', 'angular-echarts', 'ng.shims.placeholder'
   ]);
 
-var httpInterceptorFn = function($httpProvider, $provide) {
-    $provide.factory("AdminuiHttpInterceptor", function() {
-        return {
-            request: function(config) {
-                if (config.method == 'GET' && !config.hasOwnProperty('cache')) {
-                    if (!config.hasOwnProperty('params')) {
-                      config.params = {};
-                  }
-                  var date = new Date();
-                  config.params['_hash_'] = date.getTime().toString();
-              }
-              return config;
+var adminuiHttpInterceptor = function($httpProvider) {
+  $httpProvider.interceptors.push(function() {
+    return {
+      request: function(config) {
+        if (config.method == 'GET' && !config.hasOwnProperty('cache')) {
+          if (!config.hasOwnProperty('params')) {
+            config.params = {};
           }
-      };
-    });
+          var date = new Date();
+          config.params['_hash_'] = date.getTime().toString();
+        }
+        return config;
+      }
+    };
+  });
 };
 
-window.adminConfigApp.config(['$httpProvider', '$provide', httpInterceptorFn]);
+var httpInterceptorFn = function(adminuiFrameProvider) {
+  if (adminuiFrameProvider.hasOwnProperty('usedModules') &&
+   angular.isArray(adminuiFrameProvider.usedModules)) {
+    angular.forEach(adminuiFrameProvider.usedModules, function(module) {
+      module.config(['$httpProvider', adminuiHttpInterceptor]);
+    });
+  }
+};
+
+directiveApp.config(['adminuiFrameProvider', httpInterceptorFn]);
