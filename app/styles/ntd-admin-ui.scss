@@ -122,8 +122,8 @@ $footableDetailBgColor:  #eee;
 }
 
 // for ie
-input[placeholder],
-textarea[placeholder] {
+input[placeholder].empty,
+textarea[placeholder].empty {
   color: #aaa;
 }
 

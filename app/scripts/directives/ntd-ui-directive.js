@@ -1,7 +1,7 @@
 'use strict';
 angular.module('ntd.config', []).value('$ntdConfig', {});
 var ntdDirective = angular.module('ntd.directives', ['ntd.config', 'ngSanitize',
-  'ngAnimate']);
+  'ngAnimate', 'angular-echarts', 'ng.shims.placeholder']);
 ntdDirective.run(['$rootScope', '$animate',
   function($rootScope, $animate) {
     $rootScope.$on('$routeChangeStart', function() {
@@ -11,3 +11,4 @@ ntdDirective.run(['$rootScope', '$animate',
       $animate.enabled(true);
     });
   }]);
+

@@ -469,6 +469,7 @@
 
   var AdminuiFrameProvider = function() {
     this.config = {
+      usedModules: [],
       defaultShowSubmenu: false,
       showMessageBox: false
     };
@@ -479,6 +480,9 @@
 
     this.setConfig = function(config) {
       this.config = ng.extend(this.config, config);
+      ng.forEach(this.config.usedModules, function(module) {
+        module.config(["$httpProvider", adminuiHttpInterceptor]);
+      });
     };
   };
 
@@ -517,4 +521,22 @@
     'CommonMenuDialogCtrl',
     ['$scope', '$modalInstance', 'url', 'name', CommonMenuDialogCtrl]
   );
+
+  var adminuiHttpInterceptor = function($httpProvider) {
+    $httpProvider.interceptors.push(function() {
+      return {
+        request: function(config) {
+          if (config.method == 'GET' && !config.hasOwnProperty('cache')) {
+            if (!config.hasOwnProperty('params')) {
+              config.params = {};
+            }
+            var date = new Date();
+            config.params['_hash_'] = date.getTime().toString();
+          }
+          return config;
+        }
+      };
+    });
+  };
+
 })(angular);
