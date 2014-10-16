@@ -469,6 +469,7 @@
 
   var AdminuiFrameProvider = function() {
     this.config = {
+      usedModules: [],
       defaultShowSubmenu: false,
       showMessageBox: false
     };
@@ -516,5 +517,35 @@
   ng.module('ntd.directives').controller(
     'CommonMenuDialogCtrl',
     ['$scope', '$modalInstance', 'url', 'name', CommonMenuDialogCtrl]
+  );
+
+  var adminuiHttpInterceptor = function($httpProvider) {
+    $httpProvider.interceptors.push(function() {
+      return {
+        request: function(config) {
+          if (config.method == 'GET' && !config.hasOwnProperty('cache')) {
+            if (!config.hasOwnProperty('params')) {
+              config.params = {};
+            }
+            var date = new Date();
+            config.params['_hash_'] = date.getTime().toString();
+          }
+          return config;
+        }
+      };
+    });
+  };
+
+  var httpInterceptorFn = function(adminuiFrameProvider) {
+    if (adminuiFrameProvider.hasOwnProperty('usedModules') &&
+      ng.isArray(adminuiFrameProvider.usedModules)) {
+      ng.forEach(adminuiFrameProvider.usedModules, function(module) {
+        module.config(['$httpProvider', adminuiHttpInterceptor]);
+      });
+    }
+  };
+
+  ng.module('ntd.directives').config(
+    ['adminuiFrameProvider', httpInterceptorFn]
   );
 })(angular);
