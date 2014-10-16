@@ -480,6 +480,9 @@
 
     this.setConfig = function(config) {
       this.config = ng.extend(this.config, config);
+      ng.forEach(this.config.usedModules, function(module) {
+        module.config(["$httpProvider", adminuiHttpInterceptor]);
+      });
     };
   };
 
@@ -536,16 +539,4 @@
     });
   };
 
-  var httpInterceptorFn = function(adminuiFrameProvider) {
-    if (adminuiFrameProvider.hasOwnProperty('usedModules') &&
-      ng.isArray(adminuiFrameProvider.usedModules)) {
-      ng.forEach(adminuiFrameProvider.usedModules, function(module) {
-        module.config(['$httpProvider', adminuiHttpInterceptor]);
-      });
-    }
-  };
-
-  ng.module('ntd.directives').config(
-    ['adminuiFrameProvider', httpInterceptorFn]
-  );
 })(angular);
