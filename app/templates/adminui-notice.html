@@ -1,0 +1,4 @@
+<div data-ng-repeat="alert in $root.alerts" class="alert alert-animation" data-ng-class ="[alert.className]">
+    <strong>{{ alert.msg }}</strong>
+    <button type="button" class="close" data-ng-click="alert.close()">×</button>
+</div>

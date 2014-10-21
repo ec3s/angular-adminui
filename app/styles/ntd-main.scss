@@ -745,6 +745,11 @@ input {
     @extend .text-right;
   }
 }
+
+.notice .alert {
+  margin-bottom: 2px;
+}
+
 .has-error .chzn-container .chzn-single,
 .has-error .chzn-container .chzn-choices,
 .has-error .adminui-finder-container {

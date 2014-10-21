@@ -1,6 +1,14 @@
 'use strict';
 angular.module('ntd.config', []).value('$ntdConfig', {});
-var directiveApp = angular.module('ntd.directives',
-  ['ntd.config', 'ngSanitize', 'angular-echarts', 'ng.shims.placeholder'
-  ]);
+var ntdDirective = angular.module('ntd.directives', ['ntd.config', 'ngSanitize',
+  'ngAnimate', 'angular-echarts', 'ng.shims.placeholder']);
+ntdDirective.run(['$rootScope', '$animate',
+  function($rootScope, $animate) {
+    $rootScope.$on('$routeChangeStart', function() {
+      $animate.enabled(false);
+    });
+    $rootScope.$on('$routeChangeSuccess', function() {
+      $animate.enabled(true);
+    });
+  }]);
 
