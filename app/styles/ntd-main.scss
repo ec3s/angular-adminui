@@ -758,3 +758,14 @@ input {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
+form {
+  label.required-label {
+    position: relative;
+    &:after {
+      content: '\2731';
+      color: red;
+      margin-left: 5px;
+      position: absolute;
+    }
+  }
+}
