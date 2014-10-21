@@ -7,6 +7,7 @@
         return $delegate;
       }
       var oldLinkFn = ng.copy(directive.link);
+      var linkFn;
       delete directive.link;
 
       directive.compile = function(elem) {
@@ -18,7 +19,14 @@
           !elem.is('input[type="button"]');
         var isTextarea = elem.is('textarea');
         if (isInput || isTextarea) {
-          return oldLinkFn;
+          var oldLinkFnStr = oldLinkFn.toString();
+          oldLinkFnStr =
+          oldLinkFnStr.replace(
+            'setValueWithModel(orig_val);',
+            'setValueWithModel(orig_val);if (ngModel) {ngModel.$setPristine();}'
+          );
+          eval("linkFn = " + oldLinkFnStr);
+          return linkFn;
         }
       };
       return $delegate;
