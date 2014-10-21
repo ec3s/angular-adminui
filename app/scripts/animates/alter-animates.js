@@ -39,7 +39,7 @@
             elem.parent().after("<div class='message-supply'>");
           }
           elem.parent().next().css({'position': 'static',
-            'min-height': 1});
+            'min-height': 0});
         }
         $(window).scroll(debounce(function() {
           if (!$(document.body).scrollTop()) {
@@ -48,7 +48,6 @@
             if (!$('.message-supply').length) {
               elem.parent().after("<div class='message-supply'>");
             }
-            console.info(elem.parent().height());
             elem.parent().next().css('min-height', elem.parent().height());
             elem.parent().next().css('position', 'fixed');
           } else {
@@ -60,9 +59,9 @@
             }
             elem.parent().next().css('position', 'static');
             elem.parent().next().animate({
-              'min-height': 1});
+              'min-height': 0});
           }
-        }, 38));
+        }, 10));
       }
     };
   };
