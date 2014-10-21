@@ -10,10 +10,13 @@
     delete directive.compile;
     directive.compile = function(element) {
       $timeout(function() {
-        var requiredDom = angular.element(element.find(':input[required]:enabled,div[required]'));
+        var requiredDom = angular.element(
+          element.find(':input[required]:enabled,div[required]')
+        );
         ng.forEach(requiredDom, function(value) {
-          var addRequiredDom = angular.element('<span class="ngForm-required">*</span>');
-          angular.element("[for = '" + angular.element(value).attr('id') + "']").append(addRequiredDom);
+          angular.element(
+            "[for = '" + angular.element(value).attr('id') + "']"
+          ).addClass('required-label');
         });
       },100);
       return oldCompileFn.apply(directive, arguments);
