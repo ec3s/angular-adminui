@@ -4,15 +4,10 @@
     return {
       restrict: 'A',
       link: function(scope, elem, attr) {
-        scope.$on('$routeChangeStart', function() {
-          // only show load backdrop when path changed
-          scope.$watch(function() {
-            return $location.path();
-          }, function(value, oldValue) {
-            if (value !== oldValue) {
-              elem.fadeTo(200, 0.7);
-            }
-          });
+        scope.$watch(function() {
+          return $location.path();
+        },function() {
+          elem.fadeTo(200, 0.7);
         });
         scope.$on('$routeChangeSuccess', function() {
           $timeout(function() {
