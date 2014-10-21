@@ -824,8 +824,8 @@ var ModalDemoCtrl = function($scope, $modal, $log) {
   $scope.open2 = function() {
 
     var modalInstance = $modal.open({
-      // templateUrl: 'myModalContent.html',
-      template: t,
+      templateUrl: 'myModalContent.html',
+//      template: t,
       controller: 'ModalInstanceCtrl',
       loader: false,
       resolve: {
@@ -844,8 +844,8 @@ var ModalDemoCtrl = function($scope, $modal, $log) {
   $scope.open = function() {
 
     var modalInstance = $modal.open({
-      // templateUrl: 'myModalContent.html',
-      template: t,
+      templateUrl: 'myModalContent.html',
+//      template: t,
       controller: 'ModalInstanceCtrl',
       resolve: {
         items: ['$q', function($q) {
