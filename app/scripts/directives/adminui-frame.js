@@ -523,9 +523,15 @@
   );
 
   var adminuiHttpInterceptor = function($httpProvider) {
-    $httpProvider.interceptors.push(function() {
+    $httpProvider.interceptors.push(
+      ['$rootScope', '$q', function($rootScope, $q) {
+      var requestTime = 0;
+      var responseTime = 0;
       return {
         request: function(config) {
+          if ($rootScope && $rootScope.processBar) {
+            $('.process-bar').show();
+          }
           if (config.method == 'GET' && !config.hasOwnProperty('cache')) {
             if (!config.hasOwnProperty('params')) {
               config.params = {};
@@ -533,10 +539,25 @@
             var date = new Date();
             config.params['_hash_'] = date.getTime().toString();
           }
+          requestTime++;
           return config;
+        },
+        response: function(response) {
+          responseTime++;
+          if (responseTime === requestTime) {
+            $('.process-bar').hide();
+          }
+          return response;
+        },
+        responseError: function(response) {
+          responseTime++;
+          if (responseTime === requestTime) {
+            $('.process-bar').hide();
+          }
+          return $q.reject(response);
         }
       };
-    });
+    }]);
   };
 
 })(angular);

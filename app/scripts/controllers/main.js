@@ -1208,3 +1208,45 @@ app.controller('radarChartController', function($scope) {
   ];
 
 });
+app.controller('FormValidateDemoCtrl', function($scope) {
+
+  $scope.banks = [{
+    id: '1',
+    code: 'SC',
+    name: '渣打银行',
+    accounts: {
+      501510217665: '501510217665 '
+    }
+  }, {
+    id: '2',
+    code: 'BOBJ',
+    name: '北京银行',
+    accounts: {
+      01090378600120109140770: '01090378600120109140770'
+    }
+  }, {
+    id: '3',
+    code: 'BOC',
+    name: '中国银行',
+    accounts: {
+      345458083021: '345458083021'
+    }
+  }, {
+    id: '4',
+    code: 'CITI',
+    name: '花旗银行（中国）',
+    accounts: {
+      1775007202: '1775007202 '
+    }
+  }];
+
+  $scope.changeAccounts = function(bank) {
+    angular.forEach($scope.banks, function(value) {
+      $scope.account = null;
+      if (value.code === bank) {
+        $scope.accounts = value.accounts;
+      }
+    });
+  };
+
+});

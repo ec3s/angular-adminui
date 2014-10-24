@@ -769,3 +769,13 @@ form {
     }
   }
 }
+.modal-scroll .modal-footer{
+  margin-top: 0;
+}
+
+.process-bar{
+  background: url("../images/process.jpg") 100% repeat !important;
+  width: 100%;
+  height: 2px;
+  display: none;
+}

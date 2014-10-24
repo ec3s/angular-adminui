@@ -684,7 +684,12 @@ $scope.unifyDptList = {{unifyDptList|json}}
 </pre>
 <hr>
 <h3>form validate</h3>
-<form name="form" data-rc-submit="save()" novalidate="novalidate" class="form-horizontal">
+<p>为 <code>form</code>增加 <code>novalidate</code>属性去除默认html5验证</p>
+<p>将<code>data-ng-submit</code>改为<code>data-rc-submit</code></p>
+<p>在每一个需要验证的dom元素的父元素添加<code>data-ng-class="{'has-error': rc.form.needsAttention(form.xx)}"</code>xx代表元素name</p>
+<p>在需要验证的每一个元素之后添加<code>&lt;span data-ng-if="rc.form.needsAttention(form.bank)" class="help-block"&gt;xxx&lt;/span&gt;</code></p>
+<p>如果有其他的验证,比如data-ng-pattern,需要在span里添加<code>form.bank.$error.pattern</code>验证错误类型</p>
+<form name="form" data-rc-submit="save()" novalidate="novalidate" class="form-horizontal" ng-controller="FormValidateDemoCtrl">
     <div class="modal-header">
         <h3>认款单</h3>
     </div>
@@ -692,13 +697,13 @@ $scope.unifyDptList = {{unifyDptList|json}}
         <div class="form-group">
             <label class="col-sm-2 control-label" for="bank">银行名称</label>
             <div data-ng-class="{'has-error': rc.form.needsAttention(form.bank)}" class="col-sm-10">
-                <select id="bank" data-ntd-chosen="data-ntd-chosen" data-disable-search-threshold="10" data-allow-single-deselect="data-allow-single-deselect" data-placeholder="选择银行" name="bank" required="required" data-ng-options="bank.code as bank.name for bank in banks" data-ng-model="bank" class="input-sm form-control"></select><span data-ng-if="rc.form.needsAttention(form.bank) &amp;&amp; form.bank.$error.required" class="help-block">银行不能为空</span>
+                <select id="bank" data-ntd-chosen="data-ntd-chosen" data-disable-search-threshold="10" data-ng-change="changeAccounts(bank)" data-allow-single-deselect="data-allow-single-deselect" data-placeholder="选择银行" name="bank" required="required" data-ng-options="bank.code as bank.name for bank in banks" data-ng-model="bank" class="input-sm form-control"></select><span data-ng-if="rc.form.needsAttention(form.bank) &amp;&amp; form.bank.$error.required" class="help-block">银行不能为空</span>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label" for="accounts">银行账户</label>
             <div data-ng-show="!bank" data-ng-class="{'has-error': rc.form.needsAttention(form.accounts)}" class="col-sm-10">
-                <input type="text" disabled="disabled" placeholder="请选择银行" class="input-sm form-control"/><span data-ng-if="rc.form.needsAttention(form.accounts) &amp;&amp; form.accounts.$error.required" class="help-block">账户不能为空</span>
+                <input type="text" disabled="disabled" placeholder="请选择银行" class="input-sm form-control"/><span data-ng-if="rc.form.needsAttention(form.accounts) &amp;&amp; form.accounts.$error.required" class="help-block">账户不能为空{{ account }}</span>
             </div>
             <div data-ng-show="bank" data-ng-class="{'has-error': rc.form.needsAttention(form.accounts)}" class="col-sm-10">
                 <select id="accounts" data-ntd-chosen="data-ntd-chosen" name="accounts" required="required" data-disable-search-threshold="10" data-placeholder="选择账户" data-ng-options="value as name for (value, name) in accounts" data-ng-model="account" class="input-sm form-control"></select><span data-ng-if="rc.form.needsAttention(form.accounts) &amp;&amp; form.accounts.$error.required" class="help-block">账户不能为空</span>
