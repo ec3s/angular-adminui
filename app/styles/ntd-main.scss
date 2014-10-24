@@ -769,3 +769,10 @@ form {
     }
   }
 }
+
+td.has-error{
+  .help-inline,
+  .help-block{
+    margin-bottom: 0;
+  }
+}
