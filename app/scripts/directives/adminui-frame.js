@@ -549,13 +549,10 @@
           responseTime++;
           if (responseTime === requestTime) {
             if (processBar) {
-              console.info('stop');
               processBar.stop();
               $('.process-bar').hide();
-              $('.process-bar canvas').remove();
+              $('.process-bar').empty();
               processBar = null;
-              console.info(processBar);
-//                  endBar = true;
             }
           }
           return response;
@@ -566,7 +563,7 @@
             if (processBar) {
               processBar.stop();
               $('.process-bar').hide();
-              $('.process-bar canvas').remove();
+              $('.process-bar').empty();
               processBar = null;
             }
           }
