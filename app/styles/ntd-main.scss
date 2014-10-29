@@ -773,9 +773,12 @@ form {
   margin-top: 0;
 }
 
-.process-bar{
-  background: url("../images/process.jpg") 100% repeat !important;
-  width: 100%;
-  height: 2px;
+.process-bar {
+  height: 5px;
+  background-color: white;
   display: none;
+  canvas {
+    position: absolute;
+    top: 1px;
+  }
 }

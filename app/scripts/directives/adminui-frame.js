@@ -524,13 +524,16 @@
 
   var adminuiHttpInterceptor = function($httpProvider) {
     $httpProvider.interceptors.push(
-      ['$rootScope', '$q', function($rootScope, $q) {
+      ['$rootScope', '$q', 'sonic', function($rootScope, $q, sonic) {
       var requestTime = 0;
       var responseTime = 0;
       return {
         request: function(config) {
           if ($rootScope && $rootScope.processBar) {
             $('.process-bar').show();
+            if (!processBar) {
+              processBar = sonic($('.process-bar'));
+            }
           }
           if (config.method == 'GET' && !config.hasOwnProperty('cache')) {
             if (!config.hasOwnProperty('params')) {
@@ -545,14 +548,27 @@
         response: function(response) {
           responseTime++;
           if (responseTime === requestTime) {
-            $('.process-bar').hide();
+            if (processBar) {
+              console.info('stop');
+              processBar.stop();
+              $('.process-bar').hide();
+              $('.process-bar canvas').remove();
+              processBar = null;
+              console.info(processBar);
+//                  endBar = true;
+            }
           }
           return response;
         },
         responseError: function(response) {
           responseTime++;
           if (responseTime === requestTime) {
-            $('.process-bar').hide();
+            if (processBar) {
+              processBar.stop();
+              $('.process-bar').hide();
+              $('.process-bar canvas').remove();
+              processBar = null;
+            }
           }
           return $q.reject(response);
         }
