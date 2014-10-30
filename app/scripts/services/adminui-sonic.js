@@ -23,7 +23,7 @@
       fps: 30,
       step: function(point, index, frame) {
         var ctx = this._;
-        ctx.fillText(0|frame*this.fps, 1, 99);
+        ctx.fillText(0 | frame * this.fps, 1, 99);
         ctx.beginPath();
         for (var i = 4; i >= 0; i--) {
           var offset = getOffsetX(i, point.x, loader.width);
@@ -37,10 +37,9 @@
         ['line', 0, 0, width, 0]
       ]
     };
+    var sonic = new Sonic(loader);
     return function(dom) {
-      var container = dom;
-      var sonic = new Sonic(loader);
-      container.append(sonic.canvas);
+      dom.append(sonic.canvas);
       sonic.play();
       return sonic;
     }

@@ -131,6 +131,7 @@
 
         modalStack.setContent = function(modalInstance, scope, content) {
           var opened = openedWindows.get(modalInstance);
+          if (!opened) return;
           var contentDomEl = $compile(content)(scope);
           opened.value.modalScope = scope;
           $timeout(function() {
@@ -174,6 +175,7 @@
           if (modalWindow) {
             modalWindow.deferred.resolve(result);
             removeModalWindow(modalInstance);
+            modalWindow.modalScope.$destroy();
           }
         };
 
@@ -182,6 +184,7 @@
           if (modalWindow) {
             modalWindow.deferred.reject(reason);
             removeModalWindow(modalInstance);
+            modalWindow.modalScope.$destroy();
           }
         };
 

@@ -525,52 +525,89 @@
   var adminuiHttpInterceptor = function($httpProvider) {
     $httpProvider.interceptors.push(
       ['$rootScope', '$q', 'sonic', function($rootScope, $q, sonic) {
-      var requestTime = 0;
-      var responseTime = 0;
-      return {
-        request: function(config) {
-          if ($rootScope && $rootScope.processBar) {
-            $('.process-bar').show();
-            if (!processBar) {
-              processBar = sonic($('.process-bar'));
-            }
-          }
-          if (config.method == 'GET' && !config.hasOwnProperty('cache')) {
-            if (!config.hasOwnProperty('params')) {
-              config.params = {};
-            }
-            var date = new Date();
-            config.params['_hash_'] = date.getTime().toString();
-          }
-          requestTime++;
-          return config;
-        },
-        response: function(response) {
-          responseTime++;
-          if (responseTime === requestTime) {
-            if (processBar) {
-              processBar.stop();
-              $('.process-bar').hide();
-              $('.process-bar').empty();
-              processBar = null;
-            }
-          }
-          return response;
-        },
-        responseError: function(response) {
-          responseTime++;
-          if (responseTime === requestTime) {
-            if (processBar) {
-              processBar.stop();
-              $('.process-bar').hide();
-              $('.process-bar').empty();
-              processBar = null;
-            }
-          }
-          return $q.reject(response);
+        var requestTime = 0;
+        var responseTime = 0;
+        var progressBar = null;
+        var time1 = null;
+        var time2 = null;
+        function destroy() {
+          progressBar.stop();
+          $('.process-bar').hide();
+          progressBar.frame = 0;
+          progressBar._.clearRect(
+            0 , 0, progressBar.fullWidth, progressBar.fullWidth);
+          progressBar = null;
         }
-      };
-    }]);
+        return {
+          request: function(config) {
+            if ($rootScope.progressBar && !config.hasOwnProperty('cache')) {
+              var progress = $('.process-bar');
+              progress.show();
+              if (!progressBar) {
+                progressBar = sonic(progress);
+                time1 = new Date().valueOf();
+              }
+            }
+            if (config.method == 'GET' && !config.hasOwnProperty('cache')) {
+              if (!config.hasOwnProperty('params')) {
+                config.params = {};
+              }
+              var date = new Date();
+              config.params['_hash_'] = date.getTime().toString();
+            }
+            requestTime++;
+            return config;
+          },
+          response: function(response) {
+            var deferred = $q.defer();
+            var flag = false;
+            responseTime++;
+            if (responseTime === requestTime &&
+              !response.config.hasOwnProperty('cache')) {
+              if (progressBar) {
+                time2 = new Date().valueOf();
+                if (time2 - time1 <= 1000) {
+                  flag = true;
+                  setTimeout(function() {
+                    destroy();
+                    deferred.resolve(response);
+                  }, 1000 - (time2 - time1));
+                } else {
+                  destroy();
+                }
+              }
+            }
+            if (!flag) {
+              deferred.resolve(response);
+            }
+            return deferred.promise;
+          },
+          responseError: function(response) {
+            var deferred = $q.defer();
+            responseTime++;
+            var flag = false;
+            if (responseTime === requestTime &&
+              !response.config.hasOwnProperty('cache')) {
+              if (progressBar) {
+                time2 = new Date().valueOf();
+                if (time2 - time1 <= 1000) {
+                  flag = true;
+                  setTimeout(function() {
+                    destroy();
+                    deferred.reject(response);
+                  }, 1000 - (time2 - time1));
+                } else {
+                  destroy();
+                }
+              }
+            }
+            if (!flag) {
+              deferred.reject(response);
+            }
+            return deferred.promise;
+          }
+        };
+      }]);
   };
 
 })(angular);

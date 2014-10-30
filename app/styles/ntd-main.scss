@@ -773,12 +773,11 @@ form {
   margin-top: 0;
 }
 
-.process-bar {
-  height: 5px;
-  background-color: white;
+.progress-bar {
   display: none;
   canvas {
     position: absolute;
     top: 1px;
+    z-index: 1;
   }
 }
