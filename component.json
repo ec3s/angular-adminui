@@ -21,7 +21,8 @@
     "angular-ui-bootstrap-bower": "0.10.0",
     "ECharts": "git@github.com:ecomfe/echarts.git",
     "jquery-resize": "git://github.com/cowboy/jquery-resize.git",
-    "angular-shims-placeholder": "0.2.1"
+    "angular-shims-placeholder": "0.2.1",
+    "sonic":  "git://github.com/padolsey/sonic.js.git"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",

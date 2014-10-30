@@ -769,6 +769,18 @@ form {
     }
   }
 }
+.modal-scroll .modal-footer{
+  margin-top: 0;
+}
+
+.progress-bar {
+  display: none;
+  canvas {
+    position: absolute;
+    top: 1px;
+    z-index: 1;
+  }
+}
 
 td.has-error{
   .help-inline,
