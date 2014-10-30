@@ -17,7 +17,7 @@
     var loader = {
       width: width,
       height: 5,
-      fillColor: '#1196EE',
+      fillColor: 'white',
       trailLength: 0.01,
       pointDistance: 0.01,
       fps: 40,
