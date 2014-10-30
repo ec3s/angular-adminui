@@ -52,7 +52,7 @@
             if (callNow) func.apply(context, args);
           };
         };
-        if (!$(document.body).scrollTop()) {
+        if (!$(window).scrollTop()) {
           elem.css({'position': 'static',
             'padding-left': '15px', 'padding-right': '15px'});
           if (!$('.message-supply').length) {
@@ -70,7 +70,7 @@
             'min-height': 0});
         }
         $(window).scroll(debounce(function() {
-          if (!$(document.body).scrollTop()) {
+          if (!$(window).scrollTop()) {
             elem.css({'position': 'static',
               'padding-left': '15px', 'padding-right': '15px'});
             if (!$('.message-supply').length) {
