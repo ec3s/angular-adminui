@@ -20,7 +20,7 @@
       fillColor: '#1196EE',
       trailLength: 0.01,
       pointDistance: 0.01,
-      fps: 30,
+      fps: 40,
       step: function(point, index, frame) {
         var ctx = this._;
         ctx.fillText(0 | frame * this.fps, 1, 99);

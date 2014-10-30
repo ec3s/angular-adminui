@@ -532,7 +532,7 @@
         var time2 = null;
         function destroy() {
           progressBar.stop();
-          $('.process-bar').hide();
+          $('.adminui-progress-bar').hide();
           progressBar.frame = 0;
           progressBar._.clearRect(
             0 , 0, progressBar.fullWidth, progressBar.fullWidth);
@@ -541,7 +541,7 @@
         return {
           request: function(config) {
             if ($rootScope.progressBar && !config.hasOwnProperty('cache')) {
-              var progress = $('.process-bar');
+              var progress = $('.adminui-progress-bar');
               progress.show();
               if (!progressBar) {
                 progressBar = sonic(progress);
