@@ -1,6 +1,5 @@
 (function(Sonic) {
   function sonicService() {
-    var width = $(window).width();
     var Tween = {
       Cubic: {
         easeOut: function(t, b, c, d) {
