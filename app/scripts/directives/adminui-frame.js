@@ -532,10 +532,9 @@
         var time2 = null;
         function destroy() {
           progressBar.stop();
-          $('.adminui-progress-bar').hide();
-          progressBar.frame = 0;
-          progressBar._.clearRect(
-            0 , 0, progressBar.fullWidth, progressBar.fullWidth);
+          var progress = $('.adminui-progress-bar');
+          progress.hide();
+          progress.empty();
           progressBar = null;
         }
         return {
