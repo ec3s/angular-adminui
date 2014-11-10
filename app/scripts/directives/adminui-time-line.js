@@ -10,7 +10,7 @@
       link: function(scope, elem, attrs) {
         scope.timeLineDemoData = [];
         var tempTimeLineData = scope[attrs.ngModel];
-        tempTimeLineData = $filter('orderBy')(tempTimeLineData, ['-time']);
+        tempTimeLineData = $filter('orderBy')(tempTimeLineData, ['-sortBy']);
         var currentObj = {};
         ng.forEach(tempTimeLineData, function(value, index) {
             var currentTime = $filter('date')(value.time, 'yyyy-MM-dd');

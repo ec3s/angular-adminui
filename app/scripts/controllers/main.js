@@ -38,7 +38,7 @@ adminuiApp
   $scope.alert = {};
   /**
    * timeLine的数据准备开始
-   * @type {{user: {name: string, avator: string}, time: string, title: string, content: {list: number[]}, template: string}}
+   * @type {{user: {name: string, avator: string}, time: string, sortBy: string, content: {list: number[]}, template: string}}
    */
   var initData = {
     user: {
@@ -46,7 +46,7 @@ adminuiApp
       avator: 'images/avatar.jpg'
     },
     time: '',
-    title: '',
+    sortBy: '',
     content: {list: [1, 2, 3, 4, 5]},
     template:
       "<div><ul><li data-ng-repeat=\'item in list\'>{{item}}" +
@@ -58,11 +58,12 @@ adminuiApp
   for (var i = 0; i < 5; i++) {
     var currentInitData = angular.copy(initData);
     currentInitData.user.name = 'john' + i;
-    if(i%2){
+    if (i % 2) {
       currentInitData.user.avator = null;
     }
     var t = new Date();
     currentInitData.time = new Date(t.setDate(t.getDate() - i));
+    currentInitData.sortBy = currentInitData.time;
     currentInitData.title = 'title' + i;
     var currentInitDataCopy = angular.copy(currentInitData);
     tempTimeLineData.push(angular.copy(currentInitData));

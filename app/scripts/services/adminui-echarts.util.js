@@ -52,7 +52,8 @@
           // dataPoints for line, area, bar chart
           var dataPoints = [];
           ng.forEach(serie.dataPoints, function(datapoint) {
-            dataPoints.push(datapoint.y);
+            dataPoints.push({name: datapoint.x, value: datapoint.y,
+            url: data.hasOwnProperty('url') ? data.url : null});
           });
 
           var conf = {
@@ -120,14 +121,6 @@
                 }
               }
             }, config.gauge || {});
-          }
-
-          // dataPoints for pie chart and gauges are different
-          if (!isAxisChart(type)) {
-            conf.data = [];
-            ng.forEach(serie.dataPoints, function(datapoint) {
-              conf.data.push({value: datapoint.y, name: datapoint.x });
-            });
           }
 
           if (isPieChart(type)) {
@@ -227,9 +220,12 @@
           center: config.center || ['40%', '50%'],
           radius: config.radius || [40, 55],
           data: [
-            {name: data.caption, value: data.percent, itemStyle: labelTop},
+            {name: data.caption, value: data.percent,
+              url: data.hasOwnProperty('url') ? data.url : null,
+            itemStyle: labelTop},
             {name: 'other', value: (100 - data.percent),
-              itemStyle: labelBottom}]
+              url: data.hasOwnProperty('url') ? data.url : null,
+            itemStyle: labelBottom}]
         };
         series.push(conf);
       }
@@ -262,6 +258,7 @@
           var data = {
             name: item.name,
             value: item.value,
+            url: item.hasOwnProperty('url') ? item.url : null,
             itemStyle: ntdPieLabel(index)
           };
           index++;

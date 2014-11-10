@@ -209,6 +209,7 @@
 
         if (!chart) {
           chart = echarts.init(dom, scope.config.theme || util.theme());
+          chart.on(echarts.config.EVENT.CLICK, scope.config.onClick);
         }
 
         // string type for data param is assumed to ajax datarequests
