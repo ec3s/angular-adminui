@@ -14,7 +14,7 @@
     }
     &.on {
         @include transition(0.2s linear all);
-        background-color: $brand-success;
+        background-color: $brand-primary;
     }
     &.off {
         @include transition(0.2s linear all);
