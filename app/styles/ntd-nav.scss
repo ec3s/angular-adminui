@@ -114,6 +114,7 @@ body.padding-submenu {
     position: fixed;
     right: 15px;
     left: 15px;
+    top: 100px;
     @include opacity(.95);
     .alert {
         padding: 10px 15px;
