@@ -123,6 +123,11 @@ body.padding-submenu {
         line-height: .8;
     }
 }
+@media (max-width: 767px) {
+  .message-container {
+    top: 66px;
+  }
+}
 .side-nav-container {
 //  height: 100%;
   overflow-y: auto;
