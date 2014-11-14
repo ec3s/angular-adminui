@@ -53,7 +53,7 @@
           var dataPoints = [];
           ng.forEach(serie.dataPoints, function(datapoint) {
             dataPoints.push({name: datapoint.x, value: datapoint.y,
-            url: data.hasOwnProperty('url') ? data.url : null});
+            url: dataPoints.hasOwnProperty('url') ? dataPoints.url : null});
           });
 
           var conf = {
