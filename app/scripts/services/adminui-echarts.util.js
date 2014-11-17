@@ -53,7 +53,8 @@
           var dataPoints = [];
           ng.forEach(serie.dataPoints, function(datapoint) {
             dataPoints.push({name: datapoint.x, value: datapoint.y,
-            url: dataPoints.hasOwnProperty('url') ? dataPoints.url : null});
+            url: datapoint.hasOwnProperty('url') ?
+              datapoint.url : undefined});
           });
 
           var conf = {
@@ -221,10 +222,12 @@
           radius: config.radius || [40, 55],
           data: [
             {name: data.caption, value: data.percent,
-              url: data.hasOwnProperty('url') ? data.url : null,
+              url: data.hasOwnProperty('url') ?
+                data.url : undefined,
             itemStyle: labelTop},
             {name: 'other', value: (100 - data.percent),
-              url: data.hasOwnProperty('url') ? data.url : null,
+              url: data.hasOwnProperty('url') ?
+                data.url : undefined,
             itemStyle: labelBottom}]
         };
         series.push(conf);
@@ -258,7 +261,7 @@
           var data = {
             name: item.name,
             value: item.value,
-            url: item.hasOwnProperty('url') ? item.url : null,
+            url: item.hasOwnProperty('url') ? item.url : undefined,
             itemStyle: ntdPieLabel(index)
           };
           index++;
