@@ -8,10 +8,10 @@
       var isNull = ng.isDefined(attrs.canBeNull) || false;
       var getter = $parse(attrs.ngModel);
       (getter.assign)(scope,
-        getter(scope) === 0 ? 0 : (getter(scope) || (isNull ? null: 0)));
+        getter(scope) === 0 ? 0 : (getter(scope) || (isNull ? null : 0)));
 
       //money默认设置
-      var max,errorMsg,newValue,lastValidValue;
+      var max, errorMsg, newValue, lastValidValue;
       var precision = parseFloat(attrs.precision || 2);
       var min = parseFloat(attrs.min || 0);
 
@@ -25,16 +25,16 @@
       }
 
       function formatViewValue(value) {
-        return ngModelCtrl.$isEmpty(value) ? "" : "" + value;
+        return ngModelCtrl.$isEmpty(value) ? '' : '' + value;
       }
 
-      ngModelCtrl.$parsers.push(function (value) {
-        // Handle leading decimal point, like ".5"
+      ngModelCtrl.$parsers.push(function(value) {
+        // Handle leading decimal point, like '.5'
         if (value.indexOf('.') === 0) {
           value = '0' + value;
         }
 
-        // Allow "-" inputs only when min < 0
+        // Allow '-' inputs only when min < 0
         if (value.indexOf('-') === 0) {
           if (min >= 0) {
             value = null;
@@ -47,9 +47,8 @@
 
         var empty = ngModelCtrl.$isEmpty(value);
         if (empty || NUMBER_REGEXP.test(value)) {
-          lastValidValue = (value === '')
-            ? null
-            : (empty ? value : parseFloat(value));
+          lastValidValue = (value === '') ?
+            null : (empty ? value : parseFloat(value));
         } else {
           // Render the last valid input in the field
           ngModelCtrl.$setViewValue(formatViewValue(lastValidValue));
@@ -57,20 +56,21 @@
         }
 
         ngModelCtrl.$setValidity('number', true);
-        return lastValidValue === 0 ? lastValidValue : lastValidValue || (isNull ? null : 0);
+        return lastValidValue === 0 ?
+          lastValidValue : lastValidValue || (isNull ? null : 0);
       });
 
       // floor off
       if (precision > -1) {
-        ngModelCtrl.$parsers.push(function (value) {
+        ngModelCtrl.$parsers.push(function(value) {
           return value ? floor(value) : value;
         });
-        ngModelCtrl.$formatters.push(function (value) {
+        ngModelCtrl.$formatters.push(function(value) {
           return value ? formatPrecision(value) : value;
         });
       }
 
-      el.bind('blur', function () {
+      el.bind('blur', function() {
         var value = ngModelCtrl.$modelValue;
         if (value) {
           ngModelCtrl.$viewValue = formatPrecision(value);
@@ -109,7 +109,8 @@
           popEl.popover('show');
           el.val(ngModelCtrl.$modelValue || (isNull ? null : 0));
         } else {
-          var transformValue = (val.substr(val.search(/[1-9]/)) || (isNull ? null : 0));
+          var transformValue =
+            (val.substr(val.search(/[1-9]/)) || (isNull ? null : 0));
           el.val(transformValue);
           popEl.popover('hide');
         }
@@ -127,11 +128,11 @@
       el.bind('input', numberInput);
       var maxInitialize = function(value) {
         max = parseFloat(value) ? value : null;
-        if(parseFloat(value) === 0 ){
+        if (parseFloat(value) === 0) {
           max = value;
         }
       };
-      if (ng.isDefined(attrs.max)){
+      if (ng.isDefined(attrs.max)) {
         attrs.$observe('max', maxInitialize);
         ngModelCtrl.$parsers.push(maxValidator);
       }
@@ -142,46 +143,9 @@
         }
       });
 
-      //禁止光标在第一个位置
-      el.bind('keyup click focus', function() {
-        if (ngModelCtrl.$modelValue === 0) {
-          var care = getCaretPosition(el[0]);
-          if (care == 0) {
-            setCaretPosition(el[0],1);
-          }
-        }
+      el.bind('click', function() {
+        el.select();
       });
-
-      function getCaretPosition(input) {
-        if (ng.isDefined(input.selectionStart)) {
-          return input.selectionStart;
-        } else if (document.selection) {
-          // Curse you IE
-          input.focus();
-          var selection = document.selection.createRange();
-          selection.moveStart('character', -input.value.length);
-          return selection.text.length;
-        }
-        return 0;
-      }
-
-      function setCaretPosition(input, pos) {
-        if (input.offsetWidth === 0 || input.offsetHeight === 0) {
-          return; // Input's hidden
-        }
-        if (input.setSelectionRange) {
-          input.focus();
-          input.setSelectionRange(pos, pos);
-        }
-        else if (input.createTextRange) {
-          // Curse you IE
-          var range = input.createTextRange();
-          range.collapse(true);
-          range.moveEnd('character', pos);
-          range.moveStart('character', pos);
-          range.select();
-        }
-      }
 
     }
 
@@ -193,5 +157,5 @@
   };
   ng.module('ntd.directives')
     .directive('adminuiMoney',
-      ["$parse", adminuiMoney]);
+      ['$parse', adminuiMoney]);
 })(angular);
