@@ -159,13 +159,13 @@
                 }
               }, config.donut || {});
               if (config.showEdge) {
-                angular.forEach(conf.radius, function(value, index) {
+                ng.forEach(conf.radius, function(value, index) {
                   var currentRadius = parseFloat(value);
                   var radius1 = currentRadius + (index % 2 ? 4.5 : -4.5) + '%';
                   var radius2 = currentRadius + (index % 2 ? 5.0 : -5.0) + '%';
                   var edgeConfig = {
                     type: 'pie',
-                    center: ['50%', '50%'],
+                    center: conf.center,
                     radius: [radius1, radius2],
                     data: [{name: '', value: '1'}],
                     tooltip: {show: false},
