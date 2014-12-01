@@ -1052,7 +1052,8 @@ app.controller('PieChartController', function($scope) {
     subtitle: 'Pie Chart Subtitle',
     width: 800,
     height: 400,
-    calculable: true,
+    showEdge: true,
+//    legend: {show: false},
     autoResize: true
   };
 

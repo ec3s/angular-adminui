@@ -132,6 +132,7 @@
             // pie chart need special radius, center config
             conf.center = config.center || ['40%', '50%'];
             conf.radius = config.radius || '60%';
+            conf.legendHoverLink = config.legendHoverLink || false;
 
             // donut chart require special itemStyle
             if (type === 'donut') {
@@ -161,8 +162,8 @@
               if (config.showEdge) {
                 ng.forEach(conf.radius, function(value, index) {
                   var currentRadius = parseFloat(value);
-                  var radius1 = currentRadius + (index % 2 ? 4.5 : -4.5) + '%';
-                  var radius2 = currentRadius + (index % 2 ? 5.0 : -5.0) + '%';
+                  var radius1 = currentRadius + (index % 2 ? 2.5 : -2.5) + '%';
+                  var radius2 = currentRadius + (index % 2 ? 3.0 : -3.0) + '%';
                   var edgeConfig = {
                     type: 'pie',
                     center: conf.center,
@@ -172,6 +173,7 @@
                     itemStyle: {
                       normal: {
                         color: 'lightgray',
+                        label: {show: false},
                         labelLine: {show: false}
                       }
                     }
@@ -242,6 +244,7 @@
           type: 'pie',
           center: config.center || ['40%', '50%'],
           radius: config.radius || [40, 55],
+          legendHoverLink: config.legendHoverLink || false,
           data: [
             {name: data.caption, value: data.percent,
               url: data.hasOwnProperty('url') ?
@@ -293,6 +296,7 @@
           type: 'pie',
           center: config.center || ['50%', '50%'],
           radius: ntdPieRadius || '60%',
+          legendHoverLink: config.legendHoverLink || false,
           data: ntdPieData
         };
         series.push(ntdPieConf);
