@@ -285,9 +285,11 @@
       '</select></span></span>',
       scope: {
         source: '=',
-        ngModel: '='
+        ngModel: '=',
+        choseCompleted: '='
       },
       link: function(scope, elem, attrs) {
+        scope.choseCompleted = false;
         var baseLevels;
         scope.$watch('source', function(value, oldValue) {
           if (!ng.isArray(scope.ngModel)) {
@@ -333,9 +335,12 @@
             scope.values.splice(index + 1, level - index);
           } else {
             if (offset.children) {
+              scope.choseCompleted = false;
               ng.forEach(offset.children, function(item) {
                 tmpLevels.push(item);
               });
+            } else {
+              scope.choseCompleted = true;
             }
             if (level <= index && tmpLevels.length > 0) {
               scope.linkages.push(tmpLevels);
