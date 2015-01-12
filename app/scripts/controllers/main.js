@@ -1,7 +1,8 @@
 'use strict';
 adminuiApp
 .controller('MainCtrl', [
-  '$scope', '$window', '$location', '$filter', function($scope, $window, $location, $filter) {
+  '$scope', '$window', '$location', '$filter',
+    function($scope, $window, $location, $filter) {
   $scope.$location = $location;
   $scope.name = 'Nobody';
   $scope.sayHello = function(name) {
@@ -37,7 +38,7 @@ adminuiApp
   $scope.alert = {};
   /**
    * timeLine的数据准备开始
-   * @type {{user: {name: string, avator: string}, time: string, title: string, content: {list: number[]}, template: string}}
+   * @type {{user: {name: string, avator: string}, time: string, sortBy: string, content: {list: number[]}, template: string}}
    */
   var initData = {
     user: {
@@ -45,7 +46,7 @@ adminuiApp
       avator: 'images/avatar.jpg'
     },
     time: '',
-    title: '',
+    sortBy: '',
     content: {list: [1, 2, 3, 4, 5]},
     template:
       "<div><ul><li data-ng-repeat=\'item in list\'>{{item}}" +
@@ -57,11 +58,12 @@ adminuiApp
   for (var i = 0; i < 5; i++) {
     var currentInitData = angular.copy(initData);
     currentInitData.user.name = 'john' + i;
-    if(i%2){
+    if (i % 2) {
       currentInitData.user.avator = null;
     }
     var t = new Date();
     currentInitData.time = new Date(t.setDate(t.getDate() - i));
+    currentInitData.sortBy = currentInitData.time;
     currentInitData.title = 'title' + i;
     var currentInitDataCopy = angular.copy(currentInitData);
     tempTimeLineData.push(angular.copy(currentInitData));
@@ -177,10 +179,10 @@ adminuiApp.controller('checkboxGroupCtrl', ['$scope', checkboxGroupCtrl]);
 /* for pagination */
 var paginationCtrl = function($scope, $route, $location) {
   $scope.totalCount = angular.isDefined($route.current.params['total']) ?
-    $route.current.params['total'] : 10;
+    $route.current.params['total']: 10;
   var page = $route.current.params['page'];
   $scope.pageInfo = {
-    'page': page ? page : 1,
+    'page': page ? page: 1,
     'total': $scope.totalCount
   };
   $scope.changeTotalPage = angular.bind(
@@ -823,8 +825,8 @@ var ModalDemoCtrl = function($scope, $modal, $log) {
   $scope.open2 = function() {
 
     var modalInstance = $modal.open({
-      // templateUrl: 'myModalContent.html',
-      template: t,
+      templateUrl: 'myModalContent.html',
+//      template: t,
       controller: 'ModalInstanceCtrl',
       loader: false,
       resolve: {
@@ -843,8 +845,8 @@ var ModalDemoCtrl = function($scope, $modal, $log) {
   $scope.open = function() {
 
     var modalInstance = $modal.open({
-      // templateUrl: 'myModalContent.html',
-      template: t,
+      templateUrl: 'myModalContent.html',
+//      template: t,
       controller: 'ModalInstanceCtrl',
       resolve: {
         items: ['$q', function($q) {
@@ -909,7 +911,7 @@ var DatepickerDemoCtrl = function($scope, $timeout) {
   };
 
   $scope.toggleMin = function() {
-    $scope.minDate = ($scope.minDate) ? null : new Date();
+    $scope.minDate = ($scope.minDate) ? null: new Date();
   };
   $scope.toggleMin();
 
@@ -962,3 +964,291 @@ var TimepickerDemoCtrl = function($scope) {
     $scope.mytime = null;
   };
 };
+
+var pageload = {
+  name: 'page.load',
+  dataPoints: [
+    { x: 2001, y: 12 },
+    { x: 2002, y: 23 },
+    { x: 2003, y: 45 },
+    { x: 2004, y: 62 },
+    { x: 2005, y: 32 },
+    { x: 2006, y: 40 },
+    { x: 2007, y: 23 },
+    { x: 2008, y: 90 },
+    { x: 2009, y: 12 },
+    { x: 2010, y: 31 }
+  ]
+};
+
+var firstPaint = {
+  name: 'page.firstPaint',
+  dataPoints: [
+    { x: 2001, y: 22 },
+    { x: 2002, y: 13 },
+    { x: 2003, y: 35 },
+    { x: 2004, y: 52 },
+    { x: 2005, y: 32 },
+    { x: 2006, y: 40 },
+    { x: 2007, y: 63 },
+    { x: 2008, y: 80 },
+    { x: 2009, y: 20 },
+    { x: 2010, y: 25 }
+  ]
+};
+
+var app = adminuiApp;
+
+app.controller('LineChartController', function($scope) {
+
+  $scope.config = {
+    title: 'Line Chart',
+    subtitle: 'Line Chart Subtitle',
+    width: 800,
+    height: 400,
+    autoResize: true
+  };
+
+  $scope.data = [pageload];
+  $scope.multiple = [pageload, firstPaint];
+
+});
+
+app.controller('BarChartController', function($scope) {
+
+  $scope.config = {
+    title: 'Bar Chart',
+    subtitle: 'Bar Chart Subtitle',
+    stack: true,
+    width: 800,
+    height: 400,
+    autoResize: true
+  };
+
+  $scope.data = [pageload];
+  $scope.multiple = [pageload, firstPaint];
+
+});
+
+app.controller('AreaChartController', function($scope) {
+
+  $scope.config = {
+    title: 'Area Chart',
+    subtitle: 'Area Chart Subtitle',
+    width: 800,
+    height: 400,
+    autoResize: true
+  };
+
+  $scope.data = [pageload];
+  $scope.multiple = [pageload, firstPaint];
+
+});
+
+app.controller('PieChartController', function($scope) {
+
+  $scope.config = {
+    title: 'Pie Chart',
+    subtitle: 'Pie Chart Subtitle',
+    width: 800,
+    height: 400,
+    showEdge: true,
+//    legend: {show: false},
+    autoResize: true
+  };
+
+  $scope.data = [firstPaint];
+});
+
+app.controller('GaugeChartController', function($scope) {
+
+  $scope.config = {
+    width: 800,
+    height: 400,
+    autoResize: true
+  };
+
+  $scope.data = [pageload];
+});
+
+app.controller('AjaxChartController', function($scope, $interval) {
+  $scope.config = {
+    width: 800,
+    height: 400
+  };
+
+  $scope.data = [pageload];
+
+  $interval(function() {
+//      $scope.data = '/data.php?ts=' + Date.now();
+  }, 60000);
+});
+app.controller('bubbleChartController', function($scope) {
+
+  function random() {
+    var r = Math.round(Math.random() * 100);
+    return (r * (r % 2 == 0 ? 1 : -1));
+  }
+
+  function randomDataArray() {
+    var d = [];
+    var len = 100;
+    while (len--) {
+      d.push([
+        random(),
+        random(),
+        Math.abs(random())
+      ]);
+    }
+    return d;
+  }
+
+  $scope.config = {
+    width: 800,
+    height: 400,
+    autoResize: true,
+    title: {
+      text: '标准气泡图',
+      subtext: 'toolBox的dataZoom支持'
+    },
+    series: [
+      {
+        name: 'scatter1',
+        data: randomDataArray()
+      },
+      {
+        name: 'scatter2',
+        data: randomDataArray()
+      }
+    ]
+  };
+
+
+  $scope.data = $scope.config.series;
+});
+app.controller('scatterChartController', function($scope) {
+  $scope.config = {
+    width: 800,
+    height: 400,
+    title: {
+      text: '类目坐标散点图',
+      subtext: 'dataZoom支持'
+    },
+    autoResize: true,
+    series: [
+      {
+        name: 'series1',
+        data: (function() {
+          var d = [];
+          var len = 0;
+          var value;
+          while (len++ < 500) {
+            d.push([
+              len,
+             (Math.random() * 30).toFixed(2) - 0,
+             (Math.random() * 100).toFixed(2) - 0
+            ]);
+          }
+          return d;
+        })()
+      },
+      {
+        name: 'series2',
+        data: (function() {
+          var d = [];
+          var len = 0;
+          var value;
+          while (len++ < 500) {
+            d.push([
+              len,
+             (Math.random() * 30).toFixed(2) - 0,
+             (Math.random() * 100).toFixed(2) - 0
+            ]);
+          }
+          return d;
+        })()
+      }
+    ]
+  };
+
+  $scope.data = $scope.config.series;
+
+});
+app.controller('radarChartController', function($scope) {
+
+  $scope.config = {
+    width: 800,
+    height: 400,
+    autoResize: true,
+    title: {
+      text: '预算 vs 开销（Budget vs spending）',
+      subtext: '纯属虚构'
+    }
+  };
+  $scope.data = [
+    {
+      name: '预算 vs 开销（Budget vs spending）',
+      data: [
+        {
+          value: [4300, 10000, 28000, 35000, 50000, 19000],
+          name: '预算分配（Allocated Budget）'
+        },
+        {
+          value: [5000, 14000, 28000, 31000, 42000, 21000],
+          name: '实际开销（Actual Spending）'
+        }
+      ],
+      indicator: [
+        { text: '销售（sales）', max: 6000},
+        { text: '管理（Administration）', max: 16000},
+        { text: '信息技术（Information Techology）', max: 30000},
+        { text: '客服（Customer Support）', max: 38000},
+        { text: '研发（Development）', max: 52000},
+        { text: '市场（Marketing）', max: 25000}
+      ]
+    }
+  ];
+
+});
+app.controller('FormValidateDemoCtrl', function($scope) {
+
+  $scope.banks = [{
+    id: '1',
+    code: 'SC',
+    name: '渣打银行',
+    accounts: {
+      501510217665: '501510217665 '
+    }
+  }, {
+    id: '2',
+    code: 'BOBJ',
+    name: '北京银行',
+    accounts: {
+      01090378600120109140770: '01090378600120109140770'
+    }
+  }, {
+    id: '3',
+    code: 'BOC',
+    name: '中国银行',
+    accounts: {
+      345458083021: '345458083021'
+    }
+  }, {
+    id: '4',
+    code: 'CITI',
+    name: '花旗银行（中国）',
+    accounts: {
+      1775007202: '1775007202 '
+    }
+  }];
+
+  $scope.changeAccounts = function(bank) {
+    angular.forEach($scope.banks, function(value) {
+      $scope.account = null;
+      if (value.code === bank) {
+        $scope.accounts = value.accounts;
+      }
+    });
+  };
+
+});

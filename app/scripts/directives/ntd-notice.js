@@ -1,80 +1,101 @@
 /* notcie */
-(function() {
+(function(ng) {
   'use strict';
-  var msgObj = {
-    'info': 'alert-info',
-    'error': 'alert-danger',
-    'success': 'alert-success',
-    'warning': 'alert-warning'
-  };
 
-  var alertModel = function(message) {
-    return '<div class="alert ' +
-      msgObj[message.state] + '">' +
-      '<strong>' + message.info + '</strong>' +
-      '<button type="button" class="close">×</button>' +
-      '</div>';
-  };
-
-  function noticeDirective($rootScope, $location, $timeout) {
+  function noticeDirective($rootScope, $location, $timeout, noticeService) {
     return {
       restrict: 'EAC',
       replace: false,
       transclude: false,
-      link: function(scope, element, attr) {
-        var html_fragement = '';
-        var flag = false;
-        var buildHtml = function(msg) {
-          if (angular.isArray(msg)) {
-            angular.forEach(msg, function(item) {
-              html_fragement += alertModel(item);
-            });
-          } else {
-            html_fragement += alertModel(msg);
-          }
-        };
-        var appendAndAddCloseListener = function() {
-          element.append(html_fragement);
-          element.next().css('padding-top', element.height());
-          $('.close', element).bind('click', function() {
-            $(this).parent('.alert').fadeOut(function() {
-              $(this).remove();
-              element.next().css('padding-top', element.height());
-            });
-          });
-          html_fragement = '';
-        };
+      templateUrl: 'templates/adminui-notice.html',
+      link: function(scope, elem) {
+        var tempMessage;
 
         $rootScope.$on('event:notification', function(event, message) {
-          flag = true;
-          buildHtml(message);
-          appendAndAddCloseListener();
-
           if (message.redirect_url) {
             $timeout(function() {
               $location.path(message.redirect_url);
+              tempMessage = message;
             }, 1500);
+          } else {
+            noticeService.addAlert(message);
           }
         });
         $rootScope.$on('event:flashMessageEvent', function(event, msg) {
-          flag = false;
-          buildHtml(msg);
+          tempMessage = msg;
         });
 
-        $rootScope.$on('$routeChangeSuccess', function() {
-          if (flag) {
-            element.empty();
-            element.next().css('padding-top', 0);
-          } else {
-            element.empty();
-            appendAndAddCloseListener();
-          }
+        $rootScope.$on('$routeChangeStart', function() {
+          $rootScope.alerts = [];
         });
+        $rootScope.$on('$routeChangeSuccess', function() {
+          if (tempMessage) {
+            noticeService.addAlert(ng.copy(tempMessage));
+          }
+          tempMessage = null;
+        });
+        // Returns a function, that, as long as it continues to be invoked, will not
+        // be triggered. The function will be called after it stops being called for
+        // N milliseconds. If `immediate` is passed, trigger the function on the
+        // leading edge, instead of the trailing.
+        var debounce = function(func, wait, immediate) {
+          var timeout;
+          return function() {
+            var context = this, args = arguments;
+            var later = function() {
+              timeout = null;
+              if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+          };
+        };
+        if (!$(window).scrollTop()) {
+          elem.css({'position': 'static',
+            'padding-left': '15px', 'padding-right': '15px'});
+          if (!$('.message-supply').length) {
+            elem.after("<div class='message-supply'>");
+          }
+          elem.next().css('position', 'fixed');
+          elem.next().css('min-height', elem.height());
+        } else {
+          elem.css({'position': 'fixed',
+            'padding-left': '0', 'padding-right': '0'});
+          if (!$('.message-supply').length) {
+            elem.after("<div class='message-supply'>");
+          }
+          elem.next().css({'position': 'static',
+            'min-height': 0});
+        }
+        $(window).scroll(debounce(function() {
+          if (!$(window).scrollTop()) {
+            elem.css({'position': 'static',
+              'padding-left': '15px', 'padding-right': '15px'});
+            if (!$('.message-supply').length) {
+              elem.after("<div class='message-supply'>");
+            }
+            elem.next().css('min-height', elem.height());
+            elem.next().css('position', 'fixed');
+          } else {
+            elem.css({'position': 'fixed',
+              'padding-left': '0', 'padding-right': '0'});
+            var messageSupply = $('.message-supply');
+            if (!messageSupply.length) {
+              elem.after("<div class='message-supply'>");
+            }
+            elem.next().css('position', 'static');
+            elem.next().animate({
+              'min-height': 0});
+          }
+        }, 10));
+
       }
     };
   }
-  angular.module('ntd.directives').directive('notice', [
-    '$rootScope', '$location', '$timeout',
-    noticeDirective
-  ]);
-}());
+  ng.module('ntd.directives').directive('notice', [
+      '$rootScope', '$location', '$timeout', 'noticeService',
+      noticeDirective
+    ]);
+}(angular));

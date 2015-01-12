@@ -26,6 +26,7 @@
             finder = new Finder(scope, $timeout, elem);
           }
         }, true);
+
       }
     };
   };
@@ -50,6 +51,13 @@
     scope.hasChildren = ng.bind(this, this.hasChildren);
     scope.isItemSelected = ng.bind(this, this.isItemSelected);
     scope.isLevelSelected = ng.bind(this, this.isLevelSelected);
+    scope.getListStyle = ng.bind(this, this.getListStyle);
+  };
+
+  Finder.prototype.getListStyle = function(index) {
+    return {
+      "margin-left": 30 * index + "%"
+    }; 
   };
 
   /**
@@ -90,7 +98,7 @@
     this.selectedItems = this.getAllSelected(selectedItem);
     /* not selected anything */
     if (this.selectedItems.length <= 0) {
-      this.expandList.push(this.dataSource[0]['/']);
+      this.dataSource[0] && this.expandList.push(this.dataSource[0]['/']);
     }
     return this.expandList;
   };

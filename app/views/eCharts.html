@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" ng-controller="LineChartController">
+            <line-chart config="config" data="data"></line-chart>
+            <line-chart config="config" data="multiple"></line-chart>
+        </div>
+
+        <div class="col-md-12" ng-controller="BarChartController">
+            <bar-chart config="config" data="data"></bar-chart>
+            <bar-chart config="config" data="multiple"></bar-chart>
+        </div>
+
+        <div class="col-md-12" ng-controller="AreaChartController">
+            <area-chart config="config" data="data"></area-chart>
+            <area-chart config="config" data="multiple"></area-chart>
+            <div class="well">
+                $scope.data = {{ data | json }}
+            </div>
+        </div>
+
+
+        <div class="col-md-12" ng-controller="PieChartController">
+            <pie-chart config="config" data="data"></pie-chart>
+            <donut-chart config="config" data="data"></donut-chart>
+            <h3>Easy Pie Chart</h3>
+            <div class="row form-group">
+                <div class="col-sm-3">
+                    <input type="text" class="input-sm form-control" ng-model="easyPieChart[0].percent">
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" class="input-sm form-control" ng-model="easyPieChart[0].usage">
+                </div>
+            </div>
+            <p><code>easy-pie-chart="item"</code> 属性来调用easy pie chart</p>
+            <div class="row clearfix">
+                <div class="col-md-2" ng-repeat="item in easyPieChart">
+                    <div easy-pie-chart="item"></div>
+                </div>
+            </div>
+            <div class="well">
+                $scope.easyPieChart = {{ easyPieChart | json }}
+            </div>
+            <h3>Pie chart</h3>
+            <p>通过属性 <code>ntd-pie</code> 来调用</p>
+            <div class="row" ng-controller="PieCtrl">
+                <div class="col-md-12 clearfix">
+                    <div >
+                        <div id="sample-pie" ntd-pie data="ageData" pie-height="300" pie-width="700"></div>
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+            <div class="well" ng-controller="PieCtrl">
+                $scope.ageData = {{ ageData | json }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" ng-controller="GaugeChartController">
+            <gauge-chart config="config" data="data"></gauge-chart>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" ng-controller="bubbleChartController">
+            <bubble-chart config="config" data="data"></bubble-chart>
+        </div>
+        <div class="col-md-12" ng-controller="scatterChartController">
+            <scatter-chart config="config" data="data" ></scatter-chart>
+        </div>
+        <div class="col-md-12" ng-controller="radarChartController">
+            <radar-chart config="config" data="data"></radar-chart>
+        </div>
+    </div>
+</div>

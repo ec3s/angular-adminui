@@ -131,6 +131,7 @@
 
         modalStack.setContent = function(modalInstance, scope, content) {
           var opened = openedWindows.get(modalInstance);
+          if (!opened) return;
           var contentDomEl = $compile(content)(scope);
           opened.value.modalScope = scope;
           $timeout(function() {
@@ -174,6 +175,7 @@
           if (modalWindow) {
             modalWindow.deferred.resolve(result);
             removeModalWindow(modalInstance);
+            modalWindow.modalScope.$destroy();
           }
         };
 
@@ -182,6 +184,7 @@
           if (modalWindow) {
             modalWindow.deferred.reject(reason);
             removeModalWindow(modalInstance);
+            modalWindow.modalScope.$destroy();
           }
         };
 
@@ -328,6 +331,38 @@
 
             return modalInstance;
           };
+
+          $rootScope.$watch(function() {
+            var modalBody = $('.modal-body');
+            if (!modalBody.find('.add-body').length) {
+              modalBody.wrapInner('<div class="add-body"></div>');
+            }
+            return modalBody.children().height();
+          },function(value, oldValue) {
+            var modalBody = $('.modal-body');
+            var modalHeader = $('.modal-header');
+            var modalFooter = $('.modal-footer');
+            var modalContent = $('.modal-content');
+            if (value && value !== oldValue) {
+              var contentHeight = $(window).height() - 30 -
+                modalHeader.outerHeight(true) - modalFooter.outerHeight(true);
+              if (modalBody.css('overflow-y') === 'visible') {
+                if (modalBody.outerHeight() >= contentHeight) {
+                  modalBody.css('overflow-y', 'scroll');
+                  modalBody.css('height', contentHeight);
+                  $('.modal').css('overflow', 'visible');
+                  modalContent.addClass('modal-scroll');
+                }
+              } else {
+                if (modalBody.height() >= value) {
+                  modalBody.css('overflow-y', 'visible');
+                  modalBody.css('height', '');
+                  $('.modal').css('overflow-y', 'scroll');
+                  modalContent.removeClass('modal-scroll');
+                }
+              }
+            }
+          });
 
           return modalProvider;
         };

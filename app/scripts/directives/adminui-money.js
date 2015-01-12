@@ -4,19 +4,16 @@
     var NUMBER_REGEXP = /^\s*(\-|\+)?(\d+|(\d*(\.\d*)))\s*$/;
 
     function link(scope, el, attrs, ngModelCtrl) {
+      //是否能够为null
+      var isNull = ng.isDefined(attrs.canBeNull) || false;
       var getter = $parse(attrs.ngModel);
-      (getter.assign)(scope, getter(scope) || 0);
-      var max,errorMsg,newValue,lastValidValue;
+      (getter.assign)(scope,
+        getter(scope) === 0 ? 0 : (getter(scope) || (isNull ? null : 0)));
+
+      //money默认设置
+      var max, errorMsg, newValue, lastValidValue;
       var precision = parseFloat(attrs.precision || 2);
       var min = parseFloat(attrs.min || 0);
-      var popEl = el.popover({
-        'placement': 'bottom',
-        'delay': 0,
-        'trigger': 'focus',
-        'content': function() {
-          return errorMsg;
-        }
-      });
 
       function floor(num) {
         var d = Math.pow(10, precision);
@@ -28,21 +25,16 @@
       }
 
       function formatViewValue(value) {
-        return ngModelCtrl.$isEmpty(value) ? "" : "" + value;
+        return ngModelCtrl.$isEmpty(value) ? '' : '' + value;
       }
 
-      var formatInvalidate = function(value) {
-        return value.split('.')[1] &&
-          value.split('.')[1].length > 2;
-      };
-
-      ngModelCtrl.$parsers.push(function (value) {
-        // Handle leading decimal point, like ".5"
+      ngModelCtrl.$parsers.push(function(value) {
+        // Handle leading decimal point, like '.5'
         if (value.indexOf('.') === 0) {
           value = '0' + value;
         }
 
-        // Allow "-" inputs only when min < 0
+        // Allow '-' inputs only when min < 0
         if (value.indexOf('-') === 0) {
           if (min >= 0) {
             value = null;
@@ -55,9 +47,8 @@
 
         var empty = ngModelCtrl.$isEmpty(value);
         if (empty || NUMBER_REGEXP.test(value)) {
-          lastValidValue = (value === '')
-            ? null
-            : (empty ? value : parseFloat(value));
+          lastValidValue = (value === '') ?
+            null : (empty ? value : parseFloat(value));
         } else {
           // Render the last valid input in the field
           ngModelCtrl.$setViewValue(formatViewValue(lastValidValue));
@@ -65,10 +56,48 @@
         }
 
         ngModelCtrl.$setValidity('number', true);
-        return lastValidValue;
+        return lastValidValue === 0 ?
+          lastValidValue : lastValidValue || (isNull ? null : 0);
       });
 
+      // floor off
+      if (precision > -1) {
+        ngModelCtrl.$parsers.push(function(value) {
+          return value ? floor(value) : value;
+        });
+        ngModelCtrl.$formatters.push(function(value) {
+          return value ? formatPrecision(value) : value;
+        });
+      }
+
+      el.bind('blur', function() {
+        var value = ngModelCtrl.$modelValue;
+        if (value) {
+          ngModelCtrl.$viewValue = formatPrecision(value);
+          ngModelCtrl.$render();
+        }
+      });
+
+      //添加最大值设置
+      var placement = attrs.placement || 'bottom';
+      var popEl = el.popover({
+        'placement': placement,
+        'delay': 0,
+        'trigger': 'focus',
+        'content': function() {
+          return errorMsg;
+        }
+      });
+
+      var formatInvalidate = function(value) {
+        return value.split('.')[1] &&
+          value.split('.')[1].length > 2;
+      };
+
       var numberInput = function() {
+        if (popEl) {
+          popEl.popover('hide');
+        }
         var val = el.val();
         newValue = parseFloat(val) || 0;
         if ((max !== null && newValue > max) || formatInvalidate(val)) {
@@ -78,10 +107,10 @@
             errorMsg = '金额不能大于最大值';
           }
           popEl.popover('show');
-          el.val(ngModelCtrl.$modelValue || 0);
+          el.val(ngModelCtrl.$modelValue || (isNull ? null : 0));
         } else {
-          var transformValue = newValue === 0 ?
-            0 : val.substr(val.search(/[1-9]/));
+          var transformValue =
+            (val.substr(val.search(/[1-9]/)) || (isNull ? null : 0));
           el.val(transformValue);
           popEl.popover('hide');
         }
@@ -90,20 +119,20 @@
       var maxValidator = function(value) {
         if (max !== null && value > max) {
           ngModelCtrl.$setValidity('max', false);
-          return ngModelCtrl.$modelValue || 0;
+          return ngModelCtrl.$modelValue;
         } else {
           ngModelCtrl.$setValidity('max', true);
-          return value || 0;
+          return value;
         }
       };
       el.bind('input', numberInput);
       var maxInitialize = function(value) {
         max = parseFloat(value) ? value : null;
-        if(parseFloat(value) === 0 ){
+        if (parseFloat(value) === 0) {
           max = value;
         }
       };
-      if (ng.isDefined(attrs.max)){
+      if (ng.isDefined(attrs.max)) {
         attrs.$observe('max', maxInitialize);
         ngModelCtrl.$parsers.push(maxValidator);
       }
@@ -114,22 +143,8 @@
         }
       });
 
-      // floor off
-      if (precision > -1) {
-        ngModelCtrl.$parsers.push(function (value) {
-          return value ? floor(value) : value;
-        });
-        ngModelCtrl.$formatters.push(function (value) {
-          return value ? formatPrecision(value) : value;
-        });
-      }
-
-      el.bind('blur', function () {
-        var value = ngModelCtrl.$modelValue;
-        if (value) {
-          ngModelCtrl.$viewValue = formatPrecision(value);
-          ngModelCtrl.$render();
-        }
+      el.bind('click', function() {
+        el.select();
       });
 
     }
@@ -142,5 +157,5 @@
   };
   ng.module('ntd.directives')
     .directive('adminuiMoney',
-      ["$parse", adminuiMoney]);
+      ['$parse', adminuiMoney]);
 })(angular);

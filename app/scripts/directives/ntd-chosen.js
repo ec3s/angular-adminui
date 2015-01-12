@@ -34,7 +34,7 @@
 
         // init chosen
         var options = {
-          disable_search_threshold: disableSearchThreshold
+          disable_search_threshold: onSearch ? 0 : disableSearchThreshold
         };
         var originStyleClass = elem.attr('class').split(' ')
           .filter(function(item) {
@@ -285,9 +285,11 @@
       '</select></span></span>',
       scope: {
         source: '=',
-        ngModel: '='
+        ngModel: '=',
+        choseCompleted: '='
       },
       link: function(scope, elem, attrs) {
+        scope.choseCompleted = false;
         var baseLevels;
         scope.$watch('source', function(value, oldValue) {
           if (!ng.isArray(scope.ngModel)) {
@@ -331,11 +333,15 @@
           if (!offset) {
             scope.linkages.splice(index + 1, level - index);
             scope.values.splice(index + 1, level - index);
+            scope.choseCompleted = false;
           } else {
             if (offset.children) {
+              scope.choseCompleted = false;
               ng.forEach(offset.children, function(item) {
                 tmpLevels.push(item);
               });
+            } else {
+              scope.choseCompleted = true;
             }
             if (level <= index && tmpLevels.length > 0) {
               scope.linkages.push(tmpLevels);

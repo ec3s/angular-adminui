@@ -46,13 +46,15 @@
 <h3>Money</h3>
 <p>为 <code>input</code>增加 <code>data-money</code>属性</p>
 <p>可以为其传入参数设置其最大值<code>data-max ="{{ maxModel }}"</code></p>
-<pre>输入的金额: {{test2}}</pre>
+<p>可以为其设置是否为空<code>data-can-be-null</code></p>
+<p>可以为其设置popover显示位置<code>data-placement="left"</code>默认向下</p>
+<pre>输入的最大值金额: {{max|json}},输入的金额: {{test2|json}}</pre>
   <div class="row">
     <div class="col-sm-2">
-      <input type="text" placeholder="金额最大值" class="form-control"  data-ng-model="max" />
+      <input type="text" placeholder="金额最大值" class="form-control" data-can-be-null data-ng-model="max" data-adminui-money />
     </div>
     <div class="col-sm-4">
-      <input type="text" class="form-control"  data-ng-model="test2" data-adminui-money data-max="{{ max }}"/>
+      <input type="text" class="form-control"  data-ng-model="test2" data-adminui-money data-placement="left" data-max="{{ max }}" />
     </div>
   </div>
 
@@ -179,12 +181,12 @@ $scope.unifyDptList = {{unifyDptList|json}}
 </pre>
 <h3>Field error</h3>
 <form name="myForm" class="form-inline" ng-submit="save()">
-       
-    <div class="form-group">         
-            <label class="form-label" for="personName">Example for fied error</label>  
+
+    <div class="form-group">
+            <label class="form-label" for="personName">Example for fied error</label>
             <input type="text" id="personName" class= "form-control" name="personName" ng-model="person.name" required style="margin-bottom:10px;">
     </div>
-    <div class="form-group">        
+    <div class="form-group">
             <span class="help-inline" field-error for="myForm.personName">显示错误信息</span>
     </div>
         <!-- <span ng-show="myForm.personName.$error.required">Required!</span>
@@ -192,9 +194,9 @@ $scope.unifyDptList = {{unifyDptList|json}}
         <p>
             <input type="submit" class="btn btn-default" ng-disabled="!myForm.$valid" value="保存"/>
         </p>
-    
-     
-    
+
+
+
 </form>
 
 <h3>Chosen</h3>
@@ -272,7 +274,7 @@ $scope.unifyDptList = {{unifyDptList|json}}
     </pre>
     <h4>Linkage</h4>
     <p>已选中：{{link}}</p>
-    <div data-ntd-linkage data-source="linkages" data-ng-model="link" style="margin-bottom:20px;"></div>
+    <div data-ntd-linkage data-source="linkages" data-ng-model="link" style="margin-bottom:20px;" data-chose-completed="complete"></div>
     <pre class="prettyprint linenums">
         &lt;div data-ntd-linkage data-source=&quot;linkages&quot; data-ng-model=&quot;link&quot;&gt;&lt;/div&gt;
     </pre>
@@ -545,7 +547,6 @@ $scope.unifyDptList = {{unifyDptList|json}}
 </pre>
 
 <h3>Notice message</h3>
-<div class="notice"></div>
 <div ng-controller="noticeCtrl">
     <p>
         <button class="btn btn-info" ng-click="sendMsg({state:'info', info:'提示信息'})">提示信息</button>
@@ -682,3 +683,47 @@ $scope.unifyDptList = {{unifyDptList|json}}
 
 </pre>
 <hr>
+<h3>form validate</h3>
+<p>为 <code>form</code>增加 <code>novalidate</code>属性去除默认html5验证</p>
+<p>将<code>data-ng-submit</code>改为<code>data-rc-submit</code></p>
+<p>在每一个需要验证的dom元素的父元素添加<code>data-ng-class="{'has-error': rc.form.needsAttention(form.xx)}"</code>xx代表元素name</p>
+<p>在需要验证的每一个元素之后添加<code>&lt;span data-ng-if="rc.form.needsAttention(form.bank)" class="help-block"&gt;xxx&lt;/span&gt;</code></p>
+<p>如果有其他的验证,比如data-ng-pattern,需要在span里添加<code>form.bank.$error.pattern</code>验证错误类型</p>
+<form name="form" data-rc-submit="save()" novalidate="novalidate" class="form-horizontal" ng-controller="FormValidateDemoCtrl">
+    <div class="modal-header">
+        <h3>认款单</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="bank">银行名称</label>
+            <div data-ng-class="{'has-error': rc.form.needsAttention(form.bank)}" class="col-sm-10">
+                <select id="bank" data-ntd-chosen="data-ntd-chosen" data-disable-search-threshold="10" data-ng-change="changeAccounts(bank)" data-allow-single-deselect="data-allow-single-deselect" data-placeholder="选择银行" name="bank" required="required" data-ng-options="bank.code as bank.name for bank in banks" data-ng-model="bank" class="input-sm form-control"></select><span data-ng-if="rc.form.needsAttention(form.bank) &amp;&amp; form.bank.$error.required" class="help-block">银行不能为空</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="accounts">银行账户</label>
+            <div data-ng-show="!bank" data-ng-class="{'has-error': rc.form.needsAttention(form.accounts)}" class="col-sm-10">
+                <input type="text" disabled="disabled" placeholder="请选择银行" class="input-sm form-control"/><span data-ng-if="rc.form.needsAttention(form.accounts) &amp;&amp; form.accounts.$error.required" class="help-block">账户不能为空{{ account }}</span>
+            </div>
+            <div data-ng-show="bank" data-ng-class="{'has-error': rc.form.needsAttention(form.accounts)}" class="col-sm-10">
+                <select id="accounts" data-ntd-chosen="data-ntd-chosen" name="accounts" required="required" data-disable-search-threshold="10" data-placeholder="选择账户" data-ng-options="value as name for (value, name) in accounts" data-ng-model="account" class="input-sm form-control"></select><span data-ng-if="rc.form.needsAttention(form.accounts) &amp;&amp; form.accounts.$error.required" class="help-block">账户不能为空</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tradeSn" class="col-sm-2 control-label">交易流水号</label>
+            <div data-ng-class="{ 'has-error' : rc.form.needsAttention(form.tradeSn)}" class="col-sm-10">
+                <input type="text" id="tradeSn" name="tradeSn" required="required" placeholder="请输入交易流水号" data-ng-model="tradeSn" class="input-sm form-control"/><span data-ng-if="form.tradeSn.$error.required &amp;&amp; rc.form.needsAttention(form.tradeSn)" class="help-block">交易流水号不能为空</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="amount" class="col-sm-2 control-label">认款金额</label>
+            <div data-ng-class="{ 'has-error' : rc.form.needsAttention(form.amount)}" class="col-sm-10">
+                <input type="text" id="amount" name="amount" required="required" data-ng-pattern="/^(([1-9][0-9]*)|0)(.[0-9]{1,2})?$/" placeholder="请输入认款金额" data-ng-model="amount" class="input-sm form-control"/><span data-ng-if="form.amount.$error.pattern &amp;&amp; rc.form.needsAttention(form.amount)" class="help-block">价格只能为数字且最多保留两位小数(单位: 元)</span><span data-ng-if="form.amount.$error.required &amp;&amp; rc.form.needsAttention(form.amount)" class="help-block">认款金额不能为空</span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" data-loading-button="isSaving" data-loading-text="保存" class="btn btn-primary">保存认款单</button>
+        <button ng-click="cancel($event)" class="btn btn-warning">取消</button>
+    </div>
+</form>

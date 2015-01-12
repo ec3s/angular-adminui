@@ -2,7 +2,7 @@
   'use strict';
   var AdminuiFrame = function(
     adminuiFrameProvider, $rootScope, $location,
-    $timeout, $modal, $http, $route, $parse, $sce, SYS, flash) {
+    $timeout, $modal, $http, $route, $parse, $compile, SYS, flash) {
     return {
       restrict: 'A',
       templateUrl: 'templates/adminui-frame.html',
@@ -11,108 +11,125 @@
         userInfo: '=',
         messages: '='
       },
-      link: function(scope, elem, attrs) {
-        /* dose default show submenu */
-        scope.isSubMenuShow = adminuiFrameProvider.defaultShowSubmenu;
-        /* has side menu in selected nav */
-        scope.hasSideMenu = false;
-        /* 所有菜单都没有侧边菜单子集 */
-        scope.noSideMenu = true;
-        /* has sub navigation bar */
-        scope.hasSubNav = false;
-        /* dose show message box */
-        scope.isMessageBoxShow = adminuiFrameProvider.showMessageBox;
-        /* bind navigation data */
-        scope.navigation = adminuiFrameProvider.navigation;
-        /* init messages */
-        scope.messages = scope.messages ? scope.messages : [];
-
-        scope.plugin = attrs['plugin'] ?
-          $parse(attrs['plugin'])(scope.$root) : {};
-
-        scope.pluginEl = null;
-        /* init common menus */
-        scope.commonMenus = [];
-        /* init account system host */
-        scope.accountHost = null;
-        /* does navigation inited */
-        scope.isInited = false;
-
-        scope.userInfo = ng.extend({
-          'username': null,
-          'accessToken': null,
-          'avatar': 'images/avatar.jpg',
-          'logout': function() { console.log('logout'); },
-          'changePwd': function() { console.log('change password'); }
-        }, scope.userInfo);
-
-        /* watch if has sub navigation, add body's padding top */
-        scope.$watch('hasSubNav', function(value, oldValue) {
-          if (value == true) {
-            $('body').addClass('padding-submenu');
+      compile: function(element, attributes) {
+        var plugin = attributes['plugin'] ?
+          $parse(attributes['plugin'])($rootScope) : {};
+        var pluginContainer = $('<li>').addClass('nav-plugin');
+        if (plugin.hasOwnProperty('template')) {
+          var pluginEl = $(plugin.template);
+          if (pluginEl.length != 0) {
+            pluginContainer.append(pluginEl);
+            element.find('.nav ul.sub-navbar').append(
+              $compile(pluginContainer)($rootScope)
+            );
           }
-        });
-
-        scope.$watch('userInfo', function(value) {
-          if (scope.isInited && value.accessToken !== null) {
-            fetchCommonMenus($http, scope);
-          }
-        }, true);
-
-        /* init navigation from systems */
-        initNav(
-          scope, $http, $route, $sce, SYS,
-          adminuiFrameProvider.navigation, $location.path()
-        );
-
-        /* when route changed, reselected */
-        $rootScope.$on('$routeChangeStart', function() {
-          if (scope.isInited) {
-            selectPath(scope, $location.path());
-          }
-        });
-
-        $rootScope.$on('$routeChangeSuccess', function() {
-          if (scope.isInited) {
-            parseNavUrl(scope.navigation, $route);
-          }
-        });
-
-        $rootScope.$on('$routeChangeError', function() {
-          selectPath(scope, '/_default_');
-        });
-
-        $rootScope.$on('selectPath', function(evt, path) {
-          selectPath(scope, path);
-        });
-
-        /* bind menu select func */
-        scope.select = ng.bind(scope, select, $timeout, elem);
-        /* bind submenu toggle */
-        scope.toggleSubMenu = ng.bind(scope, toggleSubMenu);
-        /* bind select nav */
-        scope.selectNav = ng.bind(scope, selectNav);
-        /* bind select menu*/
-        scope.selectMenu = ng.bind(scope, selectMenu);
-        /* bind is current selected */
-        scope.isSelected = ng.bind(scope, isSelected);
-        /* bind set side menu */
-        scope.setSideMenu = ng.bind(scope, setSideMenu, elem);
-        /* bind logout func */
-        scope.logout = ng.bind(scope, logout);
-        /* bind change password func */
-        scope.changePwd = ng.bind(scope, changePwd);
-        /* bind add common menu func */
-        scope.addCommonMenu = ng.bind(
-          scope, addCommonMenu, $http, $location, $modal, flash
-        );
-
+        }
+        return (linkFn(adminuiFrameProvider, $rootScope, $location,
+        $timeout, $modal, $http, $route, $parse, SYS, flash));
       }
     };
   };
 
-  var initNav = function(scope, $http, $route, $sce,
-                         SYS, navigation, currentPath) {
+  var linkFn = function(
+    adminuiFrameProvider, $rootScope, $location,
+    $timeout, $modal, $http, $route, $parse,
+    SYS, flash) {
+    return function(scope, elem, attrs) {
+      /* dose default show submenu */
+      scope.isSubMenuShow = adminuiFrameProvider.defaultShowSubmenu;
+      /* has side menu in selected nav */
+      scope.hasSideMenu = false;
+      /* 所有菜单都没有侧边菜单子集 */
+      scope.noSideMenu = true;
+      /* has sub navigation bar */
+      scope.hasSubNav = false;
+      /* dose show message box */
+      scope.isMessageBoxShow = adminuiFrameProvider.showMessageBox;
+      /* bind navigation data */
+      scope.navigation = adminuiFrameProvider.navigation;
+      /* init messages */
+      scope.messages = scope.messages ? scope.messages : [];
+
+      /* init common menus */
+      scope.commonMenus = [];
+      /* init account system host */
+      scope.accountHost = null;
+      /* does navigation inited */
+      scope.isInited = false;
+
+      scope.userInfo = ng.extend({
+        'username': null,
+        'accessToken': null,
+        'avatar': 'images/avatar.jpg',
+        'logout': function() { console.log('logout'); },
+        'changePwd': function() { console.log('change password'); }
+      }, scope.userInfo);
+
+      /* watch if has sub navigation, add body's padding top */
+      scope.$watch('hasSubNav', function(value, oldValue) {
+        if (value == true) {
+          $('body').addClass('padding-submenu');
+        }
+      });
+
+      scope.$watch('userInfo', function(value) {
+        if (scope.isInited && value.accessToken !== null) {
+          fetchCommonMenus($http, scope);
+        }
+      }, true);
+
+      /* init navigation from systems */
+      initNav(
+        scope, $http, $route, SYS,
+        adminuiFrameProvider.navigation, $location.path()
+      );
+
+      /* when route changed, reselected */
+      $rootScope.$on('$routeChangeStart', function() {
+        if (scope.isInited) {
+          selectPath(scope, $location.path());
+        }
+      });
+
+      $rootScope.$on('$routeChangeSuccess', function() {
+        if (scope.isInited) {
+          parseNavUrl(scope.navigation, $route);
+        }
+      });
+
+      $rootScope.$on('$routeChangeError', function() {
+        selectPath(scope, '/_default_');
+      });
+
+      $rootScope.$on('selectPath', function(evt, path) {
+        selectPath(scope, path);
+      });
+
+      /* bind menu select func */
+      scope.select = ng.bind(scope, select, $timeout, elem);
+      /* bind submenu toggle */
+      scope.toggleSubMenu = ng.bind(scope, toggleSubMenu);
+      /* bind select nav */
+      scope.selectNav = ng.bind(scope, selectNav);
+      /* bind select menu*/
+      scope.selectMenu = ng.bind(scope, selectMenu);
+      /* bind is current selected */
+      scope.isSelected = ng.bind(scope, isSelected);
+      /* bind set side menu */
+      scope.setSideMenu = ng.bind(scope, setSideMenu, elem);
+      /* bind logout func */
+      scope.logout = ng.bind(scope, logout);
+      /* bind change password func */
+      scope.changePwd = ng.bind(scope, changePwd);
+      /* bind add common menu func */
+      scope.addCommonMenu = ng.bind(
+        scope, addCommonMenu, $http, $location, $modal, flash
+      );
+
+    };
+  };
+
+  var initNav = function(scope, $http, $route, SYS, navigation, currentPath) {
 
     navigation.children.push({
       'name': 'default',
@@ -120,8 +137,6 @@
       'url': '/_default_',
       'children': null
     });
-
-    scope.pluginEl = initPlugin($sce, scope);
 
     $http.jsonp(
       SYS.host + '/api/systems?callback=JSON_CALLBACK'
@@ -167,14 +182,9 @@
       /* fetch common menu */
       fetchCommonMenus($http, scope);
     });
+
   };
 
-  var initPlugin = function($sce, scope) {
-    var plugin = scope.plugin;
-    if (plugin.hasOwnProperty('template')) {
-      return $sce.trustAsHtml(plugin.template);
-    }
-  };
 
   var hasSameMenu = function($scope, url) {
     var hasSameMenu = false;
@@ -459,6 +469,7 @@
 
   var AdminuiFrameProvider = function() {
     this.config = {
+      usedModules: [],
       defaultShowSubmenu: false,
       showMessageBox: false
     };
@@ -469,6 +480,9 @@
 
     this.setConfig = function(config) {
       this.config = ng.extend(this.config, config);
+      ng.forEach(this.config.usedModules, function(module) {
+        module.config(["$httpProvider", adminuiHttpInterceptor]);
+      });
     };
   };
 
@@ -500,11 +514,99 @@
   ng.module('ntd.directives').directive(
     'adminuiFrame',
     ['adminuiFrame', '$rootScope', '$location',
-      '$timeout', '$modal', '$http', '$route', '$parse',
-      '$sce', 'SYS', 'flash', AdminuiFrame]
+      '$timeout', '$modal', '$http', '$route', '$parse', '$compile',
+      'SYS', 'flash', AdminuiFrame]
   );
   ng.module('ntd.directives').controller(
     'CommonMenuDialogCtrl',
     ['$scope', '$modalInstance', 'url', 'name', CommonMenuDialogCtrl]
   );
+
+  var adminuiHttpInterceptor = function($httpProvider) {
+    $httpProvider.interceptors.push(
+      ['$rootScope', '$q', 'sonic', function($rootScope, $q, sonic) {
+        var requestTime = 0;
+        var responseTime = 0;
+        var progressBar = null;
+        var time1 = null;
+        var time2 = null;
+        function destroy() {
+          progressBar.stop();
+          var progress = $('.adminui-progress-bar');
+          progress.hide();
+          progress.empty();
+          progressBar = null;
+        }
+        return {
+          request: function(config) {
+            if ($rootScope.progressBar && !config.hasOwnProperty('cache')) {
+              var progress = $('.adminui-progress-bar');
+              progress.show();
+              if (!progressBar) {
+                progressBar = sonic(progress);
+                time1 = new Date().valueOf();
+              }
+            }
+            if (config.method == 'GET' && !config.hasOwnProperty('cache')) {
+              if (!config.hasOwnProperty('params')) {
+                config.params = {};
+              }
+              var date = new Date();
+              config.params['_hash_'] = date.getTime().toString();
+            }
+            requestTime++;
+            return config;
+          },
+          response: function(response) {
+            var deferred = $q.defer();
+            var flag = false;
+            responseTime++;
+            if (responseTime === requestTime &&
+              !response.config.hasOwnProperty('cache')) {
+              if (progressBar) {
+                time2 = new Date().valueOf();
+                if (time2 - time1 <= 1000) {
+                  flag = true;
+                  setTimeout(function() {
+                    destroy();
+                    deferred.resolve(response);
+                  }, 1000 - (time2 - time1));
+                } else {
+                  destroy();
+                }
+              }
+            }
+            if (!flag) {
+              deferred.resolve(response);
+            }
+            return deferred.promise;
+          },
+          responseError: function(response) {
+            var deferred = $q.defer();
+            responseTime++;
+            var flag = false;
+            if (responseTime === requestTime &&
+              !response.config.hasOwnProperty('cache')) {
+              if (progressBar) {
+                time2 = new Date().valueOf();
+                if (time2 - time1 <= 1000) {
+                  flag = true;
+                  setTimeout(function() {
+                    destroy();
+                    deferred.reject(response);
+                  }, 1000 - (time2 - time1));
+                } else {
+                  destroy();
+                }
+              }
+            }
+            if (!flag) {
+              deferred.reject(response);
+            }
+            return deferred.promise;
+          }
+        };
+      }]);
+  };
+
 })(angular);
