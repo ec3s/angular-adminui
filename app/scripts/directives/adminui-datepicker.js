@@ -32,7 +32,7 @@
         datepicker.picker.find('.next').html(nextBtn);
 
         scope.$watch('ngModel', function(value, oldValue) {
-          if (value && value !== oldValue) {
+          if (value) {
             datepicker.update(value);
           }
         });
