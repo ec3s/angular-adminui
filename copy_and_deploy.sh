@@ -7,6 +7,7 @@ cp ./dist/scripts/angular-adminui.js ../angular-adminui-bower/scripts/
 cp ./dist/images/* ../angular-adminui-bower/images/
 cp ./dist/styles/angular-adminui.css ../angular-adminui-bower/styles/
 cp ./dist/styles/fonts/* ../angular-adminui-bower/styles/fonts/
+cp ./component.json ../component.json
 cp -r ./dist/* ../angular-adminui-page/
 git commit -a
 git push
